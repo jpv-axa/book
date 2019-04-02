@@ -1,0 +1,40 @@
+import {
+    create
+} from '@storybook/theming';
+
+export default create({
+    base: 'light',
+
+    colorPrimary: '#00005b',
+    colorSecondary: '#f07662',
+
+    // UI
+    appBg: 'white',
+    appContentBg: 'white',
+    appBorderColor: '#f07662',
+    appBorderRadius: 1,
+
+    // Typography
+    fontBase: '"Source Sans Pro", sans-serif',
+    fontCode: 'monospace',
+
+    // Text colors
+    textColor: '#00005b',
+    textInverseColor: '#cccccc',
+
+    // Toolbar default and active colors
+    barTextColor: 'white',
+    barSelectedColor: 'black',
+    barBg: '#00008f',
+
+    // Form colors
+    inputBg: 'white',
+    inputBorder: 'silver',
+    inputTextColor: 'black',
+    inputBorderRadius: 4,
+
+    brandTitle: 'Axa Brand Design System',
+    brandUrl: 'https://design.axa.com/',
+    //brandImage: 'https://www.axa.com/base/images/logo.svg?version=2.4.4',
+    brandImage: 'https://web-guidelines.cdn.axa-contento-118412.eu/web-guidelines/b9a5be3807b083472c48bce73501842cc1709eaf_axa-wg.png'
+});

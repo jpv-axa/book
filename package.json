@@ -1,0 +1,31 @@
+{
+  "name": "digital_guidelines",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "storybook": "start-storybook -s ./wg_static_agent/",
+    "fractal": "fractal start --sync --watch",
+    "fractal-build": "fractal build",
+    "start": "$npm_package_scripts_fractal",
+    "build": "$npm_package_scripts_fractal_build"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.4.0",
+    "@storybook/addon-actions": "^5.0.5",
+    "@storybook/addon-viewport": "^5.0.5",
+    "@storybook/html": "^5.0.5",
+    "babel-loader": "^8.0.5"
+  },
+  "dependencies": {
+    "@frctl/fractal": "^1.1.7",
+    "@frctl/mandelbrot": "^1.2.0",
+    "@storybook/addon-a11y": "^5.0.5",
+    "@storybook/addon-knobs": "^5.0.6",
+    "@storybook/addon-notes": "^5.0.5",
+    "fs": "0.0.1-security",
+    "glob": "^7.1.3"
+  }
+}
