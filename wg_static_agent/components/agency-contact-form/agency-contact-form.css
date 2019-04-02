@@ -313,7 +313,7 @@
   left: -20px;
   top: 50%;
   transform: translateY(-50%);
-  background: url("/wg_static_agent/statics/icons/form-cross-error.svg")
+  background: url("/book/wg_static_agent/statics/icons/form-cross-error.svg")
     no-repeat 0 0;
 }
 
@@ -406,7 +406,7 @@
   left: -20px;
   top: 50%;
   transform: translateY(-50%);
-  background: url("/wg_static_agent/statics/icons/form-cross-error.svg")
+  background: url("/book/wg_static_agent/statics/icons/form-cross-error.svg")
     no-repeat 0 0;
 }
 

@@ -1,6 +1,6 @@
 .myaxa-application-cmpnt {
   width: 100%;
-  background-image: url("/wg_static_agent/statics/images/myaxa-application-background-mobile@2x.jpg");
+  background-image: url("/book/wg_static_agent/statics/images/myaxa-application-background-mobile@2x.jpg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -37,7 +37,7 @@
 
 @media (min-width: 768px) {
   .myaxa-application-cmpnt {
-    background-image: url("/wg_static_agent/statics/images/myaxa-application-background.jpg");
+    background-image: url("/book/wg_static_agent/statics/images/myaxa-application-background.jpg");
   }
 
   .myaxa-application-cmpnt .cmpnt-inner {
