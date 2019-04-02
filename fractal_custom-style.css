@@ -1,45 +1,44 @@
 .Header {
-    background-color: #00005b;
+  background-color: #00005b;
 }
 
 a {
-    color: #5f5f5f;
+  color: #5f5f5f;
 }
 
 .Tree-item {
-    border-top: 1px solid #efefef;
-    border-bottom: 1px solid #efefef;
+  border-top: 1px solid #efefef;
+  border-bottom: 1px solid #efefef;
 }
-
 
 .Browser-tab a:link,
 .Browser-tab a:visited,
 .Browser-tab a:hover,
 .Browser-tab a:active {
-    color: white
+  color: white;
 }
 
 .Browser-controls {
-    background-color: #00008f;
+  background-color: #00008f;
 }
 
 @font-face {
-    /* in order to avoid restyling all of the CSS, we fake the Open Sans to be our real font (Source Sans Pro) */
-    font-family: "Open Sans";
-    src: url('/wg_static_agent/statics/fonts/Source-Sans-Pro/SourceSansPro-Light.woff');
-    font-weight: 400;
+  /* in order to avoid restyling all of the CSS, we fake the Open Sans to be our real font (Source Sans Pro) */
+  font-family: "Open Sans";
+  src: url("/book/wg_static_agent/statics/fonts/Source-Sans-Pro/SourceSansPro-Light.woff");
+  font-weight: 400;
 }
 
 @font-face {
-    /* in order to avoid restyling all of the CSS, we fake the Open Sans to be our real font (Source Sans Pro) */
-    font-family: "Open Sans";
-    src: url('/wg_static_agent/statics/fonts/Source-Sans-Pro/SourceSansPro-Regular.woff');
-    font-weight: normal;
+  /* in order to avoid restyling all of the CSS, we fake the Open Sans to be our real font (Source Sans Pro) */
+  font-family: "Open Sans";
+  src: url("/book/wg_static_agent/statics/fonts/Source-Sans-Pro/SourceSansPro-Regular.woff");
+  font-weight: normal;
 }
 
 @font-face {
-    /* in order to avoid restyling all of the CSS, we fake the Open Sans to be our real font (Source Sans Pro) */
-    font-family: "Open Sans";
-    src: url('/wg_static_agent/statics/fonts/Source-Sans-Pro/SourceSansPro-Bold.woff');
-    font-weight: 700;
+  /* in order to avoid restyling all of the CSS, we fake the Open Sans to be our real font (Source Sans Pro) */
+  font-family: "Open Sans";
+  src: url("/book/wg_static_agent/statics/fonts/Source-Sans-Pro/SourceSansPro-Bold.woff");
+  font-weight: 700;
 }
