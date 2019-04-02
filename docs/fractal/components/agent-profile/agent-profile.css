@@ -1,0 +1,311 @@
+.agent-profile-cmpnt {
+	width: 100%;
+	background: white;
+}
+
+.agent-profile-cmpnt .cmpnt-inner {
+	width: 100%;
+	margin: 0 auto;
+	padding: 20px 15px 25px;
+}
+
+@media(min-width: 768px) {
+
+	.agent-profile-cmpnt .cmpnt-inner {
+		display: flex;
+		align-items: stretch;
+		padding: 40px 0px 25px;
+		width: 690px;
+	}
+}
+
+@media(min-width: 992px) {
+	.agent-profile-cmpnt .cmpnt-inner {
+		padding: 35px 0px 30px;
+		width: 930px;
+	}
+}
+
+@media(min-width: 1200px) {
+	.agent-profile-cmpnt .cmpnt-inner {
+		max-width: 950px;
+		padding: 35px 0 40px;
+	}
+}
+
+/* PROFILE PICTURE */
+
+.agent-profile-picture {
+	width: 100%;
+	margin: 0 auto;
+}
+
+.agent-profile-picture img {
+	display: block;
+	width: 100%;
+	height: auto;
+	max-width: none;
+	margin: 0 auto;
+}
+
+.agent-profile-picture-title {
+	position: relative;
+	width: calc( 100% - 30px );
+	margin: -60px auto 0;
+	padding: 25px 25px 20px;
+	background: white;
+	text-align: center;
+}
+
+.agent-profile-picture-btns {
+	flex-direction: column; 
+	display: flex; 
+	width: calc( 100% - 30px );
+	margin: 0 auto;
+	text-align: center;
+}
+
+.agent-profile-picture-btn {
+	margin-bottom: 20px;
+}
+
+/* not standard custom button  */
+.agent-profile-picture-btn.btn-contact .icon {
+	position: absolute;
+	right: 0;
+	top: 0;
+	/* static width because button is 100% width */
+	width: 60px !important;
+}
+
+/* button not visible on mobile devices  */
+.agent-profile-picture-btn.btn-add-to-contact {
+	display: none;
+}
+
+@media(min-width: 768px) {
+
+	.agent-profile-picture {
+		/* 150px/690px  */
+		width: 21.7391304%;
+	}
+
+	.agent-profile-picture-title {
+		display: none;
+	}
+
+	.agent-profile-picture-btns {
+		margin-top: 10px;
+		width: 100%;
+	}
+
+	.agent-profile-picture-btn {
+		margin-bottom: 0;
+	}
+
+	.agent-profile-picture-btn.btn-contact {
+		padding-left: 0px;
+		padding-right: 60px;
+	}
+	
+	.agent-profile-picture-btn.btn-phone {
+		display: none;
+	}
+
+	.agent-profile-picture-btn.btn-add-to-contact {
+		margin: 10px 0;
+		display: flex;
+	}
+
+}
+
+@media(min-width: 992px) {
+
+	.agent-profile-picture {
+		/* 190/832 */
+		width: 22.8365385%;
+	}
+
+}
+
+@media(min-width: 1200px) {
+
+	.agent-profile-picture {
+		width: 26.8421053%;
+	}
+
+}
+
+/* / PROFILE PICTURE */
+
+/* PROFILE CONTACT */
+
+.agent-profile-contact {
+	width: calc( 100% - 30px );
+	margin: 0 auto;
+}
+
+.agent-profile-contact-title {
+	display: none;
+}
+
+.agent-profile-contact-info-links {
+	display: none;
+}
+
+.agent-profile-contact-info-link {
+	text-transform: none;
+	letter-spacing: normal;
+	margin-right: 35px;
+}
+
+.agent-profile-contact-info-link:last-child {
+	margin-right: 0;
+}
+
+.agent-profile-contact-info-link svg {
+	position: relative;
+	margin-right: 10px;
+	top: 1px;
+}
+
+.agent-profile-contact-services {
+	margin-top: 20px;
+}
+
+.agent-profile-contact-services-title {
+	font-weight: bold;
+	color: #333;
+}
+
+.agent-profile-contact-services-col {
+	margin-bottom: 35px;
+}
+
+.agent-profile-contact-services-col:last-child {
+	margin: 0;
+}
+
+.agent-profile-contact-services-col ul {
+	margin: 15px 0 0;
+}
+
+.agent-profile-contact-skills {
+	margin-top: 15px;
+}
+
+
+@media(min-width: 768px) {
+
+	.agent-profile-contact {
+		margin: 0 0 0 30px;
+		width: 78.2608696%;
+	}
+
+	.agent-profile-contact-title {
+		display: block;
+		margin: 0;
+		color: #333;
+	}
+
+	.agent-profile-contact-info-links {
+		display: flex;
+		margin-top: 15px;
+	}
+
+	.agent-profile-contact-services {
+		margin-top: 20px;
+		display: flex;
+		align-items: stretch;
+	}
+
+	.agent-profile-contact-services-col { 
+		margin-bottom: 0;
+	}
+
+	.agent-profile-contact-services-col:last-child {
+		margin-left: 80px;
+	}
+
+	.agent-profile-contact-services-row-50 {
+		overflow: hidden;
+	}
+
+	.agent-profile-contact-services-row-50 li {
+		float: left;
+		display: inline;
+		width: 50%;
+	}
+
+	.agent-profile-contact-skills {
+		margin-top: 15px;
+	}
+
+}
+
+@media(min-width: 992px) {
+	.agent-profile-contact {
+		width: 77.1634615%;
+	}
+}
+
+@media(min-width: 1200px) {
+
+	.agent-profile-contact {
+		width: 73.1578947%;
+	}
+
+}
+
+/* / PROFILE CONTACT */
+
+/* PROFILE AVAILABILITY */
+
+.agent-profile-contact-availabilities {
+	margin-top: 35px;
+}
+
+.agent-profile-contact-availabilities-subtitle {
+	font-weight: bold;
+	color: #7f7f7f;
+	text-transform: uppercase;
+}
+
+.agent-profile-contact-availabilities table {
+	margin-top: 20px;
+}
+
+.agent-profile-contact-availabilities table tr {
+	margin-bottom: 15px;
+}
+
+.agent-profile-contact-availabilities table tr:last-child {
+	margin-bottom: 0;
+}
+
+.agent-profile-contact-availabilities table td {
+	padding-bottom: 10px;
+	color: #333;
+}
+
+.agent-profile-contact-availabilities table td.agent-profile-contact-availabilities-day {
+	font-weight: bold;
+}
+.agent-profile-contact-availabilities table td.agent-profile-contact-availabilities-hours {
+	padding-left: 10px;
+}
+
+@media(min-width: 768px) {
+
+	.agent-profile-contact-availabilities {
+		margin-top: 45px;
+	}
+
+	.agent-profile-contact-availabilities table td {
+		padding-bottom: 15px;
+	}
+
+}
+
+/* / PROFILE AVAILABILITY */
+
