@@ -1,0 +1,83 @@
+/* https://design.axa.com/web-guidelines/footer  */
+.footer-compact-cmpnt {
+	background: #3b3fd8;
+	border-top: 1px solid rgba(255, 255, 255, 0.25);
+	width: 100%;
+}
+
+/* https://design.axa.com/web-guidelines/structure */
+.footer-compact-cmpnt .cmpnt-inner {
+	width: 100%;
+	padding: 30px 30px 20px;
+	margin: 0 auto;
+}
+
+.footer-compact-col {
+	display: flex;
+	text-align: center;
+	justify-content: center;
+}
+
+.footer-compact-col {
+	display: block;
+}
+
+.footer-compact-btn {
+	margin-right: 14px;
+}
+
+.footer-compact-btn:last-child {
+	margin-right: 0;
+}
+
+.footer-compact-col span {
+	margin: 0 17px;
+	display: block;
+}
+
+.footer-compact-col span:nth-child(1) {
+	margin-top: 25px;
+	color: #fff;
+	font: normal normal 14px/14px Source Sans Pro;
+}
+
+.footer-compact-col span:nth-child(2) {
+	margin-top: 15px;
+	color: #fff;
+	font: normal normal 13px/13px Source Sans Pro;
+	margin-right: 0;
+}
+
+@media(min-width: 768px) {
+
+	.footer-compact-cmpnt {
+		height: 52px;
+	}
+
+	/* https://design.axa.com/web-guidelines/structure */
+	.footer-compact-cmpnt .cmpnt-inner {
+		max-width: 1140px;
+		margin: 0 auto;
+		height: 100%;
+		display: flex;
+		justify-content: space-between;
+		padding: 0 40px;
+	}
+
+	.footer-compact-col {
+		display: flex;
+		align-items: center; 
+	}
+
+	.footer-compact-col span:nth-child(1),
+	.footer-compact-col span:nth-child(2) {
+		margin-top: 0;
+	}
+
+}
+
+@media(min-width: 992px) {
+}
+
+@media(min-width: 1200px) {
+}

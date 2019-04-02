@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="fr">
+
+	<head>
+			<meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+			<meta name="HandheldFriendly" content="true">
+			<meta name="MobileOptimized" content="320">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+			
+			<title>Default Component</title>
+
+			<!-- generic css styles  -->
+			<link href="/statics/css/reset.css" rel="stylesheet" type="text/css">
+			<link href="/statics/css/normalize.css" rel="stylesheet" type="text/css">
+			<link href="/statics/css/fonts.css" rel="stylesheet" type="text/css">
+			<link href="/statics/css/global.css" rel="stylesheet" type="text/css">
+			<link href="/statics/css/link.css" rel="stylesheet" type="text/css">
+			<link href="/statics/css/perfect-scrollbar.css" rel="stylesheet" type="text/css">
+			<!-- / generic css styles  -->
+
+			<!-- component styles  -->
+			<link href="/components/tchat/tchat.css" rel="stylesheet" type="text/css">
+			<!-- / component styles  -->
+
+	</head>
+
+	<body>
+
+		<div class="root">
+
+			<!-- component -->
+			<div class="tchat-cmpnt" id="tchat">
+				<div class="cmpnt-inner">
+					<div class="tchat-panel">
+						<div class="tchat-header">
+							<span class="agent-cy-fs-16">Brigitte Rousse Answers</span>
+						</div>
+						<div class="tchat-body">
+							<div class="tchat-body-messages">
+								<div class="tchat-message recipient">
+									<img src="/statics/images/profile-2@2x.jpg" alt="" class="tchat-message-picture"/>
+									<div class="tchat-message-content">
+										<p>Hello, I’m Brigitte Rousse, how can I help you?</p>
+									</div>
+								</div>
+								<div class="tchat-message recipient">
+									<img src="/statics/images/tchat-axa@2x.jpg" alt="" class="tchat-message-picture"/>
+									<div class="tchat-message-content">
+										<p>Hello, I’m the AXA virtual assistant, how can I help you today?</p>
+									</div>
+								</div>
+								<div class="tchat-message sender">
+									<div class="tchat-message-content">
+										<p>I recently moved in a new flat and I need home insurance... How can I suscribe?</p>
+									</div>
+								</div>
+							</div>
+							<div class="tchat-body-answer">
+								<form action="#" method="post" class="tchat-body-answer-form">
+									<div class="tchat-body-answer-form-row">
+										<input type="text" placeholder="Send a message...">
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="tchat-footer tchat-footer-btn">
+						<div href="#" class="tchat-footer-state tchat-footer-open-state">
+							Do you have a question
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="#45b450"/><path d="M10.58,5.24V9.48h4.07v1.08H10.58v4.27H9.42V10.56H5.36V9.48H9.42V5.24h1.15Z" fill="#fff"/></svg>
+						</div>
+						<div href="#" class="tchat-footer-state tchat-footer-close-state hidden">
+							Close chat window
+							<svg xmlns="http://www.w3.org/2000/svg"  width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="#45b450"/><path d="M12.15,9.42v1.17H7.71V9.42h4.45Z" fill="#fff"/></svg>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- / component -->
+
+		</div>
+
+		<!-- scripts  -->
+		<script type="text/javascript" src="/statics/js/perfect-scrollbar.js"></script>
+		<script type="text/javascript" src="tchat.js"></script>
+		<!-- /scripts  -->
+
+	</body>
+
+</html>

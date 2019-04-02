@@ -1,0 +1,224 @@
+/**
+
+MODEL: 
+
+.agent-cy-fs- {
+
+	font-family: 'Publico', 'Source Sans Pro', Arial, sans-serif;
+
+	font-size: px;
+	line-height: px;
+
+	font-weight: bold;
+
+	letter-spacing: -0.01em;
+	letter-spacing: 0.02em;
+}
+
+@media(min-width: 768px) {
+	.agent-cy-fs- {
+		font-size: px;
+		line-height: px;
+	}
+}
+
+@media(min-width: 992px) {
+	.agent-cy-fs- {
+		font-size: px;
+		line-height: px;
+	}
+}
+
+**/
+
+/* 48px publico */
+.agent-cy-fs-48-publico {
+	font-family: 'Publico', 'Source Sans Pro', Arial, sans-serif;
+	font-size: 24px;
+	line-height: 30px;
+	font-weight: bold;
+	letter-spacing: 0.02em;
+}
+
+@media(min-width: 768px) {
+	.agent-cy-fs-48-publico {
+		font-size: 36px;
+		line-height: 42px;
+	}
+}
+
+@media(min-width: 992px) {
+	.agent-cy-fs-48-publico {
+		font-size: 36px;
+		line-height: 42px;
+	}
+}
+
+@media(min-width: 1200px) {
+	.agent-cy-fs-48-publico {
+		font-size: 48px;
+		line-height: 54px;
+	}
+}
+
+/* 36px publico */
+.agent-cy-fs-36-publico {
+	font-family: 'Publico', 'Source Sans Pro', Arial, sans-serif;
+	font-size: 24px;
+	line-height: 30px;
+	font-weight: bold;
+	letter-spacing: 0.02em;
+}
+
+@media(min-width: 768px) {
+	.agent-cy-fs-36-publico {
+		font-size: 28px;
+		line-height: 34px;
+	}
+}
+
+@media(min-width: 992px) {
+	.agent-cy-fs-36-publico {
+		font-size: 36px;
+		line-height: 42px;
+	}
+}
+
+/* fixed 28 */
+.agent-cy-fs-fixed-28 {
+	font-size: 28px;
+	line-height: 32px;
+	letter-spacing: -0.01em;
+}
+
+@media(min-width: 768px) {
+	.agent-cy-fs-fixed-28 {
+		font-size: 28px;
+		line-height: 32px;
+	}
+}
+
+@media(min-width: 992px) {
+	.agent-cy-fs-fixed-28 {
+		font-size: 28px;
+		line-height: 32px;
+	}
+}
+
+/* fixed 24px  */
+.agent-cy-fs-fixed-24 {
+	font-size: 24px;
+	line-height: 29px;
+}
+
+@media(min-width: 768px) {
+	.agent-cy-fs-fixed-24 {
+		font-size: 24px;
+		line-height: 29px;
+	}
+}
+
+@media(min-width: 992px) {
+	.agent-cy-fs-fixed-24 {
+		font-size: 24px;
+		line-height: 29px;
+	}
+}
+
+/* fixed 20px */
+.agent-cy-fs-fixed-20 {
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+}
+
+@media(min-width: 768px) {
+  .agent-cy-fs-fixed-20 {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+
+/* 18px */
+.agent-cy-fs-18 {
+	font-size: 16px;
+	line-height: 24px;
+	letter-spacing: -0.01em;
+}
+
+@media(min-width: 768px) {
+	.agent-cy-fs-18 {
+		font-size: 18px;
+		line-height: 27px;
+	}
+}
+
+@media(min-width: 992px) {
+	.agent-cy-fs-18 {
+		font-size: 18px;
+		line-height: 27px;
+	}
+}
+
+/* fixed 16px  */
+.agent-cy-fs-fixed-16 {
+	font-size: 16px;
+	line-height: 24px;
+	letter-spacing: -0.01em;
+}
+
+@media(min-width: 768px) {
+	.agent-cy-fs-fixed-16 {
+		font-size: 16px;
+		line-height: 24px;
+	}
+}
+
+@media(min-width: 992px) {
+	.agent-cy-fs-fixed-16 {
+		font-size: 16px;
+		line-height: 24px;
+	}
+}
+
+/* 16px  */
+.agent-cy-fs-16 {
+	font-size: 14px;
+	line-height: 17px;
+}
+
+@media(min-width: 768px) {
+	.agent-cy-fs-16 {
+		font-size: 16px;
+		line-height: 24px;
+	}
+}
+
+@media(min-width: 992px) {
+	.agent-cy-fs-16 {
+		font-size: 16px;
+		line-height: 24px;
+	}
+}
+
+/* fixed 14px */
+.agent-cy-fs-fixed-14 {
+	font-size: 14px;
+	line-height: 17px;
+	letter-spacing: -0.01em;
+}
+
+@media(min-width: 768px) {
+	.agent-cy-fs-fixed-14 {
+		font-size: 14px;
+		line-height: 17px;
+	}
+}
+
+@media(min-width: 992px) {
+	.agent-cy-fs-fixed-14 {
+		font-size: 14px;
+		line-height: 17px;
+	}
+}
