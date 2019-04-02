@@ -11,7 +11,7 @@ fractal.components.set('path', __dirname + '/wg_static_agent/components')
 
 fractal.components.set('ext', '.html')
 
-fractal.web.set('static.path', __dirname + '/wg_static_agent/')
+fractal.web.set('static.path', __dirname + '/wg_static_agent')
 
 /* Tell Fractal where the documentation pages will live */
 fractal.docs.set('path', __dirname + '/stories/')
@@ -25,7 +25,7 @@ const mandelbrot = require('@frctl/mandelbrot'); // require the Mandelbrot theme
 const myCustomisedTheme = mandelbrot({
     skin: "navy",
     panels: ["html", /*"view",*/ /* "context", */ "resources", "info", "notes"],
-    "styles": ['default', '/custom-style.css']
+    "styles": ['default', '/fractal_custom-style.css']
 });
 
 fractal.web.theme(myCustomisedTheme) // tell Fractal to use the configured theme by default

@@ -1,0 +1,107 @@
+.agency-our-services-cmpnt {
+	width: 100%;
+	background: #3b3fd8;
+	border-bottom: 4px solid #2425aa;
+}
+
+.agency-our-services-cmpnt .cmpnt-inner {
+	margin: 0 auto;
+	max-width: 980px;
+	padding: 45px 0 35px;
+}
+
+@media(min-width: 768px) {
+	.agency-our-services-cmpnt .cmpnt-inner {
+		padding: 40px 0;
+	}
+}
+
+@media(min-width: 992px) {
+	.agency-our-services-cmpnt .cmpnt-inner {
+		padding: 40px 0 45px;
+	}
+}
+
+@media(min-width: 1200px) {
+	.agency-our-services-cmpnt .cmpnt-inner {
+		padding: 50px 0 35px;
+	}
+}
+
+.agency-our-services-title {
+	margin: 0;
+	font-weight: bold;
+	color: #fff;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.agency-our-services-types {
+	margin-top: 50px;
+	text-align: center;
+}
+
+.agency-our-services-type {
+	margin-bottom: 50px;
+	display: block;
+}
+
+.agency-our-services-type svg {
+	display: block;
+	margin: 0 auto;
+}
+
+.agency-our-services-type-legend {
+	display: inline-block;
+	margin: 10px 0 0;
+	font-weight: bold;
+	color: #fff;
+}
+
+.agency-our-services-learn-more {
+	margin: 0 auto;
+	text-align: center;
+	padding: 0 30px;
+}
+
+.agency-our-services-learn-more .icon {
+	width: 30px;
+}
+
+@media(min-width: 768px) {
+	.agency-our-services-types {
+		margin: 40px auto 35px;
+		width: 420px;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around
+	}
+
+	.agency-our-services-type {
+		/* https://www.alsacreations.com/tuto/lire/1493-css3-flexbox-layout-module.html */
+		flex: 1 1 50%;
+		margin-bottom: 20px;
+	}
+
+	.agency-our-services-learn-more {
+		padding: 0;
+	}
+
+}
+
+@media(min-width: 992px) {
+	.agency-our-services-types {
+		margin: 30px 0 35px;
+		width: 100%;
+	}
+
+	.agency-our-services-type {
+		/* https://www.alsacreations.com/tuto/lire/1493-css3-flexbox-layout-module.html */
+		flex: 0 0 125px;
+		margin-bottom: 0px;
+	}
+
+}
+
+/* add media query for tablet  */
+/* add media query for mobile  */

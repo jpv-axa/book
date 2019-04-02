@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "storybook": "start-storybook -s ./wg_static_agent/",
-    "storybook-build": "build-storybook -o docs/storybook",
+    "storybook": "start-storybook -s . -c .storybook",
+    "storybook-build": "build-storybook -c .storybook -o docs/storybook",
     "fractal": "fractal start --sync --watch",
     "fractal-build": "fractal build",
     "start": "$npm_package_scripts_fractal",

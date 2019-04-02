@@ -26,20 +26,20 @@ a {
 @font-face {
     /* in order to avoid restyling all of the CSS, we fake the Open Sans to be our real font (Source Sans Pro) */
     font-family: "Open Sans";
-    src: url('/statics/fonts/Source-Sans-Pro/SourceSansPro-Light.woff');
+    src: url('/wg_static_agent/statics/fonts/Source-Sans-Pro/SourceSansPro-Light.woff');
     font-weight: 400;
 }
 
 @font-face {
     /* in order to avoid restyling all of the CSS, we fake the Open Sans to be our real font (Source Sans Pro) */
     font-family: "Open Sans";
-    src: url('/statics/fonts/Source-Sans-Pro/SourceSansPro-Regular.woff');
+    src: url('/wg_static_agent/statics/fonts/Source-Sans-Pro/SourceSansPro-Regular.woff');
     font-weight: normal;
 }
 
 @font-face {
     /* in order to avoid restyling all of the CSS, we fake the Open Sans to be our real font (Source Sans Pro) */
     font-family: "Open Sans";
-    src: url('/statics/fonts/Source-Sans-Pro/SourceSansPro-Bold.woff');
+    src: url('/wg_static_agent/statics/fonts/Source-Sans-Pro/SourceSansPro-Bold.woff');
     font-weight: 700;
 }

@@ -1,10 +1,20 @@
 import {
-    configure
-} from '@storybook/html';
+    configure,
+    addParameters
+} from '@storybook/html'
+import theme from './theme'
 
-function loadStories() {
-    require('../index.js');
-    // You can require as many stories as you need.
-}
+// https://storybook.js.org/docs/configurations/options-parameter/
+addParameters({
+    options: {
+        theme,
+        panelPosition: 'right'
+    },
+    /*viewport: {
+        defaultViewport: 'iphone6'
+    },*/
 
-configure(loadStories, module);
+})
+configure(function loadStories() {
+    require('../index.js')
+}, module)
