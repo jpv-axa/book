@@ -1,0 +1,156 @@
+.agency-social-networks-cmpnt {
+	width: 100%;
+	background: #f5f5f5;
+}
+
+.agency-social-networks-cmpnt .cmpnt-inner {
+	 padding: 35px 0 50px; 
+}
+
+.agency-social-networks-col {
+	position: relative;
+	width: 100%;
+}
+
+.agency-social-networks-contents {
+	padding: 0 15px;
+	text-align: center;
+}
+
+.agency-social-networks-contents-title {
+	margin: 0;
+}
+
+.agency-social-networks-contents-description {
+	margin-top: 30px;
+}
+
+.agency-social-networks-contents-btn {
+	margin-top: 45px;
+}
+
+.agency-social-networks-tw-timeline {
+	margin-top: 45px;
+	padding: 0 30px;
+	text-align: center;
+}
+
+.btn-follow-twitter-top {
+	display: none;
+}
+
+.btn-follow-twitter-bottom {
+	display: block;
+	text-align: center;
+}
+
+.agency-social-networks-follow-us {
+	margin-top: 50px;
+	color: #333;
+	text-align: center;
+}
+
+.agency-social-networks-follow-us a {
+	margin-right: 4px;
+}
+
+@media(min-width: 768px) {
+
+	.agency-social-networks-cmpnt .cmpnt-inner {
+		padding: 60px 0 50px;
+		width: 690px;
+		margin: 0 auto;
+	}
+
+	.agency-social-networks-contents {
+		padding: 0 40px;
+		text-align: center;
+	}
+
+	.agency-social-networks-contents-description {
+		margin-top: 40px;
+	}
+
+	.agency-social-networks-contents-btn {
+		margin-top: 40px;
+	}
+
+	.agency-social-networks-tw-timeline {
+		height: 400px;
+		padding: 0 15px;
+	}
+
+	.agency-social-networks-follow-us {
+		margin-top: 50px;
+	}
+
+	.agency-social-networks-follow-us a {
+		margin-right: 16px;
+	}
+
+}
+
+@media(min-width: 992px) {
+
+	.agency-social-networks-cmpnt .cmpnt-inner {
+		padding: 60px 0px 50px;
+		width: 930px;
+	}
+
+	.agency-social-networks-cols {
+		display: flex;
+		align-items: stretch;
+		width: 100%;
+		max-width: 1140px;
+		margin: 0 auto;
+	}
+
+	.agency-social-networks-col {
+		width: 50%;
+	}
+
+	.agency-social-networks-contents {
+		text-align: left;
+		padding: 0 40px 0 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		height: 100%;
+	}
+
+	.agency-social-networks-contents-description {
+		margin-top: 30px;
+	}
+
+	.agency-social-networks-contents-btn {
+		margin-top: 45px;
+	}
+
+	.agency-social-networks-tw-timeline {
+		margin-top: 0;
+		padding: 0;
+	}
+
+	.btn-follow-twitter-top {
+		display: block;
+	}
+
+	.btn-follow-twitter-bottom {
+		display: none;
+	}
+
+	.agency-social-networks-follow-us {
+		margin-top: 60px;
+	}
+
+}
+
+@media(min-width: 1200px) {
+
+	.agency-social-networks-cmpnt .cmpnt-inner {
+		padding: 65px 0 60px;
+		width: 1110px;
+		margin: 0 auto;
+	}
+
+}

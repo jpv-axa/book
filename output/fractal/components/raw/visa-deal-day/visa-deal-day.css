@@ -1,0 +1,93 @@
+.visa-deal-day-cmpnt {
+	width: 100%;
+	background: #303030;
+}
+
+.visa-deal-day-cmpnt .cmpnt-inner {
+	margin: 0 auto;
+	max-width: 1140px;
+	height: 100%;
+}
+
+.visa-deal-day-cmpnt .cmpnt-inner-centered {
+	width: 100%;
+	margin: auto;
+}
+
+.visa-deal-day-container{
+	width: 100%;
+}
+
+.visa-deal-day-col {
+	width: 100%;
+}
+
+.visa-deal-day-picture {
+	width: 100%;
+	height: 180px;
+	background-image: url( '../../statics/images/visa-deal-card-mobile@2x.png' );
+	background-repeat: no-repeat;
+	background-position: top left;
+	background-size: contain;
+}
+
+.visa-deal-day-text {
+	padding: 35px 30px 45px;
+}
+
+.visa-deal-day-cmpnt h6 {
+	margin: 0;
+	color: #FFF;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+
+.visa-deal-day-cmpnt h1 {
+	margin: 30px auto 0;
+	color: #FFF;
+}
+
+.visa-deal-day-cmpnt p {
+	margin-top: 30px;
+	color: #fff;
+}
+
+@media(min-width: 768px) {
+
+	.visa-deal-day-cmpnt {
+		height: 412px;
+		background: url( '../../statics/images/visa-deal-card-desktop@2x.jpg' ) no-repeat center center;
+		background-size: cover;
+	}
+
+	.visa-deal-day-cmpnt .cmpnt-inner {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.visa-deal-day-container{
+		display: flex;
+		align-items: stretch;
+		justify-content: space-around;
+	}
+
+	.visa-deal-day-col {
+		width: 46%;
+	}
+
+	.visa-deal-day-picture {
+		background: none;
+		width: auto;
+		height: auto;
+	}
+
+	.visa-deal-day-cmpnt h1 {
+		margin: 25px auto 0;
+	}
+
+	.visa-deal-day-cmpnt p {
+		margin-top: 10px;
+	}
+
+}

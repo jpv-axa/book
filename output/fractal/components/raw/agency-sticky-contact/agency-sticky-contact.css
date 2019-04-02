@@ -1,0 +1,111 @@
+.agency-sticky-contact-cmpnt {
+  position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	background: #00008f;
+  z-index: 500;
+  transform: translateY( -70px );
+  transition: transform 0.3s ease-out, opacity 0.1s ease-out;
+  opacity: 0;
+}
+
+.agency-sticky-contact-cmpnt.sticky-fixed {
+  transform: translateY(0px);
+  opacity: 1;
+}
+
+.agency-sticky-contact-cmpnt .cmpnt-inner-desktop {
+	width: 100%;
+  margin: 0 auto;
+	justify-content: space-between;
+	padding-top: 25px;
+	padding-bottom: 20px;
+	display: none;
+}
+
+.agency-sticky-contact-cmpnt .cmpnt-inner-mobile {
+	display: flex;
+  align-items: stretch; 
+  text-align: center;
+	width: 100%;
+	padding: 15px;
+}
+
+@media (min-width: 768px) {
+  .agency-sticky-contact-cmpnt .cmpnt-inner-mobile {
+		display: none;
+	}
+
+  .agency-sticky-contact-cmpnt .cmpnt-inner-desktop {
+		display: flex;
+    width: 690px;
+  }
+}
+
+@media (min-width: 992px) {
+  .agency-sticky-contact-cmpnt .cmpnt-inner-desktop {
+    width: 930px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .agency-sticky-contact-cmpnt .cmpnt-inner-desktop {
+    width: 1110px;
+  }
+}
+
+/* DESKTOP SECTION  */
+.agency-sticky-contact-desktop {
+	width: 100%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	padding: 0 15px;
+}
+
+.agency-sticky-contact-opening-status {
+  font: normal bold 18px/18px Source Sans Pro;
+	color: #fff;
+}
+
+.agency-sticky-contact-hotline-availability {
+  text-transform: uppercase;
+	font: normal bold 14px/18px Source Sans Pro;
+	color: #fff;
+}
+
+.agency-sticky-contact-hotline-availability svg {
+  position: relative;
+  margin-left: 10px;
+  top: 2px; 
+}
+
+.agency-sticky-contact-us {
+  font: normal bold 14px/14px Source Sans Pro;
+}
+
+/* / DESKTOP SECTION  */
+
+/* MOBILE SECTION  */
+.cmpnt-inner-mobile a {
+  width: 100%;
+  margin-right: 15px;
+}
+
+.cmpnt-inner-mobile a:last-child {
+  margin-right: 0;
+}
+
+.agency-sticky-contact-mobile-hotline-btn {
+  color: #00008f;
+  background: white;
+}
+
+.agency-sticky-contact-mobile-hotline-btn .icon,
+.agency-sticky-contact-mobile-btn .icon {
+  width: 15px;
+  margin-right: 5px;
+}
+
+/* / MOBILE SECTION  */

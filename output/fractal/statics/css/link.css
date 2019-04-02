@@ -1,0 +1,77 @@
+/* ===============================*/
+/* =======    LinkStyle   ========*/
+/* ===============================*/
+
+.link {
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-align: center;
+      align-items: center;
+  color: #00008f;
+  fill: #00008f;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: all 0.25s ease;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.08em;
+}
+
+.link.red {
+  color: #f07662;
+  fill: #f07662;
+}
+
+.link.white {
+  color: #fff;
+}
+
+.link:hover, .link:active {
+  color: #00005b;
+  fill: #00005b;
+}
+
+.link.red:hover, .link.red:active {
+  color: #ec4d33;
+  fill: #ec4d33;
+}
+
+.link.white:hover, .link.white:active {
+  color: #fff;
+}
+
+.link .icon {
+  height: 11px;
+  width: 17px;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.link .icon.right {
+  padding-left: 5px;
+}
+
+.link .icon.left {
+  padding-right: 5px;
+}
+
+@media(min-width: 768px) {
+  .link {
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  .link .icon {
+    width: 23px;
+    height: 13px;
+  }
+
+  .link .icon.right {
+    padding-left: 10px;
+  }
+
+  .link .icon.left {
+    padding-right: 10px;
+  }
+}

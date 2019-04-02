@@ -1,0 +1,233 @@
+.myaxa-application-cmpnt {
+	width: 100%;
+	background-image: url( '../../statics/images/myaxa-application-background-mobile@2x.jpg' );
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+}
+
+.myaxa-application-cmpnt .cmpnt-inner {
+	/* without tchat module  */
+	/* padding: 60px 30px 40px; */
+	/* with tchat module  */
+	padding: 60px 30px 80px;
+	text-align: center;
+}
+
+.myaxa-application-title {
+	margin: 0;
+	width: 100%;
+	color: white;
+	text-shadow: 0px 1px 3px rgba(0,0,0,0.6);
+	font-family: 'Publico', 'Source Sans Pro', Arial, sans-serif;
+	letter-spacing: 0.02em;
+	font-weight: bold;
+	font-size: 46px;
+	line-height: 52px;
+}
+
+.myaxa-application-legend {
+	margin-top: 45px;
+	color: white;
+	text-shadow: 0px 1px 3px rgba(0,0,0,0.6);
+	font-size: 14px;
+	line-height: 19px;
+	letter-spacing: -0.01em;
+}
+
+@media(min-width: 768px) {
+
+	.myaxa-application-cmpnt {
+		background-image: url( '../../statics/images/myaxa-application-background.jpg' );
+	}
+
+	.myaxa-application-cmpnt .cmpnt-inner {
+		display: flex;
+		flex-direction: column;
+		margin: 0 auto;
+		padding: 60px 40px 50px;
+		max-width: 1140px;
+		height: 100%;
+	}
+	.myaxa-application-title {
+		font-size: 78px;
+		line-height: 84px;
+	}
+
+	.myaxa-application-legend {
+		margin: 40px auto 0;
+		max-width: 610px;
+		font-size: 20px;
+		line-height: 24px;
+	}
+
+}
+
+@media(min-width: 992px) {
+
+	.myaxa-application-cmpnt .cmpnt-inner {
+		padding: 100px 0;
+	}
+
+	.myaxa-application-title {
+		font-size: 62px;
+		line-height: 68px;
+	}
+
+	.myaxa-application-legend {
+		font-size: 24px;
+		line-height: 29px;
+	}
+
+}
+
+/* FORM  */
+
+.myaxa-application-form {
+	display: none;
+}
+
+@media(min-width: 768px) {
+
+	.myaxa-application-form {
+		display: block;
+		margin-top: 45px;
+	}
+
+	.myaxa-application-form-row {
+		margin: 0 auto;
+		width: 480px;
+		height: 50px;
+		display: flex;
+		align-items: stretch;
+	}
+
+	.myaxa-application-form-input {
+		width: 54%;
+		height: 100%;
+		background: white;
+		/* border-top: 1px solid #ccc;
+		border-bottom: 1px solid #ccc; */
+	}
+
+	.myaxa-application-form-input-text {
+		width: 100%;
+		height: 100%;
+		border: 0;
+		outline: none;
+		padding: 0 20px;
+		color: #333;
+		border-top: 1px solid #ccc;
+		border-left: 1px solid #ccc;
+		border-bottom: 1px solid #ccc;
+	}
+
+	.myaxa-application-form-input-text:hover { 
+		border-color: #00008f;
+	}
+
+	.myaxa-application-form-input-text::-webkit-input-placeholder { color:#ccc; }
+	.myaxa-application-form-input-text::-moz-placeholder { color:#ccc; } /* firefox 19+ */
+	.myaxa-application-form-input-text:-ms-input-placeholder { color:#ccc; } /* ie */
+	.myaxa-application-form-input-text:-moz-placeholder { color:#ccc; }
+
+
+	.myaxa-application-form-button {
+		width: 46%;
+		height: 100%;
+		background:#00008f;
+		appearance: none;
+		color: white;
+		font: normal 600 18px/18px 'Source Sans Pro';
+		border: 0;
+		cursor: pointer;
+		text-transform: none;
+		letter-spacing: -0.01em;
+		cursor: pointer;
+	}
+
+	/* safari fix button align center  */
+	.myaxa-application-form-button span {
+		width: 100%;
+	}
+
+}
+
+@media(min-width: 992px) {
+
+	.myaxa-application-form {
+		display: block;
+		margin-top: 55px;
+	}
+
+}
+
+@media(min-width: 1200px) {
+
+}
+
+/* / FORM  */
+
+/* APPLICATION DOWNLOAD BUTTONS  */
+
+.myaxa-application-download-btns {
+	margin-top: 55px;
+}
+
+.myaxa-application-download-btn {
+	margin-right: 10px;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.myaxa-application-download-btn:last-child {
+	margin-right: 0;
+}
+
+.myaxa-application-download-btn img {
+	height: 35px;
+	width: auto;
+}
+
+.myaxa-application-download-btn.btn-app-ios img {
+	width: 121px;
+}
+
+.myaxa-application-download-btn.btn-app-android img {
+	width: 118px;
+}
+
+@media(min-width: 768px) {
+
+	.myaxa-application-download-btns {
+		margin-top: 55px;
+	}
+
+	.myaxa-application-download-btn {
+		margin-right: 20px;
+	}
+
+	.myaxa-application-download-btn img {
+		height: 51px;
+	}
+
+	.myaxa-application-download-btn.btn-app-ios img {
+		width: 177px;
+	}
+
+	.myaxa-application-download-btn.btn-app-android img {
+		width: 172px;
+	}
+
+}
+
+@media(min-width: 992px) {
+
+	.myaxa-application-download-btn {
+		margin-right: 15px;
+	}
+	
+}
+
+/* / APPLICATION DOWNLOAD BUTTONS  */
+
