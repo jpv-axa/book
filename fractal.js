@@ -16,7 +16,7 @@ fractal.web.set('static.path', __dirname + '/wg_static_agent/')
 /* Tell Fractal where the documentation pages will live */
 fractal.docs.set('path', __dirname + '/stories/')
 
-fractal.web.set('builder.dest', __dirname + '/output/fractal')
+fractal.web.set('builder.dest', __dirname + '/docs/fractal')
 
 const mandelbrot = require('@frctl/mandelbrot'); // require the Mandelbrot theme module
 
