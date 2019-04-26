@@ -4,7 +4,7 @@ const fractal = module.exports = require('@frctl/fractal').create()
 /* Set the title of the project */
 fractal.set('project.title', '<img src=https://www.axa.com/base/images/logo.svg?version=2.4.4 width=50/> Axa Digital Guidelines')
 fractal.set('project.version', 'NotEvenAlpha');
-fractal.set('project.author', 'Jean-pierre Vincent');
+fractal.set('project.author', 'Jean-Pierre Vincent');
 
 /* Tell Fractal where the components will live */
 fractal.components.set('path', __dirname + '/wg_static_agent/components')
