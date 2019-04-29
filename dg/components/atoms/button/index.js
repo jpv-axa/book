@@ -4,7 +4,7 @@ import styles from './index.scss'
 
 class AxaButton extends HTMLButtonElement {
     static get observedAttributes() {
-        return ['data-icon', 'bar']
+        return ['data-icon']
     }
     attributeChangedCallback(attr, old, value) {
         //console.log('cool', old, value)

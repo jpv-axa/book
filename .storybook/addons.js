@@ -3,6 +3,6 @@ import '@storybook/addon-viewport/register'
 // https://github.com/storybooks/storybook/tree/master/addons/notes
 import '@storybook/addon-notes/register'
 // https://github.com/storybooks/storybook/tree/master/addons/a11y
-import '@storybook/addon-a11y/register'
+// import '@storybook/addon-a11y/register'
 
 import '@storybook/addon-knobs/register'

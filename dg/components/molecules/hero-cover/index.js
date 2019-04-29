@@ -31,7 +31,7 @@ customElements.define('axa-hero-cover', class HeroCover extends HTMLElement {
             <div class="m-hero-cover__text-background m-hero-cover__text-background--${direction} m-hero-cover__text-background--${direction}--${design}">
                 <h5 class=a-typo__title>
                 ${this.getAttribute('data-category-title') || 'Category title'}</h5>
-                <h2 class=a-typo__main-title--secondary>${this.getAttribute('data-main-title') || 'Main Title'}</h2>
+                <h2 class=a-typo__page-title>${this.getAttribute('data-main-title') || 'Main Title'}</h2>
                 <img style=display:none alt= src=${imgURL} />
                 <p class="a-typo__text">${content}</p>
                 <slot name=call-to-action />

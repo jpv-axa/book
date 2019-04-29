@@ -1,14 +1,10 @@
-// COPY/PASTED FROM https://github.com/axa-ch/patterns-library/blob/develop-v2/src/components/00-materials/20-typography-and-text.scss
+// BASED FROM https://github.com/axa-ch/patterns-library/blob/develop-v2/src/components/00-materials/20-typography-and-text.scss
 // in the develop-v2 branch
 
 
 // =====================
 // Font, line-heights and sizes generation
 // =====================
-
-/// A simplified typography and text system.
-/// AXA use two font faces - Publico Headline and Source Sans Pro.
-/// @link https://design.axa.com/web-guidelines/typography#overview
 
 $base-font-size: 16px;
 $base-line-height: $base-font-size * 1.5;
@@ -24,11 +20,11 @@ serif;
 $font-size-base: $base-font-size;
 $line-height-base: $base-line-height;
 
-// get the @font-face declarations after the variables names
+// get the @font-face declarations AFTER the variables names
 @import './fonts.scss';
 
 /*
-font-size line-height letter-spacing
+define in this order : font-size,  line-height, letter-spacing
 */
 $text-sizes: (default: (1rem, 1.375rem, 0),
 legals: (0.666rem, 1.125rem, 0),
@@ -52,7 +48,6 @@ semibold: (600, normal),
 bold: (700, normal));
 
 // Don't use this in components, use typo()
-
 @mixin _font($font: text, $name: default) {
     @if map-has-key($font-values, $name) {
         font-weight: nth(map-get($font-values, $name), 1);
