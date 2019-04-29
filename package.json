@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "storybook": "start-storybook -s . -c .storybook",
-    "dg-dev": "start-storybook -s dg -c storybook_config -p 58044 --debug-webpack",
+    "dg-dev": "start-storybook -s dg -c storybook_config -p 58044",
     "storybook-build": "build-storybook -c .storybook -o docs/storybook",
     "fractal": "fractal start --sync --watch",
     "fractal-build": "fractal build",
-    "start": "$npm_package_scripts_fractal",
+    "start": "$npm_package_scripts_dg_dev",
     "build": "$npm_package_scripts_fractal_build"
   },
   "author": "",
