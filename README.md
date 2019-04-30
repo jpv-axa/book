@@ -14,8 +14,11 @@ DONT PUBLISH IN `master`
 * Before publishing, run `npm run build`, open locally `docs/storybook/index.html` to check it works.
 * To check if all modifications really are wanted, execute `npm run visual-diff` and go on the URL provided by percy.io
 * Commit and push `docs/*`.
-* Go on Github and require a Pull Request
-* Have it approved by a pair
+* Go on Github https://github.com/jpv-axa/book and do a Pull Request
+* re-execute `npm run visual-diff` to help the reviewer
+* Have it approved 
+* * by a pair programer for the code* and
+* * by a designer on the URL provided by percy
 
 Public demo : https://jpv-axa.github.io/book/storybook/
 
