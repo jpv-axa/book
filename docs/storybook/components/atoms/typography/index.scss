@@ -44,7 +44,7 @@
   &__link,
   &__tagline {
     @include typo(text, text-catchy, semibold);
-    // letter-spacing: 1px;
+    letter-spacing: 10px;
     text-transform: uppercase;
   }
 
