@@ -6,11 +6,12 @@
   "scripts": {
     "storybook": "start-storybook -s . -c .storybook",
     "dg-dev": "start-storybook -s dg -c storybook_config -p 58044",
+    "dg-build": "build-storybook -s dg -c storybook_config -o docs/storybook",
     "storybook-build": "build-storybook -c .storybook -o docs/storybook",
     "fractal": "fractal start --sync --watch",
     "fractal-build": "fractal build",
     "start": "$npm_package_scripts_dg_dev",
-    "build": "$npm_package_scripts_fractal_build"
+    "build": "$npm_package_scripts_dg_build"
   },
   "author": "",
   "license": "ISC",

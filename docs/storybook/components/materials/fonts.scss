@@ -1,0 +1,19 @@
+@font-face {
+    font-family: $long-texts;
+    src: local('Source Sans Pro'),
+        local('SourceSansPro'),
+        url('../../statics/source-sans-pro-v10-latin-regular.woff2') format('woff2'),
+        url('../../statics/source-sans-pro-v10-latin-regular.woff') format('woff');
+    font-display: swap;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: $titles;
+    src: local('Publico Headline Bold'),
+        local('PublicoHeadline-Bold'),
+        url('../../statics/PublicoHeadline-Bold-Web.woff2') format('woff2'),
+        url('../../statics/PublicoHeadline-Bold-Web.woff') format('woff');
+    font-display: swap;
+    font-weight: normal bolder;
+}
