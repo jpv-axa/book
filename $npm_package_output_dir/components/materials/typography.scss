@@ -1,0 +1,145 @@
+// BASED FROM https://github.com/axa-ch/patterns-library/blob/develop-v2/src/components/00-materials/20-typography-and-text.scss
+// in the develop-v2 branch
+
+
+// =====================
+// Font, line-heights and sizes generation
+// =====================
+
+// Real font name
+$font-family-sans-serif: 'Source Sans Pro';
+$font-family-serif: 'Publico Headline';
+
+// fallbacks and alias
+$long-texts: $font-family-sans-serif,
+sans-serif;
+$titles: $font-family-serif,
+serif;
+
+// get the @font-face declarations AFTER the variables names
+@import './fonts.scss';
+
+/*
+define in this order : font-size,  line-height, letter-spacing
+*/
+$text-sizes-S: (default: (1rem, 1.375rem, 0),
+legals: (0.666rem, 1.125rem, 0),
+text-catchy: (0.9rem, 1.125rem, 1px),
+text-secondary: (0.9rem, 1.375rem, 0),
+text: (1rem, 1.375rem, 0),
+label: (1.25rem, 1.75rem, 0),
+quote: (1.25rem, 1.75rem, 0),
+h4: (1.55rem, 2rem, 0),
+h3: (24px, 34px, 0),
+h2: (33px, 43px, 0),
+h1: (39px, 49px, 0),
+event: (47px, 57px, 0));
+
+
+$text-sizes-M: (default: (1rem, 1.375rem, 0),
+legals: (0.666rem, 1.125rem, 0),
+text-catchy: (0.9rem, 1.125rem, 1px),
+text-secondary: (0.9rem, 1.375rem, 0),
+text: (1rem, 1.375rem, 0),
+label: (1.25rem, 1.75rem, 0),
+quote: (1.25rem, 1.75rem, 0),
+h4: (1.55rem, 2rem, 0),
+h3: (32px, 42px, 0),
+h2: (38px, 48px, 0),
+h1: (44px, 54px, 0),
+event: (54px, 64px, 0));
+
+
+$text-sizes-L: (default: (1rem, 1.375rem, 0),
+legals: (0.666rem, 1.125rem, 0),
+text-catchy: (0.9rem, 1.125rem, 1px),
+text-secondary: (0.9rem, 1.375rem, 0),
+text: (1rem, 1.375rem, 0),
+label: (1.25rem, 1.75rem, 0),
+quote: (1.25rem, 1.75rem, 0),
+h4: (1.55rem, 2rem, 0),
+h3: (36px, 46px, 0),
+h2: (43px, 53px, 0),
+h1: (50px, 60px, 0),
+event: (61px, 71px, 0));
+
+
+$font-values: (default: (400, normal),
+regular: (400, normal),
+normal: (400, normal),
+semibold: (600, normal),
+bold: (700, normal));
+
+// Don't use this in components, use typo()
+@mixin _font($font: text, $name: default) {
+    @if map-has-key($font-values, $name) {
+        font-weight: nth(map-get($font-values, $name), 1);
+        font-style: nth(map-get($font-values, $name), 2);
+    }
+
+    @if $font==title {
+        font-family: $titles;
+    }
+
+    @else {
+        font-family: $long-texts;
+    }
+}
+
+
+@import './grids.scss';
+
+// Don't use this in components, use typo()
+@mixin _text($name: default) {
+    @if (map-has-key($text-sizes-M, $name)) {
+
+        // "mobile"
+        @media (max-width: ($breakpoint-S - 1)) {
+            font-size: nth(map-get($text-sizes-S, $name), 1);
+            line-height: nth(map-get($text-sizes-S, $name), 2);
+        }
+
+        // "tablet"
+        @media (min-width: $breakpoint-S) and (max-width: $breakpoint-M) {
+            font-size: nth(map-get($text-sizes-M, $name), 1);
+            line-height: nth(map-get($text-sizes-M, $name), 2);
+        }
+
+        // "desktop"
+        @media (min-width: $breakpoint-M) {
+            font-size: nth(map-get($text-sizes-L, $name), 1);
+            line-height: nth(map-get($text-sizes-L, $name), 2);
+        }
+
+        letter-spacing: nth(map-get($text-sizes-M, $name), 3);
+    }
+
+    @else {
+
+        // "mobile"
+        @media (max-width: ($breakpoint-S - 1)) {
+            font-size: nth(map-get($text-sizes-S, default), 1);
+            line-height: nth(map-get($text-sizes-S, default), 2);
+        }
+
+        // "tablet"
+        @media (min-width: $breakpoint-S) and (max-width: $breakpoint-M) {
+            font-size: nth(map-get($text-sizes-M, default), 1);
+            line-height: nth(map-get($text-sizes-M, default), 2);
+        }
+
+        // "desktop"
+        @media (min-width: $breakpoint-M) {
+            font-size: nth(map-get($text-sizes-L, default), 1);
+            line-height: nth(map-get($text-sizes-L, default), 2);
+        }
+
+        letter-spacing: nth(map-get($text-sizes-M, default), 3)+px;
+    }
+
+}
+
+@mixin typo($name: primary, $text: default, $style: default) {
+    @include _font($name, $style);
+    @include _text($text);
+}
