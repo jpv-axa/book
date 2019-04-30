@@ -15,10 +15,10 @@ DONT PUBLISH IN `master`
 * To check if all modifications really are wanted, execute `npm run visual-diff` and go on the URL provided by percy.io
 * Commit and push `docs/*`.
 * Go on Github https://github.com/jpv-axa/book and do a Pull Request
-* re-execute `npm run visual-diff` to help the reviewer
+* re-execute `npm run visual-diff` to help the designer reviewer
 * Have it approved 
-* * by a pair programer for the code* and
-* * by a designer on the URL provided by percy
+  * by a pair programer for the code
+  * by a designer on the URL provided by percy
 
 Public demo : https://jpv-axa.github.io/book/storybook/
 
