@@ -10,7 +10,6 @@
 }
 
 .a-button {
-    @include typo(primary, medium, regular);
     position: relative;
     box-sizing: border-box;
     padding-left: 30px;
@@ -20,7 +19,6 @@
     overflow-wrap: break-word;
     word-wrap: break-word;
     text-decoration: none;
-    text-transform: uppercase;
     vertical-align: middle;
     color: var(--color-prim-white);
     background-color: var(--color-axa-blue);

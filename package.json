@@ -3,15 +3,17 @@
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
+  "output-dir": "docs/storybook",
   "scripts": {
     "storybook": "start-storybook -s . -c .storybook",
     "dg-dev": "start-storybook -s dg -c storybook_config -p 58044",
-    "dg-build": "build-storybook -s dg -c storybook_config -o docs/storybook",
-    "storybook-build": "build-storybook -c .storybook -o docs/storybook",
+    "dg-build": "build-storybook -s dg -c storybook_config -o $npm_package_output_dir",
+    "storybook-build": "build-storybook -c .storybook -o $npm_package_output_dir",
     "fractal": "fractal start --sync --watch",
     "fractal-build": "fractal build",
     "start": "$npm_package_scripts_dg_dev",
-    "build": "$npm_package_scripts_dg_build"
+    "build": "$npm_package_scripts_dg_build",
+    "visual-diff": "percy-storybook  --build_dir $npm_package_output_dir --widths=320,380,801,1100,1280,1400,1607,2000 --enable_javascript"
   },
   "author": "",
   "license": "ISC",
@@ -25,6 +27,7 @@
   "dependencies": {
     "@axa-ch/materials": "^1.0.0-alpha.3",
     "@axa-ch/patterns-library": "2.0.1-beta.264",
+    "@percy/storybook": "^3.0.2",
     "@pickra/copy-code-block": "^1.1.2",
     "@storybook/addon-a11y": "^5.0.10",
     "@storybook/addon-knobs": "^5.0.10",

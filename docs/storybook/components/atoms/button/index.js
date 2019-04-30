@@ -28,6 +28,7 @@ class AxaButton extends HTMLButtonElement {
         this.textContent = this.textContent || '! AxaButton !'
         this.classList.add('a-button')
         this.classList.add('a-button--motion')
+        this.classList.add('a-typo__button')
 
         /*if (this.getAttribute('data-icon')) {
             this.updateIcon()
