@@ -24,8 +24,6 @@
   "dependencies": {
     "@axa-ch/materials": "^1.0.0-alpha.3",
     "@axa-ch/patterns-library": "2.0.1-beta.264",
-    "@frctl/fractal": "^1.1.7",
-    "@frctl/mandelbrot": "^1.2.0",
     "@pickra/copy-code-block": "^1.1.2",
     "@storybook/addon-a11y": "^5.0.10",
     "@storybook/addon-knobs": "^5.0.10",

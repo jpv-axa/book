@@ -2,7 +2,7 @@ import {
     configure,
     addParameters
 } from '@storybook/html'
-import theme from '../.storybook/theme'
+import theme from './theme'
 // https://www.npmjs.com/package/@pickra/copy-code-block
 // import copyCodeBlock from '@pickra/copy-code-block'
 
