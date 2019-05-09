@@ -50,6 +50,33 @@ module.exports = async ({
             }
         ],
         include: path.resolve(__dirname, '../'),
+    },
+    {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loaders: ["babel-loader"],
+        include: path.resolve(__dirname, '../'),
+    },{
+        test: /\.css$/,
+        loaders: [{
+                loader: 'style-loader',
+                options: {
+                    sourceMap: true
+                }
+            },
+            {
+                loader: 'css-loader',
+                options: {
+                    sourceMap: true
+                }
+            },
+            {
+                loader: 'raw-loader',
+                options: {
+                    sourceMap: true
+                }
+            }
+        ]
     })
 
     // Return the altered config

@@ -7,11 +7,20 @@ import {
 } from '@storybook/addon-a11y';
 
 
+
 addDecorator(withA11y)
 */
+
+import  withCode  from '../../dgAddons/colorationAddon';
+
+const javascriptCode  = require('!raw-loader!../components/atoms/button/index.js');
+const style = require('!raw-loader!../components/atoms/button/index.scss');
+
 import '../components/atoms/button'
 storiesOf('Atoms — Buttons', module)
     // .add('<axa-button>', () => '<axa-button>Hello Button</axa-button>')
+    .addDecorator(withCode(javascriptCode, 'js'))
+    .addDecorator(withCode(style, 'scss'))
     .add('Bouton Nu', () => '<button is=axa-button></button>')
     .add('Bouton avec texte', () => '<button is=axa-button>Hello Button</button>')
     .add('Bouton avec icônes', () => `

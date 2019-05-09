@@ -21,11 +21,17 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/preset-env": "^7.1.5",
+    "@babel/preset-react": "^7.0.0",
     "@babel/core": "^7.4.0",
     "@storybook/addon-actions": "^5.0.10",
     "@storybook/addon-viewport": "^5.0.10",
     "@storybook/html": "^5.0.10",
-    "babel-loader": "^8.0.5"
+    "babel-loader": "^8.0.5",
+    "raw-loader": "^0.5.1",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2"
   },
   "dependencies": {
     "@axa-ch/materials": "^1.0.0-alpha.3",
@@ -44,6 +50,7 @@
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "uppercamelcase": "^3.0.0",
-    "webpack": "^4.30.0"
+    "webpack": "^4.30.0",
+    "prismjs": "^1.15.0"
   }
 }
