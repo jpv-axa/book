@@ -4,23 +4,27 @@
   color: #333;
 
   &__landing-title {
-    @include typo(title, event, bold);
-  }
-
-  &__page-title {
     @include typo(title, h1, bold);
   }
 
-  &__slice-title {
+  &__page-title {
     @include typo(title, h2, bold);
   }
 
-  &__module-title {
+  &__slice-title {
     @include typo(title, h3, bold);
   }
 
-  &__title {
+  &__module-title {
     @include typo(title, h4, bold);
+  }
+
+  &__card-title {
+    @include typo(title, h5, bold);
+  }
+
+  &__text-title {
+    @include typo(text, h6, bold);
   }
 
   &__highlight,
@@ -36,12 +40,13 @@
     @include typo(text, text, regular);
   }
 
-  &__secondary-text {
+  &__secondary-text,
+  &__link {
     @include typo(text, text-secondary, regular);
   }
 
   &__button,
-  &__link,
+  &__primary-link,
   &__tagline {
     @include typo(text, text-catchy, semibold);
     letter-spacing: 1px;
@@ -52,8 +57,4 @@
     @include typo(text, legals, regular);
   }
 
-  &__menu-item {
-    @include typo(text, text-catchy, semibold);
-    text-transform: uppercase;
-  }
 }
