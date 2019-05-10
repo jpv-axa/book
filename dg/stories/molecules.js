@@ -16,18 +16,52 @@ storiesOf('Molecules — Hero Cover', module)
         `)
     .add('Replace content ', () => `
         <axa-hero-cover 
-            data-category-title="data-category-title value" 
-            data-main-title="data-main-title value"
-            data-src="https://via.placeholder.com/1600x1200.png?text=Replace+with+data-src+attribute"
+            +category-title="+category-title value" 
+            +main-title="+main-title value"
+            +src="https://imgplaceholder.com/160x90?text=src+attribute&font-size=20"
             >
             <p slot=text-content>Place any content here with the attribute <code>slot=text-content</code>. Even <a href="/">links</a> or your custom styles are accepted, as long as they comply with the general guidelines</p>
+            <p slot=legal-content>Optional <code>slot=legal-content</code> content.</p>        
             <button is=axa-button slot=call-to-action class=a-button--secondary>Replaced by attribute <code>slot=call-to-action</code></button>
         </axa-hero-cover>
     `)
     .add('Invert direction and/or colors', () => `
         <axa-hero-cover 
-            data-direction=rtl
-            data-design=wob />
-            <p slot=text-content>The value of the attribute <code>data-direction</code> can be either <code>rtl</code> (Right To Left, like here) or <code>ltr</code> (default).<br>
-            The value of the attribute <code>data-design</code> can be either <code>wob</code> (White On Black, like here) or <code>bow</code> (default).</p>
-        `)
+            +main-title="Invert direction : rtl"
+            +direction=rtl>
+            <p slot=text-content>The value of the attribute <code>+direction</code> can be either <code>rtl</code> (Right To Left, like here) or <code>ltr</code> (default).<br>
+            The value of the attribute <code>+design</code> can be either <code>wob</code> (White On Black, like here) or <code>bow</code> (default).</p>
+        </axa-hero-cover>
+        <axa-hero-cover 
+            +main-title="Invert design : wob"
+            +design=wob>
+            <p slot=text-content>The value of the attribute <code>+direction</code> can be either <code>rtl</code> (Right To Left) or <code>ltr</code> (default).<br>
+            The value of the attribute <code>+design</code> can be either <code>wob</code> (White On Black, like here) or <code>bow</code> (default).</p>
+        </axa-hero-cover>
+        <axa-hero-cover 
+            +main-title="Invert both design (wob) and direction (rtl)"
+            +direction=rtl
+            +design=wob >
+            <p slot=text-content>The value of the attribute <code>+direction</code> can be either <code>rtl</code> (Right To Left, like here) or <code>ltr</code> (default).<br>
+            The value of the attribute <code>+design</code> can be either <code>wob</code> (White On Black, like here) or <code>bow</code> (default).</p>
+        </axa-hero-cover>
+    `)
+    .add('Two Call To Action', () => `
+    <axa-hero-cover 
+        +direction=rtl
+        +design=wob >
+        <p slot=text-content>You can add from 1 to 2 buttons in a <code>slot=call-to-action</code>.</p>
+        <div slot=call-to-action>
+            <button is=axa-button>Get a primary</button>
+            <button is=axa-button class=a-button--secondary--white>Get a secondary</button>
+        </div>
+    </axa-hero-cover>
+
+    <axa-hero-cover >
+        <p slot=text-content>You can add from 1 to 2 buttons in a <code>slot=call-to-action</code>.</p>
+        <div slot=call-to-action>
+            <button is=axa-button>Get a primary</button>
+            <button is=axa-button class=a-button--secondary>Get a secondary</code></button>
+        </div>
+    </axa-hero-cover>
+    `)
