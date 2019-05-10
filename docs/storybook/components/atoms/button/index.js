@@ -19,27 +19,12 @@ class AxaButton extends HTMLButtonElement {
 
     constructor() {
         super()
-        /*const dumbDiv = document.createElement('div')
-        const shadow = dumbDiv.attachShadow({
-            mode: 'open'
-        })
-*/
-        // console.log('cool')
+
         this.textContent = this.textContent || '! AxaButton !'
         this.classList.add('a-button')
-        this.classList.add('a-button--motion')
+        //this.classList.add('a-button--motion')
         this.classList.add('a-typo__button')
 
-        /*if (this.getAttribute('data-icon')) {
-            this.updateIcon()
-        }*/
-
-        // manage CSS
-        /*const style = document.createElement('style')
-        style.textContent = styles
-        shadow.appendChild(style)
-        dumbDiv.appendChild(shadow)
-        this.appendChild(dumbDiv)*/
     }
 
     updateIcon() {

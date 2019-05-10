@@ -2,18 +2,10 @@ import {
     storiesOf,
     addDecorator
 } from '@storybook/html'
-/*import {
-    withA11y
-} from '@storybook/addon-a11y';
 
+import withCode from '../../dgAddons/colorationAddon';
 
-
-addDecorator(withA11y)
-*/
-
-import  withCode  from '../../dgAddons/colorationAddon';
-
-const javascriptCode  = require('!raw-loader!../components/atoms/button/index.js');
+const javascriptCode = require('!raw-loader!../components/atoms/button/index.js');
 const style = require('!raw-loader!../components/atoms/button/index.scss');
 
 import '../components/atoms/button'
@@ -21,20 +13,26 @@ storiesOf('Atoms — Buttons', module)
     // .add('<axa-button>', () => '<axa-button>Hello Button</axa-button>')
     .addDecorator(withCode(javascriptCode, 'js'))
     .addDecorator(withCode(style, 'scss'))
-    .add('Bouton Nu', () => '<button is=axa-button></button>')
-    .add('Bouton avec texte', () => '<button is=axa-button>Hello Button</button>')
-    .add('Bouton avec icônes', () => `
-        <button is=axa-button data-icon=arrow-right></button>
-        <button is=axa-button data-icon=collapse></button>
-        <button is=axa-button data-icon=download></button>
-        <button is=axa-button data-icon=email></button>
-        <button is=axa-button data-icon=expand></button>
-        <button is=axa-button data-icon=phone></button>
-        <button is=axa-button data-icon=plus></button>
-        <button is=axa-button data-icon=search></button>
-        <button is=axa-button data-icon=upload></button>
-        `)
-    .add('large buttons', () => '<button is=axa-button class=a-button--large></button>')
+    .add('Default options', () => `<button is=axa-button>Primary button</button>
+    <button is=axa-button class=a-button--secondary>Secondary Blue</button>
+    <button is=axa-button disabled>Disabled Primary button</button>
+    <button is=axa-button class=a-button--secondary disabled>Disabled Secondary Blue</button>
+    <p style="background:#333333;padding:1em">
+        <button is=axa-button class="a-button--secondary--white">Secondary White</button>
+        <button is=axa-button class="a-button--secondary--white" disabled>Disabled Secondary White</button>
+    </p>`)
+    .add('Change inner text', () => '<button is=axa-button>Hello Button</button>')
+/*.add('Change icons', () => `
+    <button is=axa-button data-icon=arrow-right></button>
+    <button is=axa-button data-icon=collapse></button>
+    <button is=axa-button data-icon=download></button>
+    <button is=axa-button data-icon=email></button>
+    <button is=axa-button data-icon=expand></button>
+    <button is=axa-button data-icon=phone></button>
+    <button is=axa-button data-icon=plus></button>
+    <button is=axa-button data-icon=search></button>
+    <button is=axa-button data-icon=upload></button>
+    `)*/
 
 import '../components/atoms/logo'
 storiesOf('Atoms — Logo', module)

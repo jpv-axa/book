@@ -1,7 +1,15 @@
 // https://design.axa.com/web-guidelines/structure#grids
 
 // Breakpoints
-$breakpoint-S: 768px;
-$breakpoint-M: 992px;
-$breakpoint-L: 1200px;
+$breakpoint-S: 48rem; // 768px;
+$breakpoint-M: 62rem; // 992px;
+$breakpoint-L: 75rem; // 1200px;
 // $breakpoint-XL: 1440px;
+
+// tuples of 8 px expressed as rem. rem is most of the time 16px
+$spacing-1: 0.5rem;
+$spacing-2: 1rem;
+$spacing-3: 1.5rem;
+$spacing-4: 2rem;
+$spacing-5: 2.5rem;
+$spacing-6: 3rem;
