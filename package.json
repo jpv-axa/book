@@ -16,7 +16,7 @@
     "fractal-build": "fractal build",
     "start": "npm run dg-dev",
     "build": "npm run dg-build && open $npm_package_config_output/index.html",
-    "visual-diff": "percy-storybook  --build_dir $npm_package_config_output --widths=320,380,801,1100,1280,1400,1607,2000 --enable_javascript"
+    "visual-diff": "percy-storybook  --build_dir $npm_package_config_output --widths=320,400,600,800,1100,1300,1600 --enable_javascript"
   },
   "author": "",
   "license": "ISC",
