@@ -4,14 +4,14 @@ import styles from './index.scss'
 
 class AxaButton extends HTMLButtonElement {
     static get observedAttributes() {
-        return ['data-icon']
+        return ['+icon']
     }
     attributeChangedCallback(attr, old, value) {
         //console.log('cool', old, value)
         if (old === value)
             return
         switch (attr) {
-            case 'data-icon':
+            case '+icon':
                 this.updateIcon()
                 break
         }
@@ -28,7 +28,7 @@ class AxaButton extends HTMLButtonElement {
     }
 
     updateIcon() {
-        let name = upperCamelCase(this.getAttribute('data-icon')) + 'Svg'
+        let name = upperCamelCase(this.getAttribute('+icon')) + 'Svg'
         const icon = document.createElement('svg')
         icon.classList.add('a-button__icon')
         //icon.src = 'data:image/svg+xml;charset=UTF-8,' + icons[name]
