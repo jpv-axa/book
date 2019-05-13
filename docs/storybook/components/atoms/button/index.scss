@@ -23,9 +23,10 @@
     color: var(--color-prim-white);
     background-color: var(--color-axa-blue);
     border-width: 0;
+    border-style: solid;
     height: $spacing-6;
-    //border: solid 2px var(--color-axa-blue);
-    //border-bottom-color: var(--color-prim-blue-deep-sapphire);
+    border-bottom: solid 2px var(--color-prim-blue-deep-sapphire);
+    vertical-align: middle;
 }
 
 // separate buttons next to each other
@@ -58,23 +59,11 @@
     &--secondary--white:hover,
     &--secondary--white:active,
     &--secondary--white:focus {
-        //border-width: 0;
+        //border-image: none;
         background-color: var(--color-prim-white);
         color: var(--color-axa-blue);
         border-color: var(--color-prim-white);
     }
-
-    /*&--inverted&--motion {
-        background-color: transparent;
-    }
-
-    &--inverted&--motion::after {
-        background-color: var(--color-prim-white);
-    }*/
-
-    /*&--secondary&--motion {
-        background-color: transparent;
-    }*/
 }
 
 [is=axa-button]:hover,
@@ -86,14 +75,25 @@
     border-color: var(--color-prim-blue-deep-sapphire);
 }
 
+[is=axa-button]:focus {
+    // accessibility : let the color be seen on focus, supposed with tabulation
+    outline-color: invert;
+}
+
+[is=axa-button]:hover,
+[is=axa-button]:active {
+    outline: 0;
+}
+
+//outline: 2px solid var(--color-prim-blue-deep-sapphire);
+
 [is=axa-button]:disabled {
-    color: var(--color-prim-white); // #999;
-    background-color: #e5e5e5;
-    border-color: #e5e5e5;
-    border-bottom-color: #ccc;
+    color: var(--color-silver);
+    background-color: var(--color-mercury);
+    border-color: var(--color-mercury);
     pointer-events: none;
     border-width: 0;
-    border-bottom-width: 2px;
+    border-bottom: solid 2px var(--color-silver);
 }
 
 .a-button__icon {
@@ -139,30 +139,30 @@
     background-color: var(--color-prim-blue-deep-sapphire);
 }
 
-.a-button--red {
-    background-color: var(--color-prim-red-burnt-sienna);
-    border-color: var(--color-prim-red-burnt-sienna);
-    border-bottom-color: var(--color-prim-red-flamingo);
-}
+// .a-button--red {
+//     background-color: var(--color-prim-red-burnt-sienna);
+//     border-color: var(--color-prim-red-burnt-sienna);
+//     border-bottom-color: var(--color-prim-red-flamingo);
+// }
 
-.a-button--red:hover,
-.a-button--red:active,
-.a-button--red:focus {
-    background-color: var(--color-prim-red-flamingo);
-    border-color: var(--color-prim-red-flamingo);
-}
+// .a-button--red:hover,
+// .a-button--red:active,
+// .a-button--red:focus {
+//     background-color: var(--color-prim-red-flamingo);
+//     border-color: var(--color-prim-red-flamingo);
+// }
 
 
-.a-button--red .a-button--motion::after {
-    background-color: var(--color-prim-red-flamingo);
-}
+// .a-button--red .a-button--motion::after {
+//     background-color: var(--color-prim-red-flamingo);
+// }
 
-.a-button--red .a-button--motion:hover,
-.a-button--red .a-button--motion:focus {
-    background-color: var(--color-prim-red-burnt-sienna);
-    color: var(--color-prim-white);
-}
+// .a-button--red .a-button--motion:hover,
+// .a-button--red .a-button--motion:focus {
+//     background-color: var(--color-prim-red-burnt-sienna);
+//     color: var(--color-prim-white);
+// }
 
-.a-button--red .a-button--motion::after {
-    background-color: var(--color-prim-red-flamingo);
-}
+// .a-button--red .a-button--motion::after {
+//     background-color: var(--color-prim-red-flamingo);
+// }

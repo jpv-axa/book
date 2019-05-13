@@ -3,28 +3,28 @@
 .a-typo {
   color: #333;
 
-  &__landing-title {
-    @include typo(title, h1, bold);
+  &__event-title {
+    @include typo(title, event, bold);
   }
 
   &__page-title {
-    @include typo(title, h2, bold);
+    @include typo(title, h1, bold);
   }
 
   &__slice-title {
-    @include typo(title, h3, bold);
+    @include typo(title, h2, bold);
   }
 
   &__module-title {
-    @include typo(title, h4, bold);
+    @include typo(title, h3, bold);
   }
 
   &__card-title {
-    @include typo(title, h5, bold);
+    @include typo(title, h4, bold);
   }
 
   &__text-title {
-    @include typo(text, h6, bold);
+    @include typo(text, h5, bold);
   }
 
   &__highlight,
