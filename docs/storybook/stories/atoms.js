@@ -40,18 +40,28 @@ storiesOf('Atoms — Logo', module)
 import '../components/atoms/typography'
 storiesOf('Typography')
     .add('Titles', () => `
-        <h1 class="a-typo__landing-title">Landing Title - H1 — <code>.a-typo__landing-title</code></h1>
-        <h1 class="a-typo__page-title">Brand Page Title - H2 — <code>a-typo__page-title</code></h1>
-        <h2 class="a-typo__slice-title">Brand Slice Title - H3 — <code>a-typo__slice-title</code></h2>
-        <h3 class="a-typo__module-title">Brand Module Title - H4 — <code>a-typo__module-title</code></h3>
-        <h4 class="a-typo__card-title">Card Title - H5 — <code>a-typo__card-title</code></h4>
-        <h4 class="a-typo__text-title">Text Title - H6 — <code>a-typo__text-title</code></h4>
+        <h1 class="a-typo__event-title" title=".a-typo__event-title">Event Title</h1>
+        <h1 class="a-typo__page-title" title=".a-typo__page-title">Page Title - H1</h1>
+        <h2 class="a-typo__slice-title" title=".a-typo__slice-title">Slice Title - H2</h2>
+        <h3 class="a-typo__module-title" title=".a-typo__module-title">Module Title - H3</h3>
+        <h4 class="a-typo__card-title" title=".a-typo__card-title">Card Title - H4</h4>
+        <h4 class="a-typo__text-title" title=".a-typo__text-title">Text Title - H5</h4>
     `)
     .add('Texts', () => `
-        <p><quote class="a-typo__highlight">Highlight / Quote — <code>a-typo__highlight</code> | <code>a-typo__quote</code></quote>
-        <p><label class="a-typo__label">Label — <code>a-typo__label</code></label>
-        <p><span class="a-typo__text">Standard Text — <code>a-typo__text</code></label></span>
-        <p><span class="a-typo__secondary-text">Secondary Text / Link — <code>a-typo__secondary-text</code></label> | <code>a-typo__link</code></span>
-        <p><span class="a-typo__tagline">Button / Primary Link / Tagline — <code>a-typo__tagline</code> | <code>a-typo__primary-link</code> | <code>a-typo__button</code></label></span>
-        <p><span class="a-typo__legals">Legals — <code>a-typo__legals</code></span>
+        <p><quote class="a-typo__highlight" title=".a-typo__highlight | .a-typo__quote">Highlight / Quote</quote></p>
+        <p><label class="a-typo__label" title=".a-typo__label">Label</label></p>
+        <p class="a-typo__text" title=".a-typo__text">Standard Text</span>
+        <p><span class="a-typo__secondary-text" title=".a-typo__secondary-text | .a-typo__link">Secondary Text / Link</span></p>
+        <p>
+            <span class=a-typo__button title=.a-typo__button>Button</span> / 
+            <span class=a-typo__primary-link title=.a-typo__primary-link>Primary Link</span> / 
+            <span class=a-typo__tagline title=.a-typo__tagline>Tagline / 
+            <span class=a-typo__menu-item title=.a-typo__menu-item>Menu Item</span>
+        </p>
+        <p><span class="a-typo__legals" title=".a-typo__legals">Legals</span></p>
     `)
+    .add('Long text demos', () => `
+        <h1 class=a-typo__page-title>Unser Tipp für Ihre Mopedversicherung</h1>
+        <p class=a-typo__text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+
+`)
