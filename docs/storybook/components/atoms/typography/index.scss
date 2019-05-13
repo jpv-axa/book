@@ -1,8 +1,6 @@
 @import "../../materials/typography.scss";
 
 .a-typo {
-  color: #333;
-
   &__event-title {
     @include typo(title, event, bold);
   }

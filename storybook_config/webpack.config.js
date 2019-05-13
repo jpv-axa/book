@@ -32,7 +32,8 @@ module.exports = async ({
                 options: {
                     sourceMap: true
                 }
-            }, {
+            },
+            {
                 loader: 'resolve-url-loader', // rewrite correctly the url() found by sass
                 options: {
                     //debug: true,
@@ -50,13 +51,12 @@ module.exports = async ({
             }
         ],
         include: path.resolve(__dirname, '../'),
-    },
-    {
+    }, {
         test: /\.js$/,
         exclude: /node_modules/,
         loaders: ["babel-loader"],
         include: path.resolve(__dirname, '../'),
-    },{
+    }, {
         test: /\.css$/,
         loaders: [{
                 loader: 'style-loader',
@@ -75,8 +75,15 @@ module.exports = async ({
                 options: {
                     sourceMap: true
                 }
-            }
+            },
+
         ]
+    }, {
+        test: /\.(woff2?)$/,
+        use: [{
+            loader: 'file-loader',
+            options: {},
+        }, ],
     })
 
     // Return the altered config

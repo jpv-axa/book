@@ -35,6 +35,8 @@
 }
 
 [is=axa-button].a-button {
+    color: var(--color-prim-white);
+
     &--secondary {
         background-color: transparent;
         border-width: 2px;
