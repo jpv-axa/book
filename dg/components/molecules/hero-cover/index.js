@@ -21,7 +21,7 @@ customElements.define('axa-hero-cover', class HeroCover extends HTMLElement {
         }
 
         let content = this.querySelector('[slot=text-content]')
-        if (!content) content = '&nbsp;'
+        if (!content) content = ''
         else content = content.innerHTML
 
         let legalContent = this.querySelector('[slot=legal-content]')
@@ -37,7 +37,7 @@ customElements.define('axa-hero-cover', class HeroCover extends HTMLElement {
                 <div class=m-hero-cover__content>
                     <h5 class=a-typo__tagline>${this.getAttribute('+category-title') || 'Category title'}</h5>
                     <h2 class=a-typo__page-title>${this.getAttribute('+main-title') || 'Main Title'}</h2>
-                    <p class="a-typo__text">${content}</p>
+                    ${content ? `<p class="a-typo__text">${content}</p>`:''}
                     ${legalContent ? `<p class="a-typo__legals">${legalContent.innerHTML}</p>`:''}
                     <slot name=call-to-action />
                 </div>
