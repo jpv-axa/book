@@ -17,6 +17,8 @@
     //max-width: $breakpoint-MAX;
     height: (100/16*9)+vw; // conserve 16/9 aspect ratio
 
+    //border: 1px solid red;
+
     // max-height follow max-width
     @media (min-width: $breakpoint-MAX) {
         width: $breakpoint-MAX;
@@ -25,28 +27,38 @@
 
     &__text-background {
         padding: (1/12*100%); // 1 of the 12 grids is for padding
-        width: 60%;
+        width: (7/12*100%);
+
 
         box-sizing: border-box;
         height: 100%;
 
         &--rtl {
-            background: linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.12) 17%, rgba(255, 255, 255, 0.25) 37%, rgba(255, 255, 255, 0.5) 57%, rgba(255, 255, 255, 0.75) 76%, rgba(255, 255, 255, 0.88) 90%, #ffffff);
+            background: linear-gradient(to right, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, .75) 35%, 65%, rgba(255, 255, 255, 0.80) 100%);
+
             right: 0;
             position: absolute;
 
             &--wob {
-                background: linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.12) 17%, rgba(0, 0, 0, 0.25) 37%, rgba(0, 0, 0, 0.5) 57%, rgba(0, 0, 0, 0.75) 76%, rgba(0, 0, 0, 0.88) 90%, #000000);
-                color: white;
+                //background: linear-gradient(to right, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, .75) 25%, 50%, #000000 100%);
+                background: linear-gradient(to right, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0.75) 35%, 65%, rgba(0, 0, 0, 0.80) 100%);
+
+                * {
+                    color: white;
+                }
             }
         }
 
         &--ltr {
-            background: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.12) 17%, rgba(255, 255, 255, 0.25) 37%, rgba(255, 255, 255, 0.5) 57%, rgba(255, 255, 255, 0.75) 76%, rgba(255, 255, 255, 0.88) 90%, #ffffff);
+            //background: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.12) 17%, rgba(255, 255, 255, 0.25) 37%, rgba(255, 255, 255, 0.5) 57%, rgba(255, 255, 255, 0.75) 76%, rgba(255, 255, 255, 0.88) 90%, #ffffff);
+            background: linear-gradient(to left, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, .75) 35%, 65%, rgba(255, 255, 255, 0.80) 100%);
 
             &--wob {
-                background: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.12) 17%, rgba(0, 0, 0, 0.25) 37%, rgba(0, 0, 0, 0.5) 57%, rgba(0, 0, 0, 0.75) 76%, rgba(0, 0, 0, 0.88) 90%, #000000);
-                color: white;
+                background: linear-gradient(to left, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0.75) 35%, 65%, rgba(0, 0, 0, 0.80) 100%);
+
+                * {
+                    color: white;
+                }
             }
         }
     }
@@ -58,9 +70,6 @@
         transform: translateY(-50%);
     }
 
-    /*.a-typo__tagline {
-        margin-bottom: $spacing-1;
-    }*/
     // set space between main title and category title, if there is one
     .a-typo__tagline+.a-typo__page-title {
         margin-top: $spacing-2;
@@ -74,8 +83,10 @@
         margin-top: $spacing-1;
     }
 
-    .a-typo__legals+slot,
-    .a-typo__text+slot {
+    // slot
+    .a-typo__legals+[name=call-to-action],
+    .a-typo__text+[name=call-to-action],
+    .a-typo__page-title+[name=call-to-action] {
         margin-top: $spacing-4;
         display: inline-block;
     }
