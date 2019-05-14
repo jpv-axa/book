@@ -73,7 +73,7 @@
 [is=axa-button]:focus {
     cursor: pointer;
     text-decoration: none;
-    background-color: var(--color-prim-blue-deep-sapphire);
+    // background-color: var(--color-prim-blue-deep-sapphire);
     border-color: var(--color-prim-blue-deep-sapphire);
 }
 
@@ -103,42 +103,45 @@
 }
 
 .a-button--motion {
+    $button__motion-duration: 0.3s;
+    $button__motion-easing: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
     z-index: 0;
     overflow: hidden;
 
-    transition: color var(--button__motion-duration) var(--button__motion-easing) 0s;
-}
+    transition: color $button__motion-duration $button__motion-easing 0s;
 
-.a-button--motion::after {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    &::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
 
-    z-index: -1;
+        z-index: -1;
 
-    display: block;
+        display: block;
 
-    /*// fix iOS double tap for :hover
-    // zero width is considered hidden*/
-    width: 0.001px;
-    height: 550px;
-    content: '';
+        // fix iOS double tap for :hover
+        // zero width is considered hidden
+        width: 0.001px;
+        height: 550px;
+        content: '';
 
-    transform: translateX(-50%) translateY(-50%) rotate(45deg);
-    transition: width var(--button__motion-duration) var(--button__motion-easing) 0s;
+        transform: translateX(-50%) translateY(-50%) rotate(45deg);
+        transition: width $button__motion-duration $button__motion-easing 0s;
 
-    background-color: var(--color-prim-blue-deep-sapphire);
-}
+        background-color: var(--color-prim-blue-deep-sapphire);
+    }
 
-.a-button--motion:hover,
-.a-button--motion:focus {
-    background-color: var(--color-axa-blue);
-    color: var(--color-prim-white);
-}
+    &:hover,
+    &:focus {
+        background-color: var(--color-axa-blue);
+        color: var(--color-prim-white);
 
-.a-button--motion::after {
-    width: 110%;
-    background-color: var(--color-prim-blue-deep-sapphire);
+        &::after {
+            width: 110%;
+            background-color: var(--color-prim-blue-deep-sapphire);
+        }
+    }
 }
 
 // .a-button--red {
