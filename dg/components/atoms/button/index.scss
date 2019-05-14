@@ -20,12 +20,12 @@
     overflow-wrap: break-word;
     word-wrap: break-word;
     text-decoration: none;
-    color: var(--color-prim-white);
+    color: var(--color-white);
     background-color: var(--color-axa-blue);
     border-width: 0;
     border-style: solid;
     height: $spacing-6;
-    border-bottom: solid 2px var(--color-prim-blue-deep-sapphire);
+    border-bottom: solid 2px var(--color-deep-sapphire);
     vertical-align: middle;
 }
 
@@ -35,7 +35,7 @@
 }
 
 [is=axa-button].a-button {
-    color: var(--color-prim-white);
+    color: var(--color-white);
 
     &--secondary {
         background-color: transparent;
@@ -47,24 +47,24 @@
     &--secondary:hover,
     &--secondary:active,
     &--secondary:focus {
-        color: var(--color-prim-white);
+        color: var(--color-white);
     }
 
 
     &--secondary--white {
         border-width: 2px;
         background-color: transparent;
-        border-color: var(--color-prim-white);
-        color: var(--color-prim-white);
+        border-color: var(--color-white);
+        color: var(--color-white);
     }
 
     &--secondary--white:hover,
     &--secondary--white:active,
     &--secondary--white:focus {
         //border-image: none;
-        background-color: var(--color-prim-white);
+        background-color: var(--color-white);
         color: var(--color-axa-blue);
-        border-color: var(--color-prim-white);
+        border-color: var(--color-white);
     }
 }
 
@@ -73,8 +73,8 @@
 [is=axa-button]:focus {
     cursor: pointer;
     text-decoration: none;
-    // background-color: var(--color-prim-blue-deep-sapphire);
-    border-color: var(--color-prim-blue-deep-sapphire);
+    // background-color: var(--color-deep-sapphire);
+    border-color: var(--color-deep-sapphire);
 }
 
 [is=axa-button]:focus {
@@ -87,7 +87,7 @@
     outline: 0;
 }
 
-//outline: 2px solid var(--color-prim-blue-deep-sapphire);
+//outline: 2px solid var(--color-deep-sapphire);
 
 [is=axa-button]:disabled {
     color: var(--color-silver);
@@ -129,17 +129,17 @@
         transform: translateX(-50%) translateY(-50%) rotate(45deg);
         transition: width $button__motion-duration $button__motion-easing 0s;
 
-        background-color: var(--color-prim-blue-deep-sapphire);
+        background-color: var(--color-deep-sapphire);
     }
 
     &:hover,
     &:focus {
         background-color: var(--color-axa-blue);
-        color: var(--color-prim-white);
+        color: var(--color-white);
 
         &::after {
             width: 110%;
-            background-color: var(--color-prim-blue-deep-sapphire);
+            background-color: var(--color-deep-sapphire);
         }
     }
 }
@@ -165,7 +165,7 @@
 // .a-button--red .a-button--motion:hover,
 // .a-button--red .a-button--motion:focus {
 //     background-color: var(--color-prim-red-burnt-sienna);
-//     color: var(--color-prim-white);
+//     color: var(--color-white);
 // }
 
 // .a-button--red .a-button--motion::after {
