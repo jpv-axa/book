@@ -13,14 +13,13 @@ storiesOf('Atoms — Buttons', module)
     // .add('<axa-button>', () => '<axa-button>Hello Button</axa-button>')
     .addDecorator(withCode(javascriptCode, 'js'))
     .addDecorator(withCode(style, 'scss'))
-    .add('Default options', () => `<button is=axa-button>Primary button</button><button is=axa-button class=a-button--secondary>Secondary Blue</button>
+    .add('All variations', () => `<button is=axa-button>Primary button</button><button is=axa-button class=a-button--secondary>Secondary Blue</button>
     <button is=axa-button disabled>Disabled Primary button</button>
     <button is=axa-button class=a-button--secondary disabled>Disabled Secondary Blue</button>
     <p style="background:#333333;padding:1em">
         <button is=axa-button class="a-button--secondary--white">Secondary White</button>
         <button is=axa-button class="a-button--secondary--white" disabled>Disabled Secondary White</button>
     </p>`)
-    .add('Change inner text', () => '<button is=axa-button>Hello Button</button>')
 /*.add('Change icons', () => `
     <button is=axa-button +icon=arrow-right></button>
     <button is=axa-button +icon=collapse></button>
