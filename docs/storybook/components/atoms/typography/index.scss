@@ -55,4 +55,28 @@
     @include typo(text, legals, regular);
   }
 
+  &__spacing-top__1 {
+    margin-top: $spacing-1;
+  }
+
+  &__relative-spacing-top__1 {
+    margin-top: .5em;
+  }
+
+  &__spacing-top__2 {
+    margin-top: $spacing-2;
+  }
+
+  &__relative-spacing-top__2 {
+    margin-top: 1em;
+  }
+
+  &__spacing-top__3 {
+    margin-top: $spacing-3;
+  }
+
+  &__spacing-top__4 {
+    margin-top: $spacing-4;
+  }
+
 }
