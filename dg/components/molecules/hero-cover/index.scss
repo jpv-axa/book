@@ -82,7 +82,7 @@
         margin-top: $spacing-2;
     }
 
-    // slot
+    // spacing betwee slot CTA and the rest
     .a-typo__legals+[name=call-to-action],
     .a-typo__highlight+[name=call-to-action],
     .a-typo__page-title+[name=call-to-action] {
