@@ -20,7 +20,7 @@ class AxaButton extends HTMLButtonElement {
     constructor() {
         super()
 
-        this.textContent = this.textContent || '! AxaButton !'
+        this.textContent = this.textContent || 'See more'
         this.classList.add('a-button')
         this.classList.add('a-button--motion')
         this.classList.add('a-typo__button')
