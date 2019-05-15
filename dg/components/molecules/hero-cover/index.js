@@ -30,10 +30,10 @@ customElements.define('axa-hero-cover', class HeroCover extends HTMLElement {
 
         // only 2 options allowed
         let direction = this.getAttribute('+direction') === 'rtl' ? 'rtl' : 'ltr'
-        let design = this.getAttribute('+design') === 'wob' ? 'wob' : 'bow'
+        this.design = this.getAttribute('+design') === 'wob' ? 'wob' : 'bow'
 
         this.innerHTML = `
-            <div class="m-hero-cover__text-background m-hero-cover__text-background--${direction} m-hero-cover__text-background--${direction}--${design}">
+            <div class="m-hero-cover__text-background m-hero-cover__text-background--${direction} m-hero-cover__text-background--${direction}--${this.design}">
                 <div class=m-hero-cover__content>
                     <h5 class=a-typo__tagline>${this.getAttribute('+tagline-title') || 'Tagline title'}</h5>
                     <h2 class=a-typo__page-title>${this.getAttribute('+main-title') || 'Main Title'}</h2>
@@ -46,5 +46,25 @@ customElements.define('axa-hero-cover', class HeroCover extends HTMLElement {
             `
 
         this.querySelector('slot[name=call-to-action]').appendChild(cta)
+        this.convertButtons()
+    }
+
+    // look for white buttons misused, and convert them to regular secondary
+    convertButtons() {
+        // if on the small design, or on the large design + white background
+        // replace white buttons by blue ones
+        //console.log(window.matchMedia('(max-width: 64rem)'))
+        if (window.matchMedia('(max-width: 64rem)') ||
+            (window.matchMedia('(min-width: 64rem)') && this.design === 'bow'))
+            this.querySelectorAll('.a-button--secondary--white').forEach(e => {
+                //console.log('e')
+                e.classList.replace('a-button--secondary--white', 'a-button--secondary')
+            })
+        if ((window.matchMedia('(min-width: 64rem)') && this.design === 'wob'))
+            // if on large design + blue background, replace secondary blue by white buttons
+            this.querySelectorAll('.a-button--secondary').forEach(e => {
+                //console.log('e')
+                e.classList.replace('a-button--secondary', 'a-button--secondary--white')
+            })
     }
 })
