@@ -75,7 +75,7 @@
     @media (max-width: $breakpoint-M) {
         background-size: contain;
         background-position: top;
-        background-repeat-y: no-repeat;
+        background-repeat: no-repeat;
 
         background-color: var(--color-alabaster);
 
