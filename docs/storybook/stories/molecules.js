@@ -32,7 +32,7 @@ storiesOf('Molecules — Hero Cover', module)
             >
             <p slot=text-content>Enjoy easy access to AXA's 24/7 emergency and claims helpline plus Accident Forgiveness as a part of your policy. With Accident Forgiveness you won’t lose your No Claims Discount just for having one accident.</p>
             <p slot=legal-content>Terms and conditions apply. Accident Forgiveness is a step back, so you won’t lose your full No Claims Discount if you have an accident. For customers with one or more years of No Claims Discount. Max 2 claims with full NCD.</p>        
-            <button is=axa-button slot=call-to-action class=a-button--secondary>Replaced by attribute <code>slot=call-to-action</code></button>
+            <button is=axa-button slot=call-to-action class=a-button--secondary>Get a Car Insurance Quote</button>
         </axa-hero-cover>
     `)
     .add('Invert direction and/or colors', () => `
