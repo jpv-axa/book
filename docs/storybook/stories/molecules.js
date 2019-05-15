@@ -70,7 +70,7 @@ storiesOf('Molecules — Hero Cover', module)
             <p slot=legal-content>*Technically you can add anything but as a design system we dont recommend nor support anything else.</p>
             <div slot=call-to-action>
                 <button is=axa-button>Get a primary</button>
-                <button is=axa-button class=a-button--secondary--white>Get a secondary white</button>
+                <button is=axa-button class=a-button--secondary>Get a secondary white</button>
             </div>
         </axa-hero-cover>
 
