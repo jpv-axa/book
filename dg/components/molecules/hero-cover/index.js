@@ -49,21 +49,19 @@ customElements.define('axa-hero-cover', class HeroCover extends HTMLElement {
         this.convertButtons()
     }
 
-    // look for white buttons misused, and convert them to regular secondary
+    // look for secondary buttons misused, and convert them if needed
     convertButtons() {
         // if on the small design, or on the large design + white background
         // replace white buttons by blue ones
-        //console.log(window.matchMedia('(max-width: 64rem)'))
-        if (window.matchMedia('(max-width: 64rem)') ||
-            (window.matchMedia('(min-width: 64rem)') && this.design === 'bow'))
+        if (window.matchMedia('(max-width: 64rem)').matches ||
+            (window.matchMedia('(min-width: 64rem)').matches && this.design === 'bow'))
             this.querySelectorAll('.a-button--secondary--white').forEach(e => {
-                //console.log('e')
                 e.classList.replace('a-button--secondary--white', 'a-button--secondary')
             })
-        if ((window.matchMedia('(min-width: 64rem)') && this.design === 'wob'))
-            // if on large design + blue background, replace secondary blue by white buttons
+
+        // if on large design + blue background, replace secondary blue by white buttons
+        if (window.matchMedia('(min-width: 64rem)').matches && this.design === 'wob')
             this.querySelectorAll('.a-button--secondary').forEach(e => {
-                //console.log('e')
                 e.classList.replace('a-button--secondary', 'a-button--secondary--white')
             })
     }
