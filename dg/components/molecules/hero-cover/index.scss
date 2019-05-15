@@ -110,7 +110,20 @@
     .a-typo__legals+[name=call-to-action],
     .a-typo__highlight+[name=call-to-action],
     .a-typo__page-title+[name=call-to-action] {
-        margin-top: $spacing-4;
+        margin-top: $spacing-2;
         display: inline-block;
     }
+
+    // manage the margins and alignments between the call to actions, when there is more than one
+    [is=axa-button] {
+        margin-top: $spacing-2;
+        margin-right: $spacing-2;
+        margin-left: 0;
+        vertical-align: bottom;
+    }
+
+    [is=axa-button]:last-child {
+        margin-right: 0;
+    }
+
 }
