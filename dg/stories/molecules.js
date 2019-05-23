@@ -60,6 +60,12 @@ storiesOf('Molecules — Hero Cover', module)
             <p slot=text-content>The value of the attribute <code>+direction</code> can be either <code>rtl</code> (Right To Left, like here) or <code>ltr</code> (default).<br>
             The value of the attribute <code>+design</code> can be either <code>wob</code> (White On Black, like here) or <code>bow</code> (default).</p>
         </axa-hero-cover>
+
+        <axa-hero-cover 
+            +main-title="All default values (ltr / bow)"
+            +src="https://www.axa.co.uk/globalassets/new-website/home/home-hero-8.jpg" >
+            <p slot=text-content>The values <code>+design</code> and <code>+direction</code> are left to default.</p>
+        </axa-hero-cover>
     `)
     .add('Two Calls To Action', () => `
         <axa-hero-cover 
