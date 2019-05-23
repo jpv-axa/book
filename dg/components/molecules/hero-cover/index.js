@@ -15,9 +15,6 @@ customElements.define('axa-hero-cover', class HeroCover extends HTMLElement {
         let cta = this.querySelector('[slot=call-to-action]')
         if (!cta) {
             cta = new AxaButton()
-            cta.setAttribute('is', 'axa-button')
-            cta.textContent = 'Read More'
-            // cta.setAttribute('+icon', 'arrow-right')
         }
 
         let content = this.querySelector('[slot=text-content]')

@@ -13,23 +13,23 @@ storiesOf('Atoms — Buttons', module)
     // .add('<axa-button>', () => '<axa-button>Hello Button</axa-button>')
     .addDecorator(withCode(javascriptCode, 'js'))
     .addDecorator(withCode(style, 'scss'))
-    .add('All variations', () => `<button is=axa-button>Primary button</button><button is=axa-button class=a-button--secondary>Secondary Blue</button>
-    <button is=axa-button disabled>Disabled Primary button</button>
-    <button is=axa-button class=a-button--secondary disabled>Disabled Secondary Blue</button>
+    .add('All variations', () => `<axa-button>Primary button</axa-button><axa-button class=a-button--secondary>Secondary Blue</axa-button>
+    <axa-button disabled>Disabled Primary button</axa-button>
+    <axa-button class=a-button--secondary disabled>Disabled Secondary Blue</axa-button>
     <p style="background:#333333;padding:1em">
-        <button is=axa-button class="a-button--secondary--white">Secondary White</button>
-        <button is=axa-button class="a-button--secondary--white" disabled>Disabled Secondary White</button>
+        <axa-button class="a-button--secondary--white">Secondary White</axa-button>
+        <axa-button class="a-button--secondary--white" disabled>Disabled Secondary White</axa-button>
     </p>`)
 /*.add('Change icons', () => `
-    <button is=axa-button +icon=arrow-right></button>
-    <button is=axa-button +icon=collapse></button>
-    <button is=axa-button +icon=download></button>
-    <button is=axa-button +icon=email></button>
-    <button is=axa-button +icon=expand></button>
-    <button is=axa-button +icon=phone></button>
-    <button is=axa-button +icon=plus></button>
-    <button is=axa-button +icon=search></button>
-    <button is=axa-button +icon=upload></button>
+    <axa-button +icon=arrow-right></axa-button>
+    <axa-button +icon=collapse></axa-button>
+    <axa-button +icon=download></axa-button>
+    <axa-button +icon=email></axa-button>
+    <axa-button +icon=expand></axa-button>
+    <axa-button +icon=phone></axa-button>
+    <axa-button +icon=plus></axa-button>
+    <axa-button +icon=search></axa-button>
+    <axa-button +icon=upload></axa-button>
     `)*/
 
 import '../components/atoms/logo'
@@ -38,27 +38,50 @@ storiesOf('Atoms — Logo', module)
 
 import '../components/atoms/typography'
 storiesOf('Typography')
-    .add('Titles', () => `
-        <h1 class="a-typo__event-title" title=".a-typo__event-title">Event Title</h1>
-        <h1 class="a-typo__page-title" title=".a-typo__page-title">Page Title - H1</h1>
-        <h2 class="a-typo__slice-title" title=".a-typo__slice-title">Slice Title - H2</h2>
-        <h3 class="a-typo__module-title" title=".a-typo__module-title">Module Title - H3</h3>
-        <h4 class="a-typo__card-title" title=".a-typo__card-title">Card Title - H4</h4>
-        <h5 class="a-typo__text-title" title=".a-typo__text-title">Text Title - H5</h5>
-    `)
-    .add('Texts', () => `
-        <p><quote class="a-typo__highlight" title=".a-typo__highlight | .a-typo__quote">Highlight / Quote</quote></p>
-        <p><label class="a-typo__label" title=".a-typo__label">Label</label></p>
-        <p class="a-typo__text" title=".a-typo__text">Standard Text</span>
-        <p><span class="a-typo__secondary-text" title=".a-typo__secondary-text | .a-typo__link">Secondary Text / Link</span></p>
-        <p>
-            <span class=a-typo__button title=.a-typo__button>Button</span> / 
-            <span class=a-typo__primary-link title=.a-typo__primary-link>Primary Link</span> / 
-            <span class=a-typo__tagline title=.a-typo__tagline>Tagline / 
-            <span class=a-typo__menu-item title=.a-typo__menu-item>Menu Item</span>
-        </p>
-        <p><span class="a-typo__legals" title=".a-typo__legals">Legals</span></p>
-    `)
+    .add('Titles', () => {
+        setTimeout(() =>
+            document.querySelectorAll('#container > *[class]').forEach(el => el.setAttribute('fontSize', getComputedStyle(el)['fontSize'])), 0)
+        return `
+        <div id="container">
+            <h1 class="a-typo__event-title" title=".a-typo__event-title">Event Title</h1>
+            <h1 class="a-typo__page-title" title=".a-typo__page-title">Page Title - H1</h1>
+            <h2 class="a-typo__slice-title" title=".a-typo__slice-title">Slice Title - H2</h2>
+            <h3 class="a-typo__module-title" title=".a-typo__module-title">Module Title - H3</h3>
+            <h4 class="a-typo__card-title" title=".a-typo__card-title">Card Title - H4</h4>
+            <h5 class="a-typo__text-title" title=".a-typo__text-title">Text Title - H5</h5>
+        </div>
+        <style>
+        #container > *[class]:after{
+            content:" — "attr(fontSize)"";
+        }
+        </style>
+    `
+    })
+    .add('Texts', () => {
+        setTimeout(() =>
+            document.querySelectorAll('#container *[class]').forEach(el => el.setAttribute('fontSize', getComputedStyle(el)['fontSize'])), 0)
+        return `
+        <div id="container">
+
+            <p><quote class="a-typo__highlight" title=".a-typo__highlight | .a-typo__quote">Highlight / Quote</quote></p>
+            <p><label class="a-typo__label" title=".a-typo__label">Label</label></p>
+            <p class="a-typo__text" title=".a-typo__text">Standard Text</span>
+            <p><span class="a-typo__secondary-text" title=".a-typo__secondary-text | .a-typo__link">Secondary Text / Link</span></p>
+            <p>
+                <span class=a-typo__button title=.a-typo__button>Button</span> / 
+                <span class=a-typo__primary-link title=.a-typo__primary-link>Primary Link</span> / 
+                <span class=a-typo__tagline title=.a-typo__tagline>Tagline / 
+                <span class=a-typo__menu-item title=.a-typo__menu-item>Menu Item</span>
+            </p>
+            <p><span class="a-typo__legals" title=".a-typo__legals">Legals</span></p>
+        </div>
+        <style>
+        #container *[class]:after{
+            content:" — "attr(fontSize)"";
+        }
+        </style>
+    `
+    })
     .add('Long text demos', () => `
         <p class="a-typo__legals a-typo__relative-spacing-top__2" title=.a-typo__legals>Terms and conditions apply. Accident Forgiveness is a step back, so you won’t lose your full No Claims Discount if you have an accident. For customers with one or more years of No Claims Discount. Max 2 claims with full NCD.</p>
         <p class="a-typo__primary-link a-typo__relative-spacing-top__2" title=a-typo__primary-link>BUTTON / PRIMARY LINK / TAGLINE / MENU ITEM</p>

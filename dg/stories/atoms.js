@@ -13,23 +13,23 @@ storiesOf('Atoms — Buttons', module)
     // .add('<axa-button>', () => '<axa-button>Hello Button</axa-button>')
     .addDecorator(withCode(javascriptCode, 'js'))
     .addDecorator(withCode(style, 'scss'))
-    .add('All variations', () => `<button is=axa-button>Primary button</button><button is=axa-button class=a-button--secondary>Secondary Blue</button>
-    <button is=axa-button disabled>Disabled Primary button</button>
-    <button is=axa-button class=a-button--secondary disabled>Disabled Secondary Blue</button>
+    .add('All variations', () => `<axa-button>Primary button</axa-button><axa-button class=a-button--secondary>Secondary Blue</axa-button>
+    <axa-button disabled>Disabled Primary button</axa-button>
+    <axa-button class=a-button--secondary disabled>Disabled Secondary Blue</axa-button>
     <p style="background:#333333;padding:1em">
-        <button is=axa-button class="a-button--secondary--white">Secondary White</button>
-        <button is=axa-button class="a-button--secondary--white" disabled>Disabled Secondary White</button>
+        <axa-button class="a-button--secondary--white">Secondary White</axa-button>
+        <axa-button class="a-button--secondary--white" disabled>Disabled Secondary White</axa-button>
     </p>`)
 /*.add('Change icons', () => `
-    <button is=axa-button +icon=arrow-right></button>
-    <button is=axa-button +icon=collapse></button>
-    <button is=axa-button +icon=download></button>
-    <button is=axa-button +icon=email></button>
-    <button is=axa-button +icon=expand></button>
-    <button is=axa-button +icon=phone></button>
-    <button is=axa-button +icon=plus></button>
-    <button is=axa-button +icon=search></button>
-    <button is=axa-button +icon=upload></button>
+    <axa-button +icon=arrow-right></axa-button>
+    <axa-button +icon=collapse></axa-button>
+    <axa-button +icon=download></axa-button>
+    <axa-button +icon=email></axa-button>
+    <axa-button +icon=expand></axa-button>
+    <axa-button +icon=phone></axa-button>
+    <axa-button +icon=plus></axa-button>
+    <axa-button +icon=search></axa-button>
+    <axa-button +icon=upload></axa-button>
     `)*/
 
 import '../components/atoms/logo'

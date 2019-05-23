@@ -4,93 +4,98 @@
 @import '../../materials/colors.scss';
 @import '../../materials/typography.scss';
 
-[is=axa-button] {
-    position: relative;
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    padding-left: $spacing-2;
-    padding-right: $spacing-2;
-    hyphens: auto;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    text-decoration: none;
-    color: var(--color-white);
-    background-color: var(--color-axa-blue);
-    border-width: 0;
-    border-style: solid;
-    height: $spacing-6;
-    border-bottom: solid 2px var(--color-deep-sapphire);
-    vertical-align: middle;
-}
 
 // separate buttons next to each other
-[is=axa-button]+[is=axa-button] {
+.a-button+.a-button {
     margin-left: $spacing-2;
 }
 
-[is=axa-button].a-button {
-    color: var(--color-white);
+.a-button {
 
-    &--secondary {
-        background-color: transparent;
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+
+
+    & button {
+        padding: 0;
+        margin: 0;
+        padding-left: $spacing-2;
+        padding-right: $spacing-2;
+        hyphens: auto;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        text-decoration: none;
+        height: $spacing-6;
+
         border-width: 2px;
-        border-color: var(--color-axa-blue);
-        color: var(--color-axa-blue);
+        border-style: solid;
+
     }
 
-    &--secondary:hover,
-    &--secondary:active,
-    &--secondary:focus {
-        color: var(--color-white);
-        background-color: transparent !important;
+    &--primary {
+        background-color: var(--color-axa-blue);
 
-        // animation
-        &::after {
+    }
+
+    &--primary button {
+        color: var(--color-white);
+        border-width: 0px;
+        border-color: var(--color-deep-sapphire);
+        background-color: transparent;
+
+        &:before {
             background-color: var(--color-deep-sapphire);
         }
     }
 
-    &::after {
-        background-color: var(--color-deep-sapphire);
+    &--secondary button {
+        background-color: transparent;
+        border-color: var(--color-axa-blue);
+        color: var(--color-axa-blue);
+
+        &:before {
+            background-color: var(--color-deep-sapphire);
+        }
+    }
+
+    &--secondary button:hover,
+    &--secondary button:active,
+    &--secondary button:focus {
+        color: var(--color-white);
+
     }
 
 
-    &--secondary--white {
-        border-width: 2px;
+    &--secondary--white button {
         background-color: transparent;
         border-color: var(--color-white);
         color: var(--color-white);
-    }
 
-    &--secondary--white:hover,
-    &--secondary--white:active,
-    &--secondary--white:focus {
-        //border-image: none;
-        background-color: transparent !important;
-        color: var(--color-axa-blue);
-        border-color: var(--color-white);
-
-        &::after {
+        &:before {
             background-color: var(--color-white);
         }
     }
 
-    &--secondary--white::after {
-        background-color: var(--color-white);
+    &--secondary--white button:hover,
+    &--secondary--white button:active,
+    &--secondary--white button:focus {
+        color: var(--color-axa-blue);
     }
+
 
 
     // parameters of the animation
     $button__motion-duration: 0.3s;
     $button__motion-easing: cubic-bezier(0.455, 0.03, 0.515, 0.955);
-
-    z-index: 0;
     overflow: hidden;
+    z-index: 0;
 
-    transition: color $button__motion-duration $button__motion-easing 0s;
+    & button {
+        transition: color $button__motion-duration $button__motion-easing 0s;
+    }
 
-    &::after {
+    & button::before {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -107,41 +112,34 @@
 
         transform: translateX(-50%) translateY(-50%) rotate(45deg);
         transition: width $button__motion-duration $button__motion-easing 0s;
-
     }
 
-    &:hover,
-    &:focus {
-        background-color: var(--color-axa-blue);
-
-        &::after {
-            width: 110%;
-        }
+    & button:hover:before,
+    & button:focus:before {
+        width: 110%;
     }
 }
 
-[is=axa-button]:hover,
-[is=axa-button]:active,
-[is=axa-button]:focus {
+.a-button button:hover,
+.a-button button:active,
+.a-button button:focus {
     cursor: pointer;
     text-decoration: none;
-    background-color: var(--color-deep-sapphire);
-    border-color: var(--color-deep-sapphire);
 }
 
-[is=axa-button]:focus {
+.a-button button:focus {
     // accessibility : let the color be seen on focus, supposed with tabulation
     outline-color: invert;
 }
 
-[is=axa-button]:hover,
-[is=axa-button]:active {
+.a-button button:hover,
+.a-button button:active {
     outline: 0;
 }
 
 //outline: 2px solid var(--color-deep-sapphire);
 
-[is=axa-button]:disabled {
+.a-button button:disabled {
     color: var(--color-silver);
     background-color: var(--color-mercury);
     border-color: var(--color-mercury);
@@ -169,7 +167,7 @@
 // }
 
 
-// .a-button--red .a-button--motion::after {
+// .a-button--red .a-button--motion::before {
 //     background-color: var(--color-prim-red-flamingo);
 // }
 
@@ -179,6 +177,6 @@
 //     color: var(--color-white);
 // }
 
-// .a-button--red .a-button--motion::after {
+// .a-button--red .a-button--motion::before {
 //     background-color: var(--color-prim-red-flamingo);
 // }

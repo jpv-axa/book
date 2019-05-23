@@ -115,14 +115,14 @@
     }
 
     // manage the margins and alignments between the call to actions, when there is more than one
-    [is=axa-button] {
+    .a-button {
         margin-top: $spacing-2;
         margin-right: $spacing-2;
         margin-left: 0;
         vertical-align: bottom;
     }
 
-    [is=axa-button]:last-child {
+    .a-button:last-child {
         margin-right: 0;
     }
 
