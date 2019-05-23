@@ -38,27 +38,50 @@ storiesOf('Atoms — Logo', module)
 
 import '../components/atoms/typography'
 storiesOf('Typography')
-    .add('Titles', () => `
-        <h1 class="a-typo__event-title" title=".a-typo__event-title">Event Title</h1>
-        <h1 class="a-typo__page-title" title=".a-typo__page-title">Page Title - H1</h1>
-        <h2 class="a-typo__slice-title" title=".a-typo__slice-title">Slice Title - H2</h2>
-        <h3 class="a-typo__module-title" title=".a-typo__module-title">Module Title - H3</h3>
-        <h4 class="a-typo__card-title" title=".a-typo__card-title">Card Title - H4</h4>
-        <h5 class="a-typo__text-title" title=".a-typo__text-title">Text Title - H5</h5>
-    `)
-    .add('Texts', () => `
-        <p><quote class="a-typo__highlight" title=".a-typo__highlight | .a-typo__quote">Highlight / Quote</quote></p>
-        <p><label class="a-typo__label" title=".a-typo__label">Label</label></p>
-        <p class="a-typo__text" title=".a-typo__text">Standard Text</span>
-        <p><span class="a-typo__secondary-text" title=".a-typo__secondary-text | .a-typo__link">Secondary Text / Link</span></p>
-        <p>
-            <span class=a-typo__button title=.a-typo__button>Button</span> / 
-            <span class=a-typo__primary-link title=.a-typo__primary-link>Primary Link</span> / 
-            <span class=a-typo__tagline title=.a-typo__tagline>Tagline / 
-            <span class=a-typo__menu-item title=.a-typo__menu-item>Menu Item</span>
-        </p>
-        <p><span class="a-typo__legals" title=".a-typo__legals">Legals</span></p>
-    `)
+    .add('Titles', () => {
+        setTimeout(() =>
+            document.querySelectorAll('#container > *[class]').forEach(el => el.setAttribute('fontSize', getComputedStyle(el)['fontSize'])), 0)
+        return `
+        <div id="container">
+            <h1 class="a-typo__event-title" title=".a-typo__event-title">Event Title</h1>
+            <h1 class="a-typo__page-title" title=".a-typo__page-title">Page Title - H1</h1>
+            <h2 class="a-typo__slice-title" title=".a-typo__slice-title">Slice Title - H2</h2>
+            <h3 class="a-typo__module-title" title=".a-typo__module-title">Module Title - H3</h3>
+            <h4 class="a-typo__card-title" title=".a-typo__card-title">Card Title - H4</h4>
+            <h5 class="a-typo__text-title" title=".a-typo__text-title">Text Title - H5</h5>
+        </div>
+        <style>
+        #container > *[class]:after{
+            content:" — "attr(fontSize)"";
+        }
+        </style>
+    `
+    })
+    .add('Texts', () => {
+        setTimeout(() =>
+            document.querySelectorAll('#container *[class]').forEach(el => el.setAttribute('fontSize', getComputedStyle(el)['fontSize'])), 0)
+        return `
+        <div id="container">
+
+            <p><quote class="a-typo__highlight" title=".a-typo__highlight | .a-typo__quote">Highlight / Quote</quote></p>
+            <p><label class="a-typo__label" title=".a-typo__label">Label</label></p>
+            <p class="a-typo__text" title=".a-typo__text">Standard Text</span>
+            <p><span class="a-typo__secondary-text" title=".a-typo__secondary-text | .a-typo__link">Secondary Text / Link</span></p>
+            <p>
+                <span class=a-typo__button title=.a-typo__button>Button</span> / 
+                <span class=a-typo__primary-link title=.a-typo__primary-link>Primary Link</span> / 
+                <span class=a-typo__tagline title=.a-typo__tagline>Tagline / 
+                <span class=a-typo__menu-item title=.a-typo__menu-item>Menu Item</span>
+            </p>
+            <p><span class="a-typo__legals" title=".a-typo__legals">Legals</span></p>
+        </div>
+        <style>
+        #container *[class]:after{
+            content:" — "attr(fontSize)"";
+        }
+        </style>
+    `
+    })
     .add('Long text demos', () => `
         <p class="a-typo__legals a-typo__relative-spacing-top__2" title=.a-typo__legals>Terms and conditions apply. Accident Forgiveness is a step back, so you won’t lose your full No Claims Discount if you have an accident. For customers with one or more years of No Claims Discount. Max 2 claims with full NCD.</p>
         <p class="a-typo__primary-link a-typo__relative-spacing-top__2" title=a-typo__primary-link>BUTTON / PRIMARY LINK / TAGLINE / MENU ITEM</p>
