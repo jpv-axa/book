@@ -35,6 +35,5 @@ export default create({
 
     brandTitle: 'Axa Brand Design System',
     brandUrl: 'https://design.axa.com/',
-    //brandImage: 'https://www.axa.com/base/images/logo.svg?version=2.4.4',
-    brandImage: 'https://web-guidelines.cdn.axa-contento-118412.eu/web-guidelines/b9a5be3807b083472c48bce73501842cc1709eaf_axa-wg.png'
+    brandImage: 'https://www.axa.ch/etc/clientlibs/axa/frontend-lib/images/logo-AXA.svg'
 });
