@@ -40,7 +40,11 @@ import '../components/atoms/typography'
 storiesOf('Typography')
     .add('Titles', () => {
         setTimeout(() =>
-            document.querySelectorAll('#container > *[class]').forEach(el => el.setAttribute('fontSize', getComputedStyle(el)['fontSize'])), 0)
+            document.querySelectorAll('#container > *[class]').forEach(
+                el => {
+                    el.setAttribute('fontSize', getComputedStyle(el)['fontSize'])
+                    el.setAttribute('lineHeight', getComputedStyle(el)['lineHeight'])
+                }), 1000)
         return `
         <div id="container">
             <h1 class="a-typo__event-title" title=".a-typo__event-title">Event Title</h1>
@@ -51,15 +55,19 @@ storiesOf('Typography')
             <h5 class="a-typo__text-title" title=".a-typo__text-title">Text Title - H5</h5>
         </div>
         <style>
-        #container > *[class]:after{
-            content:" — "attr(fontSize)"";
+        #container > *[class]:hover:after{
+            content:" — "attr(fontSize)" — "attr(lineHeight)"";
         }
         </style>
     `
     })
     .add('Texts', () => {
         setTimeout(() =>
-            document.querySelectorAll('#container *[class]').forEach(el => el.setAttribute('fontSize', getComputedStyle(el)['fontSize'])), 0)
+            document.querySelectorAll('#container *[class]').forEach(
+                el => {
+                    el.setAttribute('fontSize', getComputedStyle(el)['fontSize'])
+                    el.setAttribute('lineHeight', getComputedStyle(el)['lineHeight'])
+                }), 1000)
         return `
         <div id="container">
 
@@ -76,8 +84,8 @@ storiesOf('Typography')
             <p><span class="a-typo__legals" title=".a-typo__legals">Legals</span></p>
         </div>
         <style>
-        #container *[class]:after{
-            content:" — "attr(fontSize)"";
+        #container *[class]:hover:after{
+            content:" — "attr(fontSize)" — "attr(lineHeight)"";
         }
         </style>
     `

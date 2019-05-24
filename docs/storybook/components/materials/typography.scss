@@ -23,18 +23,18 @@ serif;
 define in this order : font-size (in em, for 16px base),  line-height, letter-spacing
 */
 $text-sizes: (default: (1rem, 1.375rem, 0),
-    legals: (0.72, 1, 0),
-    text-catchy: (0.78, 1, 1px),
-    text-secondary: (0.89, 1.22, 0),
-    text: (1, 1.33, 0), // for normal text, Accessibility recomandation is @ 1.5
-    label: (1.11, 1.39, 0),
-    quote: (1.11, 1.39, 0),
-    h5: (1.33, 1.56, 0),
-    h4: (1.56, 1.94, 0),
-    h3: (2, 2.33, 0),
-    h2: (2.4, 2.83, 0),
-    h1: (2.8, 3.3, 0),
-    event:(3.4, 3.94, 0));
+    legals: (0.75, 1, 0),
+    text-catchy: (0.75, 1, 1px),
+    text-secondary: (0.875, 1.25, 0),
+    text: (1, 1.3125, 0), // for normal text, Accessibility recomandation is @ 1.5
+    label: (1.125, 1.375, 0),
+    quote: (1.125, 1.375, 0),
+    h5: (1.3125, 1.5625, 0),
+    h4: (1.5625, 1.9375, 0),
+    h3: (2, 2.3125, 0),
+    h2: (2.375, 2.8125, 0),
+    h1: (2.75, 3.3125, 0),
+    event:(3.375, 3.9375, 0));
 
 // font-weight, font-style (normal, italic, oblique)
 $font-values: (default: (400, normal),
