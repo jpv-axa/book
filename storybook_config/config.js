@@ -10,7 +10,8 @@ import theme from './theme'
 addParameters({
     options: {
         theme,
-        panelPosition: 'right'
+        panelPosition: 'bottom',
+        showPanel: true
     },
     /*viewport: {
         defaultViewport: 'iphone6'
