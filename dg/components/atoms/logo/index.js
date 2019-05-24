@@ -1,4 +1,5 @@
 import * as logo from '@axa-ch/patterns-library/src/assets/icons/logo-AXA.svg'
+import './index.scss'
 
 customElements.define('axa-logo', class axaLogo extends HTMLElement {
     constructor() {

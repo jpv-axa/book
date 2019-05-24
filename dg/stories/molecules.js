@@ -1,18 +1,11 @@
 import {
-    storiesOf,
-    addDecorator
+    storiesOf
 } from '@storybook/html'
-/*import {
-    withA11y
-} from '@storybook/addon-a11y';
 
-
-addDecorator(withA11y)
-*/
 import '../components/molecules/hero-cover'
 storiesOf('Molecules — Hero Cover', module)
     .add('Default values', () => `
-        <axa-hero-cover />
+        <axa-hero-cover></axa-hero-cover>
     `)
     .add('Replace content ', () => `
         <axa-hero-cover 
@@ -88,4 +81,39 @@ storiesOf('Molecules — Hero Cover', module)
                 <axa-button class=a-button--secondary>専門スタッフに相談</axa-button>
             </div>
         </axa-hero-cover>
+    `)
+
+import '../components/molecules/header'
+storiesOf('Molecules - Header', module)
+    .add('Empty header', () => `
+        <axa-header-menu></axa-header-menu>
+        <axa-hero-cover></axa-hero-cover>
+    `)
+    .add('Header + menu', () => `
+        <axa-header-menu>
+            <ul>
+                <li><a href="#">Menu Item 1</a>
+                    <ul>
+                        <li><a href="#">Subnav Item 1-1</a></li>
+                        <li><a href="#">Subnav Item 1-2</a></li>
+                        <li><a href="#">Subnav Item 1-3</a></li>
+                        <li><a href="#">Subnav Item 1-4</a></li>
+                        <li><a href="#">Subnav Item 1-5</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Menu Item 2</a></li>
+                <li><a href="#">Menu Item 3</a></li>
+                <li><a href="#">Menu Item 4</a>
+                    <ul>
+                        <li><a href="#">Subnav Item 4-1 Subnav Item 4-1Subnav Item 4-1 Subnav Item 4-1Subnav Item 4-1</a></li>
+                        <li><a href="#">Subnav Item 4-2</a></li>
+                        <li><a href="#">Subnav Item 4-3</a></li>
+                        <li><a href="#">Subnav Item 4-4</a></li>
+                        <li><a href="#">Subnav Item 4-5</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Menu Item 5</a></li>
+            </ul>
+        </axa-header-menu>
+        <axa-hero-cover></axa-hero-cover>
     `)

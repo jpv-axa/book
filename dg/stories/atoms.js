@@ -34,7 +34,7 @@ storiesOf('Atoms — Buttons', module)
 
 import '../components/atoms/logo'
 storiesOf('Atoms — Logo', module)
-    .add('Logo', () => '<axa-logo />')
+    .add('Logo', () => '<axa-logo></axa-logo>')
 
 import '../components/atoms/typography'
 storiesOf('Typography')

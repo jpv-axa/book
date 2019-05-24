@@ -41,11 +41,14 @@
   &__secondary-text,
   &__link {
     @include typo(text, text-secondary, regular);
+    text-transform: initial;
+    text-decoration: none;
   }
 
   &__button,
   &__primary-link,
-  &__tagline {
+  &__tagline,
+  &__menu-item {
     @include typo(text, text-catchy, semibold);
     letter-spacing: 1px;
     text-transform: uppercase;
