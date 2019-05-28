@@ -123,14 +123,23 @@ storiesOf('Molecules - Header', module)
             <li><a href="#">Menu Item 1</a>
                 <ul>
                     <li><a href="#">Subnav Item 1-1</a></li>
-                    <li><a href="#">Subnav Item 1-2</a></li>
-                    <li><a href="#">Subnav Item 1-3</a></li>
                     <li><a href="#">Subnav Item 1-4</a></li>
                     <li><a href="#">Subnav Item 1-5</a></li>
                 </ul>
             </li>
-            <li><a href="#">Menu Item 2</a></li>
-            <li><a href="#">Menu Item 3, with long text</a></li>
+            <li><a href="#">Menu Item 2</a>
+                <ul>
+                    <li><a href="#">Subnav Item 2-1</a></li>
+                    <li><a href="#">Subnav Item 2-2</a></li>
+                    <li><a href="#">Subnav Item 2-3</a></li>
+                    <li><a href="#">Subnav Item 2-4</a></li>
+                    <li><a href="#">Subnav Item 2-5</a></li>
+                    <li><a href="#">Subnav Item 2-6</a></li>
+                    <li><a href="#">Subnav Item 2-7</a></li>
+                    <li><a href="#">Subnav Item 2-8</a></li>
+                    <li><a href="#">Subnav Item 2-9</a></li>
+                </ul>
+            <li><a href="#">Menu Item 3, with a way too long text</a></li>
             <li><a href="#">Menu Item 4</a>
                 <ul>
                     <li><a href="#">Subnav Item 4-1 Subnav Item 4-1Subnav Item 4-1 Subnav Item 4-1Subnav Item 4-1</a></li>
@@ -138,6 +147,8 @@ storiesOf('Molecules - Header', module)
                     <li><a href="#">Subnav Item 4-3</a></li>
                     <li><a href="#">Subnav Item 4-4</a></li>
                     <li><a href="#">Subnav Item 4-5</a></li>
+                    <li><a href="#">Subnav Item 4-6</a></li>
+                    <li><a href="#">Subnav Item 4-7</a></li>
                 </ul>
             </li>
         </ul>

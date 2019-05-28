@@ -2,7 +2,7 @@
 
 .m-header {
     // DEBUG
-    //border: 1px solid red;
+    // border: 1px solid red;
     border-bottom: 1px solid var(--color-mercury);
 
     // max-width + center
@@ -92,19 +92,28 @@
             position: absolute;
             z-index: 1;
             right: 0; // stick to the right of the .m-header
-            transform: translateY($spacing-3) translateY(2px); // add the space between bottom menu text and navbar, then add the margin width
+            transform: translateY($spacing-3) translateY(1px); // add the space between bottom menu text and navbar, then add the margin width
             //top: calc(#{$subMenuTopLargeScreen} + 1px);
             max-width: $breakpoint-MAX * $subMenuWidthLargeScreen;
             width: $subMenuWidthLargeScreen * 100vw;
             background-color: var(--color-white);
-            // background-color: var(--color-axa-blue);
+            //background-color: pink;
+
+            padding-top: $spacing-4;
+            border-left: 1px solid var(--color-mercury); // --color-silver
+
+
+            // display as columns
+            flex-flow: column wrap;
+            align-content: flex-start;
+            // the height must fit the number of items, up to 5 lines
+            @import '../../materials/typography.scss';
+            max-height: 5*($spacing-3 + nth(map-get($text-sizes, text-secondary), 2)); // margin-bottom + line-height
 
             & li {
-                box-sizing: border-box;
-                display: inline-block;
-                width: calc(50% - 3px - #{$spacing-6});
+                max-width: 30%;
                 margin-bottom: $spacing-3;
-                margin-left: $spacing-6;
+                margin-left: $spacing-4; // 4, 6, 12
             }
 
             // left 
@@ -123,7 +132,7 @@
         }
 
         &>ul>li:hover>ul {
-            display: block;
+            display: flex;
         }
     }
 
