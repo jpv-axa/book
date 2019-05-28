@@ -2,8 +2,8 @@
 
 .m-header {
     // DEBUG
-    border: 1px solid red;
-    border-bottom: 2px solid var(--color-mercury);
+    //border: 1px solid red;
+    border-bottom: 1px solid var(--color-mercury);
 
     // max-width + center
     margin: 0 auto;
@@ -22,7 +22,7 @@
     display: flex;
 
     & [name="call-to-action"] {
-        display: block;
+        display: inline-flex;
         flex-basis: auto; // takes as much as needed
     }
 
@@ -33,10 +33,10 @@
 
     // logo, always visible
     axa-logo {
-        display: block;
         width: $spacing-6; // takes a fixed width
     }
 
+    position: relative;
 
     & [name="structure"] {
 
@@ -49,7 +49,7 @@
         }
 
         $subMenuWidthLargeScreen: 2/3;
-        $subMenuTopLargeScreen: $spacing-6+(2 * $spacing-2); // add logo height + header paddings
+        $subMenuTopLargeScreen: $spacing-6+(2 * $spacing-1); // add logo height + header paddings
 
         // navigation lvl 1
         &>ul {
@@ -60,30 +60,31 @@
         }
 
         &>ul>li {
-            //display: inline-block;
             $textMenuPadding: $spacing-1;
-            // margin-left: -5px; // cancel the natural margin between li
             margin-left: $spacing-3;
             padding: 0 $textMenuPadding;
 
             //border: 1px solid green;
             // the orange bar under the hovered item
             &:hover::after {
+                $barHeight: 4px;
                 // at the bottom of the nav
                 display: block;
                 position: absolute;
                 // our visual effect
-                height: 4px;
+                height: $barHeight;
                 background-color: var(--color-prim-red-burnt-sienna);
                 // initial width is the same as the parent because we copy the text
                 content: attr(textContent);
+                color: var(--color-prim-red-burnt-sienna);
                 overflow: hidden; // have this text disappear
                 // visual width must include the padding of the parent
                 padding: 0 $textMenuPadding;
                 // correct the position
-                transform: translate(-1*$textMenuPadding, $spacing-3)
+                transform: translateX(-1*$textMenuPadding) translateY($spacing-3) translateY(-$barHeight) translateY(-1px);
             }
         }
+
 
         // navigation lvl 2
         &>ul>li>ul {
@@ -91,10 +92,12 @@
             position: absolute;
             z-index: 1;
             right: 0; // stick to the right of the .m-header
-            top: $subMenuTopLargeScreen;
+            transform: translateY($spacing-3) translateY(2px); // add the space between bottom menu text and navbar, then add the margin width
+            //top: calc(#{$subMenuTopLargeScreen} + 1px);
             max-width: $breakpoint-MAX * $subMenuWidthLargeScreen;
             width: $subMenuWidthLargeScreen * 100vw;
             background-color: var(--color-white);
+            // background-color: var(--color-axa-blue);
 
             & li {
                 box-sizing: border-box;
@@ -104,6 +107,7 @@
                 margin-left: $spacing-6;
             }
 
+            // left 
             &:before {
                 content: "toto";
                 // at the left of the nav
