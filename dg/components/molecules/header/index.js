@@ -27,6 +27,8 @@ customElements.define('axa-header-menu', class HeaderMenu extends HTMLElement {
 
         }
 
+        let cta = this.querySelector('[slot=call-to-action]')
+
         this.innerHTML = `
             <nav class=m-header>
                 <axa-logo></axa-logo>
@@ -38,7 +40,6 @@ customElements.define('axa-header-menu', class HeaderMenu extends HTMLElement {
         if (originalStructure)
             this.querySelector('slot[name=structure]').appendChild(originalStructure)
 
-        let cta = this.querySelector('[slot=call-to-action]')
         if (cta)
             this.querySelector('slot[name=call-to-action]').appendChild(cta)
 

@@ -102,7 +102,7 @@ storiesOf('Molecules - Header', module)
                     </ul>
                 </li>
                 <li><a href="#">Menu Item 2</a></li>
-                <li><a href="#">Menu Item 3</a></li>
+                <li><a href="#">Menu Item 3, with a way too long text</a></li>
                 <li><a href="#">Menu Item 4</a>
                     <ul>
                         <li><a href="#">Subnav Item 4-1 Subnav Item 4-1Subnav Item 4-1 Subnav Item 4-1Subnav Item 4-1</a></li>
@@ -117,3 +117,31 @@ storiesOf('Molecules - Header', module)
         </axa-header-menu>
         <axa-hero-cover></axa-hero-cover>
     `)
+    .add('Header + menu + search + CTA', () => `
+    <axa-header-menu>
+        <ul>
+            <li><a href="#">Menu Item 1</a>
+                <ul>
+                    <li><a href="#">Subnav Item 1-1</a></li>
+                    <li><a href="#">Subnav Item 1-2</a></li>
+                    <li><a href="#">Subnav Item 1-3</a></li>
+                    <li><a href="#">Subnav Item 1-4</a></li>
+                    <li><a href="#">Subnav Item 1-5</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Menu Item 2</a></li>
+            <li><a href="#">Menu Item 3, with long text</a></li>
+            <li><a href="#">Menu Item 4</a>
+                <ul>
+                    <li><a href="#">Subnav Item 4-1 Subnav Item 4-1Subnav Item 4-1 Subnav Item 4-1Subnav Item 4-1</a></li>
+                    <li><a href="#">Subnav Item 4-2</a></li>
+                    <li><a href="#">Subnav Item 4-3</a></li>
+                    <li><a href="#">Subnav Item 4-4</a></li>
+                    <li><a href="#">Subnav Item 4-5</a></li>
+                </ul>
+            </li>
+        </ul>
+        <axa-button slot=call-to-action>slot=call-to-action</axa-button>
+    </axa-header-menu>
+    <axa-hero-cover></axa-hero-cover>
+`)

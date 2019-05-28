@@ -1,104 +1,128 @@
 @import "../../materials/grids.scss";
 
 .m-header {
-    // DEBUG
-    border: 1px solid red;
-    border-bottom: 2px solid var(--color-mercury);
+  // DEBUG
+  border: 1px solid red;
+  border-bottom: 2px solid var(--color-mercury);
 
-    // max-width + center
-    margin: 0 auto;
+  // max-width + center
+  margin: 0 auto;
+  max-width: $breakpoint-MAX;
+  box-sizing: border-box;
+
+  // mobiles and tablets spacings are different
+
+  padding: $spacing-1 $spacing-2;
+
+  // from tablet
+  @media (min-width: $breakpoint-M) {
+    padding: $spacing-1 $spacing-3;
+  }
+
+  // position root elements
+  display: flex;
+  & [name="call-to-action"] {
     display: block;
-    max-width: $breakpoint-MAX;
-    box-sizing: border-box;
+    flex-basis: auto; // takes as much as needed
+  }
+  & [name="structure"] {
+    display: block;
+    flex: 12; // takes the rest
+  }
+  // logo, always visible
+  axa-logo {
+    display: block;
+    width: $spacing-6; // takes a fixed width
+  }
 
-    // mobiles and tablets spacings are different
+  //position: relative;
 
-    padding: $spacing-1 $spacing-2;
-
-    // from tablet
-    @media (min-width: $breakpoint-M) {
-        padding: $spacing-1 $spacing-3;
+  & [name="structure"] {
+    // reset
+    & ul,
+    & li {
+      list-style: none;
+      padding: 0;
+      margin: 0;
     }
 
+    $subMenuWidthLargeScreen: 2/3;
+    $subMenuTopLargeScreen: calc(
+      #{$spacing-6} + 2 * #{$spacing-1} + 5px
+    ); // add logo height + header paddings
 
-    axa-logo {
-        width: $spacing-6;
+    // navigation lvl 1
+    & > ul {
+      display: flex;
+      width: 100%;
+      justify-content: flex-end;
+      margin-top: $spacing-2;
+    }
+
+    & > ul > li {
+      //display: inline-block;
+      // margin-left: -5px; // cancel the natural margin between li
+      margin-left: $spacing-3;
+      padding: 0 $spacing-1;
+      //border: 1px solid green;
+      /*border-bottom: 4px solid transparent;
+      padding-bottom: $spacing-2;
+*/
+      // the orange bar under the hovered item
+      &:hover::after {
+        // at the bottom of the nav
+        display: block;
+        position: absolute;
+        bottom: 0;
+        // our visual effect
+        height: 4px;
+        background-color: var(--color-prim-red-burnt-sienna);
+        // width is the same as the parent because we copy the text
+        content: attr(textContent);
+        overflow: hidden;
+      }
+    }
+
+    // navigation lvl 2
+    & > ul > li > ul {
+      display: none;
+      position: absolute;
+      z-index: 1;
+      right: 0; // stick to the right of the .m-header
+      top: $subMenuTopLargeScreen;
+      max-width: $breakpoint-MAX * $subMenuWidthLargeScreen;
+      width: $subMenuWidthLargeScreen * 100vw;
+      background-color: var(--color-white);
+
+      & li {
+        box-sizing: border-box;
         display: inline-block;
+        width: calc(50% - 3px - #{$spacing-6});
+        margin-bottom: $spacing-3;
+        margin-left: $spacing-6;
+      }
+
+      &:before {
+        content: "toto";
+        // at the left of the nav
+        display: block;
+        position: absolute;
+        left: $subMenuWidthLargeScreen / 2 * 100 * -1%;
+        //width: 1 - $subMenuWidthLargeScreen * 100vw;
+        // max-width: $breakpoint-MAX * (1 - $subMenuWidthLargeScreen);
+        top: $subMenuTopLargeScreen;
+        z-index: 1;
+        background-color: var(--color-white);
+      }
     }
 
-    position: relative;
-
-    & [name=structure] {
-        display: inline-block;
-
-        //float: right;
-        // reset
-        & ul,
-        & li {
-            list-style: none;
-            padding: 0;
-        }
-
-        $subMenuWidthLargeScreen : 2/3;
-        $subMenuTopLargeScreen : calc(#{$spacing-6} + 2 * #{$spacing-1} + 5px); // add logo height + header paddings
-
-        // navigation lvl 1
-        &>ul>li {
-            display: inline-block;
-
-            &:hover::after {
-                // at the bottom of the nav
-                display: block;
-                position: absolute;
-                bottom: 0;
-                // our visual effect
-                height: 4px;
-                background-color: var(--color-prim-red-burnt-sienna);
-                // width is the same as the parent because we copy the text
-                content: attr(textContent);
-                overflow: hidden;
-            }
-
-        }
-
-
-
-        // navigation lvl 2
-        &>ul>li>ul {
-            display: none;
-            position: absolute;
-            z-index: 1;
-            right: 0; // stick to the right of the .m-header
-            top: $subMenuTopLargeScreen;
-            max-width: $breakpoint-MAX * $subMenuWidthLargeScreen;
-            width: $subMenuWidthLargeScreen * 100vw;
-            background-color: var(--color-white);
-
-            & li {
-                box-sizing: border-box;
-                display: inline-block;
-                width: calc(50% - 3px - #{$spacing-6});
-                margin-bottom: $spacing-3;
-                margin-left: $spacing-6;
-            }
-
-            &:before {
-                content: 'toto';
-                // at the left of the nav
-                display: block;
-                position: absolute;
-                left: $subMenuWidthLargeScreen / 2 * 100 * -1%;
-                //width: 1 - $subMenuWidthLargeScreen * 100vw;
-                // max-width: $breakpoint-MAX * (1 - $subMenuWidthLargeScreen);
-                top: $subMenuTopLargeScreen;
-                z-index: 1;
-                background-color: var(--color-white);
-            }
-
-        }
-
-        &>ul>li:hover>ul {
-            display: block;
-        }
+    & > ul > li:hover > ul {
+      display: block;
     }
+  }
+
+  & [name="call-to-action"] {
+    margin-left: $spacing-3;
+    display: block;
+  }
 }
