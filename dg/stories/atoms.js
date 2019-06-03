@@ -74,10 +74,10 @@ storiesOf('Typography')
             <p><quote class="a-typo__highlight" title=".a-typo__highlight | .a-typo__quote">Highlight / Quote</quote></p>
             <p><label class="a-typo__label" title=".a-typo__label">Label</label></p>
             <p class="a-typo__text" title=".a-typo__text">Standard Text</span>
-            <p><span class="a-typo__secondary-text" title=".a-typo__secondary-text | .a-typo__link">Secondary Text / Link</span></p>
+            <p><span class=a-typo__secondary-text title=.a-typo__secondary-text>Secondary Text</span> / <a class=a-typo__link title=.a-typo__link href=#>Link</a></p>
             <p>
                 <span class=a-typo__button title=.a-typo__button>Button</span> / 
-                <span class=a-typo__link title=.a-typo__link>Primary Link</span> / 
+                <span class=a-typo__primary-link title=.a-typo__primary-link>Primary Link</span> / 
                 <span class=a-typo__tagline title=.a-typo__tagline>Tagline / 
                 <span class=a-typo__menu-item title=.a-typo__menu-item>Menu Item</span>
             </p>
