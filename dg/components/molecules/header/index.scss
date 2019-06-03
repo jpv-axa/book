@@ -1,13 +1,16 @@
 @import "../../materials/grids.scss";
 
-// common styles
-$header-border-style: 1px solid var(--color-mercury);
 
-// from tablet
-@media (min-width: calc(#{$breakpoint-M} - 1px)) {
-    @import './tablet-desktop.scss';
-}
+.m-header {
+    // common styles
+    $header-border-style: 1px solid var(--color-mercury);
 
-@media (max-width: $breakpoint-M) {
-    @import './mobile.scss';
+    // from tablet
+    @media (min-width: calc(#{$breakpoint-M} - 1px)) {
+        @import './tablet-desktop.scss';
+    }
+
+    @media (max-width: $breakpoint-M) {
+        @import './mobile.scss';
+    }
 }
