@@ -1,3 +1,4 @@
+//.m-header
 & {
 	// DEBUG
 	// border: 1px solid red;
@@ -16,6 +17,7 @@
 	& [name="call-to-action"] {
 		display: inline-flex;
 		flex-basis: auto; // takes as much as needed
+
 	}
 
 	& [name="structure"] {
@@ -27,6 +29,13 @@
 	axa-logo {
 		width: $spacing-6; // takes a fixed width
 	}
+
+	& axa-icon {
+		width: $spacing-6;
+		display: inline-flex;
+		box-sizing: border-box;
+	}
+
 
 	position: relative;
 
@@ -142,4 +151,12 @@
 	& [name="call-to-action"] {
 		margin-left: $spacing-3;
 	}
+
+	& axa-icon {
+		padding: 0;
+		padding-left: $spacing-2;
+		margin-left: $spacing-2;
+		border-left: $header-border-style;
+	}
+
 }

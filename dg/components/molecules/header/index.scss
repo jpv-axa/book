@@ -13,4 +13,9 @@
     @media (max-width: $breakpoint-M) {
         @import './mobile.scss';
     }
+
+    & axa-icon {
+        // the search icon
+        color: var(--color-silver);
+    }
 }

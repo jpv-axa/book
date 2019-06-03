@@ -138,7 +138,7 @@ storiesOf('Molecules - Header', module)
     <axa-hero-cover></axa-hero-cover>
     `)
     .add('Header + menu + search + CTA', () => `
-    <axa-header-menu searchable>
+    <axa-header-menu +searchable>
         ${structure}
         <axa-button slot=call-to-action>slot=call-to-action</axa-button>
     </axa-header-menu>
