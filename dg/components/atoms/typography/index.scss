@@ -49,7 +49,10 @@
   &__secondary-text,
   &__link {
     @include typo(text, text-secondary, regular);
-    text-transform: initial;
+
+    a {
+      @extend %axa-links;
+    }
   }
 
   @at-root {
