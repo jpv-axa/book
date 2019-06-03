@@ -44,13 +44,13 @@ $font-values: (default: (400, normal),
     bold: (700, normal));
 
 // Don't use this in components, use typo()
-@mixin _font($font: text, $name: default) {
+@mixin _font($type: text, $name: default) {
     @if map-has-key($font-values, $name) {
         font-weight: nth(map-get($font-values, $name), 1);
         font-style: nth(map-get($font-values, $name), 2);
     }
 
-    @if $font==title {
+    @if $type==title {
         font-family: $titles;
     }
 
@@ -63,45 +63,62 @@ $font-values: (default: (400, normal),
 @import './grids.scss';
 
 // Don't use this in components, use typo()
-@mixin _text($name: default) {
+@mixin _text($name: default, $type:text) {
     @if (map-has-key($text-sizes, $name)) {
+        @if $type==title {
 
-        // "mobile + tablet : act as REM = 16 px
-        @media (max-width: ($breakpoint-M)) {
-            font-size: (nth(map-get($text-sizes, $name), 1)) * 1rem;
-            line-height: (nth(map-get($text-sizes, $name), 2) * 1rem);
+            // "mobile + tablet : act as REM = 16 px
+            @media (max-width: ($breakpoint-M)) {
+                font-size: (nth(map-get($text-sizes, $name), 1)) * 1rem;
+                line-height: (nth(map-get($text-sizes, $name), 2) * 1rem);
+            }
+
+            // desktop : act as REM = 18 px
+            @media (min-width: $breakpoint-M) {
+                font-size: (nth(map-get($text-sizes, $name), 1)) * 18 / 16 * 1rem;
+                line-height: (nth(map-get($text-sizes, $name), 2)) * 18 / 16 * 1rem;
+            }
         }
 
-        // desktop : act as REM = 18 px
-        @media (min-width: $breakpoint-M) {
-            font-size: (nth(map-get($text-sizes, $name), 1)) * 18 / 16 * 1rem;
-            line-height: (nth(map-get($text-sizes, $name), 2)) * 18 / 16 * 1rem;
+        @else {
+            // regular texts dont change with the viewport
+            font-size: (nth(map-get($text-sizes, $name), 1)) * 1rem;
+            line-height: (nth(map-get($text-sizes, $name), 2) * 1rem);
+
         }
 
         letter-spacing: nth(map-get($text-sizes, $name), 3);
     }
 
     @else {
+        @if $type==title {
 
-        // "mobile + tablet : act as REM = 16 px
-        @media (max-width: ($breakpoint-S - 1)) {
-            font-size: nth(map-get($text-sizes, default), 1);
+            // "mobile + tablet : act as REM = 16 px
+            @media (max-width: ($breakpoint-S - 1)) {
+                font-size: nth(map-get($text-sizes, default), 1);
+                line-height: nth(map-get($text-sizes, default), 2) * 1rem;
+            }
+
+            // desktop : act as REM = 18 px
+            @media (min-width: $breakpoint-M) {
+                font-size: nth(map-get($text-sizes, default), 1) * 18 / 16 * 1rem;
+            }
         }
 
-        // desktop : act as REM = 18 px
-        @media (min-width: $breakpoint-M) {
+        @else {
+            // regular texts dont change with the viewport
             font-size: nth(map-get($text-sizes, default), 1);
+            line-height: nth(map-get($text-sizes, default), 2);
         }
 
-        line-height: nth(map-get($text-sizes, default), 2);
         letter-spacing: nth(map-get($text-sizes, default), 3);
     }
 
 }
 
-@mixin typo($name: primary, $text: default, $style: default) {
-    @include _font($name, $style);
-    @include _text($text);
+@mixin typo($type: text, $text: default, $style: default) {
+    @include _font($type, $style);
+    @include _text($text, $type);
     margin: 0;
     word-wrap: break-word;
     hyphens: auto;

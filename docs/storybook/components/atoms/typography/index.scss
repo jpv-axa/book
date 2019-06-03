@@ -41,11 +41,18 @@
   &__secondary-text,
   &__link {
     @include typo(text, text-secondary, regular);
+    text-transform: initial;
+  }
+
+  &__link a {
+    text-decoration: none;
+    color: var(--color-axa-blue);
   }
 
   &__button,
   &__primary-link,
-  &__tagline {
+  &__tagline,
+  &__menu-item {
     @include typo(text, text-catchy, semibold);
     letter-spacing: 1px;
     text-transform: uppercase;

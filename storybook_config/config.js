@@ -11,7 +11,7 @@ addParameters({
     options: {
         theme,
         panelPosition: 'bottom',
-        showPanel: true
+        showPanel: false
     },
     /*viewport: {
         defaultViewport: 'iphone6'

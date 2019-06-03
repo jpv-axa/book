@@ -84,6 +84,41 @@ storiesOf('Molecules — Hero Cover', module)
     `)
 
 import '../components/molecules/header'
+
+const structure = `        <ul>
+<li><a href="#">Menu Item 1</a>
+    <ul>
+        <li><a href="#">Subnav Item 1-1</a></li>
+        <li><a href="#">Subnav Item 1-4</a></li>
+        <li><a href="#">Subnav Item 1-5</a></li>
+    </ul>
+</li>
+<li><a>Menu Item 2, no link</a>
+    <ul>
+        <li><a href="#">Subnav Item 2-1</a></li>
+        <li><a href="#">Subnav Item 2-2</a></li>
+        <li><a href="#">Subnav Item 2-3</a></li>
+        <li><a href="#">Subnav Item 2-4</a></li>
+        <li><a href="#">Subnav Item 2-5</a></li>
+        <li><a href="#">Subnav Item 2-6</a></li>
+        <li><a href="#">Subnav Item 2-7</a></li>
+        <li><a href="#">Subnav Item 2-8</a></li>
+        <li><a href="#">Subnav Item 2-9</a></li>
+    </ul>
+<li><a href="#">Menu Item 3, with a way too long text</a></li>
+<li><a href="#">Menu Item 4</a>
+    <ul>
+        <li><a href="#">Subnav Item 4-1 Subnav Item 4-1Subnav Item 4-1 Subnav Item 4-1Subnav Item 4-1</a></li>
+        <li><a href="#">Subnav Item 4-2</a></li>
+        <li><a href="#">Subnav Item 4-3</a></li>
+        <li><a href="#">Subnav Item 4-4</a></li>
+        <li><a href="#">Subnav Item 4-5</a></li>
+        <li><a href="#">Subnav Item 4-6</a></li>
+        <li><a href="#">Subnav Item 4-7</a></li>
+    </ul>
+</li>
+</ul>`
+
 storiesOf('Molecules - Header', module)
     .add('Empty header', () => `
         <axa-header-menu></axa-header-menu>
@@ -91,67 +126,20 @@ storiesOf('Molecules - Header', module)
     `)
     .add('Header + menu', () => `
         <axa-header-menu>
-            <ul>
-                <li><a href="#">Menu Item 1</a>
-                    <ul>
-                        <li><a href="#">Subnav Item 1-1</a></li>
-                        <li><a href="#">Subnav Item 1-2</a></li>
-                        <li><a href="#">Subnav Item 1-3</a></li>
-                        <li><a href="#">Subnav Item 1-4</a></li>
-                        <li><a href="#">Subnav Item 1-5</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Menu Item 2</a></li>
-                <li><a href="#">Menu Item 3, with a way too long text</a></li>
-                <li><a href="#">Menu Item 4</a>
-                    <ul>
-                        <li><a href="#">Subnav Item 4-1 Subnav Item 4-1Subnav Item 4-1 Subnav Item 4-1Subnav Item 4-1</a></li>
-                        <li><a href="#">Subnav Item 4-2</a></li>
-                        <li><a href="#">Subnav Item 4-3</a></li>
-                        <li><a href="#">Subnav Item 4-4</a></li>
-                        <li><a href="#">Subnav Item 4-5</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Menu Item 5</a></li>
-            </ul>
+            ${structure}
         </axa-header-menu>
         <axa-hero-cover></axa-hero-cover>
     `)
-    .add('Header + menu + search + CTA', () => `
+    .add('Header + menu + CTA', () => `
     <axa-header-menu>
-        <ul>
-            <li><a href="#">Menu Item 1</a>
-                <ul>
-                    <li><a href="#">Subnav Item 1-1</a></li>
-                    <li><a href="#">Subnav Item 1-4</a></li>
-                    <li><a href="#">Subnav Item 1-5</a></li>
-                </ul>
-            </li>
-            <li><a href="#">Menu Item 2</a>
-                <ul>
-                    <li><a href="#">Subnav Item 2-1</a></li>
-                    <li><a href="#">Subnav Item 2-2</a></li>
-                    <li><a href="#">Subnav Item 2-3</a></li>
-                    <li><a href="#">Subnav Item 2-4</a></li>
-                    <li><a href="#">Subnav Item 2-5</a></li>
-                    <li><a href="#">Subnav Item 2-6</a></li>
-                    <li><a href="#">Subnav Item 2-7</a></li>
-                    <li><a href="#">Subnav Item 2-8</a></li>
-                    <li><a href="#">Subnav Item 2-9</a></li>
-                </ul>
-            <li><a href="#">Menu Item 3, with a way too long text</a></li>
-            <li><a href="#">Menu Item 4</a>
-                <ul>
-                    <li><a href="#">Subnav Item 4-1 Subnav Item 4-1Subnav Item 4-1 Subnav Item 4-1Subnav Item 4-1</a></li>
-                    <li><a href="#">Subnav Item 4-2</a></li>
-                    <li><a href="#">Subnav Item 4-3</a></li>
-                    <li><a href="#">Subnav Item 4-4</a></li>
-                    <li><a href="#">Subnav Item 4-5</a></li>
-                    <li><a href="#">Subnav Item 4-6</a></li>
-                    <li><a href="#">Subnav Item 4-7</a></li>
-                </ul>
-            </li>
-        </ul>
+        ${structure}
+        <axa-button slot=call-to-action>slot=call-to-action</axa-button>
+    </axa-header-menu>
+    <axa-hero-cover></axa-hero-cover>
+    `)
+    .add('Header + menu + search + CTA', () => `
+    <axa-header-menu searchable>
+        ${structure}
         <axa-button slot=call-to-action>slot=call-to-action</axa-button>
     </axa-header-menu>
     <axa-hero-cover></axa-hero-cover>

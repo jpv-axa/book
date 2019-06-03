@@ -8,11 +8,11 @@ $breakpoint-L: 80rem; // 1280px;
 $breakpoint-MAX: 99rem; // 1584px
 
 // tuples of 8 px expressed as rem. rem is most of the time 16px
-$spacing-1: 0.5rem;
-$spacing-2: 1rem;
-$spacing-3: 1.5rem;
-$spacing-4: 2rem;
-$spacing-5: 2.5rem;
-$spacing-6: 3rem;
+$spacing-1: 0.5rem; // 8px
+$spacing-2: 1rem; // 16px
+$spacing-3: 1.5rem; // 24px
+$spacing-4: 2rem; // 32px
+$spacing-5: 2.5rem; // 40px
+$spacing-6: 3rem; // 48px
 
 $gutter : 1rem;
