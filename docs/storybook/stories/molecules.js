@@ -105,7 +105,7 @@ const structure = `        <ul>
         <li><a href="#">Subnav Item 2-8</a></li>
         <li><a href="#">Subnav Item 2-9</a></li>
     </ul>
-<li><a href="#">Menu Item 3, with a way too long text</a></li>
+<li><a href="#">Menu Item 3, with long text and no sub-menu</a></li>
 <li><a href="#">Menu Item 4</a>
     <ul>
         <li><a href="#">Subnav Item 4-1 Subnav Item 4-1Subnav Item 4-1 Subnav Item 4-1Subnav Item 4-1</a></li>
@@ -138,7 +138,7 @@ storiesOf('Molecules - Header', module)
     <axa-hero-cover></axa-hero-cover>
     `)
     .add('Header + menu + search + CTA', () => `
-    <axa-header-menu searchable>
+    <axa-header-menu +searchable>
         ${structure}
         <axa-button slot=call-to-action>slot=call-to-action</axa-button>
     </axa-header-menu>
