@@ -74,7 +74,7 @@ storiesOf('Typography')
             <p><quote class="a-typo__highlight" title=".a-typo__highlight | .a-typo__quote">Highlight / Quote</quote></p>
             <p><label class="a-typo__label" title=".a-typo__label">Label</label></p>
             <p class="a-typo__text" title=".a-typo__text">Standard Text</span>
-            <p><span class="a-typo__secondary-text" title=".a-typo__secondary-text | .a-typo__link">Secondary Text / Link</span></p>
+            <p><span class=a-typo__secondary-text title=.a-typo__secondary-text>Secondary Text</span> / <a class=a-typo__link title=.a-typo__link href=#>Link</a></p>
             <p>
                 <span class=a-typo__button title=.a-typo__button>Button</span> / 
                 <span class=a-typo__primary-link title=.a-typo__primary-link>Primary Link</span> / 
@@ -92,7 +92,7 @@ storiesOf('Typography')
     })
     .add('Long text demos', () => `
         <p class="a-typo__legals a-typo__relative-spacing-top__2" title=.a-typo__legals>Terms and conditions apply. Accident Forgiveness is a step back, so you won’t lose your full No Claims Discount if you have an accident. For customers with one or more years of No Claims Discount. Max 2 claims with full NCD.</p>
-        <p class="a-typo__primary-link a-typo__relative-spacing-top__2" title=a-typo__primary-link>BUTTON / PRIMARY LINK / TAGLINE / MENU ITEM</p>
+        <p class="a-typo__link a-typo__relative-spacing-top__2" title=a-typo__link>BUTTON / PRIMARY LINK / TAGLINE / MENU ITEM</p>
         <p class="a-typo__secondary-text a-typo__relative-spacing-top__2" title=.a_typo__secondary-text>Entdecken Sie die große Auswahl an attraktiven Preisvorteilen und Informationen rund um die Themen Gesundheit, Familie, Reisen, Auto, Datensicherheit und Recht. Darüber hinaus bieten wir Ihnen spezielle Informationen für Geschäftskunden und den öffentlichen Dienst. </p>
         <p class="a-typo__text a-typo__relative-spacing-top__2" title=.a-typo__text>Sie genießen bereits den Schutz, auf den sich jeden Tag rund um die Uhr Millionen von Menschen in Deutschland verlassen können? Dann empfehlen Sie AXA im Freundeskreis ganz einfach per E-Mail, WhatsApp, Facebook oder Twitter. Damit sich auch Ihre Freunde schon bald auf den ausgezeichneten Versicherungsschutz von AXA verlassen können.</p>
         <p> <label class="a-typo__label a-typo__relative-spacing-top__2" title=.a-typo__label>Alternative phone numbers</label><br>

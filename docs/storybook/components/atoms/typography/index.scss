@@ -1,5 +1,13 @@
 @import "../../materials/typography.scss";
 
+
+// overwrite the default a:href
+%axa-links {
+  text-decoration: none;
+  color: var(--color-axa-blue);
+}
+
+
 .a-typo {
   &__event-title {
     @include typo(title, event, bold);
@@ -41,13 +49,20 @@
   &__secondary-text,
   &__link {
     @include typo(text, text-secondary, regular);
-    text-transform: initial;
+
+    a {
+      @extend %axa-links;
+    }
   }
 
-  &__link a {
-    text-decoration: none;
-    color: var(--color-axa-blue);
+  @at-root {
+
+    a#{&}__link,
+    a#{&}__menu-item {
+      @extend %axa-links;
+    }
   }
+
 
   &__button,
   &__primary-link,
@@ -56,6 +71,10 @@
     @include typo(text, text-catchy, semibold);
     letter-spacing: 1px;
     text-transform: uppercase;
+
+    a {
+      @extend %axa-links;
+    }
   }
 
   &__legals {
