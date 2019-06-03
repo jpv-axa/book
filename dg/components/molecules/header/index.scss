@@ -106,7 +106,7 @@
             // display as columns
             flex-flow: column wrap;
             align-content: flex-start;
-            // the height must fit the number of items, up to 5 lines
+            // the height must fit the number of items, up to 5 lines, then break into 2 columns then 3 columns
             @import '../../materials/typography.scss';
             max-height: 5*($spacing-3 + nth(map-get($text-sizes, text-secondary), 2)); // margin-bottom + line-height
 
@@ -116,9 +116,9 @@
                 margin-left: $spacing-4; // 4, 6, 12
             }
 
-            // left 
+            // left zone
             &:before {
-                content: "toto";
+                content: attr(parentTitle);
                 // at the left of the nav
                 display: block;
                 position: absolute;
@@ -131,6 +131,7 @@
             }
         }
 
+        // submenu appears
         &>ul>li:hover>ul {
             display: flex;
         }

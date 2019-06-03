@@ -14,12 +14,16 @@ customElements.define('axa-header-menu', class HeaderMenu extends HTMLElement {
             let firstLevel = originalStructure.querySelectorAll(':scope>li')
             firstLevel
                 .forEach(el => {
-                    el.classList.add('a-typo__menu-item') // top menu texts
-                    el.setAttribute('textContent', el.querySelector('a').textContent)
-                    if (el.querySelector('li')) {
+                    let link = el.querySelector('a') // top menu texts
+                    link.classList.add('a-typo__menu-item')
+                    el.setAttribute('textContent', link.textContent)
+                    if (el.querySelector('li')) { // submenu
                         el.setAttribute('aria-haspopup', true) // A11Y : auto-add aria attributes
                         el.querySelectorAll('li') // sub menus are regular links
                             .forEach(subEl => subEl.classList.add('a-typo__link'))
+
+                        // pass to submenu the text of the main menu
+                        el.querySelector('ul').setAttribute('parentTitle', link.textContent)
 
                     }
                 });
