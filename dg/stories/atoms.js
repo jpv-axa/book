@@ -5,14 +5,17 @@ import {
 
 import withCode from '../../dgAddons/colorationAddon';
 
-const javascriptCode = require('!raw-loader!../components/atoms/button/index.js');
-const style = require('!raw-loader!../components/atoms/button/index.scss');
+/*
+* Button
+*/
+const buttonJs = require('!raw-loader!../components/atoms/button/index.js');
+const buttonCss = require('!raw-loader!../components/atoms/button/index.scss');
 
 import '../components/atoms/button'
 storiesOf('Atoms — Buttons', module)
     // .add('<axa-button>', () => '<axa-button>Hello Button</axa-button>')
-    .addDecorator(withCode(javascriptCode, 'js'))
-    .addDecorator(withCode(style, 'scss'))
+    .addDecorator(withCode(buttonJs, 'js'))
+    .addDecorator(withCode(buttonCss, 'scss'))
     .add('All variations', () => `<axa-button>Primary button</axa-button><axa-button class=a-button--secondary>Secondary Blue</axa-button>
     <axa-button disabled>Disabled Primary button</axa-button>
     <axa-button class=a-button--secondary disabled>Disabled Secondary Blue</axa-button>
@@ -31,13 +34,26 @@ storiesOf('Atoms — Buttons', module)
     <axa-button +icon=search></axa-button>
     <axa-button +icon=upload></axa-button>
     `)*/
+/*
+* Logo
+*/
+const logoJs = require('!raw-loader!../components/atoms/logo/index.js');
+const logoCss = require('!raw-loader!../components/atoms/logo/index.scss');
 
 import '../components/atoms/logo'
 storiesOf('Atoms — Logo', module)
+    .addDecorator(withCode(logoJs, 'js'))
+    .addDecorator(withCode(logoCss, 'scss'))
     .add('Logo', () => '<axa-logo></axa-logo>')
+
+/*
+* Typo
+*/
+const typoCss = require('!raw-loader!../components/materials/typography.scss');
 
 import '../components/atoms/typography'
 storiesOf('Typography')
+    .addDecorator(withCode(typoCss, 'scss'))
     .add('Titles', () => {
         setTimeout(() =>
             document.querySelectorAll('#container > *[class]').forEach(
