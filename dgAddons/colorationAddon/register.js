@@ -5,6 +5,8 @@ import 'prismjs/components/prism-typescript.js';
 import 'prismjs/components/prism-sass.js';
 import 'prismjs/components/prism-scss.js';
 
+import { STORY_CHANGED } from '@storybook/core-events';
+
 //TODO : fix webpack css loader
 import '!style-loader!css-loader!prismjs/themes/prism.css';
 
@@ -12,13 +14,14 @@ class Code extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {code: ''};
+    console.log("constructor type : " + props.type);
     this.channelName = `soft/code/add_${props.type}`;
     this.onSelectTab = this.onSelectTab.bind(this);
   }
 
   onSelectTab({code, type}) {
     const formattedCode = type && code && Prism.highlight(code, Prism.languages[type]);
-    console.log("select tab of type : " + type);
+    console.log("select tab of type : " + type + " and code : " + code);
     this.setState({code: formattedCode});
   }
 
@@ -35,19 +38,27 @@ class Code extends React.Component {
   render() {
     const { code } = this.state;
     const { type } = this.props;
+    const { active } = this.props;
     
-    return (
-      <div>{ 
-        code ? 
-          <pre>
-            <code>
-              <div dangerouslySetInnerHTML={{__html: code}} />
-            </code>
-          </pre> :
-          <p> No {type} code Found </p>
-        }
-      </div>
-    );
+    if(active)
+    {
+      return (
+        <div>{ 
+          code ? 
+            <pre>
+              <code>
+                <div dangerouslySetInnerHTML={{__html: code}} />
+              </code>
+            </pre> :
+            <p> No {type} code Found </p>
+          }
+        </div>
+      );
+    } else
+    {
+      return "";
+    }
+
   }
 
   componentWillUnmount() {
@@ -64,10 +75,11 @@ class Code extends React.Component {
 
 const registerTab  = ({label, type}) => {
   addons.register(`soft/code/add_${type}`, (api) => {
+    console.log("register code : " + type);
     addons.addPanel(`soft/${type}/panel`, {
       title: label,
-      render: () => (
-        <Code channel={addons.getChannel()} api={api} type={type} />
+      render: ({ active, key }) => (
+        <Code channel={addons.getChannel()} key={key} api={api} type={type} active={active} />
       )
     })
   })
