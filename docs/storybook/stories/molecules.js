@@ -1,9 +1,19 @@
 import {
-    storiesOf
+    storiesOf,
+    addDecorator
 } from '@storybook/html'
 
+import withCode from '../../dgAddons/colorationAddon';
+
+/*
+* Hero Cover
+*/
+const heroCoverJs = require('!raw-loader!../components/molecules/hero-cover/index.js');
+const heroCoverCss = require('!raw-loader!../components/molecules/hero-cover/index.scss');
 import '../components/molecules/hero-cover'
 storiesOf('Molecules — Hero Cover', module)
+    .addDecorator(withCode(heroCoverJs, 'js'))
+    .addDecorator(withCode(heroCoverCss, 'scss'))
     .add('Default values', () => `
         <axa-hero-cover></axa-hero-cover>
     `)
@@ -119,7 +129,14 @@ const structure = `        <ul>
 </li>
 </ul>`
 
+/*
+* Header
+*/
+const headerJs = require('!raw-loader!../components/molecules/header/index.js');
+const headerCss = require('!raw-loader!../components/molecules/header/index.scss');
 storiesOf('Molecules - Header', module)
+    .addDecorator(withCode(headerJs, 'js'))
+    .addDecorator(withCode(headerCss, 'scss'))
     .add('Empty header', () => `
         <axa-header-menu></axa-header-menu>
         <axa-hero-cover></axa-hero-cover>
