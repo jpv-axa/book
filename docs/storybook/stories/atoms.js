@@ -3,6 +3,10 @@ import {
     addDecorator
 } from '@storybook/html'
 
+//import '@axa-ch/patterns-library-polyfill'
+//import '@webcomponents/webcomponentsjs'
+import '@webcomponents/custom-elements'
+
 import withCode from '../../dgAddons/colorationAddon';
 
 /*

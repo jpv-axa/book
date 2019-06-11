@@ -2,6 +2,8 @@ import {
     storiesOf,
     addDecorator
 } from '@storybook/html'
+//import '@axa-ch/patterns-library-polyfill'
+
 
 import withCode from '../../dgAddons/colorationAddon';
 
