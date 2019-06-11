@@ -1,7 +1,6 @@
 import './index.scss'
 import '../../atoms/logo'
-
-//import '@axa-ch/icon'
+import '../../atoms/icon'
 
 customElements.define('axa-header-menu', class HeaderMenu extends HTMLElement {
     static get observedAttributes() {

@@ -1,5 +1,6 @@
 import './index.scss'
 import '../../atoms/logo'
+import '../../atoms/icon'
 
 //import '@axa-ch/icon'
 
