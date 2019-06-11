@@ -2,6 +2,7 @@ import styles from './index.scss'
 import typo from '../../atoms/typography'
 import AxaButton from '../../atoms/button'
 
+
 customElements.define('axa-hero-cover', class HeroCover extends HTMLElement {
     constructor() {
         super()

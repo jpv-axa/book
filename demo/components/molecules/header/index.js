@@ -2,8 +2,6 @@ import './index.scss'
 import '../../atoms/logo'
 import '../../atoms/icon'
 
-//import '@axa-ch/icon'
-
 customElements.define('axa-header-menu', class HeaderMenu extends HTMLElement {
     static get observedAttributes() {
         return ['+searchable']
