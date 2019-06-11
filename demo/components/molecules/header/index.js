@@ -9,11 +9,11 @@ customElements.define('axa-header-menu', class HeaderMenu extends HTMLElement {
     attributeChangedCallback(attr, old, value) {
         if (old === value)
             return
-        switch (attr) {
-            case '+searchable':
-                this.setupSearch()
-                break
-        }
+        // switch (attr) {
+        //     case '+searchable':
+        //         this.setupSearch()
+        //         break
+        // }
     }
 
     constructor() {
@@ -72,8 +72,9 @@ customElements.define('axa-header-menu', class HeaderMenu extends HTMLElement {
     }
 
     setupSearch() {
-        const svgEl = this.querySelector('axa-icon')
-            .renderRoot.querySelector('svg')
+        /*const svgEl = this.querySelector('axa-icon')
+            .renderRoot.querySelector('svg')*/
+        const svgEl = this.querySelector('axa-icon svg')
         if (!svgEl) // retry a bit later, when the DOM of the button is really ready
             return setTimeout(this.setupSearch.bind(this), 100)
 
