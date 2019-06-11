@@ -1,0 +1,162 @@
+//.m-header
+& {
+	// DEBUG
+	// border: 1px solid red;
+	border-bottom: $header-border-style;
+
+	// max-width + center
+	margin: 0 auto;
+	max-width: $breakpoint-MAX;
+	box-sizing: border-box;
+
+	padding: $spacing-1 $spacing-3;
+
+	// position root elements and give them space
+	display: flex;
+
+	& [name="call-to-action"] {
+		display: inline-flex;
+		flex-basis: auto; // takes as much as needed
+
+	}
+
+	& [name="structure"] {
+		display: block;
+		flex: 12; // takes the rest
+	}
+
+	// logo, always visible
+	axa-logo {
+		width: $spacing-6; // takes a fixed width
+	}
+
+	& axa-icon {
+		width: $spacing-6;
+		display: inline-flex;
+		box-sizing: border-box;
+	}
+
+
+	position: relative;
+
+	& [name="structure"] {
+
+		// reset
+		& ul,
+		& li {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+
+		$subMenuWidthLargeScreen: 2/3;
+		$subMenuTopLargeScreen: $spacing-6+(2 * $spacing-1); // add logo height + header paddings
+
+		// navigation lvl 1
+		&>ul {
+			display: flex;
+			width: 100%;
+			justify-content: flex-end;
+			margin-top: $spacing-2;
+		}
+
+		&>ul>li {
+			$textMenuPadding: $spacing-1;
+			margin-left: $spacing-3;
+			padding: 0 $textMenuPadding;
+
+			>a {
+				// large padding-bottom and z-index > :after, to have enough space for mouse hovering
+				padding-bottom: $spacing-4;
+				z-index: 1; // must
+			}
+
+			//border: 1px solid green;
+			// the orange bar under the hovered item
+			&:hover::after {
+				z-index: -1; // must stay under the A, to not destroy the hover
+
+				$barHeight: 4px;
+				// at the bottom of the nav
+				display: block;
+				position: absolute;
+				// our visual effect
+				height: $barHeight;
+				background-color: var(--color-prim-red-burnt-sienna);
+				// initial width is the same as the parent because we copy the text
+				content: attr(textContent);
+				color: var(--color-prim-red-burnt-sienna);
+				overflow: hidden; // have this text disappear
+				// visual width must include the padding of the parent
+				padding: 0 $textMenuPadding;
+
+				// correct the position
+				transform: translateX(-1*$textMenuPadding) translateY($spacing-3) translateY(-$barHeight) translateY(-1px);
+			}
+		}
+
+
+		// navigation lvl 2
+		&>ul>li>ul {
+			display: none;
+			position: absolute;
+			z-index: 1;
+			right: 0; // stick to the right of the .m-header
+			transform: translateY($spacing-3) translateY(-2px); // add the space between bottom menu text and navbar, then add the margin width
+			//top: calc(#{$subMenuTopLargeScreen} + 1px);
+			max-width: $breakpoint-MAX * $subMenuWidthLargeScreen;
+			width: $subMenuWidthLargeScreen * 100vw;
+			background-color: var(--color-white);
+
+
+			padding-top: $spacing-4;
+			border-left: $header-border-style; // --color-silver
+			border-top: $header-border-style;
+
+
+			// display as columns
+			flex-flow: column wrap;
+			align-content: flex-start;
+			// the height must fit the number of items, up to 5 lines, then break into 2 columns then 3 columns
+			@import '../../materials/typography.scss';
+			max-height: 5*($spacing-3 + nth(map-get($text-sizes, text-secondary), 2)); // margin-bottom + line-height
+
+			& li {
+				max-width: 30%;
+				margin-bottom: $spacing-3;
+				margin-left: $spacing-4; // 4, 6, 12
+			}
+
+			// left zone
+			&:before {
+				content: attr(parentTitle);
+				// at the left of the nav
+				display: block;
+				position: absolute;
+				left: $subMenuWidthLargeScreen / 2 * 100 * -1%;
+				//width: 1 - $subMenuWidthLargeScreen * 100vw;
+				// max-width: $breakpoint-MAX * (1 - $subMenuWidthLargeScreen);
+				top: $subMenuTopLargeScreen;
+				z-index: 1;
+				background-color: var(--color-white);
+			}
+		}
+
+		// submenu appears
+		&>ul>li:hover>ul {
+			display: flex;
+		}
+	}
+
+	& [name="call-to-action"] {
+		margin-left: $spacing-3;
+	}
+
+	& axa-icon {
+		padding: 0;
+		padding-left: $spacing-2;
+		margin-left: $spacing-2;
+		border-left: $header-border-style;
+	}
+
+}
