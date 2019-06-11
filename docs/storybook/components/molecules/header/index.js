@@ -76,7 +76,7 @@ customElements.define('axa-header-menu', class HeaderMenu extends HTMLElement {
         const svgEl = this.querySelector('axa-icon')
             .renderRoot.querySelector('svg')
         if (!svgEl) // retry a bit later, when the DOM of the button is really ready
-            setTimeout(this.setupSearch.bind(this), 100)
+            return setTimeout(this.setupSearch.bind(this), 100)
 
         // SVG given by axa-ch has a fixed width, we modify it on the fly
         svgEl.setAttribute('height', '100%')

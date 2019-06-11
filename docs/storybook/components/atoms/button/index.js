@@ -1,8 +1,8 @@
-import * as icons from '@axa-ch/materials'
-import upperCamelCase from 'uppercamelcase'
+//import * as icons from '@axa-ch/materials'
+//import upperCamelCase from 'uppercamelcase'
 import styles from './index.scss'
-import '@axa-ch/patterns-library-polyfill'
-
+//import '@axa-ch/patterns-library-polyfill'
+import "@babel/polyfill"
 class AxaButton extends HTMLElement {
     static get observedAttributes() {
         return ['+icon', 'disabled']
@@ -44,14 +44,14 @@ class AxaButton extends HTMLElement {
 
     }
 
-    updateIcon() {
-        let name = upperCamelCase(this.getAttribute('+icon')) + 'Svg'
-        const icon = document.createElement('svg')
-        icon.classList.add('a-button__icon')
-        //icon.src = 'data:image/svg+xml;charset=UTF-8,' + icons[name]
-        icon.innerHTML = icons[name]
-        this.appendChild(icon)
-    }
+    // updateIcon() {
+    //     let name = upperCamelCase(this.getAttribute('+icon')) + 'Svg'
+    //     const icon = document.createElement('svg')
+    //     icon.classList.add('a-button__icon')
+    //     //icon.src = 'data:image/svg+xml;charset=UTF-8,' + icons[name]
+    //     icon.innerHTML = icons[name]
+    //     this.appendChild(icon)
+    // }
 }
 
 customElements.define('axa-button', AxaButton, {

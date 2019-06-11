@@ -5,7 +5,7 @@
       "forceAllTransforms": true,
       "corejs": 3,
       "targets": {
-        "ie": 10,
+        "ie": 11,
       },
     }],
     "@babel/preset-react"

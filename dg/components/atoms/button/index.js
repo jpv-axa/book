@@ -2,7 +2,7 @@
 //import upperCamelCase from 'uppercamelcase'
 import styles from './index.scss'
 //import '@axa-ch/patterns-library-polyfill'
-import "@babel/polyfill"
+//import "@babel/polyfill"
 class AxaButton extends HTMLElement {
     static get observedAttributes() {
         return ['+icon', 'disabled']

@@ -6,7 +6,7 @@
     $header-border-style: 1px solid var(--color-mercury);
 
     // from tablet
-    @media (min-width: calc(#{$breakpoint-M} - 1px)) {
+    @media (min-width: calc((#{$breakpoint-M}) - 1px)) {
         @import './tablet-desktop.scss';
     }
 
