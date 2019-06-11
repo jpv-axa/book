@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "config": {
-    "output": "demo",
+    "output": "docs",
     "input": "dg",
     "story_config": "./storybook"
   },
