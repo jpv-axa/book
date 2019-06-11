@@ -6,7 +6,7 @@
   "config": {
     "output": "docs/storybook",
     "input": "dg",
-    "story_config": "storybook_config"
+    "story_config": "./storybook"
   },
   "scripts": {
     "dg-dev": "start-storybook -s $npm_package_config_input -p 58044 --debug-webpack",
