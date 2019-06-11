@@ -8,8 +8,8 @@ import {
 import withCode from '../../dgAddons/colorationAddon';
 
 /*
-* Hero Cover
-*/
+ * Hero Cover
+ */
 const heroCoverJs = require('!raw-loader!../components/molecules/hero-cover/index.js');
 const heroCoverCss = require('!raw-loader!../components/molecules/hero-cover/index.scss');
 import '../components/molecules/hero-cover'
@@ -21,7 +21,7 @@ storiesOf('Molecules — Hero Cover', module)
     `)
     .add('Replace content ', () => `
         <axa-hero-cover 
-            +tagline-title="+tagline-title value" 
+            +category-title="+category-title value" 
             +main-title="+main-title value"
             +src="https://www.axa.co.uk/globalassets/new-website/home/home-hero-8.jpg""
             >
@@ -31,7 +31,7 @@ storiesOf('Molecules — Hero Cover', module)
         </axa-hero-cover>
 
         <axa-hero-cover 
-            +tagline-title="motorcycle insurance" 
+            +category-title="motorcycle insurance" 
             +main-title="Die Private Haftpflichtversicherung: Schutz schon ab 21,13€ im Jahr*"
             +src="https://www.axa.co.uk/globalassets/new-website/home/home-hero-8.jpg""
             >
@@ -132,8 +132,8 @@ const structure = `        <ul>
 </ul>`
 
 /*
-* Header
-*/
+ * Header
+ */
 const headerJs = require('!raw-loader!../components/molecules/header/index.js');
 const headerCss = require('!raw-loader!../components/molecules/header/index.scss');
 storiesOf('Molecules - Header', module)
