@@ -94,7 +94,7 @@
     }
 
     // set space between main title and category title, if there is one
-    .a-typo__tagline+.a-typo__page-title {
+    .a-typo__category+.a-typo__page-title {
         margin-top: $spacing-2;
     }
 

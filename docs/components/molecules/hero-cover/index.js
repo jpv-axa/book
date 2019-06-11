@@ -33,7 +33,7 @@ customElements.define('axa-hero-cover', class HeroCover extends HTMLElement {
         this.innerHTML = `
             <div class="m-hero-cover__text-background m-hero-cover__text-background--${direction} m-hero-cover__text-background--${direction}--${this.design}">
                 <div class=m-hero-cover__content>
-                    <h5 class=a-typo__tagline>${this.getAttribute('+tagline-title') || 'Tagline title'}</h5>
+                    <h5 class=a-typo__category>${this.getAttribute('+category-title') || 'Category title'}</h5>
                     <h2 class=a-typo__page-title>${this.getAttribute('+main-title') || 'Main Title'}</h2>
                     ${content ? `<p class="a-typo__highlight">${content}</p>`:''}
                     ${legalContent ? `<p class="a-typo__legals">${legalContent.innerHTML}</p>`:''}

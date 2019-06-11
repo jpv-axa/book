@@ -10,8 +10,8 @@ import '@webcomponents/custom-elements'
 import withCode from '../../dgAddons/colorationAddon';
 
 /*
-* Button
-*/
+ * Button
+ */
 const buttonJs = require('!raw-loader!../components/atoms/button/index.js');
 const buttonCss = require('!raw-loader!../components/atoms/button/index.scss');
 
@@ -39,8 +39,8 @@ storiesOf('Atoms — Buttons', module)
     <axa-button +icon=upload></axa-button>
     `)*/
 /*
-* Logo
-*/
+ * Logo
+ */
 const logoJs = require('!raw-loader!../components/atoms/logo/index.js');
 const logoCss = require('!raw-loader!../components/atoms/logo/index.scss');
 
@@ -51,8 +51,8 @@ storiesOf('Atoms — Logo', module)
     .add('Logo', () => '<axa-logo></axa-logo>')
 
 /*
-* Typo
-*/
+ * Typo
+ */
 const typoCss = require('!raw-loader!../components/materials/typography.scss');
 
 import '../components/atoms/typography'
@@ -98,7 +98,7 @@ storiesOf('Typography')
             <p>
                 <span class=a-typo__button title=.a-typo__button>Button</span> / 
                 <span class=a-typo__primary-link title=.a-typo__primary-link>Primary Link</span> / 
-                <span class=a-typo__tagline title=.a-typo__tagline>Tagline / 
+                <span class=a-typo__category title=.a-typo__category>Category Title / 
                 <span class=a-typo__menu-item title=.a-typo__menu-item>Menu Item</span>
             </p>
             <p><span class="a-typo__legals" title=".a-typo__legals">Legals</span></p>
@@ -112,7 +112,7 @@ storiesOf('Typography')
     })
     .add('Long text demos', () => `
         <p class="a-typo__legals a-typo__relative-spacing-top__2" title=.a-typo__legals>Terms and conditions apply. Accident Forgiveness is a step back, so you won’t lose your full No Claims Discount if you have an accident. For customers with one or more years of No Claims Discount. Max 2 claims with full NCD.</p>
-        <p class="a-typo__link a-typo__relative-spacing-top__2" title=a-typo__link>BUTTON / PRIMARY LINK / TAGLINE / MENU ITEM</p>
+        <p class="a-typo__link a-typo__relative-spacing-top__2" title=a-typo__link>BUTTON / PRIMARY LINK / CATEGORY TITLE / MENU ITEM</p>
         <p class="a-typo__secondary-text a-typo__relative-spacing-top__2" title=.a_typo__secondary-text>Entdecken Sie die große Auswahl an attraktiven Preisvorteilen und Informationen rund um die Themen Gesundheit, Familie, Reisen, Auto, Datensicherheit und Recht. Darüber hinaus bieten wir Ihnen spezielle Informationen für Geschäftskunden und den öffentlichen Dienst. </p>
         <p class="a-typo__text a-typo__relative-spacing-top__2" title=.a-typo__text>Sie genießen bereits den Schutz, auf den sich jeden Tag rund um die Uhr Millionen von Menschen in Deutschland verlassen können? Dann empfehlen Sie AXA im Freundeskreis ganz einfach per E-Mail, WhatsApp, Facebook oder Twitter. Damit sich auch Ihre Freunde schon bald auf den ausgezeichneten Versicherungsschutz von AXA verlassen können.</p>
         <p> <label class="a-typo__label a-typo__relative-spacing-top__2" title=.a-typo__label>Alternative phone numbers</label><br>
