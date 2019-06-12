@@ -22,10 +22,12 @@ customElements.define('axa-header-menu', class HeaderMenu extends HTMLElement {
         let originalStructure = this.querySelector('ul')
 
         this.isSearchable = this.hasAttribute('+searchable')
+        this.isOpened = false
 
         // augment the HTML of the user given hierarchy
         if (originalStructure) {
             originalStructure.cloneNode(true)
+            originalStructure.setAttribute('role', 'menu')
 
             let firstLevel = originalStructure.querySelectorAll(':scope>li')
             firstLevel
@@ -35,6 +37,7 @@ customElements.define('axa-header-menu', class HeaderMenu extends HTMLElement {
                     el.setAttribute('textContent', link.textContent)
                     if (el.querySelector('li')) { // submenu
                         el.setAttribute('aria-haspopup', true) // A11Y : auto-add aria attributes
+                        el.setAttribute('role', 'menuitem')
                         el.querySelectorAll('li') // sub menus are regular links
                             .forEach(subEl => subEl.classList.add('a-typo__link'))
 
@@ -43,7 +46,6 @@ customElements.define('axa-header-menu', class HeaderMenu extends HTMLElement {
 
                     }
                 });
-
 
         }
 
@@ -56,7 +58,7 @@ customElements.define('axa-header-menu', class HeaderMenu extends HTMLElement {
                 <slot name=structure ></slot>
                 <slot name=call-to-action ></slot>
                ${this.isSearchable ? ' <axa-icon icon=search></axa-icon>' : '' }
-               ${originalStructure ? ' <axa-icon icon=menu></axa-icon>':''}
+               ${originalStructure ? ' <axa-icon icon=menu aria-haspopup=true></axa-icon>':''}
             </nav>
             `
 
@@ -92,8 +94,19 @@ customElements.define('axa-header-menu', class HeaderMenu extends HTMLElement {
     }
 
     setupIconMenu() {
-        this.querySelector('axa-icon[icon=menu]').addEventListener('click', e => {
-            alert('open menu')
+        const header = this
+        let structure = this.querySelector('slot[name=structure]')
+        let cta = this.querySelector('slot[name=structure]')
+
+        this.querySelector('axa-icon[icon=menu]').addEventListener('click', function (e) {
+            // invert open state
+            header.isOpened = !header.isOpened
+            this.setAttribute('aria-expanded', header.isOpened)
+            this.setAttribute('icon', header.isOpened ? 'close' : 'menu')
+            if (structure)
+                structure.classList[header.isOpened ? 'add' : 'remove']('expanded')
+            if (cta)
+                cta.classList[header.isOpened ? 'add' : 'remove']('expanded')
         }, true)
     }
 

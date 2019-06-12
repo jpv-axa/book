@@ -28,4 +28,13 @@
 		display: none;
 	}
 
+	// appears when clicked
+	& [name="structure"].expanded,
+	& [name="call-to-action"].expanded {
+		display: block;
+		position: absolute;
+		z-index: 1;
+	}
+
+
 }
