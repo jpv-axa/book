@@ -31,10 +31,56 @@
 	// appears when clicked
 	& [name="structure"].expanded,
 	& [name="call-to-action"].expanded {
-		display: block;
+		display: flex;
 		position: absolute;
 		z-index: 1;
 	}
 
+	// submenu design
+	& [name="structure"] {
 
+		// reset
+		& ul,
+		& li {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+
+
+		background-color: var(--color-white);
+		right: 0;
+		top: 2*$spacing-2+$spacing-6; // recalculate header heigh : logo height + header vertical padding
+		width: $breakpoint-MIN;
+		//max-width: $breakpoint-MIN;
+
+		// lvl 1 navigation
+		&>ul {
+			display: flex;
+			flex-direction: column;
+		}
+
+		&>ul>li {
+			padding: $spacing-2 $spacing-5;
+			border-bottom: $header-border-style;
+			position: relative;
+
+			// the small ">" sign after
+			&[aria-haspopup=true] a:after {
+				content: url('../../atoms/icon/materials/chevron_right.svg');
+				width: $spacing-2;
+				display: inline-block;
+				vertical-align: middle;
+				right: $spacing-5;
+				color: var(--color-axa-blue);
+				//fill: currentColor;
+				position: absolute;
+			}
+		}
+
+		// navigation lvl 2
+		&>ul>li>ul {
+			display: none;
+		}
+	}
 }
