@@ -56,11 +56,14 @@ customElements.define('axa-header-menu', class HeaderMenu extends HTMLElement {
                 <slot name=structure ></slot>
                 <slot name=call-to-action ></slot>
                ${this.isSearchable ? ' <axa-icon icon=search></axa-icon>' : '' }
+               ${originalStructure ? ' <axa-icon icon=menu></axa-icon>':''}
             </nav>
             `
 
-        if (originalStructure)
+        if (originalStructure) {
             this.querySelector('slot[name=structure]').appendChild(originalStructure)
+            this.setupIconMenu()
+        }
 
         if (cta)
             this.querySelector('slot[name=call-to-action]').appendChild(cta)
@@ -74,7 +77,7 @@ customElements.define('axa-header-menu', class HeaderMenu extends HTMLElement {
     setupSearch() {
         /*const svgEl = this.querySelector('axa-icon')
             .renderRoot.querySelector('svg')*/
-        const svgEl = this.querySelector('axa-icon svg')
+        const svgEl = this.querySelector('axa-icon[icon=search]')
         if (!svgEl) // retry a bit later, when the DOM of the button is really ready
             return setTimeout(this.setupSearch.bind(this), 100)
 
@@ -86,6 +89,12 @@ customElements.define('axa-header-menu', class HeaderMenu extends HTMLElement {
         /*svgEl.removeAttribute('height')
         svgEl.removeAttribute('width')
 */
+    }
+
+    setupIconMenu() {
+        this.querySelector('axa-icon[icon=menu]').addEventListener('click', e => {
+            alert('open menu')
+        }, true)
     }
 
     searchCallback() {

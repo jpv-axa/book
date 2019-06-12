@@ -1,7 +1,31 @@
 //.m-header
 & {
+	//border: 3px dashed red;
 
-	border: 3px dashed red;
 	padding: $spacing-1 $spacing-2;
+	display: flex;
+	justify-content: flex-end; // sets everyone on the right
+
+	& axa-logo {
+		margin-right: auto; // except for the logo, that we pushes back to the left
+	}
+
+
+
+	& axa-icon {
+		padding-left: $spacing-2;
+	}
+
+	// separate menu and search icon, if both are present
+	& axa-icon+axa-icon {
+		border-left: $header-border-style;
+		margin-left: $spacing-2;
+	}
+
+	// by default, hide all but search and hamburger menu
+	& [name="structure"],
+	& [name="call-to-action"] {
+		display: none;
+	}
 
 }
