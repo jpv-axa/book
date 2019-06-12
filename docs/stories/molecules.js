@@ -101,8 +101,9 @@ const structure = `        <ul>
 <li><a href="#">Menu Item 1</a>
     <ul>
         <li><a href="#">Subnav Item 1-1</a></li>
-        <li><a href="#">Subnav Item 1-4</a></li>
-        <li><a href="#">Subnav Item 1-5</a></li>
+        <li><a href="#">Subnav Item 1-2</a></li>
+        <li><a href="#">Subnav Item 1-3</a></li>
+        <li><a href="#" aria-current=page>Indicate current page with <code>&lt;a aria-current=page&gt;</code></a></li>
     </ul>
 </li>
 <li><a>Menu Item 2, no link</a>
