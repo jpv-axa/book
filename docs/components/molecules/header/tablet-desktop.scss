@@ -2,7 +2,6 @@
 & {
 	// DEBUG
 	// border: 1px solid red;
-	border-bottom: $header-border-style;
 
 	// max-width + center
 	margin: 0 auto;
@@ -31,9 +30,7 @@
 	}
 
 	& axa-icon {
-		width: $spacing-6;
 		display: inline-flex;
-		box-sizing: border-box;
 	}
 
 

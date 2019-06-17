@@ -5,18 +5,28 @@
 .m-header {
     // common styles
     $header-border-style: 1px solid var(--color-mercury);
+    border-bottom: $header-border-style;
 
     // from tablet
-    @media (min-width: calc((#{$breakpoint-M}) - 1px)) {
+    //@media (min-width: calc((#{$breakpoint-M}) - 1px)) {
+    @media (min-width: $breakpoint-M) {
         @import './tablet-desktop.scss';
     }
 
-    @media (max-width: $breakpoint-M) {
+    //@media (min-width: calc((#{$breakpoint-M}) - 1px)) {
+    // no browser supports calc() in @media, so we have to fall back to pixels
+    @media (max-width: $breakpoint-M-pixels - 1px) {
         @import './mobile.scss';
     }
 
     & axa-icon {
+
         // the search icon
-        color: var(--color-silver);
+        &[icon=search] {
+            color: var(--color-silver);
+        }
+
+        color: var(--color-axa-blue);
+        width: $spacing-4;
     }
 }

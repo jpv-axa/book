@@ -1,7 +1,134 @@
 //.m-header
 & {
+	$headerHeight: 2 * $spacing-2+$spacing-6; // recalculate header height : logo height + header vertical padding
+	//border: 3px dashed red;
 
-	border: 3px dashed red;
 	padding: $spacing-1 $spacing-2;
+	display: flex;
+	justify-content: flex-end; // sets everyone on the right
 
+	& axa-logo {
+		margin-right: auto; // except for the logo, that we pushes back to the left
+	}
+
+	& axa-icon {
+		padding-left: $spacing-2;
+	}
+
+	// separate menu and search icon, if both are present
+	& axa-icon+axa-icon {
+		border-left: $header-border-style;
+		margin-left: $spacing-2;
+	}
+
+	// by default, hide all but search and hamburger menu
+	& [name="structure"],
+	& [name="call-to-action"] {
+		display: none;
+	}
+
+	// appears when clicked
+	& [name="structure"].expanded,
+	& [name="call-to-action"].expanded {
+		display: flex;
+		position: absolute;
+		z-index: 1;
+	}
+
+	// submenu design
+	& [name="structure"] {
+		$subMenuExternalBorder: 1px solid var(--color-mercury);
+
+		// reset
+		& ul,
+		& li {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+
+		background-color: var(--color-white);
+		right: 0;
+		top: $headerHeight;
+		width: $breakpoint-MIN;
+		//max-width: $breakpoint-MIN;
+
+		// lvl 1 navigation
+		&>ul {
+			display: flex;
+			flex-direction: column;
+		}
+
+		&>ul>li {
+			padding: $spacing-2 $spacing-5;
+			border-bottom: $header-border-style;
+			border-left: $subMenuExternalBorder;
+
+			// the small ">" sign after
+			&[aria-haspopup="true"]>a:after {
+				content: url("../../atoms/icon/materials/chevron_right.svg");
+				width: $spacing-2;
+				display: inline-block;
+				vertical-align: middle;
+				right: $spacing-5;
+				color: var(--color-axa-blue);
+				//fill: currentColor;
+				position: absolute;
+			}
+		}
+
+		// navigation lvl 2, appears only when aria attribute is correct
+		&>ul>li>ul {
+			display: none;
+		}
+
+		&>ul>li>ul[aria-expanded="true"] {
+			display: block;
+
+			// position this UL above its parent in the z-space
+			position: absolute;
+			z-index: 2;
+			top: 0;
+			min-height: calc(100vh - #{$headerHeight}); // cover parent, supposing it has few items
+			background-color: var(--color-white);
+
+			left: 0;
+			right: 0; // strech the width
+
+			&>li {
+				padding: $spacing-2 $spacing-5;
+				border-bottom: $header-border-style;
+				border-left: $subMenuExternalBorder;
+
+				// from menu-item
+				text-transform: uppercase;
+				@include typo(text, text-catchy, semibold);
+
+				& [aria-current="page"] {
+					color: var(--color-deep-sapphire);
+					font-weight: 600;
+				}
+			}
+
+			/*&::before {
+				content: ">";
+			}*/
+			// the Sub Sub Menu title
+			&::before {
+				content: attr(parenttitle);
+				padding: $spacing-2 $spacing-5;
+				border-bottom: $header-border-style;
+				border-left: $subMenuExternalBorder;
+				display: block;
+				// like text-title
+				@include typo(text, h5, bold);
+				// the little chevron
+				padding-left: calc(#{$spacing-5} + #{$spacing-2});
+				background-image: url("../../atoms/icon/materials/chevron_right.svg");
+				background-size: $spacing-2;
+				background-repeat: no-repeat;
+				background-position: $spacing-4 center;
+			}
+		}
+	}
 }
