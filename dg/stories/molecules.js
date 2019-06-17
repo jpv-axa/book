@@ -10,8 +10,8 @@ import withCode from '../../dgAddons/colorationAddon';
 /*
  * Hero Cover
  */
-const heroCoverJs = require('!raw-loader!../components/molecules/hero-cover/index.js');
-const heroCoverCss = require('!raw-loader!../components/molecules/hero-cover/index.scss');
+import heroCoverJs from '!raw-loader!../components/molecules/hero-cover/index.js';
+import heroCoverCss from '!raw-loader!../components/molecules/hero-cover/index.scss';
 import '../components/molecules/hero-cover'
 storiesOf('Molecules — Hero Cover', module)
     .addDecorator(withCode(heroCoverJs, 'js'))
@@ -135,8 +135,8 @@ const structure = `        <ul>
 /*
  * Header
  */
-const headerJs = require('!raw-loader!../components/molecules/header/index.js');
-const headerCss = require('!raw-loader!../components/molecules/header/index.scss');
+import headerJs from '!raw-loader!../components/molecules/header/index.js';
+import headerCss from '!raw-loader!../components/molecules/header/index.scss';
 storiesOf('Molecules - Header', module)
     .addDecorator(withCode(headerJs, 'js'))
     .addDecorator(withCode(headerCss, 'scss'))
