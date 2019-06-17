@@ -65,13 +65,14 @@ customElements.define('axa-header-menu', class HeaderMenu extends HTMLElement {
         if (originalStructure) {
             this.querySelector('slot[name=structure]').appendChild(originalStructure)
             this.setupIconMenu()
+            this.setupOnTopMenuAction()
         }
 
         if (cta)
             this.querySelector('slot[name=call-to-action]').appendChild(cta)
 
         // demo mode : prevent every click
-        this.addEventListener('click', e => e.preventDefault())
+        //this.addEventListener('click', e => e.preventDefault())
         if (this.isSearchable)
             this.setupSearch()
     }
@@ -108,6 +109,24 @@ customElements.define('axa-header-menu', class HeaderMenu extends HTMLElement {
             if (cta)
                 cta.classList[header.isOpened ? 'add' : 'remove']('expanded')
         }, true)
+    }
+
+    setupOnTopMenuAction() {
+        let header = this
+        this.querySelectorAll('slot[name=structure]>ul>li')
+            .forEach(elSubMenu => elSubMenu.addEventListener('click', function (e) {
+                //console.log(this)
+                let elSubSubMenu = elSubMenu.querySelector('ul')
+                // in there is no submenu, simply follow the link (if any)
+                if (!elSubSubMenu)
+                    return;
+
+                elSubSubMenu.setAttribute('aria-expanded', true)
+                elSubSubMenu.parentNode.setAttribute('aria-expanded', false)
+                if (header.currentSubMenuEl)
+                    header.currentSubMenuEl.setAttribute('aria-expanded', false)
+                header.currentSubMenuEl = elSubSubMenu
+            }, false))
     }
 
     searchCallback() {
