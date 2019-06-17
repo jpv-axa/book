@@ -12,8 +12,8 @@ import withCode from '../../dgAddons/colorationAddon';
 /*
  * Button
  */
-const buttonJs = require('!raw-loader!../components/atoms/button/index.js');
-const buttonCss = require('!raw-loader!../components/atoms/button/index.scss');
+import buttonJs from '!raw-loader!../components/atoms/button/index.js';
+import buttonCss from '!raw-loader!../components/atoms/button/index.scss';
 
 import '../components/atoms/button'
 storiesOf('Atoms — Buttons', module)
@@ -41,8 +41,8 @@ storiesOf('Atoms — Buttons', module)
 /*
  * Logo
  */
-const logoJs = require('!raw-loader!../components/atoms/logo/index.js');
-const logoCss = require('!raw-loader!../components/atoms/logo/index.scss');
+import logoJs from '!raw-loader!../components/atoms/logo/index.js';
+import logoCss from '!raw-loader!../components/atoms/logo/index.scss';
 
 import '../components/atoms/logo'
 storiesOf('Atoms — Logo', module)
@@ -53,7 +53,7 @@ storiesOf('Atoms — Logo', module)
 /*
  * Typo
  */
-const typoCss = require('!raw-loader!../components/materials/typography.scss');
+import typoCss from'!raw-loader!../components/materials/typography.scss';
 
 import '../components/atoms/typography'
 storiesOf('Typography')
