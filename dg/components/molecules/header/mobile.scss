@@ -124,7 +124,7 @@
 				@include typo(text, h5, bold);
 				// the little chevron
 				padding-left: calc(#{$spacing-5} + #{$spacing-2});
-				background-image: url("../../atoms/icon/materials/chevron_right.svg");
+				background-image: url("../../atoms/icon/materials/chevron_left.svg");
 				background-size: $spacing-2;
 				background-repeat: no-repeat;
 				background-position: $spacing-4 center;
