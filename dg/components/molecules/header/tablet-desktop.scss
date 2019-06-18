@@ -33,6 +33,11 @@
 		display: inline-flex;
 	}
 
+	& axa-icon[icon=menu] {
+		display: none;
+	}
+
+
 
 	position: relative;
 
