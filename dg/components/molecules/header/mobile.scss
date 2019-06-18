@@ -89,7 +89,8 @@
 			position: absolute;
 			z-index: 2;
 			top: 0;
-			min-height: calc(100vh - #{$headerHeight}); // cover parent, supposing it has few items
+			height: calc(100vh - #{$headerHeight}); // cover parent, supposing it has few items
+			overflow: scroll;
 			background-color: var(--color-white);
 
 			left: 0;
