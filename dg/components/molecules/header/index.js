@@ -109,7 +109,7 @@ customElements.define('axa-header-menu', class HeaderMenu extends HTMLElement {
         function onMoveOutside(e) {
             // react only to the events that happens outside of our sub menu, by closing it
             if (header.contains(e.target)) {
-                return
+                return true
             }
             header.isOpened = false
             header.onOpenClose()
@@ -142,13 +142,23 @@ customElements.define('axa-header-menu', class HeaderMenu extends HTMLElement {
                 let elSubSubMenu = elSubMenu.querySelector('ul')
                 // in there is no submenu, simply follow the link (if any)
                 if (!elSubSubMenu)
-                    return;
+                    return true;
 
-                elSubSubMenu.setAttribute('aria-expanded', true)
-                elSubSubMenu.parentNode.setAttribute('aria-expanded', false)
-                if (header.currentSubMenuEl)
-                    header.currentSubMenuEl.setAttribute('aria-expanded', false)
-                header.currentSubMenuEl = elSubSubMenu
+                // if we clicked on the first level, target and currentTarget is the same element
+                console.log(e.target, e.currentTarget)
+                // detect that we clicked on the sub submenu
+                if (e.target.hasAttribute('parenttitle')) {
+                    // get one level up
+                    elSubSubMenu.setAttribute('aria-expanded', false)
+                    elSubMenu.setAttribute('aria-expanded', true)
+                    header.currentSubMenuEl = null
+                } else { // click on the 1st level menu
+                    // get one level down
+                    elSubSubMenu.setAttribute('aria-expanded', true)
+                    elSubMenu.setAttribute('aria-expanded', false)
+                    header.currentSubMenuEl = elSubSubMenu
+                }
+
             }, false))
     }
 
