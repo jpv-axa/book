@@ -98,6 +98,7 @@ customElements.define('axa-header-menu', class HeaderMenu extends HTMLElement {
 
     setupIconMenu() {
         const header = this
+        this.querySelector('slot[name=structure]')
 
         this.querySelector('axa-icon[icon=menu]').addEventListener('click', function (e) {
             // invert open state
@@ -105,10 +106,17 @@ customElements.define('axa-header-menu', class HeaderMenu extends HTMLElement {
             header.onOpenClose()
         }, true)
 
-        this.querySelector('slot[name=structure]').addEventListener('pointerleave', () => {
+        function onMoveOutside(e) {
+            // react only to the events that happens outside of our sub menu, by closing it
+            if (header.contains(e.target)) {
+                return
+            }
             header.isOpened = false
             header.onOpenClose()
-        })
+        }
+
+        document.body.addEventListener('pointerdown', onMoveOutside)
+        //window.addEventListener('scroll', onMoveOutside)
 
     }
 
