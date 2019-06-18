@@ -58,7 +58,7 @@ customElements.define('axa-header-menu', class HeaderMenu extends HTMLElement {
                 <slot name=structure ></slot>
                 <slot name=call-to-action ></slot>
                ${this.isSearchable ? ' <axa-icon icon=search></axa-icon>' : '' }
-               ${originalStructure ? ' <axa-icon icon=menu aria-haspopup=true></axa-icon>':''}
+               ${originalStructure ? ' <axa-icon name=menu icon=menu aria-haspopup=true></axa-icon>':''}
             </nav>
             `
 
@@ -75,6 +75,8 @@ customElements.define('axa-header-menu', class HeaderMenu extends HTMLElement {
         //this.addEventListener('click', e => e.preventDefault())
         if (this.isSearchable)
             this.setupSearch()
+
+        //this.setupFocusOut()
     }
 
     setupSearch() {
@@ -96,19 +98,32 @@ customElements.define('axa-header-menu', class HeaderMenu extends HTMLElement {
 
     setupIconMenu() {
         const header = this
-        let structure = this.querySelector('slot[name=structure]')
-        let cta = this.querySelector('slot[name=structure]')
 
         this.querySelector('axa-icon[icon=menu]').addEventListener('click', function (e) {
             // invert open state
             header.isOpened = !header.isOpened
-            this.setAttribute('aria-expanded', header.isOpened)
-            this.setAttribute('icon', header.isOpened ? 'close' : 'menu')
-            if (structure)
-                structure.classList[header.isOpened ? 'add' : 'remove']('expanded')
-            if (cta)
-                cta.classList[header.isOpened ? 'add' : 'remove']('expanded')
+            header.onOpenClose()
         }, true)
+
+        this.querySelector('slot[name=structure]').addEventListener('pointerleave', () => {
+            header.isOpened = false
+            header.onOpenClose()
+        })
+
+    }
+
+    onOpenClose() {
+        let icon = this.querySelector('axa-icon[name=menu]')
+        let structure = this.querySelector('slot[name=structure]')
+        //let cta = this.querySelector('slot[name=call-to-action]')
+
+        icon.setAttribute('aria-expanded', this.isOpened)
+        icon.setAttribute('icon', this.isOpened ? 'close' : 'menu')
+        if (structure)
+            structure.classList[this.isOpened ? 'add' : 'remove']('expanded')
+        if (icon)
+            icon.classList[this.isOpened ? 'add' : 'remove']('expanded')
+
     }
 
     setupOnTopMenuAction() {

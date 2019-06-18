@@ -16,7 +16,6 @@
 	& [name="call-to-action"] {
 		display: inline-flex;
 		flex-basis: auto; // takes as much as needed
-
 	}
 
 	& [name="structure"] {
@@ -32,6 +31,11 @@
 	& axa-icon {
 		display: inline-flex;
 	}
+
+	& axa-icon[icon=menu] {
+		display: none;
+	}
+
 
 
 	position: relative;
@@ -54,7 +58,8 @@
 			display: flex;
 			width: 100%;
 			justify-content: flex-end;
-			margin-top: $spacing-2;
+			align-items: center;
+			height: $spacing-6;
 		}
 
 		&>ul>li {
@@ -94,8 +99,8 @@
 				padding: 0 $textMenuPadding;
 
 				// correct the position
-				transform: translateX(-1*$textMenuPadding) translateY($spacing-3) translateY(-$barHeight) translateY(-3px);
-
+				transform: translateX(-1*$textMenuPadding); // translateY($spacing-3) translateY(-$barHeight) translateY(-3px);
+				bottom: 0;
 			}
 		}
 
@@ -106,8 +111,7 @@
 			position: absolute;
 			z-index: 1;
 			right: 0; // stick to the right of the .m-header
-			transform: translateY($spacing-3) translateY(-2px); // add the space between bottom menu text and navbar, then add the margin width
-			//top: calc(#{$subMenuTopLargeScreen} + 1px);
+			top: calc(#{$subMenuTopLargeScreen} + 1px);
 			max-width: $breakpoint-MAX * ($subMenuWidthLargeScreenPercent / 100);
 			width: $subMenuWidthLargeScreenPercent * 1vw;
 			background-color: var(--color-white);
