@@ -29,9 +29,9 @@ customElements.define('axa-header-menu', class HeaderMenu extends HTMLElement {
             originalStructure.cloneNode(true)
             originalStructure.setAttribute('role', 'menu')
 
-            let firstLevel = originalStructure.querySelectorAll(':scope>li')
+            let firstLevel = originalStructure.querySelectorAll('li')
             firstLevel
-                .forEach(el => {
+                .forEach(function (el) {
                     let link = el.querySelector('a') // top menu texts
                     link.classList.add('a-typo__menu-item')
                     el.setAttribute('textContent', link.textContent)
