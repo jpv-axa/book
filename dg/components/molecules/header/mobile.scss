@@ -37,7 +37,7 @@
 
 	// submenu design
 	& [name="structure"] {
-		$subMenuExternalBorder: 1px solid var(--color-mercury);
+		$subMenuExternalBorder: 1px solid $color-mercury;
 
 		// reset
 		& ul,
@@ -47,7 +47,7 @@
 			margin: 0;
 		}
 
-		background-color: var(--color-white);
+		background-color: $color-white;
 		right: 0;
 		top: $headerHeight;
 		width: $breakpoint-MIN;
@@ -71,7 +71,7 @@
 				display: inline-block;
 				vertical-align: middle;
 				right: $spacing-5;
-				color: var(--color-axa-blue);
+				color: $color-axa-blue;
 				//fill: currentColor;
 				position: absolute;
 			}
@@ -91,7 +91,7 @@
 			top: 0;
 			height: calc(100vh - #{$headerHeight}); // cover parent, supposing it has few items
 			overflow: scroll;
-			background-color: var(--color-white);
+			background-color: $color-white;
 
 			left: 0;
 			right: 0; // strech the width
@@ -106,7 +106,7 @@
 				@include typo(text, text-catchy, semibold);
 
 				& [aria-current="page"] {
-					color: var(--color-deep-sapphire);
+					color: $color-deep-sapphire;
 					font-weight: 600;
 				}
 			}

@@ -34,53 +34,53 @@
     }
 
     &--primary {
-        background-color: var(--color-axa-blue);
+        background-color: $color-axa-blue;
 
     }
 
     &--primary button {
-        color: var(--color-white);
+        color: $color-white;
         border-width: 0px;
-        border-color: var(--color-deep-sapphire);
+        border-color: $color-deep-sapphire;
         background-color: transparent;
 
         &:before {
-            background-color: var(--color-deep-sapphire);
+            background-color: $color-deep-sapphire;
         }
     }
 
     &--secondary button {
         background-color: transparent;
-        border-color: var(--color-axa-blue);
-        color: var(--color-axa-blue);
+        border-color: $color-axa-blue;
+        color: $color-axa-blue;
 
         &:before {
-            background-color: var(--color-deep-sapphire);
+            background-color: $color-deep-sapphire;
         }
     }
 
     &--secondary button:hover,
     &--secondary button:active,
     &--secondary button:focus {
-        color: var(--color-white);
+        color: $color-white;
 
     }
 
 
     &--secondary--white button {
         background-color: transparent;
-        border-color: var(--color-white);
-        color: var(--color-white);
+        border-color: $color-white;
+        color: $color-white;
 
         &:before {
-            background-color: var(--color-white);
+            background-color: $color-white;
         }
     }
 
     &--secondary--white button:hover,
     &--secondary--white button:active,
     &--secondary--white button:focus {
-        color: var(--color-axa-blue);
+        color: $color-axa-blue;
     }
 
 
@@ -137,46 +137,17 @@
     outline: 0;
 }
 
-//outline: 2px solid var(--color-deep-sapphire);
+//outline: 2px solid $color-deep-sapphire;
 
 .a-button button:disabled {
-    color: var(--color-silver);
-    background-color: var(--color-mercury);
-    border-color: var(--color-mercury);
+    color: $color-silver;
+    background-color: $color-mercury;
+    border-color: $color-mercury;
     pointer-events: none;
     border-width: 0;
-    border-bottom: solid 2px var(--color-silver);
+    border-bottom: solid 2px $color-silver;
 }
 
 .a-button__icon {
     margin-left: $spacing-2;
 }
-
-
-// .a-button--red {
-//     background-color: var(--color-prim-red-burnt-sienna);
-//     border-color: var(--color-prim-red-burnt-sienna);
-//     border-bottom-color: var(--color-prim-red-flamingo);
-// }
-
-// .a-button--red:hover,
-// .a-button--red:active,
-// .a-button--red:focus {
-//     background-color: var(--color-prim-red-flamingo);
-//     border-color: var(--color-prim-red-flamingo);
-// }
-
-
-// .a-button--red .a-button--motion::before {
-//     background-color: var(--color-prim-red-flamingo);
-// }
-
-// .a-button--red .a-button--motion:hover,
-// .a-button--red .a-button--motion:focus {
-//     background-color: var(--color-prim-red-burnt-sienna);
-//     color: var(--color-white);
-// }
-
-// .a-button--red .a-button--motion::before {
-//     background-color: var(--color-prim-red-flamingo);
-// }

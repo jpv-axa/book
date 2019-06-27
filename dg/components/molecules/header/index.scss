@@ -1,10 +1,11 @@
 @import "../../materials/grids.scss";
 @import "../../materials/typography.scss";
+@import "../../materials/colors.scss";
 
 
 .m-header {
     // common styles
-    $header-border-style: 1px solid var(--color-mercury);
+    $header-border-style: 1px solid $color-mercury;
     border-bottom: $header-border-style;
 
     // from tablet
@@ -23,10 +24,10 @@
 
         // the search icon
         &[icon=search] {
-            color: var(--color-silver);
+            color: $color-silver;
         }
 
-        color: var(--color-axa-blue);
+        color: $color-axa-blue;
         width: $spacing-4;
     }
 }

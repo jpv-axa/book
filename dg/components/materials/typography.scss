@@ -1,5 +1,6 @@
 // BASED FROM https://github.com/axa-ch/patterns-library/blob/develop-v2/src/components/00-materials/20-typography-and-text.scss
 // in the develop-v2 branch
+@import './colors.scss';
 
 
 // =====================
@@ -124,5 +125,5 @@ $font-values: (default: (400, normal),
     margin: 0;
     word-wrap: break-word;
     hyphens: auto;
-    color: var(--color-mine-shaft);
+    color: $color-mine-shaft;
 }
