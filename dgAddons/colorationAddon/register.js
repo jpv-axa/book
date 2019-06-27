@@ -14,14 +14,14 @@ class Code extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {code: ''};
-    console.log("constructor type : " + props.type);
+    //console.log("constructor type : " + props.type);
     this.channelName = `soft/code/add_${props.type}`;
     this.onSelectTab = this.onSelectTab.bind(this);
   }
 
   onSelectTab({code, type}) {
     const formattedCode = type && code && Prism.highlight(code, Prism.languages[type]);
-    console.log("select tab of type : " + type + " and code : " + code);
+    //console.log("select tab of type : " + type + " and code : " + code);
     this.setState({code: formattedCode});
   }
 
@@ -29,7 +29,7 @@ class Code extends React.Component {
     const { channel, api } = this.props;
     channel.on(this.channelName, this.onSelectTab);
 
-    console.log("component did mount for channel : " + this.channelName);
+    //console.log("component did mount for channel : " + this.channelName);
     this.stopListeningOnStory = api.onStory(() => {
       this.onSelectTab('');
     });
@@ -68,14 +68,14 @@ class Code extends React.Component {
 
     this.unmounted = true;
     const { channel, api } = this.props;
-    console.log("stop listening to channel : " + this.channelName);
+    //console.log("stop listening to channel : " + this.channelName);
     channel.removeListener(this.channelName, this.onSelectTab);
   }
 }
 
 const registerTab  = ({label, type}) => {
   addons.register(`soft/code/add_${type}`, (api) => {
-    console.log("register code : " + type);
+    //console.log("register code : " + type);
     addons.addPanel(`soft/${type}/panel`, {
       title: label,
       render: ({ active, key }) => (
@@ -85,7 +85,7 @@ const registerTab  = ({label, type}) => {
   })
 }
 export const setTabs = (tabs) => {
-  console.log ("tabs to render : " + tabs.length);
+  //console.log ("tabs to render : " + tabs.length);
   const tabsToRender = [].concat(tabs);
   tabsToRender.forEach((t) => registerTab(t));
 }
