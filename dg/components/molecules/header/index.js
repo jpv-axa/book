@@ -51,8 +51,12 @@ customElements.define('axa-header-menu', class HeaderMenu extends HTMLElement {
 
         let cta = this.querySelector('[slot=call-to-action]')
 
+        //this.innerHTML = ''
+        while (this.firstChild) {
+            this.removeChild(this.firstChild);
+        }
 
-        this.innerHTML = `
+        this.insertAdjacentHTML('afterbegin', `
             <nav class=m-header>
                 <axa-logo></axa-logo>
                 <slot name=structure ></slot>
@@ -60,7 +64,7 @@ customElements.define('axa-header-menu', class HeaderMenu extends HTMLElement {
                ${this.isSearchable ? ' <axa-icon icon=search></axa-icon>' : '' }
                ${originalStructure ? ' <axa-icon name=menu icon=menu aria-haspopup=true></axa-icon>':''}
             </nav>
-            `
+            `)
 
         if (originalStructure) {
             this.querySelector('slot[name=structure]').appendChild(originalStructure)
@@ -145,7 +149,7 @@ customElements.define('axa-header-menu', class HeaderMenu extends HTMLElement {
                     return true;
 
                 // if we clicked on the first level, target and currentTarget is the same element
-                console.log(e.target, e.currentTarget)
+                //console.log(e.target, e.currentTarget)
                 // detect that we clicked on the sub submenu
                 if (e.target.hasAttribute('parenttitle')) {
                     // get one level up
