@@ -38,7 +38,7 @@
                     background: linear-gradient(to right, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0.80) 25%, 50%, rgba(0, 0, 0, 0.95) 100%);
 
                     * {
-                        color: var(--color-white);
+                        color: $color-white;
                     }
                 }
             }
@@ -50,7 +50,7 @@
                     background: linear-gradient(to left, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0.80) 25%, 50%, rgba(0, 0, 0, 0.95) 100%);
 
                     * {
-                        color: var(--color-white);
+                        color: $color-white;
                     }
                 }
             }
@@ -77,7 +77,7 @@
         background-position: top;
         background-repeat: no-repeat;
 
-        background-color: var(--color-alabaster);
+        background-color: $color-alabaster;
 
         &__text-background {
             padding: $gutter;
@@ -86,7 +86,7 @@
         }
 
         &__content {
-            background: white;
+            background: $color-white;
             padding: 0 (1/12*100%);
             padding-top: $spacing-4;
             padding-bottom: $spacing-4;
