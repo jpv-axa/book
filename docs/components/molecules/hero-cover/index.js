@@ -1,7 +1,7 @@
 import styles from './index.scss'
 import typo from '../../atoms/typography'
 import AxaButton from '../../atoms/button'
-
+import 'eligrey-classlist-js-polyfill' // needed for IE11
 
 customElements.define('axa-hero-cover', class HeroCover extends HTMLElement {
     constructor() {
@@ -30,7 +30,11 @@ customElements.define('axa-hero-cover', class HeroCover extends HTMLElement {
         let direction = this.getAttribute('+direction') === 'rtl' ? 'rtl' : 'ltr'
         this.design = this.getAttribute('+design') === 'wob' ? 'wob' : 'bow'
 
-        this.innerHTML = `
+        while (this.firstChild) {
+            this.removeChild(this.firstChild);
+        }
+
+        this.insertAdjacentHTML('afterbegin', `
             <div class="m-hero-cover__text-background m-hero-cover__text-background--${direction} m-hero-cover__text-background--${direction}--${this.design}">
                 <div class=m-hero-cover__content>
                     <h5 class=a-typo__category>${this.getAttribute('+category-title') || 'Category title'}</h5>
@@ -41,7 +45,7 @@ customElements.define('axa-hero-cover', class HeroCover extends HTMLElement {
                 </div>
             </div>
             <img style=display:none alt= src=${imgURL} />
-            `
+            `)
 
         this.querySelector('slot[name=call-to-action]').appendChild(cta)
         this.convertButtons()

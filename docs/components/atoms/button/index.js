@@ -29,7 +29,12 @@ class AxaButton extends HTMLElement {
 
         let textContent = this.textContent || 'See more'
 
-        this.innerHTML = `<button>${textContent}</button>`
+        this.textContent = ''
+
+        //this.innerHTML = 
+        //this.insertAdjacentHTML('beforebegin', `<button>${textContent}</button>`)
+        this.insertAdjacentHTML('afterbegin', `<button>${textContent}</button>`)
+
         this.realButton = this.querySelector('button')
 
         // default styling is primary button

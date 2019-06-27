@@ -23,17 +23,25 @@ class axaIcon extends HTMLElement {
 	}
 
 	drawSVG() {
+		this.empty()
 		switch (this.getAttribute('icon')) {
 			case 'search':
-				this.innerHTML = svgSearch
+				this.insertAdjacentHTML('afterbegin', svgSearch)
 				break
 			case 'close':
-				this.innerHTML = svgClose
+				this.insertAdjacentHTML('afterbegin', svgClose)
 				break
 			case 'menu':
-				this.innerHTML = svgMenu
+				this.insertAdjacentHTML('afterbegin', svgMenu)
 				break
 		}
+	}
+
+	empty() {
+		while (this.firstChild) {
+			this.removeChild(this.firstChild);
+		}
+
 	}
 }
 
