@@ -28,10 +28,14 @@ customElements.define('axa-header-menu', class HeaderMenu extends HTMLElement {
         if (originalStructure) {
             originalStructure.cloneNode(true)
             originalStructure.setAttribute('role', 'menu')
-
-            let firstLevel = originalStructure.querySelectorAll('li')
+            // IE11 does not support this syntax :
+            // let firstLevel = originalStructure.querySelectorAll(':scope>li')
+            let firstLevel = originalStructure.getElementsByTagName('li')
             firstLevel
                 .forEach(function (el) {
+                    // we want to catch only the first level
+                    if (el.parentNode !== originalStructure)
+                        return;
                     let link = el.querySelector('a') // top menu texts
                     link.classList.add('a-typo__menu-item')
                     el.setAttribute('textContent', link.textContent)
