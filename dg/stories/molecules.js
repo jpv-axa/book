@@ -116,7 +116,6 @@ const structure = `        <ul>
         <li><a href="#">Subnav Item 2-6</a></li>
         <li><a href="#">Subnav Item 2-7</a></li>
         <li><a href="#">Subnav Item 2-8</a></li>
-        <li><a href="#">Subnav Item 2-9</a></li>
     </ul>
 <li><a href="#">Menu Item 3, with long text and no sub-menu</a></li>
 <li><a href="#">Menu Item 4</a>

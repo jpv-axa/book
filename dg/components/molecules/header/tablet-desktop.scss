@@ -73,7 +73,6 @@
 				z-index: 1; // must
 			}
 
-			//border: 1px solid green;
 			// the orange bar under the hovered item
 			&:hover::after {
 				z-index: -1; // must stay under the A, to not destroy the hover
@@ -146,9 +145,10 @@
 				@include typo(text, h5, bold); // @extend a-typo__text-title would have been perfect
 
 				// at the left of the nav
-				display: block;
+				$leftZoneWidth: (100-$subMenuWidthLargeScreenPercent) * 1vw;
+
 				position: absolute;
-				left: (100-$subMenuWidthLargeScreenPercent) * -1vw;
+				left: calc(#{$leftZoneWidth * -1} - 4px);
 
 				@media (min-width: $breakpoint-MAX) {
 					left: (2/3*100)*-1%;
@@ -156,14 +156,19 @@
 
 				top:0;
 				max-width: $breakpoint-MAX * ((100-$subMenuWidthLargeScreenPercent) / 100);
-				width: (100-$subMenuWidthLargeScreenPercent) * 1vw;
+				width: calc(#{$leftZoneWidth} + 4px);
 				height: $subMenuHeight+$spacing-4; // height of the submenu + its padding
 				//top: $subMenuTopLargeScreen;
 				z-index: 1;
 				background-color: $color-white;
 				// align the text vertically / horizontally
-				line-height: $subMenuHeight+$spacing-4 !important; // vertically align our text
-				text-align: center;
+				display:flex;
+				flex-direction:row;
+				align-items: center;
+
+				//border:1px red dotted;
+
+				justify-content: center;
 			}
 
 			&:after {
@@ -172,6 +177,7 @@
 				content: '';
 				height: $subMenuHeight - $spacing-4;
 				left: 0;
+				top: $spacing-4;
 				position: absolute;
 			}
 		}
