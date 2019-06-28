@@ -197,6 +197,8 @@
 		padding-left: $spacing-2;
 		margin-left: $spacing-2;
 		border-left: $header-border-style;
+		height: $spacing-4+$spacing-2; // width + padding-left
+
 	}
 
 }
