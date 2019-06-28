@@ -1,8 +1,11 @@
-//import * as icons from '@axa-ch/materials'
-//import upperCamelCase from 'uppercamelcase'
+// to work in IE11
+import '@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js'
+import '@webcomponents/custom-elements'
+
+
 import styles from './index.scss'
-//import '@axa-ch/patterns-library-polyfill'
-//import "@babel/polyfill"
+
+
 class AxaButton extends HTMLElement {
     static get observedAttributes() {
         return ['+icon', 'disabled']
