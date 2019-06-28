@@ -3,13 +3,6 @@ import {
     addDecorator
 } from '@storybook/html'
 
-// to work in IE11
-import '@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js'
-import '@webcomponents/custom-elements'
-//import '@axa-ch/patterns-library-polyfill'
-//import '@webcomponents/webcomponentsjs'
-//import '@webcomponents/custom-elements/custom-elements.min.js'
-//import '@webcomponents/webcomponentsjs/webcomponents-bundle.js'
 
 import withCode from '../../dgAddons/colorationAddon';
 
