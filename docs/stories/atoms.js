@@ -52,7 +52,38 @@ import '../components/atoms/logo'
 storiesOf('Atoms — Logo', module)
     .addDecorator(withCode(logoJs, 'js'))
     .addDecorator(withCode(logoCss, 'scss'))
-    .add('Logo', () => '<axa-logo></axa-logo>')
+    .add('Default', () => '<axa-logo></axa-logo>')
+    .add('Over image', () => `
+        <p style=background-image:url(https://www.axa.co.uk/globalassets/new-website/home/home-hero-8.jpg)>
+            <axa-logo overimage=blue></axa-logo> Over light backgrounds, use attribute <code>overimage="blue"</code>
+        </p>
+        <p style=background-image:url(https://www.axa.co.uk/globalassets/new-website/landlord/landlord-hero-3.jpg);color:white;>
+            <axa-logo overimage=white></axa-logo> Over dark backgrounds, use attribute <code>overimage="white"</code>
+        </p>
+        <p style=background-color:white>
+            <axa-logo></axa-logo> On white backgrounds, use the standard logo
+        </p>
+    <style>
+    p {
+        text-align:center;
+        padding: 1em;
+        
+    }
+    </style>
+    `)
+    .add('Link, sizes', () => `
+    <p>Logo can be resized by simply using CSS
+        <axa-logo style=width:10em></axa-logo>
+        <axa-logo></axa-logo>
+        <axa-logo style=width:1em></axa-logo>
+    </p>
+    <p>Logo can be a link with a simple
+        <a href=https://www.axa.com target=_blank>
+            <axa-logo></axa-logo>
+        </a>
+    </p>
+`)
+
 
 /*
  * Typo

@@ -2,6 +2,8 @@ import {
     create
 } from '@storybook/theming';
 
+import logo from '../dg/components/atoms/logo/materials/a-logo--default.svg'
+
 export default create({
     base: 'light',
 
@@ -35,5 +37,5 @@ export default create({
 
     brandTitle: 'Axa Brand Design System',
     brandUrl: 'https://design.axa.com/',
-    brandImage: 'https://www.axa.ch/etc/clientlibs/axa/frontend-lib/images/logo-AXA.svg'
+    brandImage: logo //'https://www.axa.ch/etc/clientlibs/axa/frontend-lib/images/logo-AXA.svg'
 });
