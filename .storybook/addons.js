@@ -7,15 +7,21 @@ import '@storybook/addon-notes/register'
 
 // import '@storybook/addon-knobs/register'
 // https://github.com/storybooks/storybook/tree/master/addons/storysource
-//import '@storybook/addon-storysource/register'
+// import '@storybook/addon-storysource/register'
+//import 'storybook-usage/register'
 
 import * as CodeAddon from '../dgAddons/colorationAddon/register';
 CodeAddon.setTabs(
     [{
-        label: 'Scss',
-        type: 'scss'
-    }, {
-        label: 'Javascript',
-        type: 'js'
-    }]
+            label: 'How to code that ?',
+            type: 'html'
+        }
+        /*, {
+                label: 'Scss',
+                type: 'scss'
+            }, {
+                label: 'Javascript',
+                type: 'js'
+            }*/
+    ]
 );

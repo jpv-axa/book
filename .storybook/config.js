@@ -1,17 +1,16 @@
 import {
     configure,
-    addParameters
+    addParameters,
+    addDecorator
 } from '@storybook/html'
 import theme from './theme'
-// https://www.npmjs.com/package/@pickra/copy-code-block
-// import copyCodeBlock from '@pickra/copy-code-block'
 
 // https://storybook.js.org/docs/configurations/options-parameter/
 addParameters({
     options: {
         theme,
         panelPosition: 'bottom',
-        showPanel: false
+        showPanel: true
     },
     /*viewport: {
         defaultViewport: 'iphone6'
