@@ -1,11 +1,13 @@
 @import "../../materials/grids.scss";
 @import "../../materials/typography.scss";
 @import "../../materials/colors.scss";
+@import "../../materials/elevation.scss";
 
 
-.m-header {
-    // common styles
-    $header-border-style: 1px solid $color-mercury;
+// common styles
+$header-border-style: 1px solid $color-mercury;
+$shadow-as-background: linear-gradient(to bottom, rgba(225, 225, 225, 1) 0%, white $shadow-radius-3, white 100%);
+$base-z-index : 1;
 
 axa-header-menu {
     display: block;
@@ -14,6 +16,7 @@ axa-header-menu {
     position: relative;
 }
 
+.m-header {
 
     // from tablet
     //@media (min-width: calc((#{$breakpoint-M}) - 1px)) {

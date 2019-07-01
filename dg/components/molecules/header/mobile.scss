@@ -1,6 +1,6 @@
 //.m-header
 & {
-	$headerHeight: 2 * $spacing-2+$spacing-6; // recalculate header height : logo height + header vertical padding
+	$headerHeight: 2 * $spacing-1+$spacing-6; // recalculate header height : logo height + header vertical padding
 	//border: 3px dashed red;
 
 	padding: $spacing-1 $spacing-2;
@@ -47,11 +47,16 @@
 			margin: 0;
 		}
 
-		background-color: $color-white;
+		//background-color: $color-white;
+		background-image:$shadow-as-background;
+
+		box-shadow: ($shadow-radius-3 *-1) ($shadow-radius-3 / 2) $shadow-radius-3 $shadow-color;
+
 		right: 0;
-		top: $headerHeight;
+		top: calc(#{$headerHeight});
 		width: $breakpoint-MIN;
 		//max-width: $breakpoint-MIN;
+		height: calc(100vh - #{$headerHeight});
 
 		// lvl 1 navigation
 		&>ul {
@@ -91,7 +96,8 @@
 			top: 0;
 			height: calc(100vh - #{$headerHeight}); // cover parent, supposing it has few items
 			overflow: scroll;
-			background-color: $color-white;
+			background-image: $shadow-as-background;
+
 
 			left: 0;
 			right: 0; // strech the width

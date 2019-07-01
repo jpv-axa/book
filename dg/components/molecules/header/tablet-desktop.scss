@@ -70,12 +70,10 @@
 			>a {
 				// large padding-bottom and z-index > :after, to have enough space for mouse hovering
 				padding-bottom: $spacing-4;
-				z-index: 1; // must
 			}
 
 			// the orange bar under the hovered item
 			&:hover::after {
-				z-index: -1; // must stay under the A, to not destroy the hover
 
 				$barHeight: 4px;
 				// at the bottom of the nav
@@ -113,7 +111,8 @@
 			top: calc(#{$subMenuTopLargeScreen} + 1px);
 			max-width: $breakpoint-MAX * ($subMenuWidthLargeScreenPercent / 100);
 			width: $subMenuWidthLargeScreenPercent * 1vw;
-			background-color: $color-white;
+			background-image: $shadow-as-background;
+
 
 			padding-top: $spacing-4;
 
@@ -139,8 +138,12 @@
 				}
 			}
 
+			box-shadow: ($shadow-radius-3 *-1) ($shadow-radius-3 / 2) $shadow-radius-3 $shadow-color;
+
 			// left zone
 			&:before {
+				box-shadow: ($shadow-radius-3 *-1) ($shadow-radius-3 / 2) $shadow-radius-3 $shadow-color;
+
 				content: attr(parentTitle);
 				@include typo(text, h5, bold); // @extend a-typo__text-title would have been perfect
 
@@ -154,13 +157,13 @@
 					left: (2/3*100)*-1%;
 				}
 
+				// imitate the shadow of the header
+				background-image: $shadow-as-background;
+
 				top:0;
 				max-width: $breakpoint-MAX * ((100-$subMenuWidthLargeScreenPercent) / 100);
 				width: calc(#{$leftZoneWidth} + 4px);
 				height: $subMenuHeight+$spacing-4; // height of the submenu + its padding
-				//top: $subMenuTopLargeScreen;
-				z-index: 1;
-				background-color: $color-white;
 				// align the text vertically / horizontally
 				display:flex;
 				flex-direction:row;
