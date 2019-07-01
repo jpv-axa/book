@@ -6,7 +6,14 @@
 .m-header {
     // common styles
     $header-border-style: 1px solid $color-mercury;
-    border-bottom: $header-border-style;
+
+axa-header-menu {
+    display: block;
+    box-shadow: $shadow-2;
+    z-index: $base-z-index;
+    position: relative;
+}
+
 
     // from tablet
     //@media (min-width: calc((#{$breakpoint-M}) - 1px)) {
