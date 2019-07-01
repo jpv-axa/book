@@ -5,4 +5,9 @@ axa-logo {
         vertical-align: middle;
         width: 100%;
     }
+
+    // 284 pixels is already a very large size, we dont need more
+    max-width: 17rem;
+    // no less than 48 px wide
+    min-width: 3rem;
 }
