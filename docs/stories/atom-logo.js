@@ -4,10 +4,8 @@ import {
 } from '@storybook/html'
 import withCode from '../../dgAddons/colorationAddon'
 
-/* Logo
- */
-import logoJs from '!raw-loader!../components/atoms/logo/index.js';
-import logoCss from '!raw-loader!../components/atoms/logo/index.scss';
+import imageWhite from './statics/home-hero-8.jpg'
+import imageDark from './statics/landlord-hero-3.jpg'
 
 
 import '../components/atoms/logo'
@@ -22,10 +20,10 @@ storiesOf(`Atoms|Logo`, module)
 
 
 const demo2 = `
-<p style=background-image:url(https://www.axa.co.uk/globalassets/new-website/home/home-hero-8.jpg)>
+<p style=background-image:url(${imageWhite})>
 		<axa-logo overimage=blue></axa-logo>
 </p><p class=a-typo__text>Over light backgrounds, use attribute <code>overimage="blue"</code></p>
-<p style=background-image:url(https://www.axa.co.uk/globalassets/new-website/landlord/landlord-hero-3.jpg);color:white;>
+<p style=background-image:url(${imageDark});color:white;>
 		<axa-logo overimage=white></axa-logo>
 </p><p  class=a-typo__text>Over dark backgrounds, use attribute <code>overimage="white"</code></p>
 <p style=background-color:white>

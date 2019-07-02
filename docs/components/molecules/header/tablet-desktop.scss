@@ -70,12 +70,10 @@
 			>a {
 				// large padding-bottom and z-index > :after, to have enough space for mouse hovering
 				padding-bottom: $spacing-4;
-				//z-index: 1; // must
 			}
 
 			// the orange bar under the hovered item
 			&:hover::after {
-				//z-index: -1; // must stay under the A, to not destroy the hover
 
 				$barHeight: 4px;
 				// at the bottom of the nav
@@ -113,7 +111,6 @@
 			top: calc(#{$subMenuTopLargeScreen} + 1px);
 			max-width: $breakpoint-MAX * ($subMenuWidthLargeScreenPercent / 100);
 			width: $subMenuWidthLargeScreenPercent * 1vw;
-			//			background-color: $color-white;
 			background-image: $shadow-as-background;
 
 
@@ -162,16 +159,11 @@
 
 				// imitate the shadow of the header
 				background-image: $shadow-as-background;
-				//background: linear-gradient(to bottom, rgba(212, 212, 212, 1) 0%, rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 1) 100%);
-				//background-color: white;
-
 
 				top:0;
 				max-width: $breakpoint-MAX * ((100-$subMenuWidthLargeScreenPercent) / 100);
 				width: calc(#{$leftZoneWidth} + 4px);
 				height: $subMenuHeight+$spacing-4; // height of the submenu + its padding
-				//top: $subMenuTopLargeScreen;
-				//				z-index: 1;
 				// align the text vertically / horizontally
 				display:flex;
 				flex-direction:row;
