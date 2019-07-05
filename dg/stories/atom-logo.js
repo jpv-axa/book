@@ -50,7 +50,7 @@ const demo3 = `
 	<axa-logo></axa-logo>
 </p><p class=a-typo__text>Logo can be resized by simply using CSS</p>
 <p>
-	<a href=https://www.axa.com target=_blank>
+	<a href=javascript:alert('Clicked') target=_blank>
 			<axa-logo></axa-logo>
 	</a>
 </p><p class=a-typo__text>Logo can be a link with a simple anchor tag (<code>a href=…</code>)</p>
