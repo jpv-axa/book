@@ -71,13 +71,12 @@
 
 			// the small ">" sign after
 			&[aria-haspopup="true"]>a:after {
-				content: url("../../atoms/icon/materials/chevron_right.svg");
+				content: url("../../atoms/icon/materials/chevron_right-currentcolor.svg");
 				width: $spacing-2;
 				display: inline-block;
 				vertical-align: middle;
 				right: $spacing-5;
 				color: $color-axa-blue;
-				//fill: currentColor;
 				position: absolute;
 			}
 		}
@@ -131,7 +130,7 @@
 				@include typo(text, h5, bold);
 				// the little chevron
 				padding-left: calc(#{$spacing-5} + #{$spacing-2});
-				background-image: url("../../atoms/icon/materials/chevron_left.svg");
+				background-image: url("../../atoms/icon/materials/chevron_left-currentcolor.svg");
 				background-size: $spacing-2;
 				background-repeat: no-repeat;
 				background-position: $spacing-4 center;
