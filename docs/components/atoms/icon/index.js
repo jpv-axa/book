@@ -1,6 +1,6 @@
-import svgSearch from '!!raw-loader!./materials/search.svg'
-import svgClose from '!!raw-loader!./materials/close.svg'
-import svgMenu from '!!raw-loader!./materials/menu.svg'
+import svgSearch from '!!raw-loader!./materials/search-currentcolor.svg'
+import svgClose from '!!raw-loader!./materials/close-currentcolor.svg'
+import svgMenu from '!!raw-loader!./materials/menu-currentcolor.svg'
 
 class axaIcon extends HTMLElement {
 	static get observedAttributes() {
