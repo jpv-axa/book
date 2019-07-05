@@ -13,8 +13,6 @@ import '../components/atoms/logo'
 
 const demo1 = '<axa-logo></axa-logo>'
 storiesOf(`Atoms|Logo`, module)
-	/*.addDecorator(withCode(logoJs, 'js'))
-	.addDecorator(withCode(logoCss, 'scss'))*/
 	.addDecorator(withCode(demo1, 'html'))
 	.add('Default', () => demo1)
 
