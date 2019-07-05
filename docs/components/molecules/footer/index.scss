@@ -1,0 +1,131 @@
+@import '../../materials/colors.scss';
+@import '../../materials/grids.scss';
+@import '../../materials/typography.scss';
+
+axa-footer {
+	display: block;
+}
+
+$border-style: solid 1px rgba(255, 255, 255, 0.15);
+
+@mixin legalMobileDesign () {
+	display: block;
+	text-align: right;
+	border-top: $border-style;
+	padding: $spacing-1 $spacing-2;
+}
+
+
+.m-footer {
+
+	// reset
+	& ul,
+	& li {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+
+	position: relative;
+	display: block;
+
+	footer {
+		// max-width + center the footer, while letting the background to 100%
+		max-width: $breakpoint-MAX;
+		margin: 0 auto;
+		display: flex;
+	}
+
+
+	// desktop and medium design : 0-3 content columns
+	@media (min-width: $breakpoint-S) {
+		[name=content] {
+			display: flex;
+
+			ul {
+				margin: $spacing-6 $spacing-4;
+				width: 33%;
+
+				// title for the comumn
+				&::before {
+					content: attr(title);
+					// @extend a-typo__menu-item // would have been perfect, but does not work in this case
+					@include typo(text, label, bold);
+					text-transform: uppercase;
+					color: inherit;
+				}
+			}
+
+			li {
+				margin-top: $spacing-3;
+			}
+		}
+	}
+
+	//  large design : legal on the last column
+	@media (min-width: $breakpoint-M) {
+		[name=content] {
+			width: 60%;
+		}
+
+		[name=legal] {
+			width: 40%;
+			display: flex;
+			align-self: flex-end;
+			flex-direction: row-reverse;
+		}
+
+		[slot=legal] {
+			margin: $spacing-6;
+		}
+
+	}
+
+	// medium design : legal goes at the bottom
+	@media (min-width: $breakpoint-S) and (max-width: $breakpoint-M-pixels - 1px) {
+		footer {
+			flex-direction: column;
+		}
+
+		[name=legal] {
+			@include legalMobileDesign();
+		}
+
+		//[slot=legal] {}
+	}
+
+	// mobile design : switch to accordeons
+	@media (max-width: $breakpoint-S) {
+		footer {
+			background-color: rebeccapurple;
+			flex-direction: column;
+		}
+
+		[name=legal] {
+			@include legalMobileDesign();
+		}
+
+	}
+
+	// color variations
+	&__blue {
+		background-color: $color-ocean-blue;
+		color: $color-white;
+
+		.a-typo__legals {
+			color: inherit;
+		}
+
+		.a-typo__link,
+		a {
+			color: inherit;
+		}
+	}
+
+	// not validated by a designer yet
+	&__white {
+		background-color: $color-white;
+	}
+
+}
