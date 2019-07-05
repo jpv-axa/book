@@ -19,25 +19,30 @@ storiesOf('Organism|Header, Footer, Hero Cover', module)
 	.add('Default values', () => demo1)
 
 
+// dummy catchup function
+window.onNavigate = function () {
+	return alert('Click')
+}
+
 const demo2 = `<axa-header-menu  +searchable>
 	<ul>
-		<li><a href="#">Menu Item 1</a>
+		<li><a href=javascript:onNavigate() >Menu Item 1</a>
 			<ul>
-					<li><a href="#">Subnav Item 1-1</a></li>
-					<li><a href="#">Subnav Item 1-2</a></li>
-					<li><a href="#">Subnav Item 1-3</a></li>
-					<li><a href="#" aria-current=page>Indicate current page with <code>&lt;a aria-current=page&gt;</code></a></li>
+					<li><a href=javascript:onNavigate() >Subnav Item 1-1</a></li>
+					<li><a href=javascript:onNavigate() >Subnav Item 1-2</a></li>
+					<li><a href=javascript:onNavigate() >Subnav Item 1-3</a></li>
+					<li><a href=javascript:onNavigate()  aria-current=page>Indicate current page with <code>&lt;a aria-current=page&gt;</code></a></li>
 			</ul>
 		</li>
-		<li><a href="#">Menu Item 4</a>
+		<li><a href=javascript:onNavigate() >Menu Item 4</a>
 			<ul>
-				<li><a href="#">Subnav Item 4-1 Subnav Item 4-1Subnav Item 4-1 Subnav Item 4-1Subnav Item 4-1</a></li>
-				<li><a href="#">Subnav Item 4-2</a></li>
-				<li><a href="#">Subnav Item 4-3</a></li>
-				<li><a href="#">Subnav Item 4-4</a></li>
-				<li><a href="#">Subnav Item 4-5</a></li>
-				<li><a href="#">Subnav Item 4-6</a></li>
-				<li><a href="#">Subnav Item 4-7</a></li>
+				<li><a href=javascript:onNavigate() >Subnav Item 4-1 Subnav Item 4-1Subnav Item 4-1 Subnav Item 4-1Subnav Item 4-1</a></li>
+				<li><a href=javascript:onNavigate() >Subnav Item 4-2</a></li>
+				<li><a href=javascript:onNavigate() >Subnav Item 4-3</a></li>
+				<li><a href=javascript:onNavigate() >Subnav Item 4-4</a></li>
+				<li><a href=javascript:onNavigate() >Subnav Item 4-5</a></li>
+				<li><a href=javascript:onNavigate() >Subnav Item 4-6</a></li>
+				<li><a href=javascript:onNavigate() >Subnav Item 4-7</a></li>
 			</ul>
 		</li>
 	</ul>
@@ -55,18 +60,18 @@ const demo2 = `<axa-header-menu  +searchable>
 
 <axa-footer>
 	<ul title="AXA and you">
-		<li><a href=#>Jargon explained</a></li>
-		<li><a href=#>Sitemap</a></li>
-		<li><a href=#>Manage your policy</a></li>
+		<li><a href=javascript:onNavigate() >Jargon explained</a></li>
+		<li><a href=javascript:onNavigate() >Sitemap</a></li>
+		<li><a href=javascript:onNavigate() >Manage your policy</a></li>
 	</ul>
 	<ul title="Beliebte Versicherungen">
-		<li><a href=#>Kontakt Privatkunden</a></li>
-		<li><a href=#>Ansprechpartner vor Ort</a></li>
-		<li><a href=#>Online Banking</a></li>
-		<li><a href=#>Service Apps</a></li>
-		<li><a href=#>Servicenummern</a></li>
-		<li><a href=#>Adressen</a></li>
-		<li><a href=#>Freunde werben</a></li>
+		<li><a href=javascript:onNavigate() >Kontakt Privatkunden</a></li>
+		<li><a href=javascript:onNavigate() >Ansprechpartner vor Ort</a></li>
+		<li><a href=javascript:onNavigate() >Online Banking</a></li>
+		<li><a href=javascript:onNavigate() >Service Apps</a></li>
+		<li><a href=javascript:onNavigate() >Servicenummern</a></li>
+		<li><a href=javascript:onNavigate() >Adressen</a></li>
+		<li><a href=javascript:onNavigate() >Freunde werben</a></li>
 	</ul>
 </axa-footer>`
 
