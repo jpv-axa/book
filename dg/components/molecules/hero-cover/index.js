@@ -41,7 +41,7 @@ customElements.define('axa-hero-cover', class HeroCover extends HTMLElement {
                     <h2 class=a-typo__page-title>${this.getAttribute('+main-title') || 'Main Title'}</h2>
                     ${content ? `<p class="a-typo__highlight">${content}</p>`:''}
                     ${legalContent ? `<p class="a-typo__legals">${legalContent.innerHTML}</p>`:''}
-                    <slot name=call-to-action />
+                    <slot name=call-to-action></slot>
                 </div>
             </div>
             <img style=display:none alt= src=${imgURL} />
