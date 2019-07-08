@@ -11,7 +11,7 @@
 DONT PUBLISH IN `master`
 
 * create a branch from `master`
-* Before publishing, run `npm run build`, open locally `docs/storybook/index.html` to check it works.
+* Before publishing, run `npm run build`, open locally `docs/index.html` to check it works.
 * To check if all modifications really are wanted, execute `npm run visual-diff` and go on the URL provided by percy.io
 * Commit and push `docs/*`.
 * Go on Github https://github.com/jpv-axa/book and do a Pull Request
@@ -21,12 +21,3 @@ DONT PUBLISH IN `master`
   * by a designer on the URL provided by percy
 
 Public demo : https://jpv-axa.github.io/book/docs/storybook/
-
-
-## Validating techno ?
-
-2 demos with 2 technos
-after `npm install`, run either :
-
-- `npm run fractal`
-- `npm run storybook`
