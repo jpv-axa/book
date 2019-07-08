@@ -32,10 +32,6 @@
     "react-dom": "^16.3.2"
   },
   "dependencies": {
-    "@axa-ch/icon": "^1.2.3",
-    "@axa-ch/materials": "^1.2.1",
-    "@axa-ch/patterns-library": "^2.0.1-beta.264",
-    "@axa-ch/patterns-library-polyfill": "^1.4.4",
     "@babel/plugin-transform-arrow-functions": "^7.2.0",
     "@percy/storybook": "^3.0.2",
     "@pickra/copy-code-block": "^1.1.2",

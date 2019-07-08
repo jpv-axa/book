@@ -94,14 +94,7 @@ customElements.define('axa-header-menu', class HeaderMenu extends HTMLElement {
         if (!svgEl) // retry a bit later, when the DOM of the button is really ready
             return setTimeout(this.setupSearch.bind(this), 100)
 
-        // SVG given by axa-ch has a fixed width, we modify it on the fly
-        // svgEl.setAttribute('height', '100%')
-        // svgEl.setAttribute('width', '100%')
-
         svgEl.addEventListener('click', this.searchCallback.bind(this))
-        /*svgEl.removeAttribute('height')
-        svgEl.removeAttribute('width')
-*/
     }
 
     setupIconMenu() {
