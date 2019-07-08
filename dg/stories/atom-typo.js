@@ -86,4 +86,4 @@ const demo3 = `
 `
 storiesOf(`Atoms|Typography`)
 	//.addDecorator(withCode(demo3, 'html'))
-	.add('Long text demos', () => demo3)
+	.add('Long texts demo', () => demo3)
