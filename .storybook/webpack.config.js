@@ -1,13 +1,3 @@
-/*{ test: /\.css$/,
-    use: 
-    [ '/Users/jpv/Documents/DEV/digital_guidelines/node_modules/style-loader/index.js',
-        { loader: '/Users/jpv/Documents/DEV/digital_guidelines/node_modules/css-loader/dist/cjs.js',
-        options: { importLoaders: 1 } },
-        { loader: '/Users/jpv/Documents/DEV/digital_guidelines/node_modules/postcss-loader/src/index.js',
-        options: { ident: 'postcss', postcss: {}, plugins: [Function: plugins] } } ] },
-
-*/
-
 const path = require('path')
 
 // Export a function. Accept the base config as the only param.

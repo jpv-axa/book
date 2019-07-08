@@ -11,7 +11,6 @@ class AxaButton extends HTMLElement {
         return ['+icon', 'disabled']
     }
     attributeChangedCallback(attr, old, value) {
-        // console.log(attr, old, value)
         if (old === value)
             return
         switch (attr) {
@@ -51,15 +50,6 @@ class AxaButton extends HTMLElement {
         this.realButton.classList.add('a-typo__button')
 
     }
-
-    // updateIcon() {
-    //     let name = upperCamelCase(this.getAttribute('+icon')) + 'Svg'
-    //     const icon = document.createElement('svg')
-    //     icon.classList.add('a-button__icon')
-    //     //icon.src = 'data:image/svg+xml;charset=UTF-8,' + icons[name]
-    //     icon.innerHTML = icons[name]
-    //     this.appendChild(icon)
-    // }
 }
 
 customElements.define('axa-button', AxaButton, {
