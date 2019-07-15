@@ -19,14 +19,12 @@ const styles = `	<style>
 `
 
 const demo1 = `
-<div id="container">
 	<h1 class="a-typo__event-title" title=".a-typo__event-title">Event Title</h1>
 	<h1 class="a-typo__page-title" title=".a-typo__page-title">Page Title - H1</h1>
 	<h2 class="a-typo__slice-title" title=".a-typo__slice-title">Slice Title - H2</h2>
 	<h3 class="a-typo__module-title" title=".a-typo__module-title">Module Title - H3</h3>
 	<h4 class="a-typo__card-title" title=".a-typo__card-title">Card Title - H4</h4>
 	<h5 class="a-typo__text-title" title=".a-typo__text-title">Text Title - H5</h5>
-</div>
 `
 storiesOf(`Atoms|Typography`)
 	//.addDecorator(withCode(typoCss, 'scss'))
@@ -39,11 +37,10 @@ storiesOf(`Atoms|Typography`)
 					el.setAttribute('fontSize', getComputedStyle(el)['fontSize'])
 					el.setAttribute('lineHeight', getComputedStyle(el)['lineHeight'])
 				}), 1000)
-		return demo1
+		return '<div id="container">' + demo1 + '</div>'
 	})
 
 const demo2 = `
-<div id="container">
 	<p><quote class="a-typo__highlight" title=".a-typo__highlight | .a-typo__quote">Highlight / Quote</quote></p>
 	<p><label class="a-typo__label" title=".a-typo__label">Label</label></p>
 	<p class="a-typo__text" title=".a-typo__text">Standard Text</span>
@@ -55,7 +52,6 @@ const demo2 = `
 		<span class=a-typo__menu-item title=.a-typo__menu-item>Menu Item</span>
 	</p>
 	<p><span class="a-typo__legals" title=".a-typo__legals">Legals</span></p>
-</div>
 `
 storiesOf(`Atoms|Typography`)
 	.addDecorator(withCode(demo2, 'html'))
@@ -67,7 +63,7 @@ storiesOf(`Atoms|Typography`)
 					el.setAttribute('fontSize', getComputedStyle(el)['fontSize'])
 					el.setAttribute('lineHeight', getComputedStyle(el)['lineHeight'])
 				}), 1000)
-		return demo2
+		return '<div id="container">' + demo2 + '</div>'
 	})
 
 const demo3 = `
