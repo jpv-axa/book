@@ -1,0 +1,46 @@
+@import '../../materials/colors.scss';
+@import '../typography/index.scss';
+@import '../../materials/grids.scss';
+
+
+axa-input {
+	background-color: pink;
+
+	// placement and dimensions
+	display: inline-block;
+	vertical-align: top;
+	min-width: 18rem;
+	max-width: 23.75rem;
+	width: 100%;
+	padding-bottom: $spacing-4;
+
+	label,
+	input {
+		width: 100%;
+		display: block;
+		box-sizing: border-box;
+	}
+
+	// styling
+	input {
+		border: 1px solid $color-silver;
+		@extend .a-typo__text;
+
+		padding: $spacing-1 $spacing-2;
+		margin: $spacing-1 0;
+	}
+
+	[slot=info] {
+		padding: 0;
+		margin: 0;
+		@extend .a-typo__legals;
+	}
+
+	label {
+		@extend .a-typo__label;
+	}
+}
+
+axa-input+axa-input {
+	margin-left: $spacing-4;
+}
