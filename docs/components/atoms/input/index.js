@@ -1,4 +1,5 @@
-import textInput from './textInput'
+import textInput from './input-text'
+import passwordInput from './input-password'
 import './index.scss'
 
 import {
@@ -7,7 +8,7 @@ import {
 
 class axaInput extends HTMLElement {
 	static get observedAttributes() {
-		return ['+valid', '+invalid', '+disabled']
+		return ['+valid', '+invalid', '+disabled', '+revealed']
 	}
 
 	attributeChangedCallback(attr, old, value) {
@@ -25,6 +26,9 @@ class axaInput extends HTMLElement {
 			case '+disabled': // TODO  : catch when +disabled is REMOVED
 				this.classList.add('disabled')
 				this.el.disabled = true
+				break
+			case '+revealed': // TODO  : catch when +revealed is REMOVED
+				this.el.toggleRevealer()
 				break
 		}
 	}
@@ -54,6 +58,12 @@ class axaInput extends HTMLElement {
 		switch (this.field.type) {
 			case 'text':
 				this.el = new textInput(this)
+				break;
+			case 'password':
+				this.el = new passwordInput(this)
+				break;
+			default:
+				throw new TypeError(`This type of input (${this.field.type}) is not supported yet.`)
 		}
 
 		this.el.init()
