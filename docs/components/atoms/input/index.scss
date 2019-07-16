@@ -1,0 +1,84 @@
+@import '../../materials/colors.scss';
+@import '../typography/index.scss';
+@import '../../materials/grids.scss';
+
+
+axa-input {
+	// placement and dimensions
+	display: inline-block;
+	vertical-align: top;
+	min-width: 18rem;
+	max-width: 23.75rem;
+	width: 100%;
+	padding-bottom: $spacing-4;
+
+	label,
+	input {
+		width: 100%;
+		display: block;
+		box-sizing: border-box;
+	}
+
+	// styling
+	input {
+		border: 1px solid $color-silver;
+		@extend .a-typo__text;
+
+		padding: $spacing-1 $spacing-2;
+		margin: $spacing-1 0;
+
+		&::placeholder {
+			color: $color-dusty-gray;
+		}
+	}
+
+	[slot=info],
+	[role=alert] {
+		display: block;
+		padding: 0;
+		margin: 0;
+		@extend .a-typo__legals;
+	}
+
+	label {
+		@extend .a-typo__label;
+		position: relative; // for positioning the status icons
+
+		&::after {
+			// will contain success or error icons
+			width: $spacing-2;
+			right: $spacing-1;
+			bottom: 0;
+			display: block;
+			position: absolute;
+		}
+	}
+
+	// manage states
+	&.disabled {
+		label {
+			color: $color-dusty-gray;
+		}
+	}
+
+	&.valid input {
+		border-color: $color-malachite;
+	}
+
+	&.valid label::after {
+		content: url("../../atoms/icon/materials/check.svg");
+	}
+
+	&.invalid label::after {
+		content: url("../../atoms/icon/materials/error.svg");
+	}
+
+	&.invalid input {
+		border-color: $color-shy-tomato;
+	}
+
+	[role=alert] {
+		color: $color-shy-tomato;
+	}
+
+}
