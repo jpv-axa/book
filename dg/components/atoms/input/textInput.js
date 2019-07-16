@@ -24,6 +24,8 @@ class textInput extends commonInput {
 		if (info)
 			this.el.appendChild(info)
 
+
+		this.disabled = this.el.field.disabled
 	}
 }
 

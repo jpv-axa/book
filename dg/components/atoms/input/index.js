@@ -6,9 +6,28 @@ import {
 } from 'assert';
 
 class axaInput extends HTMLElement {
-	/*	static get observedAttributes() {
-			return ['icon']
-		}*/
+	static get observedAttributes() {
+		return ['+valid', '+invalid', '+disabled']
+	}
+
+	attributeChangedCallback(attr, old, value) {
+		if (old === value)
+			return
+		switch (attr) {
+			case '+valid':
+				this.classList.add('valid')
+				this.classList.remove('invalid')
+				break
+			case '+invalid':
+				this.classList.add('invalid')
+				this.classList.remove('valid')
+				break
+			case '+disabled': // TODO  : catch when +disabled is REMOVED
+				this.classList.add('disabled')
+				this.el.disabled = true
+				break
+		}
+	}
 
 	constructor() {
 		super()
@@ -38,6 +57,11 @@ class axaInput extends HTMLElement {
 		}
 
 		this.el.init()
+		// manage styling depending on states
+		if (this.el.disabled)
+			this.classList.add('disabled')
+		else
+			this.classList.remove('disabled')
 	}
 
 }

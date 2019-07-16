@@ -4,7 +4,7 @@
 
 
 axa-input {
-	background-color: pink;
+	//background-color: pink;
 
 	// placement and dimensions
 	display: inline-block;
@@ -28,9 +28,15 @@ axa-input {
 
 		padding: $spacing-1 $spacing-2;
 		margin: $spacing-1 0;
+
+		&::placeholder {
+			color: $color-dusty-gray;
+		}
 	}
 
-	[slot=info] {
+	[slot=info],
+	[role=alert] {
+		display: block;
 		padding: 0;
 		margin: 0;
 		@extend .a-typo__legals;
@@ -38,9 +44,43 @@ axa-input {
 
 	label {
 		@extend .a-typo__label;
-	}
-}
+		position: relative; // for positioning the status icons
 
-axa-input+axa-input {
-	margin-left: $spacing-4;
+		&::after {
+			// will contain success or error icons
+			width: $spacing-2;
+			right: $spacing-1;
+			bottom: 0;
+			display: block;
+			position: absolute;
+		}
+	}
+
+	// manage states
+	&.disabled {
+		label {
+			color: $color-dusty-gray;
+		}
+	}
+
+	&.valid input {
+		border-color: $color-malachite;
+	}
+
+	&.valid label::after {
+		content: url("../../atoms/icon/materials/check.svg");
+	}
+
+	&.invalid label::after {
+		content: url("../../atoms/icon/materials/error.svg");
+	}
+
+	&.invalid input {
+		border-color: $color-shy-tomato;
+	}
+
+	[role=alert] {
+		color: $color-shy-tomato;
+	}
+
 }
