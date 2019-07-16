@@ -58,6 +58,17 @@ class commonInput {
 	generateErrorFieldId() {
 		return this.el.field.getAttribute('id') + '_error'
 	}
+
+	// generates more markup around the field, in order to style them properly
+	prepareFieldForIcon() {
+		// 0 prepare our container
+		let el = document.createElement('div')
+		el.classList.add('with-icon')
+		// 1 insert next to the field
+		this.el.field.insertAdjacentElement('beforebegin', el)
+		// 2 move the field into it
+		el.appendChild(this.el.field)
+	}
 }
 
 export default commonInput

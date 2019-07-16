@@ -20,7 +20,6 @@ axa-input {
 fieldset {
 	margin-bottom: 2rem;
 	padding-top: 2rem;
-	background-color:antiquewhite;
 	border:0;
 	padding:0 1rem;
 	margin:0;
@@ -54,6 +53,7 @@ const demo1 = `
 	<input type=text id=any-name-with-value
 		value="Value attribute set"
 		placeholder="Placeholder set" />
+</axa-input>
 
 </fieldset>
 
@@ -109,6 +109,7 @@ const demo2 = `
 
 <fieldset><legend class=a-typo__text-title>Fields with success</legend>
 <axa-input +label="Valid state" +valid>
+</axa-input>
 
 </fieldset>
 
