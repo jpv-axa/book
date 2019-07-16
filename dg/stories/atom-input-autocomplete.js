@@ -31,4 +31,4 @@ const demo1 = `
 `
 storiesOf(`Atoms|Inputs`)
 	.addDecorator(withCode(demo1, 'html'))
-	.add('Autocomplete', () => demo1)
+//.add('Autocomplete', () => demo1)
