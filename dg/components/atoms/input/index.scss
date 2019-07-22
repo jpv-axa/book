@@ -1,6 +1,7 @@
 @import '../../materials/colors.scss';
 @import '../typography/index.scss';
 @import '../../materials/grids.scss';
+@import '../../materials/elevation.scss';
 
 
 @mixin inputStyling () {
@@ -16,6 +17,7 @@
 	}
 }
 
+$base-zIndex: 1;
 
 axa-input {
 	// placement and dimensions
@@ -31,6 +33,7 @@ axa-input {
 		width: 100%;
 		display: inline-block;
 		box-sizing: border-box;
+		z-index: $base-zIndex + 1;
 	}
 
 	// styling
@@ -121,6 +124,38 @@ axa-input {
 		}
 	}
 
+	// autocomplete, generated code by external code awesomplete
+	& .awesomplete {
+		@import './input-autocomplete.scss';
 
+	}
+
+	// styling for list of options (ul+li), used by autocomplete and fake select
+	[role=listbox] {
+		// reset
+		list-style: none;
+		margin: 0;
+		// positionning
+		position: absolute;
+		left: 0;
+		min-width: 100%;
+		box-sizing: border-box;
+		margin-top: -1* $spacing-1;
+		// decorate
+		box-shadow: $shadow-4;
+		padding: 0 $spacing-1;
+		z-index: $base-zIndex - 1;
+		background: #fff;
+		@extend .a-typo__link;
+
+
+		li {
+			padding: $spacing-2 $spacing-1;
+
+			&+li {
+				border-top: 1px solid $color-mercury;
+			}
+		}
+	}
 
 }
