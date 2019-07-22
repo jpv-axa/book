@@ -1,0 +1,35 @@
+// most of the styling has been adapted from https://github.com/LeaVerou/awesomplete/blob/gh-pages/awesomplete.css
+@import '../../materials/colors.scss';
+
+//@import '../../../../node_modules/awesomplete/awesomplete.css';
+// axa-input .awesomplete
+& {
+	position: relative;
+
+	[hidden] {
+		display: none;
+	}
+
+	.visually-hidden {
+		position: absolute;
+		clip: rect(0, 0, 0, 0);
+	}
+
+	>ul {
+		color: $color-dusty-gray;
+	}
+
+	>ul:empty {
+		display: none;
+	}
+
+	mark {
+		background-color: transparent;
+		color: $color-axa-blue;
+	}
+
+	li[aria-selected="true"] {
+		background-color: $color-mercury;
+	}
+
+}

@@ -46,6 +46,13 @@ const demo1 = `
 </axa-input>
 
 
+<axa-input +label="Autocomplete, with error" +invalid +error="This adress is unknown">
+	<input list=zzz value="12 street of Rage" />
+	<datalist id=zzz>
+		<option value="${values.join('"><option value="')}">
+	</datalist>
+</axa-input>
+
 <axa-input +label="Autocomplete, opened for this demo (attribute +opened)" +opened>
 	<input list=yyy value=Liv />
 	<datalist id=yyy>
@@ -53,13 +60,6 @@ const demo1 = `
 	</datalist>
 </axa-input>
 
-
-<axa-input +label="Autocomplete, with error" +invalid +error="This adress is unknown">
-	<input list=zzz value="12 street of Rage" />
-	<datalist id=zzz>
-		<option value="${values.join('"><option value="')}">
-	</datalist>
-</axa-input>
 
 </fieldset>
 

@@ -22,8 +22,8 @@ class passwordInput extends textInput {
 			// sync el[list] and datalist[id]
 			this.el.field.setAttribute('list', this.dataList.id)
 		}
-		// console.log(this.el.field.id)
 
+		// delagate keyboard and A11Y management
 		this.AwesompleteInstance = new Awesomplete(this.el.field)
 		if (this.el.hasAttribute('+opened')) {
 			this.openSuggestions()

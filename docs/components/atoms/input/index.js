@@ -1,5 +1,6 @@
 import textInput from './input-text'
 import passwordInput from './input-password'
+import autocompleteInput from './input-autocomplete'
 import './index.scss'
 
 import {
@@ -26,6 +27,9 @@ class axaInput extends HTMLElement {
 			case '+disabled': // TODO  : catch when +disabled is REMOVED
 				this.classList.add('disabled')
 				this.el.disabled = true
+				break
+			case '+opened': // TODO  : catch when +opened is REMOVED
+				this.el.openSuggestions()
 				break
 			case '+revealed': // TODO  : catch when +revealed is REMOVED
 				this.el.toggleRevealer()
@@ -57,7 +61,10 @@ class axaInput extends HTMLElement {
 		// delagating behaviour to other classes
 		switch (this.field.type) {
 			case 'text':
-				this.el = new textInput(this)
+				if (this.field.hasAttribute('list'))
+					this.el = new autocompleteInput(this)
+				else
+					this.el = new textInput(this)
 				break;
 			case 'password':
 				this.el = new passwordInput(this)

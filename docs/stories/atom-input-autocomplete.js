@@ -7,9 +7,6 @@ import withCode from '../../dgAddons/colorationAddon';
 
 import '../components/atoms/input'
 
-const infoLong = 'Sample long text helper message, for design example that show how it can be. But we recommand, max two lines… It should be a short text helper and not a full paragraph like this.'
-const infoShort = 'Text helper message.'
-
 const styles = `
 <style>
 @media (min-width: 37.5rem) {
@@ -41,13 +38,31 @@ const demo1 = `
 <fieldset><legend class=a-typo__text-title>Autocomplete demo</legend>
 
 <axa-input +label="Autocomplete">
-	<input list=xxx placeholder="For this demo, type Live" />
+	<input list=xxx placeholder="For this demo, start typing 'Liv…'" />
 	<datalist id=xxx>
+		<option value="${values.join('"><option value="')}">
+	</datalist>
+	<p slot=info>To have an autocomplete you need to add the <code>list</code> attribute to the main field, and provide a list of options with a <code>datalist</code> element.</p>
+</axa-input>
+
+
+<axa-input +label="Autocomplete, with error" +invalid +error="This adress is unknown">
+	<input list=zzz value="12 street of Rage" />
+	<datalist id=zzz>
 		<option value="${values.join('"><option value="')}">
 	</datalist>
 </axa-input>
 
+<axa-input +label="Autocomplete, opened for this demo (attribute +opened)" +opened>
+	<input list=yyy value=Liv />
+	<datalist id=yyy>
+		<option value="${values.join('"><option value="')}">
+	</datalist>
+</axa-input>
+
+
 </fieldset>
+
 
 `
 storiesOf(`Atoms|Inputs`)
