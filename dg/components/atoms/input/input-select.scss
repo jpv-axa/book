@@ -1,0 +1,45 @@
+@import '../../../components/materials/colors.scss';
+
+// axa-input
+& {
+	select {
+		background-color: transparent;
+		border-radius: 0;
+		-webkit-appearance: none;
+		background-image: url(../icon/materials/arrow_down.svg);
+		background-position: calc(100% - #{$spacing-2});
+		background-size: $spacing-2;
+		background-repeat: no-repeat;
+
+		// our dummy field is hidden
+		&+.awesomplete {
+
+			ul,
+			mark {
+				color: $color-axa-blue;
+			}
+
+
+			input {
+				display: none;
+			}
+
+			& li[aria-selected=true] {
+				background-color: transparent;
+				color: $color-mine-shaft;
+				font-weight: 600;
+			}
+		}
+
+
+		&.opened {
+			border-color: $color-axa-blue;
+			background-image: url(../icon/materials/arrow_up.svg);
+			background-size: $spacing-4;
+		}
+	}
+
+
+
+
+}

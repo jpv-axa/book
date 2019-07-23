@@ -29,7 +29,8 @@ axa-input {
 	padding-bottom: $spacing-4;
 
 	label,
-	input {
+	input,
+	select {
 		width: 100%;
 		display: inline-block;
 		box-sizing: border-box;
@@ -37,9 +38,16 @@ axa-input {
 	}
 
 	// styling
-	input {
+	input,
+	select {
 		@extend .a-typo__text;
 		@include inputStyling();
+
+		&[disabled] {
+			color: $color-dusty-gray;
+			background-color: $color-alabaster;
+		}
+
 	}
 
 	[slot=info],
@@ -73,7 +81,8 @@ axa-input {
 		}
 	}
 
-	&.valid input {
+	&.valid input,
+	&.valid select {
 		border-color: $color-malachite;
 	}
 
@@ -85,7 +94,8 @@ axa-input {
 		content: url("../../atoms/icon/materials/error.svg");
 	}
 
-	&.invalid input {
+	&.invalid input,
+	&.invalid select {
 		border-color: $color-shy-tomato;
 	}
 
@@ -115,7 +125,8 @@ axa-input {
 		display: flex;
 		align-items: center;
 
-		& input {
+		& input,
+		& select {
 			// reset our input
 			border: 0;
 			margin: 0;
@@ -130,7 +141,7 @@ axa-input {
 
 	}
 
-	// styling for list of options (ul+li), used by autocomplete and fake select
+	// styling for list of options (ul+li), used by autocomplete and selector
 	[role=listbox] {
 		// reset
 		list-style: none;
@@ -174,5 +185,7 @@ axa-input {
 
 		}
 	}
+
+	@import './input-select.scss';
 
 }
