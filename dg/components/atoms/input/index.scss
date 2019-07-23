@@ -138,13 +138,16 @@ axa-input {
 		// positionning
 		position: absolute;
 		left: 0;
+		border: 0;
 		min-width: 100%;
 		box-sizing: border-box;
 		margin-top: -1* $spacing-1;
 		// decorate
-		box-shadow: $shadow-4;
+		box-shadow: $shadow-radius-4 $shadow-radius-4 $shadow-radius-4 -1*$shadow-radius-4 $shadow-color, -1*$shadow-radius-4 $shadow-radius-4 $shadow-radius-4 -1*$shadow-radius-4 $shadow-color;
+		//box-shadow: $shadow-4;
+		//clip: rect(0, 8px, auto, -8px);
 		padding: 0 $spacing-1;
-		z-index: $base-zIndex - 1;
+		z-index: $base-zIndex +2;
 		background: #fff;
 		@extend .a-typo__link;
 
@@ -155,6 +158,7 @@ axa-input {
 			&+li {
 				border-top: 1px solid $color-mercury;
 			}
+
 		}
 	}
 
