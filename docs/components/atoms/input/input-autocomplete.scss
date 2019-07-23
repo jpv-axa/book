@@ -28,8 +28,8 @@
 		color: $color-axa-blue;
 	}
 
-	li[aria-selected="true"] {
-		background-color: $color-mercury;
+	input::-webkit-calendar-picker-indicator {
+		display: none;
 	}
 
 }
