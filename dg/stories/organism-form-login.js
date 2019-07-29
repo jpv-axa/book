@@ -4,7 +4,7 @@ import {
 } from '@storybook/html'
 import withCode from '../../dgAddons/colorationAddon';
 
-import '../components/molecules/hero-cover'
+import '../components/atoms/input'
 
 const demo1 = `
 <form onsubmit="alert('submited');return false;">
