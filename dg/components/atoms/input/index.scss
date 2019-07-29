@@ -154,7 +154,20 @@ axa-input {
 		box-sizing: border-box;
 		margin-top: -1* $spacing-1;
 		// decorate
-		box-shadow: $shadow-radius-4 $shadow-radius-4 $shadow-radius-4 -1*$shadow-radius-4 $shadow-color, -1*$shadow-radius-4 $shadow-radius-4 $shadow-radius-4 -1*$shadow-radius-4 $shadow-color;
+		box-shadow: $shadow-4;
+
+		// Dummy element to hide the top shadow
+		&:before {
+			display: block;
+			content: "";
+			background-color: white;
+			border: 1px solid $color-axa-blue;
+			border-top: 0;
+			height: $spacing-1;
+
+			//			position: relative;
+			margin-top: -1* $spacing-1;
+		}
 		//box-shadow: $shadow-4;
 		//clip: rect(0, 8px, auto, -8px);
 		padding: 0; //$spacing-1;
