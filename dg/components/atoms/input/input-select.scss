@@ -2,6 +2,7 @@
 
 // axa-input
 & {
+
 	select {
 		background-color: transparent;
 		border-radius: 0;
@@ -11,6 +12,17 @@
 		background-size: $spacing-2;
 		background-repeat: no-repeat;
 
+		cursor: pointer;
+
+		&[disabled] {
+			cursor: not-allowed;
+		}
+
+		&.with-placeholder-active {
+			color: $color-dusty-gray;
+		}
+
+
 		// our dummy field is hidden
 		&+.awesomplete {
 
@@ -18,7 +30,6 @@
 			mark {
 				color: $color-axa-blue;
 			}
-
 
 			input {
 				display: none;
@@ -31,15 +42,10 @@
 			}
 		}
 
-
 		&.opened {
 			border-color: $color-axa-blue;
 			background-image: url(../icon/materials/arrow_up.svg);
-			background-size: $spacing-4;
 		}
 	}
-
-
-
 
 }

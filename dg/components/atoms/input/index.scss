@@ -15,6 +15,20 @@
 	&::placeholder {
 		color: $color-dusty-gray;
 	}
+
+	&:hover {
+		border-color: $color-axa-blue;
+	}
+
+	&[disabled] {
+		color: $color-dusty-gray;
+		background-color: $color-alabaster;
+
+		&:hover {
+			border-color: $color-silver;
+		}
+	}
+
 }
 
 $base-zIndex: 1;
@@ -42,11 +56,6 @@ axa-input {
 	select {
 		@extend .a-typo__text;
 		@include inputStyling();
-
-		&[disabled] {
-			color: $color-dusty-gray;
-			background-color: $color-alabaster;
-		}
 
 	}
 
@@ -118,7 +127,7 @@ axa-input {
 
 	.with-icon {
 		// disguise the container as an input
-		background-color: white;
+		background-color: $color-white;
 		@include inputStyling();
 		padding-top: 0;
 		padding-bottom: 0;
@@ -168,10 +177,11 @@ axa-input {
 			//			position: relative;
 			margin-top: -1* $spacing-1;
 		}
+
 		//box-shadow: $shadow-4;
 		//clip: rect(0, 8px, auto, -8px);
 		padding: 0; //$spacing-1;
-		z-index: $base-zIndex +2;
+		z-index: $base-zIndex+2;
 		background: #fff;
 		@extend .a-typo__link;
 
