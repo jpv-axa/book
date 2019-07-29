@@ -30,7 +30,7 @@ legend {
 
 const options = `
 		<option value="dog">Dog</option>
-		<option value="cat">Cat</option>
+		<option value="cat" selected>Cat</option>
 		<option value="hamster">Hamster</option>
 		<option value="parrot">Parrot</option>
 		<option value="spider">Spider</option>
@@ -47,17 +47,19 @@ const demo1 = `
 </axa-input>
 
 
-<axa-input +label="Selector with +placeholder" +placeholder="Placeholder Select an Item">
+<axa-input +label="Selector with Placeholder" +placeholder="Placeholder Select an Item">
 	<select>
 		${options}
 	</select>
-	<p slot=info>Displays a non-selectable placeholder to invite the user to choose something, or leave it empty.</p>
+	<p slot=info>Displays a non-selectable placeholder. Use the <code>+placeholder</code> attribute to set up your text.</p>
 </axa-input>
 
-<axa-input +label="Disabled Selector" +disabled>
-	<select disabled>
+
+<axa-input +label="Opened Selector (only for demo)" +opened>
+	<select>
 		${options}
 	</select>
+	<p slot=info>This is for demo only, please never let a selector opened by default.</p>
 </axa-input>
 
 </fieldset>
@@ -84,9 +86,16 @@ const demo2 = `
 	<span slot=info>Like regular text fields, you can use <code>+invalid</code>, <code>+valid</code> and <code>+error</code> attributes on the <code>axa-input</code> tag.</span>
 </axa-input>
 
+
+<axa-input +label="Disabled Selector" +disabled>
+	<select disabled>
+		${options}
+	</select>
+</axa-input>
+
 </fieldset>
 `
 
 storiesOf(`Atoms|Inputs`)
 	.addDecorator(withCode(demo2, 'html'))
-	.add('Selector with error / success', () => demo2 + styles)
+	.add('Selector with error / success / Disabled', () => demo2 + styles)
