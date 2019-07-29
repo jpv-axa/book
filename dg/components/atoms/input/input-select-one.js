@@ -1,18 +1,32 @@
 import commonInput from './common'
+import Awesomplete from 'awesomplete'
 
 class selectOneInput extends commonInput {
 	init() {
 		super.init()
 
 		// on desktop, cancels the display of the native dropdown
-		this.el.field.addEventListener('pointerdown', this.onOpen.bind(this))
+		if (!this.el.field.disabled || !this.el.hasAttribute('+disabled')) {
+			this.el.field.addEventListener('pointerdown', this.onOpen.bind(this))
+		}
 
 		// on desktop, prepare a replacement for the native dropdown
 		// delagate keyboard and A11Y management
-		this.setupOptions()
+		if (!this.el.field.disabled || !this.el.hasAttribute('+disabled'))
+			this.setupOptions()
 
 		if (this.el.hasAttribute('+opened')) {
-			this.openSuggestions()
+			this.onOpen({
+				preventDefault: () => null
+			})
+		}
+
+		if (this.el.hasAttribute('+placeholder')) {
+			let fakePlaceholderEl = new Option(this.el.getAttribute('+placeholder'), '', true, true)
+			fakePlaceholderEl.setAttribute('disabled', 'disabled')
+			this.el.field.options[this.el.field.options.length] = fakePlaceholderEl
+			this.el.field.classList.add('with-placeholder-active')
+			this.el.field.addEventListener('change', () => this.el.field.classList.remove('with-placeholder-active'))
 		}
 	}
 
@@ -27,9 +41,12 @@ class selectOneInput extends commonInput {
 
 		// update the real index when the false select is clicked
 		input.addEventListener('awesomplete-selectcomplete', (selection) => {
-			this.el.field.selectedIndex = selection.text.value
+			// fisrt deal with the fake input and the style
 			input.value = '' //just to be able to open it a 2nd time
 			this.el.field.classList.remove('opened')
+			// update the value and trigger the onchange event for the real form select
+			this.el.field.selectedIndex = selection.text.value
+			this.el.field.dispatchEvent(new Event('change'))
 		})
 		input.addEventListener('awesomplete-open', (selection) => {
 			input.focus()
@@ -48,7 +65,7 @@ class selectOneInput extends commonInput {
 			list: options,
 			maxItems: options.length,
 			sort: false,
-			// mark the current option with aria-selected
+			// mark the current option with aria-selected : used by styling, and good for a11Y
 			item: (current) => {
 				const el = document.createElement('li')
 				el.innerText = current.label

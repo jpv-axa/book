@@ -15,6 +15,20 @@
 	&::placeholder {
 		color: $color-dusty-gray;
 	}
+
+	&:hover {
+		border-color: $color-axa-blue;
+	}
+
+	&[disabled] {
+		color: $color-dusty-gray;
+		background-color: $color-alabaster;
+
+		&:hover {
+			border-color: $color-silver;
+		}
+	}
+
 }
 
 $base-zIndex: 1;
@@ -29,7 +43,8 @@ axa-input {
 	padding-bottom: $spacing-4;
 
 	label,
-	input {
+	input,
+	select {
 		width: 100%;
 		display: inline-block;
 		box-sizing: border-box;
@@ -37,9 +52,11 @@ axa-input {
 	}
 
 	// styling
-	input {
+	input,
+	select {
 		@extend .a-typo__text;
 		@include inputStyling();
+
 	}
 
 	[slot=info],
@@ -73,7 +90,8 @@ axa-input {
 		}
 	}
 
-	&.valid input {
+	&.valid input,
+	&.valid select {
 		border-color: $color-malachite;
 	}
 
@@ -85,7 +103,8 @@ axa-input {
 		content: url("../../atoms/icon/materials/error.svg");
 	}
 
-	&.invalid input {
+	&.invalid input,
+	&.invalid select {
 		border-color: $color-shy-tomato;
 	}
 
@@ -108,14 +127,15 @@ axa-input {
 
 	.with-icon {
 		// disguise the container as an input
-		background-color: white;
+		background-color: $color-white;
 		@include inputStyling();
 		padding-top: 0;
 		padding-bottom: 0;
 		display: flex;
 		align-items: center;
 
-		& input {
+		& input,
+		& select {
 			// reset our input
 			border: 0;
 			margin: 0;
@@ -130,7 +150,7 @@ axa-input {
 
 	}
 
-	// styling for list of options (ul+li), used by autocomplete and fake select
+	// styling for list of options (ul+li), used by autocomplete and selector
 	[role=listbox] {
 		// reset
 		list-style: none;
@@ -143,11 +163,25 @@ axa-input {
 		box-sizing: border-box;
 		margin-top: -1* $spacing-1;
 		// decorate
-		box-shadow: $shadow-radius-4 $shadow-radius-4 $shadow-radius-4 -1*$shadow-radius-4 $shadow-color, -1*$shadow-radius-4 $shadow-radius-4 $shadow-radius-4 -1*$shadow-radius-4 $shadow-color;
+		box-shadow: $shadow-4;
+
+		// Dummy element to hide the top shadow
+		&:before {
+			display: block;
+			content: "";
+			background-color: white;
+			border: 1px solid $color-axa-blue;
+			border-top: 0;
+			height: $spacing-1;
+
+			//			position: relative;
+			margin-top: -1* $spacing-1;
+		}
+
 		//box-shadow: $shadow-4;
 		//clip: rect(0, 8px, auto, -8px);
 		padding: 0; //$spacing-1;
-		z-index: $base-zIndex +2;
+		z-index: $base-zIndex+2;
 		background: #fff;
 		@extend .a-typo__link;
 
@@ -174,5 +208,7 @@ axa-input {
 
 		}
 	}
+
+	@import './input-select.scss';
 
 }

@@ -1,15 +1,13 @@
 import textInput from './input-text'
 import passwordInput from './input-password'
 import autocompleteInput from './input-autocomplete'
+import selectOneInput from './input-select-one'
 import './index.scss'
 
-import {
-	throws
-} from 'assert';
 
 class axaInput extends HTMLElement {
 	static get observedAttributes() {
-		return ['+valid', '+invalid', '+disabled', '+revealed']
+		return ['+valid', '+invalid', '+disabled', '+revealed', '+opened']
 	}
 
 	attributeChangedCallback(attr, old, value) {
@@ -41,7 +39,7 @@ class axaInput extends HTMLElement {
 		super()
 
 		// manage only one input
-		let field = this.querySelectorAll('input')
+		let field = [...this.querySelectorAll('input'), ...this.querySelectorAll('select')]
 		if (field.length > 1)
 			throw new Error('axa-input supports only one type of input element')
 
@@ -51,7 +49,6 @@ class axaInput extends HTMLElement {
 		else
 			field = field[0]
 		this.field = field
-
 		// manage weird states
 		if (this.hasAttribute('+invalid') &&
 			this.hasAttribute('+valid'))
@@ -68,6 +65,9 @@ class axaInput extends HTMLElement {
 				break;
 			case 'password':
 				this.el = new passwordInput(this)
+				break;
+			case 'select-one':
+				this.el = new selectOneInput(this)
 				break;
 			default:
 				throw new TypeError(`This type of input (${this.field.type}) is not supported yet.`)
