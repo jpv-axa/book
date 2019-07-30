@@ -21,19 +21,24 @@ customElements.define('axa-footer', class Footer extends HTMLElement {
 			columns = columns.slice(0, 3)
 		}
 
+		const social = this.makeSocial(this.querySelector('[slot=social]'))
+
 		// empty
 		while (this.firstChild) {
 			this.removeChild(this.firstChild)
 		}
 
 		this.insertAdjacentHTML('afterbegin', `
-			<footer>
-					<slot name=content></slot>
-					<slot name=legal></slot>
-			</footer>
+		<footer>
+			<slot name=social></slot>
+			<slot name=content></slot>
+			<slot name=legal></slot>
+		</footer>
 		`)
 
 		this.querySelector('slot[name=legal]').appendChild(legal)
+		if (social)
+			this.querySelector('slot[name=social]').appendChild(social)
 		columns.forEach(col => this.querySelector('slot[name=content]').appendChild(col))
 	}
 
@@ -46,7 +51,7 @@ customElements.define('axa-footer', class Footer extends HTMLElement {
 	}
 
 	makeLegal(el) {
-		// default global copyrigh
+		// default global copyright
 		if (!el) {
 			el = document.createElement('div')
 			el.setAttribute('slot', 'legal')
@@ -56,5 +61,14 @@ customElements.define('axa-footer', class Footer extends HTMLElement {
 		el.classList.add('a-typo__legals')
 
 		return el
+	}
+
+	makeSocial(el) {
+		const elTitle = document.createElement('h5')
+		elTitle.innerText = el.getAttribute('title')
+		const elContainer = document.createElement('div')
+		elContainer.insertAdjacentHTML('afterbegin', el.innerHTML)
+		elContainer.insertAdjacentElement('afterbegin', elTitle)
+		return elContainer
 	}
 })
