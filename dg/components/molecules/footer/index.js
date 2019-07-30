@@ -64,6 +64,7 @@ customElements.define('axa-footer', class Footer extends HTMLElement {
 	}
 
 	makeSocial(el) {
+		if (!el) return
 		const elTitle = document.createElement('h5')
 		elTitle.innerText = el.getAttribute('title')
 		const elContainer = document.createElement('div')
