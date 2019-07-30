@@ -15,6 +15,12 @@ $border-style: solid 1px rgba(255, 255, 255, 0.15);
 	padding: $spacing-1 $spacing-2;
 }
 
+@mixin titlesColumns {
+	//@extend .a-typo__text-title; // would have been perfect, but does not work in the media query case
+	@include typo(text, label, bold);
+	text-transform: uppercase;
+	color: inherit;
+}
 
 .m-footer {
 
@@ -35,6 +41,7 @@ $border-style: solid 1px rgba(255, 255, 255, 0.15);
 		max-width: $breakpoint-MAX;
 		margin: 0 auto;
 		display: flex;
+		position: relative;
 	}
 
 
@@ -47,13 +54,10 @@ $border-style: solid 1px rgba(255, 255, 255, 0.15);
 				margin: $spacing-6 $spacing-4;
 				width: 33%;
 
-				// title for the comumn
+				// title for the column
 				&::before {
 					content: attr(title);
-					// @extend a-typo__menu-item // would have been perfect, but does not work in this case
-					@include typo(text, label, bold);
-					text-transform: uppercase;
-					color: inherit;
+					@include titlesColumns();
 				}
 			}
 
@@ -93,6 +97,62 @@ $border-style: solid 1px rgba(255, 255, 255, 0.15);
 		}
 
 		//[slot=legal] {}
+	}
+
+	[name=social] {
+		width: 100%;
+		height: calc(#{$spacing-4} *2 + #{$spacing-4}); // height of the icons + margin
+
+		display: flex;
+		align-items: center;
+
+		justify-content: center;
+
+		// alignment to the left on medium design
+		@media (min-width:$breakpoint-S) {
+			justify-content: flex-start;
+			padding-left: $spacing-4;
+		}
+
+		h5 {
+			@include titlesColumns();
+			display: none;
+			padding-bottom: $spacing-2;
+		}
+
+		axa-icon {
+			max-width: $spacing-6;
+			height: $spacing-6;
+			display: inline-block;
+		}
+
+		// from large design, move the block on the right and have column title
+		@media (min-width:$breakpoint-M) {
+
+			// column title appears
+			h5 {
+				display: block;
+			}
+
+			// stick to the right
+			position: absolute;
+			right: 0; // relative to <footer>
+			text-align: right;
+
+			width: 40%; // width of the legals
+			max-width: 6* $spacing-6; // max 5 icons, then back to line
+			top: $spacing-6; // top-margin of the [content] UL
+			// reset our box
+			height:auto;
+			padding:0;
+		}
+
+		// reset the top margin if the column is above the other
+		@media (max-width: $breakpoint-M-pixels - 1px) {
+			&+[name=content] ul {
+				margin-top: 0;
+			}
+		}
 	}
 
 	// mobile design : switch to accordeons
