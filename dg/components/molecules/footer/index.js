@@ -39,6 +39,8 @@ customElements.define('axa-footer', class Footer extends HTMLElement {
 		this.querySelector('slot[name=legal]').appendChild(legal)
 		if (social)
 			this.querySelector('slot[name=social]').appendChild(social)
+		else
+			this.querySelector('slot[name=social]').remove()
 		columns.forEach(col => this.querySelector('slot[name=content]').appendChild(col))
 	}
 
