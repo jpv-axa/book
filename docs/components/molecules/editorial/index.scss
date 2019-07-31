@@ -1,0 +1,85 @@
+@import '../../materials/grids.scss';
+@import '../../materials/typography.scss';
+
+axa-text-image {
+	display: block;
+
+	section {
+		// max-width + auto-center
+		max-width: $breakpoint-MAX;
+		margin: $spacing-3 auto;
+		display: flex;
+
+		justify-content: space-between;
+		align-items: center;
+
+		// if the image is inside a picture element, limit its size
+		.axa-text-image__image img {
+			max-width: 100%;
+		}
+
+		// vertical design, for mobile
+		@media (max-width: $breakpoint-M-pixels - 1px) {
+			flex-direction: column;
+			margin: 0;
+			padding: $spacing-4 0;
+
+			.axa-text-image__image {
+				width: 100%;
+			}
+
+			// the image can touch the border, but text always has a padding to the page border, right or left
+			.axa-text-image__text+.axa-text-image__image,
+			.axa-text-image__image+.axa-text-image__text {
+				margin-top: $spacing-3;
+			}
+
+			.axa-text-image__text {
+				padding: 0 $spacing-2;
+			}
+
+		}
+
+		/*.axa-text-image__text,
+		.axa-text-image__image {
+			border: 1px solid orange;
+		}*/
+
+	}
+
+	// horizontal design, for desktop
+	@media (min-width: $breakpoint-M) {
+
+		// 2 boxes of equal width, separated by a $spacing-3
+		.axa-text-image__text,
+		.axa-text-image__image {
+			width: calc(50% - (#{$spacing-3}/2));
+			box-sizing: border-box;
+		}
+
+		// the image can touch the border, but text always has a padding to the page border, right or left
+		.axa-text-image__text {
+			padding-left: $spacing-3;
+		}
+
+		.axa-text-image__image+.axa-text-image__text {
+			padding: 0;
+			padding-right: $spacing-3;
+		}
+	}
+
+
+	// inside textual content 
+	.axa-text-image__text {
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5 {
+			margin: 0;
+			margin-bottom: $spacing-3;
+		}
+	}
+
+}

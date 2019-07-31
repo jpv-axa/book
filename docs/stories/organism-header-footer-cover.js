@@ -58,6 +58,18 @@ const demo2 = `<axa-header-menu  +searchable>
     <axa-button slot=call-to-action class=a-button--secondary>Get a Car Insurance Quote</axa-button>
 </axa-hero-cover>
 
+<axa-text-image>
+	<h2>Getting women entrepreneurs the funding they deserve</h2>
+	<p>AXA has partnered with Impact Hub Milano to launch Angels for Women, an innovative network of female Business Angels joining their forces to support women-led and women-focused startups in Italy.</p>
+	<img src=${imageWhite} />
+</axa-text-image>
+
+<axa-text-image +imgPosition=before>
+	<h2>Bristol: an innovative hub of autonomous vehicle technology</h2>
+	<p>From sci-fi to reality, autonomous vehicles have already made their way onto our city streets. With many promises in tow: reducing accidents and road deaths, making mobility more inclusive and accessible, unclogging city streets and even freeing up new real estate by eliminating parking.</p>
+	<img src=${imageDark} />
+</axa-text-image>
+
 <axa-footer>
 	<ul title="AXA and you">
 		<li><a href=javascript:onNavigate() >Jargon explained</a></li>
@@ -75,6 +87,6 @@ const demo2 = `<axa-header-menu  +searchable>
 	</ul>
 </axa-footer>`
 
-storiesOf('Organism|Header, Footer, Hero Cover', module)
+storiesOf('Organism|Header, Footer, Hero Cover, Text & Image', module)
 	.addDecorator(withCode(demo2, 'html'))
 	.add('With content', () => demo2)
