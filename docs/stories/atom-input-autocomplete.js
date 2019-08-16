@@ -47,7 +47,7 @@ const demo1 = `
 
 
 <axa-input +label="Autocomplete, with error" +invalid +error="This adress is unknown">
-	<input list=zzz value="12 street of Rage" />
+	<input list=zzz value="12 street of Rag" />
 	<datalist id=zzz>
 		<option value="${values.join('"><option value="')}">
 	</datalist>
