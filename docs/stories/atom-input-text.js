@@ -84,7 +84,7 @@ const demo1 = `
 </fieldset>
 
 `
-storiesOf(`Atoms|Inputs`)
+storiesOf(`Atoms|Inputs`, module)
 	.addDecorator(withCode(demo1, 'html'))
 	.add('Simple Text Fields', () => demo1 + styles)
 
@@ -115,6 +115,6 @@ const demo2 = `
 
 `
 
-storiesOf(`Atoms|Inputs`)
+storiesOf(`Atoms|Inputs`, module)
 	.addDecorator(withCode(demo2, 'html'))
 	.add('Fields with error / success', () => demo2 + styles)

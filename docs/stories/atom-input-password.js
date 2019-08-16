@@ -58,6 +58,6 @@ const demo1 = `
 </fieldset>
 
 `
-storiesOf(`Atoms|Inputs`)
+storiesOf(`Atoms|Inputs`, module)
 	.addDecorator(withCode(demo1, 'html'))
 	.add('Password', () => demo1 + styles)

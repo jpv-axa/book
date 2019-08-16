@@ -26,7 +26,7 @@ const demo1 = `
 	<h4 class="a-typo__card-title" title=".a-typo__card-title">Card Title - H4</h4>
 	<h5 class="a-typo__text-title" title=".a-typo__text-title">Text Title - H5</h5>
 `
-storiesOf(`Atoms|Typography`)
+storiesOf(`Atoms|Typography`, module)
 	//.addDecorator(withCode(typoCss, 'scss'))
 	.addDecorator(withCode(demo1, 'html'))
 	.addDecorator(code => code() + styles)
@@ -53,7 +53,7 @@ const demo2 = `
 	</p>
 	<p><span class="a-typo__legals" title=".a-typo__legals">Legals</span></p>
 `
-storiesOf(`Atoms|Typography`)
+storiesOf(`Atoms|Typography`, module)
 	.addDecorator(withCode(demo2, 'html'))
 	.addDecorator(code => code() + styles)
 	.add('Texts', () => {
@@ -80,6 +80,6 @@ const demo3 = `
 <h1 class="a-typo__page-title a-typo__relative-spacing-top__2" title=.a-typo__page-title>Die Private Haftpflichtversicherung: Schutz schon ab 21,13€ im Jahr*</h1>
 <h1 class="a-typo__event-title a-typo__relative-spacing-top__2" title=.a-typo__event-title>Know You Can</h1>
 `
-storiesOf(`Atoms|Typography`)
+storiesOf(`Atoms|Typography`, module)
 	//.addDecorator(withCode(demo3, 'html'))
 	.add('Long texts demo', () => demo3)
