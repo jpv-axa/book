@@ -12,10 +12,7 @@ module.exports = async ({
     config.module.rules.push({
         test: /\.scss$/,
         loaders: [{
-                loader: 'style-loader',
-                options: {
-                    sourceMap: true
-                }
+                loader: 'style-loader'
             },
             {
                 loader: 'css-loader',
@@ -54,10 +51,7 @@ module.exports = async ({
     }, {
         test: /\.css$/,
         loaders: [{
-                loader: 'style-loader',
-                options: {
-                    sourceMap: true
-                }
+                loader: 'style-loader'
             },
             {
                 loader: 'css-loader',
