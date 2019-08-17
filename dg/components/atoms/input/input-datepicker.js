@@ -1,10 +1,10 @@
 import commonInput from './common'
 
 const fromLocaleToFormat = {
-	'default': ['day', 'month', 'year'],
-	'en-US': ['month', 'day', 'year'],
-	'ja-JP': ['year', 'month', 'day'],
-	'ko-KR': ['year', 'month', 'day']
+	'default': ['days', 'months', 'years'],
+	'en-US': ['months', 'days', 'years'],
+	'ja-JP': ['years', 'months', 'days'],
+	'ko-KR': ['years', 'months', 'days']
 }
 
 class datePicker extends commonInput {
@@ -21,13 +21,16 @@ class datePicker extends commonInput {
 		// re-inject the min and max dates to the original field, for the standard field to interpret "now" correctly
 		this.el.field.min = fromDateToDateString(this.minDate)
 		this.el.field.max = fromDateToDateString(this.maxDate)
+		// also sync the date, in case it was not provided
+		this.updateFieldDate()
 		// console.log(this.date.toDateString(), this.minDate.toDateString(), this.maxDate.toDateString())
 
 		this.locale = this.determineLocale()
 		// console.log(this.locale)
 		this.selectorsField = this.makeSelectors()
-
+		this.selectorsField.addEventListener('change', this.onDateSelectorChange.bind(this))
 		this.el.field.insertAdjacentElement('beforebegin', this.selectorsField)
+
 	}
 
 	/**
@@ -96,34 +99,89 @@ class datePicker extends commonInput {
 				option.selected = true
 			years.appendChild(option)
 		}
+		const currentYear = this.date.getFullYear()
 		// months
+		// if we reached the min or max year, we have to disable some months
+		const minMonth = (currentYear === this.minDate.getFullYear()) ? this.minDate.getMonth() : 0
+		const maxMonth = (currentYear === this.maxDate.getFullYear()) ? this.maxDate.getMonth() : 11
 		const months = document.createElement('select')
+		// show 12 months
 		for (let month = 1; month <= 12; month++) {
 			let option = document.createElement('option')
 			option.value = month
 			option.text = onTwoDigits(month)
+			// select the current month
 			if (month === this.date.getMonth() + 1)
 				option.selected = true
+			// disable out-of-range months
+			if (month < minMonth + 1 ||
+				month > maxMonth + 1)
+				option.disabled = true
 
 			months.appendChild(option)
 		}
 		// days
+		// if we reached the min or max year + month, we have to disable some days
+		let minDay = 0
+		if (currentYear === this.minDate.getFullYear() &&
+			this.date.getMonth() === this.minDate.getMonth())
+			minDay = this.minDate.getDate()
+		let maxDay = 31
+		if (currentYear === this.maxDate.getFullYear() &&
+			this.date.getMonth() === this.maxDate.getMonth())
+			maxDay = this.maxDate.getDate()
+
 		const days = document.createElement('select')
+
 		for (let day = 1; day <= 31; day++) {
 			let option = document.createElement('option')
 			option.value = day
 			option.text = onTwoDigits(day)
+			// select current day
 			if (day === this.date.getDate())
 				option.selected = true
-			days.appendChild(option)
+			// disable out-of-range days
+			if (day < minDay || day > maxDay)
+				option.disabled = true
+			// avoid displaying non-existing days like 31st of sept or 29th of february for regular years.
+			if (doesDayExist(currentYear, this.date.getMonth(), day))
+				days.appendChild(option)
 		}
 
-		// TODO	: inject in the correct order, with "/" in the middle
-		container.appendChild(years)
-		container.appendChild(months)
-		container.appendChild(days)
+		// variable names are the same as in fromLocaleToFormat[]
+		const selectorsEl = {
+			days,
+			months,
+			years
+		}
+
+		// inject in the correct order, with "/" in the middle
+		fromLocaleToFormat[this.locale]
+			.forEach(type => {
+				selectorsEl[type].setAttribute('data-type', type)
+				container.appendChild(selectorsEl[type])
+			})
 
 		return container
+	}
+
+	onDateSelectorChange(e) {
+		// retrieve the new date
+		const elMonths = this.selectorsField.querySelector('[data-type=months]')
+		const elYears = this.selectorsField.querySelector('[data-type=years]')
+		const elDays = this.selectorsField.querySelector('[data-type=days]')
+		this.date = new Date(
+			elYears[elYears.selectedIndex].value,
+			elMonths[elMonths.selectedIndex].value - 1,
+			elDays[elDays.selectedIndex].value
+		)
+		/*console.log( elYears[elYears.selectedIndex].value, elMonths[elMonths.selectedIndex].value, elDays[elDays.selectedIndex].value, this.date)*/
+		this.updateFieldDate()
+	}
+
+	updateFieldDate() {
+		// setting valueAsDate = this.date was causing rounding problems
+		this.el.field.value = fromDateToDateString(this.date)
 	}
 }
 
@@ -140,7 +198,23 @@ function fromDateToDateString(date) {
 	].join('-')
 }
 
+/**
+ * From 1 to '01', and from 31 to '31'
+ * @param {Number} number 
+ */
 const onTwoDigits = (number => number.toString().padStart(2, '0'))
 
+/**
+ * Check if this day really exists (29 feb on a leap year, for example)
+ * @param {Number|String} year 
+ * @param {Number|String} month 
+ * @param {Number|String} day 
+ */
+function doesDayExist(year, month, day) {
+	const date = new Date(year, month, day)
+	return (date.getFullYear() == year &&
+		date.getMonth() == month &&
+		date.getDate() == day)
+}
 
 export default datePicker
