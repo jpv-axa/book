@@ -13,7 +13,9 @@
     "dg-build": "build-storybook -s $npm_package_config_input -o $npm_package_config_output",
     "start": "npm run dg-dev",
     "build": "npm run dg-build && open $npm_package_config_output/index.html",
-    "visual-diff": "percy-storybook  --build_dir $npm_package_config_output --widths=320,400,600,800,1100,1300,1600 --enable_javascript"
+    "test": "npm run visual-diff",
+    "visual-diff": "percy-storybook  --build_dir $npm_package_config_output --widths=320,400,600,800,1100,1300,1600 --enable_javascript",
+    "tool-update": "npx npm-check --save-exact --update --ignore @babel/*,*-loader,node-sass,webpack --specials=babel,webpack"
   },
   "author": "",
   "license": "ISC",
@@ -28,17 +30,12 @@
     "copy-webpack-plugin": "^5.0.4",
     "raw-loader": "^3.1.0",
     "react": "^16.9.0",
-    "react-dom": "^16.9.0"
-  },
-  "dependencies": {
+    "react-dom": "^16.9.0",
+    "npm-check": "^5.9.0",
     "@babel/plugin-transform-arrow-functions": "^7.2.0",
     "@percy/storybook": "^3.0.2",
     "@storybook/addon-notes": "^5.1.11",
-    "@webcomponents/custom-elements": "^1.2.4",
-    "@webcomponents/webcomponentsjs": "^2.2.10",
-    "awesomplete": "^1.1.4",
     "css-loader": "^3.2.0",
-    "eligrey-classlist-js-polyfill": "^1.2.20180112",
     "file-loader": "^4.2.0",
     "node-sass": "^4.11.0",
     "prismjs": "^1.17.1",
@@ -46,5 +43,11 @@
     "sass-loader": "^7.2.0",
     "style-loader": "^1.0.0",
     "webpack": "^4.39.2"
+  },
+  "dependencies": {
+    "@webcomponents/custom-elements": "^1.2.4",
+    "@webcomponents/webcomponentsjs": "^2.2.10",
+    "awesomplete": "^1.1.4",
+    "eligrey-classlist-js-polyfill": "^1.2.20180112"
   }
 }
