@@ -27,16 +27,6 @@ legend {
 </style>
 `
 
-
-const options = `
-		<option value="dog">Dog</option>
-		<option value="cat" selected>Cat</option>
-		<option value="hamster">Hamster</option>
-		<option value="parrot">Parrot</option>
-		<option value="spider">Spider</option>
-		<option value="goldfish">Goldfish</option>
-`
-
 const demo1 = `
 <fieldset><legend class=a-typo__text-title>Default datepicker</legend>
 
