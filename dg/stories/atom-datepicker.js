@@ -65,3 +65,26 @@ const demo1 = `
 storiesOf(`Atoms|Inputs`, module)
 	.addDecorator(withCode(demo1, 'html'))
 	.add('Date Picker', () => demo1 + styles)
+
+
+const demo2 = `
+<fieldset><legend class=a-typo__text-title>Datepicker with error / success</legend>
+
+<axa-input +label="Valid state" +valid>
+	<input type=date />
+</axa-input>
+
+<axa-input +label="Invalid state" +invalid +error="This date is not available because our offices are closed on weekends, sorry" >
+	<input type=date min=1960-01-01 max=now />
+	<span slot=info>Like regular text fields, you can use <code>+invalid</code>, <code>+valid</code> and <code>+error</code> attributes on the <code>axa-input</code> tag.</span>
+</axa-input>
+
+<axa-input +label="Disabled state" +disabled>
+	<input type=date disabled />
+</axa-input>
+
+</fieldset>
+`
+storiesOf(`Atoms|Inputs`, module)
+	.addDecorator(withCode(demo2, 'html'))
+	.add('Date Picker with error / success / disabled', () => demo2 + styles)

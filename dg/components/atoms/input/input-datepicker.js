@@ -11,6 +11,7 @@ class datePicker extends commonInput {
 
 	init() {
 		super.init()
+		this.el.classList.add('is-datepicker') // styling differs from other field, so we add a class
 
 		// get infos from the original field
 		// the value date, as a date, falling back to today
@@ -28,7 +29,12 @@ class datePicker extends commonInput {
 		this.locale = this.determineLocale()
 		// console.log(this.locale)
 		this.selectorsField = this.makeSelectors()
+		// transmit real input disable state to the selectors
+		if (this.disabled)
+			this.selectorsField.getElementsByTagName('select').forEach(el => el.disabled = true)
+		// reflect actions on the selectors to the real input field
 		this.selectorsField.addEventListener('change', this.onDateSelectorChange.bind(this))
+		// inject
 		this.el.field.insertAdjacentElement('beforebegin', this.selectorsField)
 
 	}
@@ -89,6 +95,9 @@ class datePicker extends commonInput {
 
 	makeSelectors() {
 		const container = document.createElement('div')
+		// inject 3 slots for the selects
+		container.insertAdjacentHTML('afterbegin', '<span></span><span></span><span></span>')
+		container.classList.add('datepicker-options')
 		// years
 		const years = document.createElement('select')
 		for (let year = this.minDate.getFullYear(); year <= this.maxDate.getFullYear(); year++) {
@@ -154,12 +163,13 @@ class datePicker extends commonInput {
 			months,
 			years
 		}
-
-		// inject in the correct order, with "/" in the middle
+		// get our list of containers
+		const containersEl = container.getElementsByTagName('span')
+		// inject  the selector in the span, in the correct order
 		fromLocaleToFormat[this.locale]
-			.forEach(type => {
+			.forEach((type, index) => {
 				selectorsEl[type].setAttribute('data-type', type)
-				container.appendChild(selectorsEl[type])
+				containersEl[index].appendChild(selectorsEl[type])
 			})
 
 		return container
