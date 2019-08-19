@@ -2,6 +2,7 @@ import textInput from './input-text'
 import passwordInput from './input-password'
 import autocompleteInput from './input-autocomplete'
 import selectOneInput from './input-select-one'
+import datePicker from './input-datepicker'
 import './index.scss'
 
 
@@ -68,6 +69,9 @@ class axaInput extends HTMLElement {
 				break;
 			case 'select-one':
 				this.el = new selectOneInput(this)
+				break;
+			case 'date':
+				this.el = new datePicker(this)
 				break;
 			default:
 				throw new TypeError(`This type of input (${this.field.type}) is not supported yet.`)

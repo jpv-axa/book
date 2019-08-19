@@ -9,7 +9,7 @@ import '../components/atoms/input'
 const demo1 = `
 <form onsubmit="alert('submited');return false;">
 
-<axa-input +label="Field Label">
+<axa-input +label="Your Login">
 	<input type=text id=any-id placeholder=you@company.tld />
 </axa-input>
 
