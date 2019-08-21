@@ -1,14 +1,14 @@
 import commonInput from './common'
+import selectOneInput from './input-select-one'
 
 const fromLocaleToFormat = {
-	'default': ['days', 'months', 'years'],
+	default: ['days', 'months', 'years'],
 	'en-US': ['months', 'days', 'years'],
 	'ja-JP': ['years', 'months', 'days'],
 	'ko-KR': ['years', 'months', 'days']
 }
 
 class datePicker extends commonInput {
-
 	init() {
 		super.init()
 		this.el.classList.add('is-datepicker') // styling differs from other field, so we add a class
@@ -28,15 +28,8 @@ class datePicker extends commonInput {
 
 		this.locale = this.determineLocale()
 		// console.log(this.locale)
-		this.selectorsField = this.makeSelectors()
-		// transmit real input disable state to the selectors
-		if (this.disabled)
-			this.selectorsField.getElementsByTagName('select').forEach(el => el.disabled = true)
-		// reflect actions on the selectors to the real input field
-		this.selectorsField.addEventListener('change', this.onDateSelectorChange.bind(this))
-		// inject
-		this.el.field.insertAdjacentElement('beforebegin', this.selectorsField)
-
+		// build, bind and inject the 3 year/month/day selectors
+		this.setupSelectors(this.makeSelectors())
 	}
 
 	/**
@@ -50,10 +43,16 @@ class datePicker extends commonInput {
 			if (fromLocaleToFormat[potentialLocale]) {
 				return potentialLocale
 			} else if (potentialLocale === 'en') {
-				console.warn('Locale "en" is ambiguous : did you mean en-US or en-GB ? We assumed the less specific format : en-GB.')
+				console.warn(
+					'Locale "en" is ambiguous : did you mean en-US or en-GB ? We assumed the less specific format : en-GB.'
+				)
 				return 'default'
 			} else {
-				console.warn('You provided us the locale ' + potentialLocale + ' but we don‘t know how to display it. Falling back to default.')
+				console.warn(
+					'You provided us the locale ' +
+						potentialLocale +
+						' but we don‘t know how to display it. Falling back to default.'
+				)
 				return 'default'
 			}
 			// try to guess from the browser's opinion
@@ -76,43 +75,56 @@ class datePicker extends commonInput {
 	 * @returns {Date}
 	 */
 	getMinMaxDate(givenValue, baseDate, minOrMax) {
-		if (givenValue === 'now')
-			return new Date()
+		if (givenValue === 'now') return new Date()
 		let date = new Date(givenValue) // like 2011-11-17
 		// date is valid
-		if (isFinite(date))
-			return date
+		if (isFinite(date)) return date
 		// invalid date ? Set defaults
 		date = new Date(baseDate) // clone the date
-		if (minOrMax === 'min')
-			date.setFullYear(baseDate.getFullYear() - 110)
-		else if (minOrMax === 'max')
-			date.setFullYear(baseDate.getFullYear() + 10)
-		else
-			throw new Error('min or max ?')
+		if (minOrMax === 'min') date.setFullYear(baseDate.getFullYear() - 110)
+		else if (minOrMax === 'max') date.setFullYear(baseDate.getFullYear() + 10)
+		else throw new Error('min or max ?')
 		return date
 	}
-
+	/**
+	 * @returns {HTMLElement} a container with the 3 selectors
+	 */
 	makeSelectors() {
 		const container = document.createElement('div')
-		// inject 3 slots for the selects
-		container.insertAdjacentHTML('afterbegin', '<span></span><span></span><span></span>')
+
+		const separator = '<span class=separator>/</span>'
+		const subContainer = '<span></span>'
+		// inject 3 slots for the selects, separators and a final icon container
+		container.insertAdjacentHTML(
+			'afterbegin',
+			subContainer +
+				separator +
+				subContainer +
+				separator +
+				subContainer +
+				'<span class=icon></span>'
+		)
 		container.classList.add('datepicker-options')
 		// years
 		const years = document.createElement('select')
-		for (let year = this.minDate.getFullYear(); year <= this.maxDate.getFullYear(); year++) {
+		for (
+			let year = this.minDate.getFullYear();
+			year <= this.maxDate.getFullYear();
+			year++
+		) {
 			let option = document.createElement('option')
 			option.value = year
 			option.text = year
-			if (year === this.date.getFullYear())
-				option.selected = true
+			if (year === this.date.getFullYear()) option.selected = true
 			years.appendChild(option)
 		}
 		const currentYear = this.date.getFullYear()
 		// months
 		// if we reached the min or max year, we have to disable some months
-		const minMonth = (currentYear === this.minDate.getFullYear()) ? this.minDate.getMonth() : 0
-		const maxMonth = (currentYear === this.maxDate.getFullYear()) ? this.maxDate.getMonth() : 11
+		const minMonth =
+			currentYear === this.minDate.getFullYear() ? this.minDate.getMonth() : 0
+		const maxMonth =
+			currentYear === this.maxDate.getFullYear() ? this.maxDate.getMonth() : 11
 		const months = document.createElement('select')
 		// show 12 months
 		for (let month = 1; month <= 12; month++) {
@@ -120,24 +132,25 @@ class datePicker extends commonInput {
 			option.value = month
 			option.text = onTwoDigits(month)
 			// select the current month
-			if (month === this.date.getMonth() + 1)
-				option.selected = true
+			if (month === this.date.getMonth() + 1) option.selected = true
 			// disable out-of-range months
-			if (month < minMonth + 1 ||
-				month > maxMonth + 1)
-				option.disabled = true
+			if (month < minMonth + 1 || month > maxMonth + 1) option.disabled = true
 
 			months.appendChild(option)
 		}
 		// days
 		// if we reached the min or max year + month, we have to disable some days
 		let minDay = 0
-		if (currentYear === this.minDate.getFullYear() &&
-			this.date.getMonth() === this.minDate.getMonth())
+		if (
+			currentYear === this.minDate.getFullYear() &&
+			this.date.getMonth() === this.minDate.getMonth()
+		)
 			minDay = this.minDate.getDate()
 		let maxDay = 31
-		if (currentYear === this.maxDate.getFullYear() &&
-			this.date.getMonth() === this.maxDate.getMonth())
+		if (
+			currentYear === this.maxDate.getFullYear() &&
+			this.date.getMonth() === this.maxDate.getMonth()
+		)
 			maxDay = this.maxDate.getDate()
 
 		const days = document.createElement('select')
@@ -147,11 +160,9 @@ class datePicker extends commonInput {
 			option.value = day
 			option.text = onTwoDigits(day)
 			// select current day
-			if (day === this.date.getDate())
-				option.selected = true
+			if (day === this.date.getDate()) option.selected = true
 			// disable out-of-range days
-			if (day < minDay || day > maxDay)
-				option.disabled = true
+			if (day < minDay || day > maxDay) option.disabled = true
 			// avoid displaying non-existing days like 31st of sept or 29th of february for regular years.
 			if (doesDayExist(currentYear, this.date.getMonth(), day))
 				days.appendChild(option)
@@ -165,21 +176,53 @@ class datePicker extends commonInput {
 		}
 		// get our list of containers
 		const containersEl = container.getElementsByTagName('span')
-		// inject  the selector in the span, in the correct order
-		fromLocaleToFormat[this.locale]
-			.forEach((type, index) => {
-				selectorsEl[type].setAttribute('data-type', type)
-				containersEl[index].appendChild(selectorsEl[type])
-			})
+		// inject  the selector in the spans, in the correct order
+		fromLocaleToFormat[this.locale].forEach((type, index) => {
+			selectorsEl[type].setAttribute('data-type', type)
+			containersEl[index * 2].appendChild(selectorsEl[type])
+		})
 
 		return container
 	}
 
+	/**
+	 * bind the events and inject the selectors
+	 */
+	setupSelectors(selectorsField) {
+		// transmit real input disabled state to the selectors
+		if (this.disabled)
+			selectorsField
+				.getElementsByTagName('select')
+				.forEach(el => (el.disabled = true))
+		// reflect actions on the selectors to the real input field
+		selectorsField.addEventListener(
+			'change',
+			this.onDateSelectorChange.bind(this)
+		)
+		// inject
+		this.el.field.insertAdjacentElement('beforebegin', selectorsField)
+		selectorsField
+			.getElementsByTagName('select')
+			// that gets complex : we call an alien method (selectOneInput.setupOptions) for each of our selectors
+			.forEach(el => {
+				// prepare with Awesomeplete
+				this.setupOptions(el)
+				// react to the click on the real select
+				if (!this.disabled) {
+					el.addEventListener(
+						'pointerdown',
+						selectOneInput.prototype.onOpen.bind(this)
+					)
+				}
+			})
+	}
+
 	onDateSelectorChange(e) {
+		const container = e.currentTarget
 		// retrieve the new date
-		const elMonths = this.selectorsField.querySelector('[data-type=months]')
-		const elYears = this.selectorsField.querySelector('[data-type=years]')
-		const elDays = this.selectorsField.querySelector('[data-type=days]')
+		const elMonths = container.querySelector('[data-type=months]')
+		const elYears = container.querySelector('[data-type=years]')
+		const elDays = container.querySelector('[data-type=days]')
 		this.date = new Date(
 			elYears[elYears.selectedIndex].value,
 			elMonths[elMonths.selectedIndex].value - 1,
@@ -187,11 +230,26 @@ class datePicker extends commonInput {
 		)
 		/*console.log( elYears[elYears.selectedIndex].value, elMonths[elMonths.selectedIndex].value, elDays[elDays.selectedIndex].value, this.date)*/
 		this.updateFieldDate()
+		// remove the selectors
+		container.parentNode.removeChild(container)
+		// redo them
+		this.setupSelectors(this.makeSelectors())
 	}
 
 	updateFieldDate() {
 		// setting valueAsDate = this.date was causing rounding problems
 		this.el.field.value = fromDateToDateString(this.date)
+	}
+
+	toggleOpened() {
+		const elSelectors = this.el.querySelectorAll('.datepicker-options select')
+		// faking the an event, for the onOpen method to work, applying this to all select's
+		elSelectors.forEach(el => {
+			selectOneInput.prototype.onOpen({
+				preventDefault: () => null,
+				target: el
+			})
+		})
 	}
 }
 
@@ -210,21 +268,26 @@ function fromDateToDateString(date) {
 
 /**
  * From 1 to '01', and from 31 to '31'
- * @param {Number} number 
+ * @param {Number} number
  */
-const onTwoDigits = (number => number.toString().padStart(2, '0'))
+const onTwoDigits = number => number.toString().padStart(2, '0')
 
 /**
  * Check if this day really exists (29 feb on a leap year, for example)
- * @param {Number|String} year 
- * @param {Number|String} month 
- * @param {Number|String} day 
+ * @param {Number|String} year
+ * @param {Number|String} month
+ * @param {Number|String} day
  */
 function doesDayExist(year, month, day) {
 	const date = new Date(year, month, day)
-	return (date.getFullYear() == year &&
+	return (
+		date.getFullYear() == year &&
 		date.getMonth() == month &&
-		date.getDate() == day)
+		date.getDate() == day
+	)
 }
+
+// inherit this method from the other class
+datePicker.prototype.setupOptions = selectOneInput.prototype.setupOptions
 
 export default datePicker
