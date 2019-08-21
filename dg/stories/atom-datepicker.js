@@ -86,7 +86,7 @@ const demo2 = `
 </axa-input>
 
 <axa-input +label="Invalid state" +invalid +error="This date is not available because our offices are closed on weekends, sorry" >
-	<input type=date min=1960-01-01 max=now />
+	<input type=date value=2020-12-26 />
 	<span slot=info>Like regular text fields, you can use <code>+invalid</code>, <code>+valid</code> and <code>+error</code> attributes on the <code>axa-input</code> tag.</span>
 </axa-input>
 
