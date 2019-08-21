@@ -5,15 +5,13 @@ import selectOneInput from './input-select-one'
 import datePicker from './input-datepicker'
 import './index.scss'
 
-
 class axaInput extends HTMLElement {
 	static get observedAttributes() {
 		return ['+valid', '+invalid', '+disabled', '+revealed', '+opened']
 	}
 
 	attributeChangedCallback(attr, old, value) {
-		if (old === value)
-			return
+		if (old === value) return
 		switch (attr) {
 			case '+valid':
 				this.classList.add('valid')
@@ -28,10 +26,19 @@ class axaInput extends HTMLElement {
 				this.el.disabled = true
 				break
 			case '+opened': // TODO  : catch when +opened is REMOVED
-				this.el.openSuggestions()
+				if (this.el instanceof autocompleteInput) this.el.openSuggestions()
+				else if (
+					this.el instanceof selectOneInput ||
+					this.el instanceof datePicker
+				)
+					this.el.toggleOpened()
+				else
+					console.warn('+opened attribute is not supported for this element.')
 				break
 			case '+revealed': // TODO  : catch when +revealed is REMOVED
-				this.el.toggleRevealer()
+				if (this.el instanceof passwordInput) this.el.toggleRevealer()
+				else
+					console.warn('+revealed attribute is not supported for this element.')
 				break
 		}
 	}
@@ -40,19 +47,18 @@ class axaInput extends HTMLElement {
 		super()
 
 		// manage only one input
-		let field = [...this.querySelectorAll('input'), ...this.querySelectorAll('select')]
+		let field = [
+			...this.querySelectorAll('input'),
+			...this.querySelectorAll('select')
+		]
 		if (field.length > 1)
 			throw new Error('axa-input supports only one type of input element')
-
 		// create a simple text element if needed
-		else if (field.length < 1)
-			field = document.createElement('input')
-		else
-			field = field[0]
+		else if (field.length < 1) field = document.createElement('input')
+		else field = field[0]
 		this.field = field
 		// manage weird states
-		if (this.hasAttribute('+invalid') &&
-			this.hasAttribute('+valid'))
+		if (this.hasAttribute('+invalid') && this.hasAttribute('+valid'))
 			throw new TypeError('You have to choose between valid and invalid state')
 
 		// console.log(this.field.type)
@@ -61,30 +67,28 @@ class axaInput extends HTMLElement {
 			case 'text':
 				if (this.field.hasAttribute('list'))
 					this.el = new autocompleteInput(this)
-				else
-					this.el = new textInput(this)
-				break;
+				else this.el = new textInput(this)
+				break
 			case 'password':
 				this.el = new passwordInput(this)
-				break;
+				break
 			case 'select-one':
 				this.el = new selectOneInput(this)
-				break;
+				break
 			case 'date':
 				this.el = new datePicker(this)
-				break;
+				break
 			default:
-				throw new TypeError(`This type of input (${this.field.type}) is not supported yet.`)
+				throw new TypeError(
+					`This type of input (${this.field.type}) is not supported yet.`
+				)
 		}
 
 		this.el.init()
 		// manage styling depending on states
-		if (this.el.disabled)
-			this.classList.add('disabled')
-		else
-			this.classList.remove('disabled')
+		if (this.el.disabled) this.classList.add('disabled')
+		else this.classList.remove('disabled')
 	}
-
 }
 
 customElements.define('axa-input', axaInput)

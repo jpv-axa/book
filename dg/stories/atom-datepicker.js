@@ -1,9 +1,5 @@
-import {
-	storiesOf,
-	addDecorator
-} from '@storybook/html'
-import withCode from '../../dgAddons/colorationAddon';
-
+import { storiesOf, addDecorator } from '@storybook/html'
+import withCode from '../../dgAddons/colorationAddon'
 
 import '../components/atoms/input'
 
@@ -77,7 +73,6 @@ storiesOf(`Atoms|Inputs`, module)
 	.addDecorator(withCode(demo1, 'html'))
 	.add('Date Picker', () => demo1 + styles)
 
-
 const demo2 = `
 <fieldset><legend class=a-typo__text-title>Datepicker with error / success</legend>
 
@@ -92,6 +87,11 @@ const demo2 = `
 
 <axa-input +label="Disabled state" +disabled>
 	<input type=date disabled />
+</axa-input>
+
+<axa-input +label="Opened state (for demo only)" +opened>
+	<input type=date min=2017-01-01 max=now />
+	<span slot=info>This is for demo only, please never let a selector opened by default.</span>
 </axa-input>
 
 </fieldset>

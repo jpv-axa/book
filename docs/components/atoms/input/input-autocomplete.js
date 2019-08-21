@@ -3,7 +3,7 @@ import textInput from './input-text'
 // and is hackable enough to be correctly styled
 import Awesomplete from 'awesomplete'
 
-class passwordInput extends textInput {
+class autocompleteInput extends textInput {
 	init() {
 		this.dataList = this.el.querySelector('datalist')
 		if (!this.dataList)
@@ -23,7 +23,7 @@ class passwordInput extends textInput {
 			this.el.field.setAttribute('list', this.dataList.id)
 		}
 
-		// delagate keyboard and A11Y management
+		// delegate keyboard and A11Y management
 		this.AwesompleteInstance = new Awesomplete(this.el.field)
 		if (this.el.hasAttribute('+opened')) {
 			this.openSuggestions()
@@ -37,4 +37,4 @@ class passwordInput extends textInput {
 
 }
 
-export default passwordInput
+export default autocompleteInput

@@ -13,16 +13,14 @@
 
 	// the triple option container
 	.datepicker-options {
-
-		// add a separator
-		& span:nth-child(-n+2)::after {
-			content: "/";
-			display: inline-block;
-			padding: $spacing-1;
-			text-align: center;
+		& span {
+			position: relative; // allows the awesomeplete to position from there
 		}
 
-
+		// the slashes
+		& .separator {
+			padding: $spacing-1;
+		}
 	}
 
 	// manage states
@@ -32,7 +30,7 @@
 	}
 
 	// last span in the container is the icon
-	.datepicker-options span:last-child::after {
+	.datepicker-options .icon::after {
 		display: inline-block;
 		width: $spacing-2;
 		margin-left: $spacing-1;
@@ -40,12 +38,19 @@
 	}
 
 	// icon url depends on the current state
-	&.valid .datepicker-options span:last-child::after {
+	&.valid .datepicker-options .icon::after {
 		content: url("../../atoms/icon/materials/check.svg");
 	}
 
-	&.invalid .datepicker-options span:last-child::after {
+	&.invalid .datepicker-options .icon::after {
 		content: url("../../atoms/icon/materials/error.svg");
+	}
+
+	// correct the Awesomeplete styles 
+	&.is-datepicker .awesomplete {
+		position: absolute; // relative to container span
+		left: 0;
+		width: 100%; // takes the width of the container, which happens to be the width of the <select>
 	}
 
 
