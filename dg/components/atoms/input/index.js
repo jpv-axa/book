@@ -28,10 +28,18 @@ class axaInput extends HTMLElement {
 				this.el.disabled = true
 				break
 			case '+opened': // TODO  : catch when +opened is REMOVED
-				this.el.openSuggestions()
+				if (this.el instanceof autocompleteInput)
+					this.el.openSuggestions()
+				else if (this.el instanceof selectOneInput)
+					this.el.toggleOpened()
+				else
+					console.warn('+opened attribute is not supported for this element.')
 				break
 			case '+revealed': // TODO  : catch when +revealed is REMOVED
-				this.el.toggleRevealer()
+				if (this.el instanceof passwordInput)
+					this.el.toggleRevealer()
+				else
+					console.warn('+revealed attribute is not supported for this element.')
 				break
 		}
 	}
