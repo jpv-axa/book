@@ -22,8 +22,9 @@ class commonInput {
 		if (info)
 			this.el.appendChild(info)
 
-
-		this.disabled = this.el.field.disabled
+		this.disabled = false
+		if (this.el.field.disabled || this.el.hasAttribute('+disabled'))
+			this.disabled = true
 	}
 
 	empty() {
