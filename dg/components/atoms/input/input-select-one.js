@@ -6,20 +6,17 @@ class selectOneInput extends commonInput {
 		super.init()
 
 		// on desktop, cancels the display of the native dropdown
-		if (!this.el.field.disabled || !this.el.hasAttribute('+disabled')) {
+		if (!this.disabled) {
 			this.el.field.addEventListener('pointerdown', this.onOpen.bind(this))
 		}
 
 		// on desktop, prepare a replacement for the native dropdown
-		// delagate keyboard and A11Y management
-		if (!this.el.field.disabled || !this.el.hasAttribute('+disabled'))
-			this.setupOptions()
+		// delegate keyboard and A11Y management
+		if (!this.disabled)
+			this.setupOptions(this.el.field)
 
-		if (this.el.hasAttribute('+opened')) {
-			this.onOpen({
-				preventDefault: () => null
-			})
-		}
+		/*if (this.el.hasAttribute('+opened'))
+			this.open()*/
 
 		if (this.el.hasAttribute('+placeholder')) {
 			let fakePlaceholderEl = new Option(this.el.getAttribute('+placeholder'), '', true, true)
@@ -30,37 +27,33 @@ class selectOneInput extends commonInput {
 		}
 	}
 
-	openSuggestions() {
-		this.AwesompleteInstance.evaluate()
-		this.AwesompleteInstance.open()
-	}
-
-	setupOptions() {
+	setupOptions(fieldSelect) {
+		// this input really is there only for Awesomplete to work and communicate with us
 		const input = document.createElement('input')
-		this.el.field.insertAdjacentElement('afterend', input)
+		fieldSelect.insertAdjacentElement('afterend', input)
 
 		// update the real index when the false select is clicked
 		input.addEventListener('awesomplete-selectcomplete', (selection) => {
 			// fisrt deal with the fake input and the style
 			input.value = '' //just to be able to open it a 2nd time
-			this.el.field.classList.remove('opened')
+			fieldSelect.classList.remove('opened')
 			// update the value and trigger the onchange event for the real form select
-			this.el.field.selectedIndex = selection.text.value
-			this.el.field.dispatchEvent(new Event('change'))
+			fieldSelect.selectedIndex = selection.text.value
+			fieldSelect.dispatchEvent(new Event('change'))
 		})
 		input.addEventListener('awesomplete-open', (selection) => {
 			input.focus()
 		})
 
 		// from real options to Awesomplete list eg: [{ label: "Belarus", value: "BY" }, …]
-		let options = Array.prototype.map.call(this.el.field.options, ((option, index) => {
+		let options = Array.prototype.map.call(fieldSelect.options, ((option, index) => {
 			return {
 				label: option.label, // what the user will see
 				value: index // used by ourselves to retrieve the original option
 			}
 		}))
 
-		this.AwesompleteInstance = new Awesomplete(input, {
+		fieldSelect.AwesompleteInstance = new Awesomplete(input, {
 			minChars: 0,
 			list: options,
 			maxItems: options.length,
@@ -69,7 +62,7 @@ class selectOneInput extends commonInput {
 			item: (current) => {
 				const el = document.createElement('li')
 				el.innerText = current.label
-				if (this.el.field.selectedIndex === current.value)
+				if (fieldSelect.selectedIndex === current.value)
 					el.setAttribute('aria-selected', 'true')
 				else
 					el.setAttribute('aria-selected', 'false')
@@ -89,12 +82,13 @@ class selectOneInput extends commonInput {
 
 	onOpen(e) {
 		e.preventDefault()
-		if (this.AwesompleteInstance.ul.hasAttribute('hidden')) {
-			this.AwesompleteInstance.evaluate()
-			this.el.field.classList.add('opened')
+		const elSelect = e.target
+		if (elSelect.AwesompleteInstance.ul.hasAttribute('hidden')) {
+			elSelect.AwesompleteInstance.evaluate()
+			elSelect.classList.add('opened')
 		} else {
-			this.AwesompleteInstance.close()
-			this.el.field.classList.remove('opened')
+			elSelect.AwesompleteInstance.close()
+			elSelect.classList.remove('opened')
 		}
 	}
 }
