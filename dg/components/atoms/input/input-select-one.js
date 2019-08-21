@@ -80,6 +80,13 @@ class selectOneInput extends commonInput {
 
 	}
 
+	toggleOpened() {
+		this.onOpen({
+			preventDefault: () => null,
+			target: this.el.field
+		})
+	}
+
 	onOpen(e) {
 		e.preventDefault()
 		if (this.AwesompleteInstance.ul.hasAttribute('hidden')) {
