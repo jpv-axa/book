@@ -7,7 +7,10 @@ class commonInput {
 		let label = this.setupLabel()
 		let errorMessage = this.getError()
 		if (errorMessage)
-			this.el.field.setAttribute('aria-describedby', this.generateErrorFieldId())
+			this.el.field.setAttribute(
+				'aria-describedby',
+				this.generateErrorFieldId()
+			)
 
 		this.el.insertAdjacentElement('afterbegin', label)
 		let field = this.el.field
@@ -17,10 +20,8 @@ class commonInput {
 		this.empty()
 		this.el.appendChild(label)
 		this.el.appendChild(field)
-		if (errorMessage)
-			this.el.appendChild(errorMessage)
-		if (info)
-			this.el.appendChild(info)
+		if (errorMessage) this.el.appendChild(errorMessage)
+		if (info) this.el.appendChild(info)
 
 		this.disabled = false
 		if (this.el.field.disabled || this.el.hasAttribute('+disabled'))
@@ -29,7 +30,7 @@ class commonInput {
 
 	empty() {
 		while (this.el.firstChild) {
-			this.el.removeChild(this.el.firstChild);
+			this.el.removeChild(this.el.firstChild)
 		}
 	}
 
@@ -41,12 +42,11 @@ class commonInput {
 		let name = this.el.field.getAttribute('name')
 		// generate if none of both
 		if (!id && !name)
-			name = id = this.el.type + '_' + Math.round(Math.random() * 1000000000)
+			name = id =
+				this.el.field.type + '_' + Math.round(Math.random() * 1000000000)
 		// sync id and name
-		if (!id && name)
-			id = name
-		if (!name && id)
-			name = id
+		if (!id && name) id = name
+		if (!name && id) name = id
 
 		this.el.field.setAttribute('id', id)
 		this.el.field.setAttribute('name', name)
@@ -56,8 +56,7 @@ class commonInput {
 	// @return the label as an element
 	setupLabel() {
 		this.labelText = this.el.getAttribute('+label')
-		if (!this.labelText)
-			this.labelText = 'Default Label'
+		if (!this.labelText) this.labelText = 'Default Label'
 		// return `<label for="${this.el.field.getAttribute('id')}">${this.labelText}</label>`
 		let labelEl = document.createElement('label')
 		labelEl.setAttribute('for', this.el.field.getAttribute('id'))
@@ -68,8 +67,7 @@ class commonInput {
 	// @return {null|HTMLElement}
 	getError() {
 		let errorMessage = this.el.getAttribute('+error') || 'Error message'
-		if (!this.el.hasAttribute('+invalid'))
-			return null
+		if (!this.el.hasAttribute('+invalid')) return null
 
 		let errorEl = document.createElement('span')
 		errorEl.innerText = errorMessage
