@@ -1,0 +1,68 @@
+@import '../../materials/grids.scss';
+@import '../typography/index.scss';
+@import '../../materials/colors.scss';
+
+$selected-bar-height : 4px;
+
+// global style
+[aria-hidden=true] {
+	display: none;
+}
+
+axa-tabs {
+
+	ul {
+		// resets
+		padding: 0;
+		margin: 0;
+
+		// 
+		// all LI on one line, add horizontal scrolling if needed
+		flex-wrap: nowrap;
+		overflow-x: scroll;
+		// max width + center
+		max-width: $breakpoint-MAX;
+		margin: 0 auto;
+
+		display: flex;
+	}
+
+	li {
+		// resets
+		list-style: none;
+
+		@extend .a-typo__menu-item;
+		color: $color-axa-blue;
+
+		padding: $spacing-3 $spacing-2;
+		// padding-bottom accounts for the height of the orange bar
+		padding-bottom: calc(#{$spacing-2} - #{$selected-bar-height});
+		border-bottom: 4px solid $color-white;
+		// long texts are still on one line
+		white-space: nowrap;
+		cursor: pointer;
+		// give all items the same width, it's then distributed equally
+		flex-grow: 1;
+		text-align: center;
+
+		&:hover {
+			background-color: $color-mercury;
+			border-bottom-color: $color-mercury;
+		}
+
+		// order matters : must be before :hover declaration, so that a selected tab does not highlight itself
+		&[aria-selected=true] {
+			background-color: $color-white;
+			color: $color-mine-shaft;
+			border-bottom-color: $color-prim-red-burnt-sienna;
+			cursor: default;
+		}
+
+		&.disabled {
+			color: $color-silver;
+			background-color: $color-mercury;
+			border-bottom-color: $color-mercury;
+			cursor: not-allowed;
+		}
+	}
+}
