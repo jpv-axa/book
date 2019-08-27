@@ -1,5 +1,5 @@
 language: node_js
-script: npm run build
+script: npm run dg-build
 deploy:
   provider: pages
   skip_cleanup: true
