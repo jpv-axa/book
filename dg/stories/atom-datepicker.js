@@ -77,7 +77,7 @@ const demo2 = `
 <fieldset><legend class=a-typo__text-title>Datepicker with error / success</legend>
 
 <axa-input +label="Valid state" +valid>
-	<input type=date />
+	<input type=date date=2020-25-12 />
 </axa-input>
 
 <axa-input +label="Invalid state" +invalid +error="This date is not available because our offices are closed on weekends, sorry" >
@@ -90,7 +90,7 @@ const demo2 = `
 </axa-input>
 
 <axa-input +label="Opened state (for demo only)" +opened>
-	<input type=date min=2017-01-01 max=now />
+	<input type=date min=2017-01-01 date=2020-25-12 />
 	<span slot=info>This is for demo only, please never let a selector opened by default.</span>
 </axa-input>
 
