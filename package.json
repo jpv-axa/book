@@ -33,21 +33,21 @@
     "react-dom": "^16.9.0",
     "npm-check": "^5.9.0",
     "@babel/plugin-transform-arrow-functions": "^7.2.0",
-    "@percy/storybook": "^3.0.2",
+    "@percy/storybook": "^3.2.0",
     "@storybook/addon-notes": "^5.1.11",
     "css-loader": "^3.2.0",
     "file-loader": "^4.2.0",
     "node-sass": "^4.11.0",
     "prismjs": "^1.17.1",
     "resolve-url-loader": "^3.1.0",
-    "sass-loader": "^7.2.0",
+    "sass-loader": "^7.3.1",
     "style-loader": "^1.0.0",
     "webpack": "^4.39.2"
   },
   "dependencies": {
     "@webcomponents/custom-elements": "^1.2.4",
     "@webcomponents/webcomponentsjs": "^2.2.10",
-    "awesomplete": "^1.1.4",
+    "awesomplete": "^1.1.5",
     "eligrey-classlist-js-polyfill": "^1.2.20180112"
   }
 }
