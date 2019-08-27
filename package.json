@@ -10,7 +10,7 @@
   },
   "scripts": {
     "dg-dev": "start-storybook -s $npm_package_config_input -p 58044",
-    "dg-build": "build-storybook -s $npm_package_config_input -o $npm_package_config_output",
+    "dg-build": "build-storybook -s $npm_package_config_input -o $npm_package_config_output --quiet",
     "start": "npm run dg-dev",
     "build": "npm run dg-build && open $npm_package_config_output/index.html",
     "test": "npm run visual-diff",
