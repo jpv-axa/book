@@ -7,7 +7,7 @@ deploy:
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
   keep_history: true
-  target_branch: master
+  target_branch: $TRAVIS_PULL_REQUEST_BRANCH
   local_dir: ./docs
   verbose: true
   on:
