@@ -10,7 +10,7 @@ class axaTabs extends HTMLElement {
 			throw new Error('There should be at least 2 tabs (LI tags)')
 		else if (elTabs.length > 8)
 			console.warn('There never should be more than 8 tabs')
-		else if (elTabs.length <= 2) console.warn('There should be at least 2 tabs')
+		else if (elTabs.length < 2) console.warn('There should be at least 2 tabs')
 
 		// if no tab is selected by markup, select the first one
 		let elSelected = this.querySelector('li[aria-selected=true]') || elTabs[0]
