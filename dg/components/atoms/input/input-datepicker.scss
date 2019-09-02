@@ -51,6 +51,11 @@
 		position: absolute; // relative to container span
 		left: 0;
 		width: 100%; // takes the width of the container, which happens to be the width of the <select>
+
+		[role=listbox] {
+			max-height: 3.5 * (2*$spacing-2 + 1.4rem); // 3.5 lines max. One line height = 2 vert. padding + 1 line-height
+			overflow-y: auto;
+		}
 	}
 
 
