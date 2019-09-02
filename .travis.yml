@@ -2,13 +2,3 @@ language: node_js
 script:
   - npm run dg-build
   - npm test
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  keep_history: true
-  target_branch: $TRAVIS_PULL_REQUEST_BRANCH
-  local_dir: ./docs
-  verbose: true
-  on:
-    branch: master
