@@ -1,12 +1,9 @@
-import {
-	storiesOf,
-	addDecorator
-} from '@storybook/html'
+import { storiesOf, addDecorator } from '@storybook/html'
 
 import imageWhite from './statics/home-hero-8.jpg'
 import imageDark from './statics/landlord-hero-3.jpg'
 
-import withCode from '../../dgAddons/colorationAddon';
+import withCode from '../../dgAddons/colorationAddon'
 
 import '../components/molecules/hero-cover'
 
@@ -14,13 +11,12 @@ const demo1 = `<axa-header-menu></axa-header-menu>
 <axa-hero-cover></axa-hero-cover>
 <axa-footer></axa-footer>`
 
-storiesOf('Organism|Header, Footer, Hero Cover', module)
+storiesOf('Organism|Header, Footer, Hero Cover, Text & Image', module)
 	.addDecorator(withCode(demo1, 'html'))
 	.add('Default values', () => demo1)
 
-
 // dummy catchup function
-window.onNavigate = function () {
+window.onNavigate = function() {
 	return alert('Click')
 }
 
