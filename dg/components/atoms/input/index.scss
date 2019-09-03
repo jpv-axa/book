@@ -162,13 +162,11 @@ axa-input {
 		min-width: 100%;
 		box-sizing: border-box;
 		margin-top: -1* $spacing-1;
+		// 3.5 lines max. One line height = 2 vert. padding + 1 line-height
+		max-height: 3.5 * (2*$spacing-2 + 1.4rem);
+		overflow-y: auto;
 		// decorate
 		box-shadow: $shadow-4;
-
-		// TODO : limit the height of the options list AND preserve the top-shadow hiding
-		/*max-height: 75vh;
-		overflow-y: scroll;
-		*/
 
 		// Dummy element to hide the top shadow
 		&:before {
