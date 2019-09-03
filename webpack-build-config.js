@@ -1,19 +1,41 @@
-const webpack = require('webpack')
+const packageJSON = require('./package.json')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries')
+
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const path = require('path')
-let config = {
-	entry: './index-build.js',
-	output: {
-		path: path.resolve(__dirname, './dist'),
-		filename: './bundle.js'
+
+module.exports = {
+	entry: {
+		bundle: './index-build.js', // auto-discover the files from dg/components
+		fonts: './dg/components/materials/fonts.scss' // this file has 2 problems : enormous and not usable as is because of font patents
 	},
+	output: {
+		path: path.resolve(__dirname, packageJSON.config.dist),
+		filename: './[name].' + packageJSON.version + '.js'
+	},
+	plugins: [
+		new FixStyleOnlyEntriesPlugin(), // while waiting for Webpack@5, removes the useless fonts.js file
+		new CleanWebpackPlugin(), // cleans the dist/* directory before build
+		new MiniCssExtractPlugin({
+			filename: '[name].' + packageJSON.version + '.css'
+		}),
+		new HtmlWebpackPlugin({
+			filename: 'demo.html',
+			template: '!!html-loader!build-demo.html', // pass our template to html-loader
+			inject: 'body', // we put JS at the bottom or Web Components dont render correctly
+			minify: false // still have readable HTML
+		})
+	],
 	module: {
 		rules: [
 			{
 				test: /\.scss$/,
 				loaders: [
 					{
-						loader: 'style-loader',
-						options: {}
+						loader: MiniCssExtractPlugin.loader //'style-loader',
+						//options: {}
 					},
 					{
 						loader: 'css-loader',
@@ -45,51 +67,15 @@ let config = {
 				include: path.resolve(__dirname, '../')
 			},
 			{
-				test: /\.css$/,
-				loaders: [
-					{
-						loader: 'style-loader',
-						options: {}
-					},
-					{
-						loader: 'css-loader',
-						options: {}
-					},
-					{
-						loader: 'raw-loader',
-						options: {}
-					}
-				]
-			},
-			{
-				test: /\.(woff2?)$/,
+				test: /\.(svg|jpe?g|woff2?)$/,
 				use: [
 					{
 						loader: 'file-loader',
-						options: {}
-					}
-				]
-			},
-			{
-				test: /\.(svg?)$/,
-				use: [
-					{
-						loader: 'file-loader',
-						options: {}
-					}
-				]
-			},
-			{
-				test: /\.(jpg?)$/,
-				use: [
-					{
-						loader: 'file-loader',
-						options: {}
+						options: { name: '[name].' + packageJSON.version + '.[ext]' }
 					}
 				]
 			}
 		]
-	}
+	},
+	mode: 'production'
 }
-
-module.exports = config
