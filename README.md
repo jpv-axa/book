@@ -20,4 +20,4 @@ DONT PUBLISH IN `master`
   * by a pair programer for the code
   * by a designer on the URL provided by percy
 
-Public demo : https://jpv-axa.github.io/book/docs/storybook/
+Public demo : https://jpv-axa.github.io/book/
