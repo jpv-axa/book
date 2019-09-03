@@ -3,6 +3,10 @@
 // you can download the original Source Sans Pro Regular and Source Sans Pro SemiBold here : https://fonts.google.com/selection?selection.family=Source+Sans+Pro:400,600
 // For performance reasons, please select a language and convert the files to Woff2 (for performance) and Woff (for compatibility)
 // then overwrite those @font-face declarations
+// Real font name
+$font-family-sans-serif: 'Source Sans Pro';
+$font-family-serif: 'Publico Headline Bold';
+
 @font-face {
     font-family: $font-family-sans-serif;
     src: local('Source Sans Pro SemiBold'), local('SourceSansPro-SemiBold'),

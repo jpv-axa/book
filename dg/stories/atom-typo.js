@@ -1,8 +1,4 @@
-import {
-	storiesOf,
-	addDecorator
-} from '@storybook/html'
-import withCode from '../../dgAddons/colorationAddon';
+import '../components/materials/fonts.scss'
 
 /*
  * Typo
