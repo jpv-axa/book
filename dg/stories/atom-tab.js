@@ -62,7 +62,7 @@ const content_2 = `
 const demo1_2 = `
 <axa-tabs title="3 tabs with icon">
 	<ul>
-		<li aria-controls=content4 +icon=youtube >Tab One</li>
+		<li aria-controls=content4 +icon=search >Tab One</li>
 		<li aria-controls=content5 +icon=menu >Tab with a long text</li>
 		<li aria-controls=content6 +icon=eye >Tab 3</li>
 	</ul>
