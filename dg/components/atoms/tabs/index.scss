@@ -64,5 +64,14 @@ axa-tabs {
 			border-bottom-color: $color-mercury;
 			cursor: not-allowed;
 		}
+
+		& axa-icon {
+			display: block;
+
+			svg {
+				width: $spacing-4;
+				height: $spacing-4;
+			}
+		}
 	}
 }
