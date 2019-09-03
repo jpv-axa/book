@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "config": {
-    "output": "docs",
-    "input": "dg",
-    "story_config": "./storybook"
+    "output": "./docs",
+    "input": "./dg",
+    "story_config": "./storybook",
+    "dist": "./dist"
   },
   "scripts": {
     "dg-dev": "start-storybook -s $npm_package_config_input -p 58044",
