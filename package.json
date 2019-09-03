@@ -15,6 +15,7 @@
     "start": "npm run dg-dev",
     "build": "npm run dg-build && open $npm_package_config_output/index.html",
     "lib-build": "npx webpack --config webpack-build-config.js",
+    "lib-serve": "npx http-server $npm_package_config_dist & open http://localhost:8080/demo.html",
     "test": "npm run visual-diff",
     "visual-diff": "percy-storybook  --build_dir $npm_package_config_output --widths=320,400,600,800,1100,1300,1600 --enable_javascript",
     "tool-update": "npx npm-check --save-exact --update --ignore @babel/*,*-loader,node-sass,webpack --specials=babel,webpack"
