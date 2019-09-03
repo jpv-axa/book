@@ -1,9 +1,11 @@
+import { storiesOf, addDecorator } from '@storybook/html'
+import withCode from '../../dgAddons/colorationAddon'
 import '../components/materials/fonts.scss'
 
 /*
  * Typo
  */
-import typoCss from '!raw-loader!../components/materials/typography.scss';
+import typoCss from '!raw-loader!../components/materials/typography.scss'
 
 import '../components/atoms/typography'
 
@@ -27,12 +29,14 @@ storiesOf(`Atoms|Typography`, module)
 	.addDecorator(withCode(demo1, 'html'))
 	.addDecorator(code => code() + styles)
 	.add('Titles', () => {
-		setTimeout(() =>
-			document.querySelectorAll('#container > *[class]').forEach(
-				el => {
+		setTimeout(
+			() =>
+				document.querySelectorAll('#container > *[class]').forEach(el => {
 					el.setAttribute('fontSize', getComputedStyle(el)['fontSize'])
 					el.setAttribute('lineHeight', getComputedStyle(el)['lineHeight'])
-				}), 1000)
+				}),
+			1000
+		)
 		return '<div id="container">' + demo1 + '</div>'
 	})
 
@@ -53,12 +57,14 @@ storiesOf(`Atoms|Typography`, module)
 	.addDecorator(withCode(demo2, 'html'))
 	.addDecorator(code => code() + styles)
 	.add('Texts', () => {
-		setTimeout(() =>
-			document.querySelectorAll('#container *[class]').forEach(
-				el => {
+		setTimeout(
+			() =>
+				document.querySelectorAll('#container *[class]').forEach(el => {
 					el.setAttribute('fontSize', getComputedStyle(el)['fontSize'])
 					el.setAttribute('lineHeight', getComputedStyle(el)['lineHeight'])
-				}), 1000)
+				}),
+			1000
+		)
 		return '<div id="container">' + demo2 + '</div>'
 	})
 
