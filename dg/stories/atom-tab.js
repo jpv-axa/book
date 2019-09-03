@@ -77,11 +77,11 @@ storiesOf(`Atoms|Tabs`, module)
 	)
 
 const demo2_1 = `
-<axa-tabs title="Empty tab">
+<axa-tabs title="Empty tab (throws an error)">
 
 </axa-tabs>
 
-<axa-tabs title="Pre-selected tab">
+<axa-tabs title="Pre-selected or disabled tab">
 <ul>
 	<li aria-controls=content1>Tab One</li>
 	<li aria-controls=content2 +disabled>Disabled tab</li>
