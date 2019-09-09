@@ -5,12 +5,19 @@ class selectOneInput extends commonInput {
 	init() {
 		super.init()
 
-		// on desktop, cancels the display of the native dropdown
+		// cancels the display of the native dropdown
 		if (!this.disabled) {
 			this.el.field.addEventListener('pointerdown', this.onOpen.bind(this))
+			document.body.addEventListener('pointerdown', e => {
+				// dont close e.target was inside the axa-input
+				if (this.el.contains(e.target)) {
+					return true
+				}
+				this.close(this.el.field)
+			})
 		}
 
-		// on desktop, prepare a replacement for the native dropdown
+		// prepare a replacement for the native dropdown
 		// delegate keyboard and A11Y management
 		if (!this.disabled) this.setupOptions(this.el.field)
 
@@ -83,20 +90,31 @@ class selectOneInput extends commonInput {
 	toggleOpened() {
 		this.onOpen({
 			preventDefault: () => null,
+			stopPropagation: () => null,
 			target: this.el.field
 		})
 	}
 
 	onOpen(e) {
 		e.preventDefault()
+		e.stopPropagation()
 		const elSelect = e.target
 		if (elSelect.AwesompleteInstance.ul.hasAttribute('hidden')) {
-			elSelect.AwesompleteInstance.evaluate()
-			elSelect.classList.add('opened')
+			this.open(elSelect)
 		} else {
-			elSelect.AwesompleteInstance.close()
-			elSelect.classList.remove('opened')
+			this.close(elSelect)
 		}
+	}
+
+	open(elSelect) {
+		console.log('open')
+		elSelect.AwesompleteInstance.evaluate()
+		elSelect.classList.add('opened')
+	}
+	close(elSelect) {
+		console.log('close')
+		elSelect.AwesompleteInstance.close()
+		elSelect.classList.remove('opened')
 	}
 }
 

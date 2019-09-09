@@ -17,7 +17,7 @@ class axaTabs extends HTMLElement {
 		elSelected.setAttribute('aria-selected', true)
 		// add A11Y
 		this.querySelector('UL').setAttribute('role', 'tablist')
-
+		let numberOfIcons = 0
 		// manage disabled state, add A11Y
 		elTabs.forEach(el => {
 			if (el.hasAttribute('+disabled')) {
@@ -26,9 +26,22 @@ class axaTabs extends HTMLElement {
 			// A11Y
 			el.setAttribute('role', 'tab')
 			el.id = getOrSetId(el)
+			// icons setup (if any)
+			if (el.hasAttribute('+icon')) {
+				numberOfIcons++
+				el.insertAdjacentHTML(
+					'afterbegin',
+					'<axa-icon +icon=' + el.getAttribute('+icon') + '></axa-icon>'
+				)
+			}
+			// bind to the DOM events
+			el.addEventListener('click', this.onTabChange)
 		})
-		// bind to the DOM events
-		this.addEventListener('click', this.onTabChange)
+
+		if (numberOfIcons > 0 && numberOfIcons !== elTabs.length)
+			console.warn(
+				'All of your tabs should have an icon set up. We replace missing ones by a default one.'
+			)
 		// bind to our custom event
 		this.addEventListener('selected', e => {
 			this.switchToContent(e.detail.contentID)
@@ -45,8 +58,8 @@ class axaTabs extends HTMLElement {
 	 * @param {Event} e
 	 */
 	onTabChange(e) {
-		const elTab = e.target
-		const container = e.currentTarget
+		const elTab = e.currentTarget
+		const container = elTab.parentNode.parentNode // we're on the LI, we get up to the axa-tab element
 		// disabled means we dont do anything
 		if (elTab.hasAttribute('+disabled')) return
 		// already selected ? ignore this click
