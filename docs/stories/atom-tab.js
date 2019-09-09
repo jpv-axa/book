@@ -5,12 +5,14 @@ import '../components/atoms/tabs'
 
 const styles = `
 <style>
-
+.a-typo__text {
+	border: 1px solid green;
+}
 </style>
 `
 
-const content = `
-<div id=content1 style=background-color:red>
+const content_1 = `
+<div id=content1 class=a-typo__text>
 	<p>First piece of content, with <code>id=content1</code></p>
 	<p>Some notes to implementors :
 	<ul>
@@ -28,16 +30,15 @@ const content = `
 
 	</ul>
 </div>
-<div id=content2 style=background-color:orange>
+<div id=content2 class=a-typo__text>
 	<p>Content with <code>id=content2</code></p>
 </div>
-<div id=content3 style=background-color:green>
+<div id=content3 class=a-typo__text>
 	<p>Content with <code>id=content3</code></p>
 </div>
 `
 
-const demo1 = `
-
+const demo1_1 = `
 <axa-tabs title="3 simple tabs">
 	<ul>
 		<li aria-controls=content1>Tab One</li>
@@ -45,55 +46,70 @@ const demo1 = `
 		<li aria-controls=content3>Tab 3</li>
 	</ul>
 </axa-tabs>
+`
+const content_2 = `
+<div id=content4 class=a-typo__text>
+	<p>Content with <code>id=content4</code></p>
+</div>
+<div id=content5 class=a-typo__text>
+	<p>Content with <code>id=content5</code></p>
+</div>
+<div id=content6 class=a-typo__text>
+	<p>Content with <code>id=content6</code></p>
+</div>
+`
 
+const demo1_2 = `
 <axa-tabs title="3 tabs with icon">
 	<ul>
-		<li aria-controls=content1 +icon=youtube >Tab One</li>
-		<li aria-controls=content2 +icon=menu >Tab with a long text</li>
-		<li aria-controls=content3 +icon=eye >Tab 3</li>
+		<li aria-controls=content4 +icon=search >Tab One</li>
+		<li aria-controls=content5 +icon=menu >Tab with a long text</li>
+		<li aria-controls=content6 +icon=eye >Tab 3</li>
 	</ul>
 </axa-tabs>
-
 `
-storiesOf(`Atoms|Tabs`, module)
-	.addDecorator(withCode(demo1 + content, 'html'))
-	.add('Normal use cases', () => demo1 + content + styles)
 
-const demo2 = `
-<axa-tabs title="Empty tab">
+storiesOf(`Atoms|Tabs`, module)
+	.addDecorator(withCode(demo1_1 + content_1 + demo1_2 + content_2, 'html'))
+	.add(
+		'Normal use cases',
+		() => demo1_1 + content_1 + demo1_2 + content_2 + styles
+	)
+
+const demo2_1 = `
+<axa-tabs title="Empty tab (throws an error)">
 
 </axa-tabs>
 
-<axa-tabs title="Pre-selected tab">
+<axa-tabs title="Pre-selected or disabled tab">
 <ul>
 	<li aria-controls=content1>Tab One</li>
 	<li aria-controls=content2 +disabled>Disabled tab</li>
 	<li aria-controls=content3 aria-selected=true>Pre-selected Tab</li>
 </ul>
 </axa-tabs>
+`
 
-<axa-tabs title="One tab only">
-	<ul>
-		<li aria-controls=content1>Only One tab</li>
-	</ul>
-</axa-tabs>
-
+const demo2_2 = `
 <axa-tabs title="Maximum number of tabs">
 	<ul>
-		<li aria-controls=content1>Tab One</li>
-		<li aria-controls=content2>Tab with a long text</li>
-		<li aria-controls=content3>Tab 3</li>
-		<li aria-controls=content1>Back to Tab 1</li>
-		<li aria-controls=content2>Again tab 2</li>
+		<li aria-controls=content4>Tab One</li>
+		<li aria-controls=content5>Tab with a long text</li>
+		<li aria-controls=content6>Tab 3</li>
+		<li aria-controls=content4>Back to Tab 1</li>
+		<li aria-controls=content5>Again tab 2</li>
 		<li aria-controls=contentXXX>Tab referencing inexisting content</li>
-		<li aria-controls=content1>Tab One</li>
-		<li aria-controls=content2>Finally : tab 2</li>
-		<li aria-controls=content3>This tab should not appear</li>
-		<li aria-controls=content3 id=other-id>This tab should not appear</li>
+		<li aria-controls=content4>Tab One</li>
+		<li aria-controls=content5>Finally : tab 2</li>
+		<li aria-controls=content6>This tab should not appear</li>
+		<li aria-controls=content6 id=other-id>This tab should not appear</li>
 	</ul>
 </axa-tabs>
 `
 
 storiesOf(`Atoms|Tabs`, module)
-	.addDecorator(withCode(demo2 + content, 'html'))
-	.add('Edge use cases', () => demo2 + content + styles)
+	.addDecorator(withCode(demo2_1 + demo2_2 + content_1 + content_2, 'html'))
+	.add(
+		'Edge use cases',
+		() => demo2_1 + content_1 + demo2_2 + content_2 + styles
+	)

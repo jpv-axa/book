@@ -213,6 +213,14 @@ class datePicker extends commonInput {
 						'pointerdown',
 						selectOneInput.prototype.onOpen.bind(this)
 					)
+					document.body.addEventListener('pointerdown', e => {
+						// dont close if e.target is our sibling
+						//console.log(el.parentNode, e.target)
+						if (el.parentNode.contains(e.target)) {
+							return true
+						}
+						this.close(el)
+					})
 				}
 			})
 	}
@@ -289,5 +297,7 @@ function doesDayExist(year, month, day) {
 
 // inherit this method from the other class
 datePicker.prototype.setupOptions = selectOneInput.prototype.setupOptions
+datePicker.prototype.open = selectOneInput.prototype.open
+datePicker.prototype.close = selectOneInput.prototype.close
 
 export default datePicker

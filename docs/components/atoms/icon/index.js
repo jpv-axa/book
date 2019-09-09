@@ -6,9 +6,9 @@ import logoLinkedin from '!!raw-loader!./materials/logo_linkedin-currentcolor.sv
 import logoInstagram from '!!raw-loader!./materials/logo_instagram-currentcolor.svg'
 import logoTwitter from '!!raw-loader!./materials/logo_twitter-currentcolor.svg'
 import logoYoutube from '!!raw-loader!./materials/logo_youtube-currentcolor.svg'
+import eye from '!!raw-loader!./materials/eye-currentcolor.svg'
 
 import notFound from '!!raw-loader!./materials/not_interested-currentcolor.svg'
-
 
 class axaIcon extends HTMLElement {
 	static get observedAttributes() {
@@ -16,8 +16,7 @@ class axaIcon extends HTMLElement {
 	}
 	attributeChangedCallback(attr, old, value) {
 		//debugger
-		if (old === value)
-			return
+		if (old === value) return
 		switch (attr) {
 			case 'icon':
 			case '+icon':
@@ -63,19 +62,21 @@ class axaIcon extends HTMLElement {
 			case 'youtube':
 				innerSVG = logoYoutube
 				break
+			case 'eye':
+				innerSVG = eye
+				break
+
 			default:
 				console.warn(`Icon with id ${icon} does not exist.`)
 		}
 
 		this.insertAdjacentHTML('afterbegin', innerSVG)
-
 	}
 
 	empty() {
 		while (this.firstChild) {
-			this.removeChild(this.firstChild);
+			this.removeChild(this.firstChild)
 		}
-
 	}
 }
 
