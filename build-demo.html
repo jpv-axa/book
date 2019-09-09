@@ -1,0 +1,64 @@
+<axa-header-menu></axa-header-menu>
+
+<axa-hero-cover></axa-hero-cover>
+
+
+<axa-tabs>
+	<ul>
+		<li aria-controls=text>See latest article</li>
+		<li aria-controls=form>Register</li>
+	</ul>
+</axa-tabs>
+
+<axa-text-image id=text>
+	<h2>Getting women entrepreneurs the funding they deserve</h2>
+	<p>AXA has partnered with Impact Hub Milano to launch Angels for Women, an innovative network of female Business
+		Angels joining their forces to support women-led and women-focused startups in Italy.</p>
+	<img src=dg/stories/statics/home-hero-8.jpg />
+</axa-text-image>
+
+<form id=form onsubmit="alert('submited');return false;">
+
+	<axa-input +label="Your full name">
+		<input type=text placeholder="Eg: Dr. Livingstone, Frank Enstein, ಅಭಿಷೇಕ್…" />
+		<p slot=info>How should we name you?</p>
+	</axa-input>
+	<axa-input +label="Your gender">
+		<select>
+			<option>Not Provided</option>
+			<option>Male</option>
+			<option>Female</option>
+		</select>
+	</axa-input>
+
+	<p>
+		<axa-button>Submit</axa-button>
+	</p>
+
+</form>
+
+<axa-footer></axa-footer>
+
+
+
+<style>
+	body {
+		padding: 0;
+		margin: 0;
+	}
+
+	@media (min-width: 37.5rem) {
+		axa-input {
+			margin-right: 2rem;
+		}
+	}
+
+	form {
+		padding: 1rem;
+	}
+
+	p {
+		padding: 0;
+		margin: 0;
+	}
+</style>
