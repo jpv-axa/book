@@ -1,0 +1,17 @@
+.a-tabcontainer {
+	&--space {
+		padding: $spacing-2;
+	}
+
+	&--space-none {
+		padding: 0;
+	}
+
+	&--space-horizontal {
+		padding: 0 $spacing-2;
+	}
+
+	&--space-vertical {
+		padding: $spacing-2 0;
+	}
+}
