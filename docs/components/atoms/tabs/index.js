@@ -50,6 +50,11 @@ class axaTabs extends HTMLElement {
 		this.findContent(elTabs).forEach((el, index) => {
 			el.setAttribute('role', 'tabpanel')
 			el.setAttribute('aria-labelledby', elTabs[index].id)
+			// manage classes use for styling. If there already is one *tabcontainer* class, we suppose the developer know what he's doing
+			if (!el.className.match('a-tabcontainer')) {
+				// default
+				el.classList.add('a-tabcontainer--space')
+			}
 		})
 		this.switchToContent(elSelected.getAttribute('aria-controls'))
 	}

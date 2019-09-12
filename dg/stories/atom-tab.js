@@ -107,9 +107,37 @@ const demo2_2 = `
 </axa-tabs>
 `
 
+const demo3_1 = `
+<axa-tabs title="Modify container spacings">
+	<ul>
+		<li aria-controls=show-container-spacing-1>Default spacing</li>
+		<li aria-controls=show-container-spacing-2>No spacing</li>
+		<li aria-controls=show-container-spacing-3>Vertical only</li>
+		<li aria-controls=show-container-spacing-4>Horizontal only</li>
+	</ul>
+</axa-tabs>
+
+<div class=a-typo__text id=show-container-spacing-1>
+	By default, padding is added on your container, via the <code>a-tabcontainer--space</code> class.
+	You can remove this behaviour by setting yourself a <code>a-tabcontainer--space-XXX</code> class, see next tabs.
+</div>
+<div class="a-tabcontainer--space-none a-typo__text" id=show-container-spacing-2>
+	No padding at all when setting <code>class=a-tabcontainer--space-none</code> on your container.
+	<br />Useful if you put other axa-* components.
+</div>
+<div class="a-tabcontainer--space-vertical a-typo__text" id=show-container-spacing-3>
+	Only vertical padding when setting <code>class=a-tabcontainer--space-vertical</code> on your container.
+</div>
+<div class="a-tabcontainer--space-horizontal a-typo__text" id=show-container-spacing-4>
+	Only horizontal padding when setting <code>class=a-tabcontainer--space-horizontal</code> on your container.
+</div>
+`
+
 storiesOf(`Atoms|Tabs`, module)
-	.addDecorator(withCode(demo2_1 + demo2_2 + content_1 + content_2, 'html'))
+	.addDecorator(
+		withCode(demo2_1 + demo2_2 + content_1 + content_2 + demo3_1, 'html')
+	)
 	.add(
 		'Edge use cases',
-		() => demo2_1 + content_1 + demo2_2 + content_2 + styles
+		() => demo2_1 + content_1 + demo2_2 + content_2 + demo3_1 + styles
 	)
