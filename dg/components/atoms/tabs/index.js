@@ -52,6 +52,9 @@ class axaTabs extends HTMLElement {
 			el.setAttribute('aria-labelledby', elTabs[index].id)
 			// manage classes use for styling
 			el.classList.add('a-tabcontainer')
+			// remove spacing for our components, they already manage it
+			if (el.tagName.startsWith('AXA-'))
+				el.classList.add('a-tabcontainer--space-none')
 		})
 		this.switchToContent(elSelected.getAttribute('aria-controls'))
 	}
