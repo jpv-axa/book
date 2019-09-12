@@ -33,7 +33,7 @@ The live documentation is here : https://jpv-axa.github.io/book/. Once you have 
 
 ## Publishing the demo
 
-DONT PUBLISH IN `master`
+Even if you were granted the rights : DONT PUBLISH IN `master`
 
 - create a branch from `master`
 - do your modifications, small and atomic commits are preferred

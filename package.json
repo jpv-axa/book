@@ -53,8 +53,8 @@
     "sass-loader": "^7.3.1",
     "style-loader": "^1.0.0",
     "webpack": "^4.39.3",
-    "webpack-cli": "^3.3.7",
-    "webpack-fix-style-only-entries": "^0.4.0"
+    "webpack-fix-style-only-entries": "^0.4.0",
+    "webpack-cli": "^3.3.8"
   },
   "dependencies": {
     "@webcomponents/custom-elements": "^1.2.4",
