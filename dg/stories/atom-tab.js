@@ -5,17 +5,23 @@ import '../components/atoms/tabs'
 
 const styles = `
 <style>
-.a-typo__text {
+.a-tabcontainer {
 	border: 1px solid green;
+}
+div p:first-child {
+	margin-top:0;
+}
+div p:last-child {
+	margin-bottom:0;
 }
 </style>
 `
 
 const content_1 = `
-<div id=content1 class=a-typo__text>
-	<p>First piece of content, with <code>id=content1</code></p>
-	<p>Some notes to implementors :
-	<ul>
+<div id=content1>
+	<p class=a-typo__text>First piece of content, with <code>id=content1</code></p>
+	<p class=a-typo__text>Some notes to implementors :
+	<ul class=a-typo__text>
 		<li>Do not hide by default the content, we'll take care of this, and the rest of accessibility too.</li>
 		<li><code>ul > li[aria-controls]</code> with a value corresponding to the content zone ID is the only markup you need to write.</li>
 		<li>We do enforce the guidelines policy : number of tabs between 2 and 8.</li>
@@ -30,11 +36,11 @@ const content_1 = `
 
 	</ul>
 </div>
-<div id=content2 class=a-typo__text>
-	<p>Content with <code>id=content2</code></p>
+<div id=content2>
+	<p class=a-typo__text>Content with <code>id=content2</code></p>
 </div>
-<div id=content3 class=a-typo__text>
-	<p>Content with <code>id=content3</code></p>
+<div id=content3>
+	<p class=a-typo__text>Content with <code>id=content3</code></p>
 </div>
 `
 
@@ -48,14 +54,14 @@ const demo1_1 = `
 </axa-tabs>
 `
 const content_2 = `
-<div id=content4 class=a-typo__text>
-	<p>Content with <code>id=content4</code></p>
+<div id=content4>
+	<p class=a-typo__text>Content with <code>id=content4</code></p>
 </div>
-<div id=content5 class=a-typo__text>
-	<p>Content with <code>id=content5</code></p>
+<div id=content5>
+	<p class=a-typo__text>Content with <code>id=content5</code></p>
 </div>
-<div id=content6 class=a-typo__text>
-	<p>Content with <code>id=content6</code></p>
+<div id=content6>
+	<p class=a-typo__text>Content with <code>id=content6</code></p>
 </div>
 `
 
@@ -117,19 +123,27 @@ const demo3_1 = `
 	</ul>
 </axa-tabs>
 
-<div class=a-typo__text id=show-container-spacing-1>
-	By default, padding is added on your container, via the <code>a-tabcontainer--space</code> class.
-	You can remove this behaviour by setting yourself a <code>a-tabcontainer--space-XXX</code> class, see next tabs.
+<div id=show-container-spacing-1>
+	<p class=a-typo__text>
+	By default, padding is added on your container, via the <code>a-tabcontainer</code> class.
+	You can remove this behaviour by setting yourself a <code>a-tabcontainer--space-VARIANT</code> class, see next tabs.
+	</p>
 </div>
-<div class="a-tabcontainer--space-none a-typo__text" id=show-container-spacing-2>
+<div class=a-tabcontainer--space-none" id=show-container-spacing-2>
+	<p class=a-typo__text>
 	No padding at all when setting <code>class=a-tabcontainer--space-none</code> on your container.
 	<br />Useful if you put other axa-* components.
+	</p>
 </div>
-<div class="a-tabcontainer--space-vertical a-typo__text" id=show-container-spacing-3>
+<div class=a-tabcontainer--space-vertical id=show-container-spacing-3>
+	<p class=a-typo__text>
 	Only vertical padding when setting <code>class=a-tabcontainer--space-vertical</code> on your container.
+	</p>
 </div>
-<div class="a-tabcontainer--space-horizontal a-typo__text" id=show-container-spacing-4>
+<div class=a-tabcontainer--space-horizontal id=show-container-spacing-4>
+	<p class=a-typo__text>
 	Only horizontal padding when setting <code>class=a-tabcontainer--space-horizontal</code> on your container.
+	</p>
 </div>
 `
 
