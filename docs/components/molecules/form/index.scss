@@ -1,0 +1,137 @@
+@import "../../materials/grids.scss";
+@import "../../atoms/typography/index.scss";
+
+%parent-of-inputs {
+	display: flex;
+	flex: 4;
+	justify-content: start;
+	flex-wrap: wrap;
+	flex-direction: row;
+	align-items: flex-start;
+	align-content: flex-start;
+
+	axa-input {
+		flex-basis: auto;
+		margin: 0 calc(#{$spacing-2} - 2px); // 2 px for the width of the between 2 elements with an HTML space between them
+		margin-bottom: $spacing-4;
+
+		&:last-of-type {
+			margin-right: 0;
+		}
+	}
+}
+
+
+.m-form {
+	margin: $spacing-2 auto; // auto is here to center the element after max-width
+
+	display: flex;
+
+	max-width: $breakpoint-MAX;
+	box-sizing: border-box;
+	padding: 0;
+	@extend %parent-of-inputs;
+
+	>form {
+		width: 100%;
+		display: block;
+	}
+
+	&__cta {
+		width: 100%;
+		display: flex;
+		padding: 0 $spacing-2;
+
+		box-sizing: border-box;
+		flex-direction: column;
+
+		// by default, we center the submit button (column + margin auto)
+		axa-button {
+			margin: 0 auto;
+		}
+
+		&--right {
+			axa-button {
+				margin: 0 0 0 auto;
+			}
+		}
+
+		&--left {
+			axa-button {
+				margin: 0 auto 0 0;
+			}
+		}
+
+	}
+
+	// intermediate titles
+	&__legend {
+		@extend .a-typo__text-title;
+
+		padding: 0 $spacing-2;
+
+		width: 100%;
+		box-sizing: border-box;
+
+		margin-bottom: $spacing-2;
+	}
+
+	// fieldsets are good for semantic but we need them to disappear
+	// TODO: find a way to have the flex behaviour of the fieldset element behave like any other element… unable to find a solution now, so we shoud avoid fieldset for now.
+	&__fieldset {
+		// resets
+		border: 0;
+		padding: 0 $spacing-2;
+		margin: 0;
+		min-inline-size: unset;
+		margin-inline: unset;
+		margin-inline-start: 0;
+		margin-inline-end: 0;
+		padding-inline: unset;
+		padding-inline-start: 0;
+		padding-inline-end: 0;
+		padding-block: unset;
+		padding-block-end: 0;
+		padding-block-start: 0;
+		//align-self: stretch;
+		flex-grow: 1;
+		@extend %parent-of-inputs;
+
+
+	}
+
+	@media (max-width: $breakpoint-S-pixels - 1px) {
+		padding: 0 $spacing-2;
+
+		axa-input,
+		fieldset,
+		legend,
+		.m-form__cta {
+			margin: {
+				left: 0;
+				right: 0;
+			}
+
+			padding: {
+				left: 0;
+				right: 0;
+			}
+		}
+	}
+
+	@media (min-width: $breakpoint-S) {
+		padding: 0 $spacing-4;
+	}
+
+	&--col-1 {
+		@media (min-width: $breakpoint-S) {
+			//padding: 0 $spacing-2;
+		}
+
+		max-width: (444/16) * 1rem; // 444px
+	}
+
+	&--col-2 {
+		max-width: (2*380/16) * 1rem + 4*$spacing-2; // max-width of fields + spacings
+	}
+}

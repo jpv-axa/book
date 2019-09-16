@@ -1,7 +1,8 @@
 .a-tabcontainer {
-	&--space {
-		padding: $spacing-2;
-	}
+	max-width: $breakpoint-MAX;
+	margin: 0 auto;
+	box-sizing: border-box;
+	padding: $spacing-2;
 
 	&--space-none {
 		padding: 0;
