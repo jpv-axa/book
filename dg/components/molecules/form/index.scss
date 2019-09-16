@@ -19,12 +19,11 @@
 			margin-right: 0;
 		}
 	}
-
 }
 
 
 .m-form {
-	margin: $spacing-3 auto; // auto is here to center the element after max-width
+	margin: $spacing-2 auto; // auto is here to center the element after max-width
 
 	display: flex;
 
@@ -40,19 +39,39 @@
 
 	&__cta {
 		width: 100%;
-		display: block;
+		display: flex;
 		padding: 0 $spacing-2;
 
+		box-sizing: border-box;
+		flex-direction: column;
+
+		// by default, we center the submit button (column + margin auto)
 		axa-button {
 			margin: 0 auto;
 		}
+
+		&--right {
+			axa-button {
+				margin: 0 0 0 auto;
+			}
+		}
+
+		&--left {
+			axa-button {
+				margin: 0 auto 0 0;
+			}
+		}
+
 	}
 
 	// intermediate titles
 	&__legend {
 		@extend .a-typo__text-title;
+
 		padding: 0 $spacing-2;
+
 		width: 100%;
+		box-sizing: border-box;
 
 		margin-bottom: $spacing-2;
 	}
@@ -81,8 +100,33 @@
 
 	}
 
-	&--col-1 {
+	@media (max-width: $breakpoint-S-pixels - 1px) {
 		padding: 0 $spacing-2;
+
+		axa-input,
+		fieldset,
+		legend,
+		.m-form__cta {
+			margin: {
+				left: 0;
+				right: 0;
+			}
+
+			padding: {
+				left: 0;
+				right: 0;
+			}
+		}
+	}
+
+	@media (min-width: $breakpoint-S) {
+		padding: 0 $spacing-4;
+	}
+
+	&--col-1 {
+		@media (min-width: $breakpoint-S) {
+			//padding: 0 $spacing-2;
+		}
 
 		max-width: (444/16) * 1rem; // 444px
 	}

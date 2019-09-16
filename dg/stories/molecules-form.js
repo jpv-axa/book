@@ -88,7 +88,7 @@ const demo2 = `
 		<axa-input></axa-input>
 		<axa-input ><input type=date /></axa-input>
 		<axa-input>
-				<p slot=info>Some Informations.</p>
+			<p slot=info>Some Informations.</p>
 		</axa-input>
 		<div class=m-form__cta>
 			<axa-button></axa-button>
@@ -106,3 +106,77 @@ const demo2 = `
 storiesOf('Molecules|Form Container', module)
 	.addDecorator(withCode(demo2, 'html'))
 	.add('One Col, Two Cols', () => demo2)
+
+const demo3 = `
+<axa-form class=m-form--col-1>
+	<form>
+		<legend class=m-form__legend>Default placement with class <code>.m-form__cta</code></legend>
+		<axa-input></axa-input>
+		<div class="m-form__cta m-form__cta">
+			<axa-button></axa-button>
+		</div>
+	</form>
+</axa-form>
+
+<axa-form class=m-form--col-1>
+	<form>
+		<legend class=m-form__legend>CTA button placement with <code>.m-form__cta--right</code></legend>
+		<axa-input></axa-input>
+		<div class="m-form__cta m-form__cta--right">
+			<axa-button></axa-button>
+		</div>
+	</form>
+</axa-form>
+
+<axa-form class=m-form--col-1>
+	<form>
+		<legend class=m-form__legend>CTA button placement with <code>.m-form__cta--left</code></legend>
+		<axa-input></axa-input>
+		<div class="m-form__cta m-form__cta--left">
+			<axa-button></axa-button>
+		</div>
+	</form>
+</axa-form>
+
+<axa-form class=m-form--col-2>
+	<form>
+		<legend class=m-form__legend>Default placement with class <code>.m-form__cta</code></legend>
+		<axa-input></axa-input>
+		<axa-input></axa-input>
+		<div class="m-form__cta m-form__cta">
+			<axa-button></axa-button>
+		</div>
+	</form>
+</axa-form>
+
+<axa-form class=m-form--col-2>
+	<form>
+		<legend class=m-form__legend>CTA button placement with <code>.m-form__cta--right</code></legend>
+		<axa-input></axa-input>
+		<axa-input></axa-input>
+		<div class="m-form__cta m-form__cta--right">
+			<axa-button></axa-button>
+		</div>
+	</form>
+</axa-form>
+
+<axa-form class=m-form--col-2>
+	<form>
+		<legend class=m-form__legend>CTA button placement with <code>.m-form__cta--left</code></legend>
+		<axa-input></axa-input>
+		<axa-input></axa-input>
+		<div class="m-form__cta m-form__cta--left">
+			<axa-button></axa-button>
+		</div>
+	</form>
+</axa-form>
+
+<style>
+	.m-form {
+		background-color: lightcyan;
+	}
+</style>
+`
+storiesOf('Molecules|Form Container', module)
+	.addDecorator(withCode(demo3, 'html'))
+	.add('Button placement', () => demo3)
