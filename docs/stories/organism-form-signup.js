@@ -1,12 +1,10 @@
-import {
-	storiesOf,
-	addDecorator
-} from '@storybook/html'
-import withCode from '../../dgAddons/colorationAddon';
+import { storiesOf, addDecorator } from '@storybook/html'
+import withCode from '../../dgAddons/colorationAddon'
 
 import '../components/atoms/input'
 
 const demo1 = `
+<axa-form>
 <form onsubmit="alert('submited');return false;">
 
 <axa-input +label="Your full name" >
@@ -26,27 +24,12 @@ const demo1 = `
 	</select>
 </axa-input>
 
-<p>
+<div class=m-form__cta>
 	<axa-button>Submit</axa-button>
 </p>
 
 </form>
-
-<style>
-@media (min-width: 37.5rem) {
-axa-input {
-	margin-right: 2rem;
-}
-}
-form {
-	padding: 1rem;
-}
-p {
-	padding:0;
-	margin:0;
-}
-</style>
-
+</axa-form>
 `
 
 storiesOf('Organism|Form', module)

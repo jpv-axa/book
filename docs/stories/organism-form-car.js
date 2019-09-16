@@ -1,11 +1,7 @@
-import {
-	storiesOf,
-	addDecorator
-} from '@storybook/html'
-import withCode from '../../dgAddons/colorationAddon';
+import { storiesOf, addDecorator } from '@storybook/html'
+import withCode from '../../dgAddons/colorationAddon'
 
 import '../components/atoms/input'
-
 
 const carMakes = `
 <axa-input +label="Car make" +placeholder="Please select the make of your car">
@@ -83,7 +79,6 @@ const carMakes = `
 </axa-input>
 `
 
-
 let carModels = `
 <option value=97883>1200</option>
 <option value=97033>1300</option>
@@ -103,44 +98,30 @@ let carMakesModelsEmpty = `
 `
 
 const demo1 = `
-<form onsubmit="return onSubmit()">
+<form class=m-form onsubmit="return onSubmit()">
 ${carMakes}
 
 ${carMakesModelsEmpty}
 
-<p>
+<div class=m-form__cta>
 	<axa-button>Submit</axa-button>
-</p>
+</div>
 
 </form>
-
-<style>
-@media (min-width: 37.5rem) {
-axa-input {
-	margin-right: 2rem;
-}
-}
-form {
-	padding: 1rem;
-}
-p {
-	padding:0;
-	margin:0;
-}
-</style>
 `
-
 
 storiesOf('Organism|Form', module)
 	.addDecorator(withCode(demo1, 'html'))
 	.add('Car maker-model dynamic example', () => {
-		window.onSubmit = function () {
-			alert(`Brand ID value : ${document.getElementById('CarBrand_CarBrandId').value}
+		window.onSubmit = function() {
+			alert(`Brand ID value : ${
+				document.getElementById('CarBrand_CarBrandId').value
+			}
 						Model ID value : ${document.getElementById('CarModel_CarModelId').value}`)
 			return false
 		}
 
-		window.onBrandSelect = function () {
+		window.onBrandSelect = function() {
 			let el = document.getElementById('CarModel_Container')
 			el.innerHTML = carMakesModelsEmpty.replace('PLACEHOLDER', carModels)
 		}
