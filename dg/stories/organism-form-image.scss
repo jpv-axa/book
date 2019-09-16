@@ -1,0 +1,30 @@
+@import '../components/materials/grids.scss';
+
+.o-form-image {
+	display: flex;
+	max-width: $breakpoint-MAX;
+	width: 100vw;
+	margin: 0 auto;
+	flex-wrap: nowrap;
+	justify-content: stretch;
+
+	.content {
+
+		flex: 5;
+	}
+
+	.illustration {
+		flex: 5;
+		background-size: cover;
+		background-position: right;
+
+		@media (max-width: $breakpoint-S) {
+			flex: 0; // yup, that means "disappear"
+		}
+
+		@media (min-width: $breakpoint-M) {
+			flex: 7;
+		}
+
+	}
+}
