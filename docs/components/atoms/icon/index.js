@@ -7,6 +7,12 @@ import logoInstagram from '!!raw-loader!./materials/logo_instagram-currentcolor.
 import logoTwitter from '!!raw-loader!./materials/logo_twitter-currentcolor.svg'
 import logoYoutube from '!!raw-loader!./materials/logo_youtube-currentcolor.svg'
 import eye from '!!raw-loader!./materials/eye-currentcolor.svg'
+import house from '!!raw-loader!./materials/house-currentcolor.svg'
+import more_horiz from '!!raw-loader!./materials/more_horiz-currentcolor.svg'
+import more_vert from '!!raw-loader!./materials/more_vert-currentcolor.svg'
+import credit_card from '!!raw-loader!./materials/credit_card-currentcolor.svg'
+import car from '!!raw-loader!./materials/car-currentcolor.svg'
+import flight from '!!raw-loader!./materials/flight-currentcolor.svg'
 
 import notFound from '!!raw-loader!./materials/not_interested-currentcolor.svg'
 
@@ -64,6 +70,24 @@ class axaIcon extends HTMLElement {
 				break
 			case 'eye':
 				innerSVG = eye
+				break
+			case 'house':
+				innerSVG = house
+				break
+			case 'more_horiz':
+				innerSVG = more_horiz
+				break
+			case 'more_vert':
+				innerSVG = more_vert
+				break
+			case 'credit_card':
+				innerSVG = credit_card
+				break
+			case 'car':
+				innerSVG = car
+				break
+			case 'flight':
+				innerSVG = flight
 				break
 
 			default:
