@@ -1,0 +1,130 @@
+@import '../../materials/grids.scss';
+@import '../../materials/typography.scss';
+@import '../../atoms/typography/index.scss';
+@import '../../materials/colors.scss';
+
+.m-multiple-entries {
+	color: $color-axa-blue;
+	background-color: $color-alabaster;
+
+	padding: {
+		top: $spacing-6;
+		bottom: $spacing-2; // bottom of the entries will add 4 more spacings
+		left: $spacing-4;
+		right: $spacing-4;
+	}
+
+	display: block;
+
+	&--bow {
+		// blue text on white background (default)
+		background-color: $color-alabaster;
+
+		.m-multiple-entries__entry {
+			color: $color-axa-blue;
+		}
+
+		.m-multiple-entries__entry__text,
+		.m-multiple-entries__title {
+			color: $color-mine-shaft;
+		}
+
+		axa-icon {
+			border-color: $color-axa-blue;
+		}
+
+	}
+
+	&--wob {
+		// white text on blue background
+		background-color: $color-ocean-blue;
+
+		.m-multiple-entries__entry,
+		.m-multiple-entries__title {
+			color: $color-white;
+		}
+
+		axa-icon {
+			border-color: $color-white;
+		}
+
+	}
+
+	&__title {
+		@extend .a-typo__module-title;
+		text-align: center;
+		margin-bottom: $spacing-4;
+	}
+
+	&__entries {
+		display: flex;
+		flex-wrap: wrap; // distribute childrens on several lines if not enough space
+		justify-content: center;
+		// resets
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	&__entry {
+
+		display: flex;
+		justify-content: center; // re-center the A
+		// give everyone the same length, regardless of the content
+		flex-grow: 1.3; // 288 px max width (+30% compared to 
+		flex-shrink: 1;
+		flex-basis: 186/16*1rem;
+		min-width: 186/16*1rem; // 186 px min, can enlarge
+		box-sizing: border-box;
+		// center the inner texts
+		text-align: center;
+
+		a {
+			color: inherit;
+			text-decoration: none;
+		}
+
+		padding: 0 $spacing-1;
+		padding-bottom: $spacing-4;
+
+		// default 
+		axa-icon {
+			display: block;
+			width: 96/16*1rem; // 96px
+			height: 96/16*1rem;
+			margin: 0 auto;
+			color: currentColor;
+
+			// modifications for the icon in circle style
+			.m-multiple-entries--circle & {
+				border-radius: 50%;
+				border: 2px solid;
+				margin: 6px auto; // addition of margin + border with = 8px (.5rem)
+				box-sizing: border-box;
+
+				svg {
+					$relativeSize: 75;
+					width: $relativeSize * 1%;
+					height: $relativeSize * 1%;
+					margin: ((100 - $relativeSize) / 2) *1%; // allows to center vertically and horizontally
+				}
+			}
+		}
+
+		&__label {
+			@extend .a-typo__label;
+			color: inherit; // overwrite the text color from a-typo__label
+			display: block;
+			margin: 0;
+			padding: 0;
+			margin-bottom: $spacing-1;
+		}
+
+		&__text {
+			@extend .a-typo__text;
+			color: inherit;
+			display: block;
+		}
+
+	}
+}
