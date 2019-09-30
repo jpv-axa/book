@@ -1,14 +1,11 @@
-import {
-	storiesOf
-} from '@storybook/html'
+import { storiesOf } from '@storybook/html'
 
-import withCode from '../../dgAddons/colorationAddon';
+import withCode from '../../dgAddons/colorationAddon'
 
 import imageWhite from './statics/home-hero-8.jpg'
 import imageDark from './statics/landlord-hero-3.jpg'
 
 import '../components/molecules/editorial'
-
 
 const responsiveImage = `
 <picture>
@@ -61,3 +58,115 @@ const demo1 = `
 storiesOf('Molecules|Editorial', module)
 	.addDecorator(withCode(demo1, 'html'))
 	.add('Text and Image', () => demo1)
+
+const content = [
+	{ icon: 'credit_card', title: 'Bank', subTitle: 'Up to 10% off!' },
+	{ icon: 'car', title: 'Car', subTitle: 'Up to 10% off!' },
+	{ icon: 'flight', title: 'Travel', subTitle: 'Up to 10% off!' },
+	{ icon: null, title: 'Health', subTitle: 'Caption offer on multi-line' },
+	{ icon: 'house', title: 'Housing', subTitle: 'Up to 10% off!' },
+	{ icon: 'more_horiz', title: 'All our offers', subTitle: '' }
+]
+
+function makeEntriesWithClasses(content) {
+	return content.reduce(
+		(finalHTML, value) =>
+			(finalHTML += `<li class=m-multiple-entries__entry>
+	<a href=#>
+		<axa-icon icon=${value.icon}></axa-icon>
+		<h4 class=m-multiple-entries__entry__label>${value.title}</h4>
+		<span class=m-multiple-entries__entry__text>${value.subTitle}</span>
+	</a>
+	</li>`),
+		''
+	)
+}
+
+function makeEntriesWithMarkup(content) {
+	return content.reduce(
+		(finalHTML, value) =>
+			(finalHTML += `<li>
+	<a href=#>
+		<axa-icon icon=${value.icon}></axa-icon>
+		<h4>${value.title}</h4>
+		<span>${value.subTitle}</span>
+	</a>
+	</li>`),
+		''
+	)
+}
+
+const styles = `<style>
+.m-multiple-entries {
+	border: 1px solid green;
+}
+</style>`
+
+const demo2 = `
+<p class=a-typo__text>You can directly apply classes to your original markup, because there is no added behaviour added by the tag. Look for the <code>m-multiple-entries__*</code> classes.</p>
+<div class="m-multiple-entries m-multiple-entries--bow">
+	<h3 class=m-multiple-entries__title>Find your Product!</h3>
+	<ul class=m-multiple-entries__entries>
+	${makeEntriesWithClasses(content)}
+	</ul>
+</div>
+
+<p class=a-typo__text>You can use the <code>axa-multiple-entries</code> tag, surrounding an <code>Hx</code> and <code>UL/LI</code> tags.</p>
+
+<axa-multiple-entries>
+<h2>Find your Insurance!</h2>
+<ul>
+${makeEntriesWithMarkup(content)}
+</ul>
+</axa-multiple-entries>
+`
+
+storiesOf('Molecules|Editorial', module)
+	.addDecorator(withCode(demo2 + styles, 'html'))
+	.add('Multiple Entries, White Background', () => demo2 + styles)
+
+const demo3 = `
+<p class=a-typo__text>You can directly apply classes to your original markup, because there is no added behaviour added by the tag. Look for the <code>m-multiple-entries__*</code> classes.</p>
+<div class="m-multiple-entries m-multiple-entries--wob">
+	<h3 class=m-multiple-entries__title>Find your Product!</h3>
+	<ul class=m-multiple-entries__entries>
+	${makeEntriesWithClasses(content)}
+	</ul>
+</div>
+
+<p class=a-typo__text>You can use the <code>axa-multiple-entries</code> tag, surrounding an <code>Hx</code> and <code>UL/LI</code> tags.</p>
+
+<axa-multiple-entries class=m-multiple-entries--wob>
+<h2>Find your Insurance!</h2>
+<ul>
+${makeEntriesWithMarkup(content)}
+</ul>
+</axa-multiple-entries>
+`
+
+storiesOf('Molecules|Editorial', module)
+	.addDecorator(withCode(demo3 + styles, 'html'))
+	.add('Multiple Entries, Blue Background', () => demo3 + styles)
+
+const demo4 = `
+<p class=a-typo__text>Change the look of the icons by adding the <code>m-multiple-entries--circle</code> class.</p>
+<div class="m-multiple-entries m-multiple-entries--circle">
+	<h3 class=m-multiple-entries__title>Find your Product!</h3>
+	<ul class=m-multiple-entries__entries>
+	${makeEntriesWithClasses(content)}
+	</ul>
+</div>
+
+<p class=a-typo__text>Blue background with <code>m-multiple-entries--wob</code>, icons in circle with <code>m-multiple-entries--circle</code>.</p>
+
+<axa-multiple-entries class="m-multiple-entries--wob m-multiple-entries--circle">
+<h2>Find your Insurance!</h2>
+<ul>
+${makeEntriesWithMarkup(content)}
+</ul>
+</axa-multiple-entries>
+`
+
+storiesOf('Molecules|Editorial', module)
+	.addDecorator(withCode(demo4 + styles, 'html'))
+	.add('Multiple Entries, Icons in Circles', () => demo4 + styles)
