@@ -1,0 +1,81 @@
+@import '../../materials/grids.scss';
+@import '../../materials/typography.scss';
+@import '../../atoms/typography/index.scss';
+@import '../../materials/colors.scss';
+
+
+%auto-center-max-width {
+	display: block;
+	max-width: $breakpoint-M;
+	width: 100%;
+	margin: 0 auto;
+}
+
+// 2 designs : catchy (only one title) and explainer (Label and paragraph)
+.m-quote {
+
+	// here is the common code
+	&--catchy,
+	&--explainer {
+		display: block;
+		text-align: center;
+		background-color: $color-white;
+	}
+
+	&--catchy {
+		// the "one title only" version
+		padding: $spacing-4;
+
+		.m-quote__title {
+			@extend .a-typo__card-title;
+			@extend %auto-center-max-width;
+		}
+
+		& axa-button {
+			margin-top: $spacing-3;
+		}
+
+	}
+
+	&--explainer {
+		padding : {
+			// more vertical padding than in catchy
+			top: $spacing-6;
+			bottom: $spacing-6;
+			right: $spacing-4;
+			left: $spacing-4;
+		}
+
+		.m-quote__title {
+			// smaller title
+			@extend .a-typo__text-title;
+			@extend %auto-center-max-width;
+		}
+
+		& axa-button {
+			margin-top: $spacing-2; // less distance to CTA
+		}
+
+	}
+
+	&--white {
+		background-color: $color-white;
+	}
+
+	&--blue {
+		background-color: $color-ocean-blue;
+
+
+		& .m-quote__title,
+		& .m-quote__paragraph {
+			color: white;
+		}
+	}
+
+
+	&__paragraph {
+		@extend .a-typo__text;
+		@extend %auto-center-max-width;
+		margin-top: $spacing-2;
+	}
+}

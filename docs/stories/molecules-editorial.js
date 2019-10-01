@@ -14,6 +14,14 @@ const responsiveImage = `
 	<img src=${imageDark} />
 </picture>
 `
+const styles = `<style>
+	axa-text-image, .m-multiple-entries, .m-quote--catchy, m-quote--explainer {
+		border: 1px solid green;
+	}
+	code {
+		background-color: transparent;
+	}
+</style>`
 
 const standardImage = `	<img src=${imageWhite} />`
 
@@ -47,23 +55,17 @@ const demo1 = `
 	<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
 	${standardImage}
 </axa-text-image>
-
-<style>
-	axa-text-image {
-		border: 1px solid green;
-	}
-</style>
 `
 
 storiesOf('Molecules|Editorial', module)
 	.addDecorator(withCode(demo1, 'html'))
-	.add('Text and Image', () => demo1)
+	.add('Text and Image', () => demo1 + styles)
 
 const content = [
 	{ icon: 'credit_card', title: 'Bank', subTitle: 'Up to 10% off!' },
 	{ icon: 'car', title: 'Car', subTitle: 'Up to 10% off!' },
 	{ icon: 'flight', title: 'Travel', subTitle: 'Up to 10% off!' },
-	{ icon: null, title: 'Health', subTitle: 'Caption offer on multi-line' },
+	{ icon: 'health', title: 'Health', subTitle: 'Caption offer on multi-line' },
 	{ icon: 'house', title: 'Housing', subTitle: 'Up to 10% off!' },
 	{ icon: 'more_horiz', title: 'All our offers', subTitle: '' }
 ]
@@ -95,12 +97,6 @@ function makeEntriesWithMarkup(content) {
 		''
 	)
 }
-
-const styles = `<style>
-.m-multiple-entries {
-	border: 1px solid green;
-}
-</style>`
 
 const demo2 = `
 <p class=a-typo__text>You can directly apply classes to your original markup, because there is no added behaviour added by the tag. Look for the <code>m-multiple-entries__*</code> classes.</p>
@@ -170,3 +166,33 @@ ${makeEntriesWithMarkup(content)}
 storiesOf('Molecules|Editorial', module)
 	.addDecorator(withCode(demo4 + styles, 'html'))
 	.add('Multiple Entries, Icons in Circles', () => demo4 + styles)
+
+const demo5 = `
+
+<div class="m-quote--explainer">
+	<h3 class=m-quote__title>Use the class "m-quote--explainer" on the container.</h3>
+	<div class=m-quote__paragraph>Use <code>m-quote__title</code> and <code>m-quote__paragraph</code> for the content. The button MUST have the class <code>a-button--secondary</code></div>
+	<axa-button class=a-button--secondary>axa-button tag, secondary design</axa-button>
+</div>
+
+<div class="m-quote--catchy">
+	<h3 class=m-quote__title>Use the m-quote--catchy for single CTA!</h3>
+	<axa-button class=a-button--secondary>axa-button tag, secondary design</axa-button>
+</div>
+
+<div class="m-quote--explainer m-quote--blue">
+	<h3 class=m-quote__title>Design variant, with ocean blue background.</h3>
+	<p class=m-quote__paragraph>On the container, you can use the  <code>m-quote--blue</code> class for this blue background, or lock the <code>m-quote--white</code>, for the default white background. Please note that the button MUST have the class <code>a-button--secondary--white</code></p>
+	<axa-button class=a-button--secondary--white>axa-button tag, secondary white design</axa-button>
+</div>
+
+<div class="m-quote--catchy m-quote--blue">
+	<h3 class=m-quote__title>Use m-quote--blue and m-quote--catchy!</h3>
+	<axa-button class=a-button--secondary--white>axa-button tag, secondary white design</axa-button>
+</div>
+
+`
+
+storiesOf('Molecules|Editorial', module)
+	.addDecorator(withCode(demo5 + styles, 'html'))
+	.add('Quote', () => demo5 + styles)

@@ -27,8 +27,24 @@
 
 	display: flex;
 
-	max-width: $breakpoint-MAX;
-	box-sizing: border-box;
+	box-sizing: content-box; // back to content-box calculation style, 
+
+	&--col-1 {
+		@media (min-width: $breakpoint-S) {
+			//padding: 0 $spacing-2;
+		}
+
+		max-width: (380/16) * 1rem+2*$spacing-2; // 1 field at max-width + 2 horizontal spacings
+	}
+
+	&--col-2 {
+		max-width: (2*380/16) * 1rem + 4*$spacing-2; // max-width of 2 fields + horizontal spacings
+	}
+
+	// same as col-2 because that's the default
+	max-width: (2*380/16) * 1rem+4*$spacing-2;
+
+
 	padding: 0;
 	@extend %parent-of-inputs;
 
@@ -121,17 +137,5 @@
 
 	@media (min-width: $breakpoint-S) {
 		padding: 0 $spacing-4;
-	}
-
-	&--col-1 {
-		@media (min-width: $breakpoint-S) {
-			//padding: 0 $spacing-2;
-		}
-
-		max-width: (444/16) * 1rem; // 444px
-	}
-
-	&--col-2 {
-		max-width: (2*380/16) * 1rem + 4*$spacing-2; // max-width of fields + spacings
 	}
 }
