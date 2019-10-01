@@ -1,5 +1,11 @@
-<!-- https://material.io/resources/icons/?search=house&icon=house&style=baseline -->
-<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"  viewBox="0 0 24 24">
-  <path fill="none" d="M0 0h24v24H0z"/>
-  <path fill="currentColor" d="M19 9.3V4h-3v2.6L12 3 2 12h3v8h5v-6h4v6h5v-8h3l-3-2.7zm-9 .7c0-1.1.9-2 2-2s2 .9 2 2h-4z"/>
+<!-- From brandhub.axa.com  -->
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 96 96">
+  <g fill="none" fill-rule="evenodd">
+    <path d="M0 0h96v96H0z"/>
+    <g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+      <path d="M19.5 42.4893v38.011h58v-38.011"/>
+      <path d="M15.5 39.8751h0c0-.984.406-1.641 1.105-2.224l29.479-22.339c1.429-1.083 3.403-1.083 4.832 0l29.479 22.339c.626.516 1.105 1.161 1.105 2.224 0 2.306-2.638 3.616-4.475 2.224l-27.921-21.158c-.357-.271-.851-.271-1.208 0l-27.921 21.158c-1.837 1.392-4.475.082-4.475-2.224zM39.5 80.5V52.492h18V80.5"/>
+      <path d="M52.5 37.4878c0 2.21-1.791 4.001-4 4.001s-4-1.791-4-4.001c0-2.21 1.791-4.001 4-4.001s4 1.791 4 4.001zM46.5 66.4961h-2"/>
+    </g>
+  </g>
 </svg>

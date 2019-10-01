@@ -1,5 +1,9 @@
-<!-- https://material.io/resources/icons/?search=more&icon=more_horiz&style=baseline -->
-<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"  viewBox="0 0 24 24">
-  <path fill="none" d="M0 0h24v24H0z"/>
-  <path fill="currentColor" d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+<!-- From brandhub.axa.com -->
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 96 96">
+  <g fill="none" fill-rule="evenodd">
+    <path d="M0 0h96v96H0z"/>
+    <g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+      <path d="M52 48c0 2.209-1.791 4-4 4s-4-1.791-4-4 1.791-4 4-4 4 1.791 4 4zM36 48c0 2.209-1.791 4-4 4s-4-1.791-4-4 1.791-4 4-4 4 1.791 4 4zM68 48c0 2.209-1.791 4-4 4s-4-1.791-4-4 1.791-4 4-4 4 1.791 4 4z"/>
+    </g>
+  </g>
 </svg>
