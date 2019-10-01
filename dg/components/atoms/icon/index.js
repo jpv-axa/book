@@ -13,6 +13,7 @@ import more_vert from '!!raw-loader!./materials/more_vert-currentcolor.svg'
 import credit_card from '!!raw-loader!./materials/credit_card-currentcolor.svg'
 import car from '!!raw-loader!./materials/car-currentcolor.svg'
 import flight from '!!raw-loader!./materials/flight-currentcolor.svg'
+import health from '!!raw-loader!./materials/health-currentcolor.svg'
 
 import notFound from '!!raw-loader!./materials/not_interested-currentcolor.svg'
 
@@ -88,6 +89,9 @@ class axaIcon extends HTMLElement {
 				break
 			case 'flight':
 				innerSVG = flight
+				break
+			case 'health':
+				innerSVG = health
 				break
 
 			default:

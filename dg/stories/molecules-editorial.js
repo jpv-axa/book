@@ -63,7 +63,7 @@ const content = [
 	{ icon: 'credit_card', title: 'Bank', subTitle: 'Up to 10% off!' },
 	{ icon: 'car', title: 'Car', subTitle: 'Up to 10% off!' },
 	{ icon: 'flight', title: 'Travel', subTitle: 'Up to 10% off!' },
-	{ icon: null, title: 'Health', subTitle: 'Caption offer on multi-line' },
+	{ icon: 'health', title: 'Health', subTitle: 'Caption offer on multi-line' },
 	{ icon: 'house', title: 'Housing', subTitle: 'Up to 10% off!' },
 	{ icon: 'more_horiz', title: 'All our offers', subTitle: '' }
 ]
