@@ -1,5 +1,16 @@
-<!-- https://material.io/resources/icons/?search=house&icon=house&style=baseline -->
-<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"  viewBox="0 0 24 24">
-  <path fill="none" d="M0 0h24v24H0z"/>
-  <path fill="currentColor" d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/>
+<!-- From brandhub.axa.com  -->
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"  viewBox="0 0 96 96">
+  <defs>
+    <path id="a" d="M0 46h68V0H0z"/>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <path d="M0 0h96v96H0z"/>
+    <g transform="translate(14 25)">
+      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 45h58c2.209 0 4-1.791 4-4V5c0-2.209-1.791-4-4-4H5C2.791 1 1 2.791 1 5v36c0 2.209 1.791 4 4 4zM1 9h66M1 16h66M7 32h14M7 23h6M18 23h10M7 37h23"/>
+      <mask id="b" fill="#fff">
+        <use xlink:href="#a"/>
+      </mask>
+      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M49 37h12V27H49z" mask="url(#b)"/>
+    </g>
+  </g>
 </svg>
