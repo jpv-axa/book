@@ -52,20 +52,6 @@ storiesOf('Molecules|Form Container', module)
 	.add('Default value', () => demo1)
 
 const demo2 = `
-<div class=m-form>
-<legend class=m-form__legend>By default, will stretch from 1 to 3 columns with class <code>.m-form</code></legend>
-
-<axa-input></axa-input>
-<axa-input>			<p slot=info>Some Informations.</p>	</axa-input>
-<axa-input></axa-input>
-<axa-input><input type=date /></axa-input>
-<axa-input><input type=password /></axa-input>
-<div class=m-form__cta>
-<axa-button></axa-button>
-</div>
-
-</div>
-
 <axa-form class=m-form--col-1>
 	<form>
 		<legend class=m-form__legend>Keep centered on One column with class <code>.m-form--col-1</code></legend>
