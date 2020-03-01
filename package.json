@@ -46,7 +46,7 @@
 		"npm-check": "^5.9.0",
 		"prismjs": "^1.17.1",
 		"raw-loader": "^3.1.0",
-		"react": "^16.10.1",
+		"react": "^16.13.0",
 		"react-dom": "^16.10.1",
 		"resolve-url-loader": "^3.1.0",
 		"sass-loader": "^7.3.1",
