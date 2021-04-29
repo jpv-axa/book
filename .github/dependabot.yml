@@ -1,0 +1,36 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: monthly
+  open-pull-requests-limit: 10
+  reviewers:
+  - jpvincent
+  ignore:
+  - dependency-name: "@storybook/html"
+    versions:
+    - 6.1.11
+    - 6.1.15
+  - dependency-name: "@storybook/addon-viewport"
+    versions:
+    - 6.1.11
+    - 6.1.15
+  - dependency-name: "@babel/preset-env"
+    versions:
+    - 7.12.11
+  - dependency-name: "@babel/preset-react"
+    versions:
+    - 7.12.10
+  - dependency-name: "@babel/cli"
+    versions:
+    - 7.12.10
+  - dependency-name: "@babel/core"
+    versions:
+    - 7.12.10
+  - dependency-name: webpack
+    versions:
+    - 4.44.2
+  - dependency-name: elliptic
+    versions:
+    - 6.5.3
